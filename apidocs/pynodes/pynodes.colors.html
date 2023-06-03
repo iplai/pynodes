@@ -1,0 +1,878 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="pynodes.core" href="pynodes.core.html" /><link rel="prev" title="pynodes" href="pynodes.html" />
+
+    <link rel="shortcut icon" href="../../_static/favicon-light.png"/><!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
+        <title>pynodes.colors - Pynodes 3.5.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Pynodes 3.5.1.0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="../../_static/logo-light.png" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="../../_static/logo-dark.png" alt="Dark Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/QuickStart.html">Quick Start</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="pynodes.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes</span></code></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.colors</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pynodes.core.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.core</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pynodes.datasocks.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.datasocks</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pynodes.geosocks.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.geosocks</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pynodes.main.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.main</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pynodes.nodes.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.nodes</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pynodes.scene.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.scene</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/iplai/pynodes/edit/main/docs/apidocs/pynodes/pynodes.colors.rst" title="Edit this page">
+    <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+      <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+    </svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="module-pynodes.colors">
+<span id="pynodes-colors"></span><h1><a class="reference internal" href="#module-pynodes.colors" title="pynodes.colors"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.colors</span></code></a><a class="headerlink" href="#module-pynodes.colors" title="Permalink to this heading">#</a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">#</a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h3>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-left">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.hex_color_to_rgb" title="pynodes.colors.hex_color_to_rgb"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hex_color_to_rgb</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.hex_color_to_rgba" title="pynodes.colors.hex_color_to_rgba"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hex_color_to_rgba</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.convert_srgb_to_linear_rgb" title="pynodes.colors.convert_srgb_to_linear_rgb"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_srgb_to_linear_rgb</span></code></a></p></td>
+<td><p>Converting from sRGB to Linear RGB, based on https://en.wikipedia.org/wiki/SRGB#From_sRGB_to_CIE_XYZ</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.rgb" title="pynodes.colors.rgb"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rgb</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.rgba" title="pynodes.colors.rgba"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rgba</span></code></a></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="data">
+<h3>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h3>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-left">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.white" title="pynodes.colors.white"><code class="xref py py-obj docutils literal notranslate"><span class="pre">white</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.black" title="pynodes.colors.black"><code class="xref py py-obj docutils literal notranslate"><span class="pre">black</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.light_gray" title="pynodes.colors.light_gray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">light_gray</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.gray" title="pynodes.colors.gray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gray</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.dark_gray" title="pynodes.colors.dark_gray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dark_gray</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.silver" title="pynodes.colors.silver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">silver</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.light_red" title="pynodes.colors.light_red"><code class="xref py py-obj docutils literal notranslate"><span class="pre">light_red</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.mid_red" title="pynodes.colors.mid_red"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mid_red</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.dark_red" title="pynodes.colors.dark_red"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dark_red</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.red" title="pynodes.colors.red"><code class="xref py py-obj docutils literal notranslate"><span class="pre">red</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.light_orange" title="pynodes.colors.light_orange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">light_orange</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.mid_orange" title="pynodes.colors.mid_orange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mid_orange</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.dark_orange" title="pynodes.colors.dark_orange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dark_orange</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.orange" title="pynodes.colors.orange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">orange</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.light_yellow" title="pynodes.colors.light_yellow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">light_yellow</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.mid_yellow" title="pynodes.colors.mid_yellow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mid_yellow</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.dark_yellow" title="pynodes.colors.dark_yellow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dark_yellow</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.yellow" title="pynodes.colors.yellow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">yellow</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.light_olive" title="pynodes.colors.light_olive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">light_olive</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.mid_olive" title="pynodes.colors.mid_olive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mid_olive</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.dark_olive" title="pynodes.colors.dark_olive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dark_olive</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.olive" title="pynodes.colors.olive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">olive</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.light_lime" title="pynodes.colors.light_lime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">light_lime</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.mid_lime" title="pynodes.colors.mid_lime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mid_lime</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.dark_lime" title="pynodes.colors.dark_lime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dark_lime</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.lime" title="pynodes.colors.lime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lime</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.light_green" title="pynodes.colors.light_green"><code class="xref py py-obj docutils literal notranslate"><span class="pre">light_green</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.mid_green" title="pynodes.colors.mid_green"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mid_green</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.dark_green" title="pynodes.colors.dark_green"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dark_green</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.green" title="pynodes.colors.green"><code class="xref py py-obj docutils literal notranslate"><span class="pre">green</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.light_cyan" title="pynodes.colors.light_cyan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">light_cyan</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.mid_cyan" title="pynodes.colors.mid_cyan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mid_cyan</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.dark_cyan" title="pynodes.colors.dark_cyan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dark_cyan</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.cyan" title="pynodes.colors.cyan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cyan</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.light_azure" title="pynodes.colors.light_azure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">light_azure</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.mid_azure" title="pynodes.colors.mid_azure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mid_azure</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.dark_azure" title="pynodes.colors.dark_azure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dark_azure</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.azure" title="pynodes.colors.azure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">azure</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.light_blue" title="pynodes.colors.light_blue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">light_blue</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.mid_blue" title="pynodes.colors.mid_blue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mid_blue</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.dark_blue" title="pynodes.colors.dark_blue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dark_blue</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.blue" title="pynodes.colors.blue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">blue</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.light_violet" title="pynodes.colors.light_violet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">light_violet</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.mid_violet" title="pynodes.colors.mid_violet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mid_violet</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.dark_violet" title="pynodes.colors.dark_violet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dark_violet</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.violet" title="pynodes.colors.violet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">violet</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.light_magenta" title="pynodes.colors.light_magenta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">light_magenta</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.mid_magenta" title="pynodes.colors.mid_magenta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mid_magenta</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.dark_magenta" title="pynodes.colors.dark_magenta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dark_magenta</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.magenta" title="pynodes.colors.magenta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">magenta</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.light_rose" title="pynodes.colors.light_rose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">light_rose</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.mid_rose" title="pynodes.colors.mid_rose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mid_rose</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.dark_rose" title="pynodes.colors.dark_rose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dark_rose</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.rose" title="pynodes.colors.rose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rose</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.color_palettes" title="pynodes.colors.color_palettes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">color_palettes</span></code></a></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="api">
+<h3>API<a class="headerlink" href="#api" title="Permalink to this heading">#</a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.colors.hex_color_to_rgb">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">hex_color_to_rgb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hex_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/colors.html#hex_color_to_rgb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.colors.hex_color_to_rgb" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.colors.hex_color_to_rgba">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">hex_color_to_rgba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hex_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/colors.html#hex_color_to_rgba"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.colors.hex_color_to_rgba" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.colors.convert_srgb_to_linear_rgb">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">convert_srgb_to_linear_rgb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">srgb_color_component</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/colors.html#convert_srgb_to_linear_rgb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.colors.convert_srgb_to_linear_rgb" title="Permalink to this definition">#</a></dt>
+<dd><p>Converting from sRGB to Linear RGB, based on https://en.wikipedia.org/wiki/SRGB#From_sRGB_to_CIE_XYZ</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.white">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">white</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#ffffff'</span></em><a class="headerlink" href="#pynodes.colors.white" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.black">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">black</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#000000'</span></em><a class="headerlink" href="#pynodes.colors.black" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.light_gray">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">light_gray</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#7f5f5f'</span></em><a class="headerlink" href="#pynodes.colors.light_gray" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.gray">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">gray</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#7f3f3f'</span></em><a class="headerlink" href="#pynodes.colors.gray" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.dark_gray">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">dark_gray</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#7f1f1f'</span></em><a class="headerlink" href="#pynodes.colors.dark_gray" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.silver">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">silver</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#bfbfbf'</span></em><a class="headerlink" href="#pynodes.colors.silver" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.light_red">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">light_red</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#ffbfbf'</span></em><a class="headerlink" href="#pynodes.colors.light_red" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.mid_red">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">mid_red</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#ff7f7f'</span></em><a class="headerlink" href="#pynodes.colors.mid_red" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.dark_red">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">dark_red</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#ff3f3f'</span></em><a class="headerlink" href="#pynodes.colors.dark_red" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.red">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">red</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#ff0000'</span></em><a class="headerlink" href="#pynodes.colors.red" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.light_orange">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">light_orange</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#7f6f5f'</span></em><a class="headerlink" href="#pynodes.colors.light_orange" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.mid_orange">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">mid_orange</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#7f5f3f'</span></em><a class="headerlink" href="#pynodes.colors.mid_orange" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.dark_orange">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">dark_orange</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#7f4f1f'</span></em><a class="headerlink" href="#pynodes.colors.dark_orange" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.orange">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">orange</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#7f3f00'</span></em><a class="headerlink" href="#pynodes.colors.orange" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.light_yellow">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">light_yellow</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#ffffbf'</span></em><a class="headerlink" href="#pynodes.colors.light_yellow" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.mid_yellow">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">mid_yellow</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#ffff7f'</span></em><a class="headerlink" href="#pynodes.colors.mid_yellow" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.dark_yellow">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">dark_yellow</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#ffff3f'</span></em><a class="headerlink" href="#pynodes.colors.dark_yellow" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.yellow">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">yellow</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#ffff00'</span></em><a class="headerlink" href="#pynodes.colors.yellow" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.light_olive">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">light_olive</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#6f7f5f'</span></em><a class="headerlink" href="#pynodes.colors.light_olive" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.mid_olive">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">mid_olive</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#5f7f3f'</span></em><a class="headerlink" href="#pynodes.colors.mid_olive" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.dark_olive">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">dark_olive</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#4f7f1f'</span></em><a class="headerlink" href="#pynodes.colors.dark_olive" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.olive">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">olive</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#3f7f00'</span></em><a class="headerlink" href="#pynodes.colors.olive" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.light_lime">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">light_lime</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#bfffbf'</span></em><a class="headerlink" href="#pynodes.colors.light_lime" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.mid_lime">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">mid_lime</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#7fff7f'</span></em><a class="headerlink" href="#pynodes.colors.mid_lime" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.dark_lime">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">dark_lime</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#3fff3f'</span></em><a class="headerlink" href="#pynodes.colors.dark_lime" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.lime">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">lime</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#00ff00'</span></em><a class="headerlink" href="#pynodes.colors.lime" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.light_green">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">light_green</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#5f7f6f'</span></em><a class="headerlink" href="#pynodes.colors.light_green" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.mid_green">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">mid_green</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#3f7f5f'</span></em><a class="headerlink" href="#pynodes.colors.mid_green" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.dark_green">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">dark_green</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#1f7f4f'</span></em><a class="headerlink" href="#pynodes.colors.dark_green" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.green">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">green</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#007f3f'</span></em><a class="headerlink" href="#pynodes.colors.green" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.light_cyan">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">light_cyan</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#bfffff'</span></em><a class="headerlink" href="#pynodes.colors.light_cyan" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.mid_cyan">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">mid_cyan</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#7fffff'</span></em><a class="headerlink" href="#pynodes.colors.mid_cyan" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.dark_cyan">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">dark_cyan</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#3fffff'</span></em><a class="headerlink" href="#pynodes.colors.dark_cyan" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.cyan">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">cyan</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#00ffff'</span></em><a class="headerlink" href="#pynodes.colors.cyan" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.light_azure">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">light_azure</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#5f6f7f'</span></em><a class="headerlink" href="#pynodes.colors.light_azure" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.mid_azure">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">mid_azure</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#3f5f7f'</span></em><a class="headerlink" href="#pynodes.colors.mid_azure" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.dark_azure">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">dark_azure</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#1f4f7f'</span></em><a class="headerlink" href="#pynodes.colors.dark_azure" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.azure">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">azure</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#003f7f'</span></em><a class="headerlink" href="#pynodes.colors.azure" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.light_blue">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">light_blue</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#bfbfff'</span></em><a class="headerlink" href="#pynodes.colors.light_blue" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.mid_blue">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">mid_blue</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#7f7fff'</span></em><a class="headerlink" href="#pynodes.colors.mid_blue" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.dark_blue">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">dark_blue</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#3f3fff'</span></em><a class="headerlink" href="#pynodes.colors.dark_blue" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.blue">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">blue</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#0000ff'</span></em><a class="headerlink" href="#pynodes.colors.blue" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.light_violet">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">light_violet</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#6f5f7f'</span></em><a class="headerlink" href="#pynodes.colors.light_violet" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.mid_violet">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">mid_violet</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#5f3f7f'</span></em><a class="headerlink" href="#pynodes.colors.mid_violet" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.dark_violet">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">dark_violet</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#4f1f7f'</span></em><a class="headerlink" href="#pynodes.colors.dark_violet" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.violet">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">violet</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#3f007f'</span></em><a class="headerlink" href="#pynodes.colors.violet" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.light_magenta">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">light_magenta</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#ffbfff'</span></em><a class="headerlink" href="#pynodes.colors.light_magenta" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.mid_magenta">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">mid_magenta</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#ff7fff'</span></em><a class="headerlink" href="#pynodes.colors.mid_magenta" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.dark_magenta">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">dark_magenta</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#ff3fff'</span></em><a class="headerlink" href="#pynodes.colors.dark_magenta" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.magenta">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">magenta</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#ff00ff'</span></em><a class="headerlink" href="#pynodes.colors.magenta" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.light_rose">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">light_rose</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#7f5f6f'</span></em><a class="headerlink" href="#pynodes.colors.light_rose" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.mid_rose">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">mid_rose</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#7f3f5f'</span></em><a class="headerlink" href="#pynodes.colors.mid_rose" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.dark_rose">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">dark_rose</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#7f1f4f'</span></em><a class="headerlink" href="#pynodes.colors.dark_rose" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.rose">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">rose</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#7f003f'</span></em><a class="headerlink" href="#pynodes.colors.rose" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.colors.color_palettes">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">color_palettes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[['#69D2E7',</span> <span class="pre">'#A7DBD8',</span> <span class="pre">'#E0E4CC',</span> <span class="pre">'#F38630',</span> <span class="pre">'#FA6900'],</span> <span class="pre">['#FE4365',</span> <span class="pre">'#FC9D9A',</span> <span class="pre">'#F9CDAD',</span> <span class="pre">'#C8C8A9...</span></em><a class="headerlink" href="#pynodes.colors.color_palettes" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.colors.rgb">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">rgb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/colors.html#rgb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.colors.rgb" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.colors.rgba">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">rgba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/colors.html#rgba"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.colors.rgba" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="pynodes.core.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.core</span></code></div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="pynodes.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes</span></code></div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, 赛博念咒师
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/iplai/pynodes" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.colors</span></code></a><ul>
+<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#data">Data</a></li>
+<li><a class="reference internal" href="#api">API</a><ul>
+<li><a class="reference internal" href="#pynodes.colors.hex_color_to_rgb"><code class="docutils literal notranslate"><span class="pre">hex_color_to_rgb()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.hex_color_to_rgba"><code class="docutils literal notranslate"><span class="pre">hex_color_to_rgba()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.convert_srgb_to_linear_rgb"><code class="docutils literal notranslate"><span class="pre">convert_srgb_to_linear_rgb()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.white"><code class="docutils literal notranslate"><span class="pre">white</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.black"><code class="docutils literal notranslate"><span class="pre">black</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.light_gray"><code class="docutils literal notranslate"><span class="pre">light_gray</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.gray"><code class="docutils literal notranslate"><span class="pre">gray</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.dark_gray"><code class="docutils literal notranslate"><span class="pre">dark_gray</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.silver"><code class="docutils literal notranslate"><span class="pre">silver</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.light_red"><code class="docutils literal notranslate"><span class="pre">light_red</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.mid_red"><code class="docutils literal notranslate"><span class="pre">mid_red</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.dark_red"><code class="docutils literal notranslate"><span class="pre">dark_red</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.red"><code class="docutils literal notranslate"><span class="pre">red</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.light_orange"><code class="docutils literal notranslate"><span class="pre">light_orange</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.mid_orange"><code class="docutils literal notranslate"><span class="pre">mid_orange</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.dark_orange"><code class="docutils literal notranslate"><span class="pre">dark_orange</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.orange"><code class="docutils literal notranslate"><span class="pre">orange</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.light_yellow"><code class="docutils literal notranslate"><span class="pre">light_yellow</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.mid_yellow"><code class="docutils literal notranslate"><span class="pre">mid_yellow</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.dark_yellow"><code class="docutils literal notranslate"><span class="pre">dark_yellow</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.yellow"><code class="docutils literal notranslate"><span class="pre">yellow</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.light_olive"><code class="docutils literal notranslate"><span class="pre">light_olive</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.mid_olive"><code class="docutils literal notranslate"><span class="pre">mid_olive</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.dark_olive"><code class="docutils literal notranslate"><span class="pre">dark_olive</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.olive"><code class="docutils literal notranslate"><span class="pre">olive</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.light_lime"><code class="docutils literal notranslate"><span class="pre">light_lime</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.mid_lime"><code class="docutils literal notranslate"><span class="pre">mid_lime</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.dark_lime"><code class="docutils literal notranslate"><span class="pre">dark_lime</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.lime"><code class="docutils literal notranslate"><span class="pre">lime</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.light_green"><code class="docutils literal notranslate"><span class="pre">light_green</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.mid_green"><code class="docutils literal notranslate"><span class="pre">mid_green</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.dark_green"><code class="docutils literal notranslate"><span class="pre">dark_green</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.green"><code class="docutils literal notranslate"><span class="pre">green</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.light_cyan"><code class="docutils literal notranslate"><span class="pre">light_cyan</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.mid_cyan"><code class="docutils literal notranslate"><span class="pre">mid_cyan</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.dark_cyan"><code class="docutils literal notranslate"><span class="pre">dark_cyan</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.cyan"><code class="docutils literal notranslate"><span class="pre">cyan</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.light_azure"><code class="docutils literal notranslate"><span class="pre">light_azure</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.mid_azure"><code class="docutils literal notranslate"><span class="pre">mid_azure</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.dark_azure"><code class="docutils literal notranslate"><span class="pre">dark_azure</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.azure"><code class="docutils literal notranslate"><span class="pre">azure</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.light_blue"><code class="docutils literal notranslate"><span class="pre">light_blue</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.mid_blue"><code class="docutils literal notranslate"><span class="pre">mid_blue</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.dark_blue"><code class="docutils literal notranslate"><span class="pre">dark_blue</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.blue"><code class="docutils literal notranslate"><span class="pre">blue</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.light_violet"><code class="docutils literal notranslate"><span class="pre">light_violet</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.mid_violet"><code class="docutils literal notranslate"><span class="pre">mid_violet</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.dark_violet"><code class="docutils literal notranslate"><span class="pre">dark_violet</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.violet"><code class="docutils literal notranslate"><span class="pre">violet</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.light_magenta"><code class="docutils literal notranslate"><span class="pre">light_magenta</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.mid_magenta"><code class="docutils literal notranslate"><span class="pre">mid_magenta</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.dark_magenta"><code class="docutils literal notranslate"><span class="pre">dark_magenta</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.magenta"><code class="docutils literal notranslate"><span class="pre">magenta</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.light_rose"><code class="docutils literal notranslate"><span class="pre">light_rose</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.mid_rose"><code class="docutils literal notranslate"><span class="pre">mid_rose</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.dark_rose"><code class="docutils literal notranslate"><span class="pre">dark_rose</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.rose"><code class="docutils literal notranslate"><span class="pre">rose</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.color_palettes"><code class="docutils literal notranslate"><span class="pre">color_palettes</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.rgb"><code class="docutils literal notranslate"><span class="pre">rgb()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.rgba"><code class="docutils literal notranslate"><span class="pre">rgba()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/furo.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    </body>
+</html>

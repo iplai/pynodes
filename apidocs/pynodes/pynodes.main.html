@@ -1,0 +1,748 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="pynodes.nodes" href="pynodes.nodes.html" /><link rel="prev" title="pynodes.geosocks" href="pynodes.geosocks.html" />
+
+    <link rel="shortcut icon" href="../../_static/favicon-light.png"/><!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
+        <title>pynodes.main - Pynodes 3.5.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Pynodes 3.5.1.0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="../../_static/logo-light.png" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="../../_static/logo-dark.png" alt="Dark Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/QuickStart.html">Quick Start</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="pynodes.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes</span></code></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pynodes.colors.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.colors</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pynodes.core.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.core</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pynodes.datasocks.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.datasocks</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pynodes.geosocks.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.geosocks</span></code></a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.main</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pynodes.nodes.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.nodes</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pynodes.scene.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.scene</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/iplai/pynodes/edit/main/docs/apidocs/pynodes/pynodes.main.rst" title="Edit this page">
+    <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+      <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+    </svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="module-pynodes.main">
+<span id="pynodes-main"></span><h1><a class="reference internal" href="#module-pynodes.main" title="pynodes.main"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.main</span></code></a><a class="headerlink" href="#module-pynodes.main" title="Permalink to this heading">#</a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">#</a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">#</a></h3>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-left">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.main.values" title="pynodes.main.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">values</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.main.NA_PT_NodePanel" title="pynodes.main.NA_PT_NodePanel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NA_PT_NodePanel</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.main.NA_OT_NodeButton" title="pynodes.main.NA_OT_NodeButton"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NA_OT_NodeButton</span></code></a></p></td>
+<td><p>Arrange Connected Nodes/Arrange All Nodes</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.main.NA_OT_NodeButton2" title="pynodes.main.NA_OT_NodeButton2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NA_OT_NodeButton2</span></code></a></p></td>
+<td><p>Arrange Connected Nodes/Arrange All Nodes</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.main.NA_OT_NodeButtonOdd" title="pynodes.main.NA_OT_NodeButtonOdd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NA_OT_NodeButtonOdd</span></code></a></p></td>
+<td><p>Select Unlinked Nodes</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.main.PurgeOrphanRecursive" title="pynodes.main.PurgeOrphanRecursive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PurgeOrphanRecursive</span></code></a></p></td>
+<td><p>Clear all orphaned data-blocks without any users from the file</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.main.NA_OT_ArrangeNodesOp" title="pynodes.main.NA_OT_ArrangeNodesOp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NA_OT_ArrangeNodesOp</span></code></a></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h3>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-left">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.main.get_nodes_from_category" title="pynodes.main.get_nodes_from_category"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_nodes_from_category</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.main.get_first_enabled_output" title="pynodes.main.get_first_enabled_output"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_first_enabled_output</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.main.is_visible_socket" title="pynodes.main.is_visible_socket"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_visible_socket</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.main.node_mid_pt" title="pynodes.main.node_mid_pt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">node_mid_pt</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.main.abs_node_location" title="pynodes.main.abs_node_location"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abs_node_location</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.main.get_active_tree" title="pynodes.main.get_active_tree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_active_tree</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.main.get_group_output_node" title="pynodes.main.get_group_output_node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_group_output_node</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.main.nodemargin" title="pynodes.main.nodemargin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodemargin</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.main.outputnode_search" title="pynodes.main.outputnode_search"><code class="xref py py-obj docutils literal notranslate"><span class="pre">outputnode_search</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.main.nodes_iterate" title="pynodes.main.nodes_iterate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes_iterate</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.main.nodes_odd" title="pynodes.main.nodes_odd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes_odd</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.main.nodes_arrange" title="pynodes.main.nodes_arrange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes_arrange</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.main.nodetree_get" title="pynodes.main.nodetree_get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodetree_get</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.main.nodes_center" title="pynodes.main.nodes_center"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes_center</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.main.register" title="pynodes.main.register"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.main.unregister" title="pynodes.main.unregister"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unregister</span></code></a></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="api">
+<h3>API<a class="headerlink" href="#api" title="Permalink to this heading">#</a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.main.get_nodes_from_category">
+<span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">get_nodes_from_category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#get_nodes_from_category"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.get_nodes_from_category" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.main.get_first_enabled_output">
+<span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">get_first_enabled_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bpy.types.Node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#get_first_enabled_output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.get_first_enabled_output" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.main.is_visible_socket">
+<span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">is_visible_socket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bpy.types.NodeSocket</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#is_visible_socket"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.is_visible_socket" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.main.node_mid_pt">
+<span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">node_mid_pt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bpy.types.Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#node_mid_pt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.node_mid_pt" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.main.abs_node_location">
+<span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">abs_node_location</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bpy.types.Node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#abs_node_location"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.abs_node_location" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.main.get_active_tree">
+<span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">get_active_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bpy.types.Context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#get_active_tree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.get_active_tree" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.main.get_group_output_node">
+<span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">get_group_output_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bpy.types.NodeTree</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#get_group_output_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.get_group_output_node" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pynodes.main.values">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">values</span></span><a class="reference internal" href="../../_modules/pynodes/main.html#values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.values" title="Permalink to this definition">#</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.values.average_y">
+<span class="sig-name descname"><span class="pre">average_y</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pynodes.main.values.average_y" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.values.x_last">
+<span class="sig-name descname"><span class="pre">x_last</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pynodes.main.values.x_last" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.values.margin_x">
+<span class="sig-name descname"><span class="pre">margin_x</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">100</span></em><a class="headerlink" href="#pynodes.main.values.margin_x" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.values.margin_y">
+<span class="sig-name descname"><span class="pre">margin_y</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#pynodes.main.values.margin_y" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.values.mat_name">
+<span class="sig-name descname"><span class="pre">mat_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Multiline-String&gt;</span></em><a class="headerlink" href="#pynodes.main.values.mat_name" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pynodes.main.NA_PT_NodePanel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">NA_PT_NodePanel</span></span><a class="reference internal" href="../../_modules/pynodes/main.html#NA_PT_NodePanel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.NA_PT_NodePanel" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">bpy.types.Panel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.NA_PT_NodePanel.bl_label">
+<span class="sig-name descname"><span class="pre">bl_label</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Node</span> <span class="pre">Arrange'</span></em><a class="headerlink" href="#pynodes.main.NA_PT_NodePanel.bl_label" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.NA_PT_NodePanel.bl_space_type">
+<span class="sig-name descname"><span class="pre">bl_space_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NODE_EDITOR'</span></em><a class="headerlink" href="#pynodes.main.NA_PT_NodePanel.bl_space_type" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.NA_PT_NodePanel.bl_region_type">
+<span class="sig-name descname"><span class="pre">bl_region_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'UI'</span></em><a class="headerlink" href="#pynodes.main.NA_PT_NodePanel.bl_region_type" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.NA_PT_NodePanel.bl_category">
+<span class="sig-name descname"><span class="pre">bl_category</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Pynodes'</span></em><a class="headerlink" href="#pynodes.main.NA_PT_NodePanel.bl_category" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.main.NA_PT_NodePanel.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#NA_PT_NodePanel.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.NA_PT_NodePanel.draw" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_NodeButton">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">NA_OT_NodeButton</span></span><a class="reference internal" href="../../_modules/pynodes/main.html#NA_OT_NodeButton"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.NA_OT_NodeButton" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">bpy.types.Operator</span></code></p>
+<p>Arrange Connected Nodes/Arrange All Nodes</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_NodeButton.bl_idname">
+<span class="sig-name descname"><span class="pre">bl_idname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'node.arrange'</span></em><a class="headerlink" href="#pynodes.main.NA_OT_NodeButton.bl_idname" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_NodeButton.bl_label">
+<span class="sig-name descname"><span class="pre">bl_label</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Arrange</span> <span class="pre">1'</span></em><a class="headerlink" href="#pynodes.main.NA_OT_NodeButton.bl_label" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_NodeButton.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#NA_OT_NodeButton.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.NA_OT_NodeButton.execute" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_NodeButton.invoke">
+<span class="sig-name descname"><span class="pre">invoke</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#NA_OT_NodeButton.invoke"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.NA_OT_NodeButton.invoke" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_NodeButton2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">NA_OT_NodeButton2</span></span><a class="reference internal" href="../../_modules/pynodes/main.html#NA_OT_NodeButton2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.NA_OT_NodeButton2" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">bpy.types.Operator</span></code></p>
+<p>Arrange Connected Nodes/Arrange All Nodes</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_NodeButton2.bl_idname">
+<span class="sig-name descname"><span class="pre">bl_idname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'node.arrange2'</span></em><a class="headerlink" href="#pynodes.main.NA_OT_NodeButton2.bl_idname" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_NodeButton2.bl_label">
+<span class="sig-name descname"><span class="pre">bl_label</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Arrange</span> <span class="pre">2'</span></em><a class="headerlink" href="#pynodes.main.NA_OT_NodeButton2.bl_label" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_NodeButton2.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#NA_OT_NodeButton2.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.NA_OT_NodeButton2.execute" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_NodeButtonOdd">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">NA_OT_NodeButtonOdd</span></span><a class="reference internal" href="../../_modules/pynodes/main.html#NA_OT_NodeButtonOdd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.NA_OT_NodeButtonOdd" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">bpy.types.Operator</span></code></p>
+<p>Select Unlinked Nodes</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_NodeButtonOdd.bl_idname">
+<span class="sig-name descname"><span class="pre">bl_idname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pynodes.select_unlinked'</span></em><a class="headerlink" href="#pynodes.main.NA_OT_NodeButtonOdd.bl_idname" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_NodeButtonOdd.bl_label">
+<span class="sig-name descname"><span class="pre">bl_label</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Select</span> <span class="pre">Unlinked'</span></em><a class="headerlink" href="#pynodes.main.NA_OT_NodeButtonOdd.bl_label" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_NodeButtonOdd.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#NA_OT_NodeButtonOdd.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.NA_OT_NodeButtonOdd.execute" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pynodes.main.PurgeOrphanRecursive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">PurgeOrphanRecursive</span></span><a class="reference internal" href="../../_modules/pynodes/main.html#PurgeOrphanRecursive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.PurgeOrphanRecursive" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">bpy.types.Operator</span></code></p>
+<p>Clear all orphaned data-blocks without any users from the file</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.PurgeOrphanRecursive.bl_idname">
+<span class="sig-name descname"><span class="pre">bl_idname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'outliner.orphans_purge_recursive'</span></em><a class="headerlink" href="#pynodes.main.PurgeOrphanRecursive.bl_idname" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.PurgeOrphanRecursive.bl_label">
+<span class="sig-name descname"><span class="pre">bl_label</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Purge</span> <span class="pre">Orphan'</span></em><a class="headerlink" href="#pynodes.main.PurgeOrphanRecursive.bl_label" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.main.PurgeOrphanRecursive.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#PurgeOrphanRecursive.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.PurgeOrphanRecursive.execute" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.main.nodemargin">
+<span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">nodemargin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bpy.types.Context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#nodemargin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.nodemargin" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_ArrangeNodesOp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">NA_OT_ArrangeNodesOp</span></span><a class="reference internal" href="../../_modules/pynodes/main.html#NA_OT_ArrangeNodesOp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.NA_OT_ArrangeNodesOp" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">bpy.types.Operator</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_ArrangeNodesOp.bl_idname">
+<span class="sig-name descname"><span class="pre">bl_idname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'node.arrange_nodetree'</span></em><a class="headerlink" href="#pynodes.main.NA_OT_ArrangeNodesOp.bl_idname" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_ArrangeNodesOp.bl_label">
+<span class="sig-name descname"><span class="pre">bl_label</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Nodes</span> <span class="pre">Private</span> <span class="pre">Op'</span></em><a class="headerlink" href="#pynodes.main.NA_OT_ArrangeNodesOp.bl_label" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_ArrangeNodesOp.mat_name">
+<span class="sig-name descname"><span class="pre">mat_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bpy.props.StringProperty()</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pynodes.main.NA_OT_ArrangeNodesOp.mat_name" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_ArrangeNodesOp.margin_x">
+<span class="sig-name descname"><span class="pre">margin_x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bpy.props.IntProperty(default=120)</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pynodes.main.NA_OT_ArrangeNodesOp.margin_x" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_ArrangeNodesOp.margin_y">
+<span class="sig-name descname"><span class="pre">margin_y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bpy.props.IntProperty(default=120)</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pynodes.main.NA_OT_ArrangeNodesOp.margin_y" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_ArrangeNodesOp.nodemargin2">
+<span class="sig-name descname"><span class="pre">nodemargin2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#NA_OT_ArrangeNodesOp.nodemargin2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.NA_OT_ArrangeNodesOp.nodemargin2" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.main.NA_OT_ArrangeNodesOp.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#NA_OT_ArrangeNodesOp.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.NA_OT_ArrangeNodesOp.execute" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.main.outputnode_search">
+<span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">outputnode_search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ntree</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#outputnode_search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.outputnode_search" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.main.nodes_iterate">
+<span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">nodes_iterate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ntree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#nodes_iterate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.nodes_iterate" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.main.nodes_odd">
+<span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">nodes_odd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ntree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodelist</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#nodes_odd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.nodes_odd" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.main.nodes_arrange">
+<span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">nodes_arrange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodelist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#nodes_arrange"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.nodes_arrange" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.main.nodetree_get">
+<span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">nodetree_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mat</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#nodetree_get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.nodetree_get" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.main.nodes_center">
+<span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">nodes_center</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ntree</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#nodes_center"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.nodes_center" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.main.register">
+<span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.register" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.main.unregister">
+<span class="sig-prename descclassname"><span class="pre">pynodes.main.</span></span><span class="sig-name descname"><span class="pre">unregister</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynodes/main.html#unregister"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pynodes.main.unregister" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="pynodes.nodes.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.nodes</span></code></div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="pynodes.geosocks.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.geosocks</span></code></div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, 赛博念咒师
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/iplai/pynodes" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.main</span></code></a><ul>
+<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#api">API</a><ul>
+<li><a class="reference internal" href="#pynodes.main.get_nodes_from_category"><code class="docutils literal notranslate"><span class="pre">get_nodes_from_category()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.get_first_enabled_output"><code class="docutils literal notranslate"><span class="pre">get_first_enabled_output()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.is_visible_socket"><code class="docutils literal notranslate"><span class="pre">is_visible_socket()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.node_mid_pt"><code class="docutils literal notranslate"><span class="pre">node_mid_pt()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.abs_node_location"><code class="docutils literal notranslate"><span class="pre">abs_node_location()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.get_active_tree"><code class="docutils literal notranslate"><span class="pre">get_active_tree()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.get_group_output_node"><code class="docutils literal notranslate"><span class="pre">get_group_output_node()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.values"><code class="docutils literal notranslate"><span class="pre">values</span></code></a><ul>
+<li><a class="reference internal" href="#pynodes.main.values.average_y"><code class="docutils literal notranslate"><span class="pre">values.average_y</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.values.x_last"><code class="docutils literal notranslate"><span class="pre">values.x_last</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.values.margin_x"><code class="docutils literal notranslate"><span class="pre">values.margin_x</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.values.margin_y"><code class="docutils literal notranslate"><span class="pre">values.margin_y</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.values.mat_name"><code class="docutils literal notranslate"><span class="pre">values.mat_name</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pynodes.main.NA_PT_NodePanel"><code class="docutils literal notranslate"><span class="pre">NA_PT_NodePanel</span></code></a><ul>
+<li><a class="reference internal" href="#pynodes.main.NA_PT_NodePanel.bl_label"><code class="docutils literal notranslate"><span class="pre">NA_PT_NodePanel.bl_label</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.NA_PT_NodePanel.bl_space_type"><code class="docutils literal notranslate"><span class="pre">NA_PT_NodePanel.bl_space_type</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.NA_PT_NodePanel.bl_region_type"><code class="docutils literal notranslate"><span class="pre">NA_PT_NodePanel.bl_region_type</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.NA_PT_NodePanel.bl_category"><code class="docutils literal notranslate"><span class="pre">NA_PT_NodePanel.bl_category</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.NA_PT_NodePanel.draw"><code class="docutils literal notranslate"><span class="pre">NA_PT_NodePanel.draw()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_NodeButton"><code class="docutils literal notranslate"><span class="pre">NA_OT_NodeButton</span></code></a><ul>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_NodeButton.bl_idname"><code class="docutils literal notranslate"><span class="pre">NA_OT_NodeButton.bl_idname</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_NodeButton.bl_label"><code class="docutils literal notranslate"><span class="pre">NA_OT_NodeButton.bl_label</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_NodeButton.execute"><code class="docutils literal notranslate"><span class="pre">NA_OT_NodeButton.execute()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_NodeButton.invoke"><code class="docutils literal notranslate"><span class="pre">NA_OT_NodeButton.invoke()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_NodeButton2"><code class="docutils literal notranslate"><span class="pre">NA_OT_NodeButton2</span></code></a><ul>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_NodeButton2.bl_idname"><code class="docutils literal notranslate"><span class="pre">NA_OT_NodeButton2.bl_idname</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_NodeButton2.bl_label"><code class="docutils literal notranslate"><span class="pre">NA_OT_NodeButton2.bl_label</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_NodeButton2.execute"><code class="docutils literal notranslate"><span class="pre">NA_OT_NodeButton2.execute()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_NodeButtonOdd"><code class="docutils literal notranslate"><span class="pre">NA_OT_NodeButtonOdd</span></code></a><ul>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_NodeButtonOdd.bl_idname"><code class="docutils literal notranslate"><span class="pre">NA_OT_NodeButtonOdd.bl_idname</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_NodeButtonOdd.bl_label"><code class="docutils literal notranslate"><span class="pre">NA_OT_NodeButtonOdd.bl_label</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_NodeButtonOdd.execute"><code class="docutils literal notranslate"><span class="pre">NA_OT_NodeButtonOdd.execute()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pynodes.main.PurgeOrphanRecursive"><code class="docutils literal notranslate"><span class="pre">PurgeOrphanRecursive</span></code></a><ul>
+<li><a class="reference internal" href="#pynodes.main.PurgeOrphanRecursive.bl_idname"><code class="docutils literal notranslate"><span class="pre">PurgeOrphanRecursive.bl_idname</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.PurgeOrphanRecursive.bl_label"><code class="docutils literal notranslate"><span class="pre">PurgeOrphanRecursive.bl_label</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.PurgeOrphanRecursive.execute"><code class="docutils literal notranslate"><span class="pre">PurgeOrphanRecursive.execute()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pynodes.main.nodemargin"><code class="docutils literal notranslate"><span class="pre">nodemargin()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_ArrangeNodesOp"><code class="docutils literal notranslate"><span class="pre">NA_OT_ArrangeNodesOp</span></code></a><ul>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_ArrangeNodesOp.bl_idname"><code class="docutils literal notranslate"><span class="pre">NA_OT_ArrangeNodesOp.bl_idname</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_ArrangeNodesOp.bl_label"><code class="docutils literal notranslate"><span class="pre">NA_OT_ArrangeNodesOp.bl_label</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_ArrangeNodesOp.mat_name"><code class="docutils literal notranslate"><span class="pre">NA_OT_ArrangeNodesOp.mat_name</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_ArrangeNodesOp.margin_x"><code class="docutils literal notranslate"><span class="pre">NA_OT_ArrangeNodesOp.margin_x</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_ArrangeNodesOp.margin_y"><code class="docutils literal notranslate"><span class="pre">NA_OT_ArrangeNodesOp.margin_y</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_ArrangeNodesOp.nodemargin2"><code class="docutils literal notranslate"><span class="pre">NA_OT_ArrangeNodesOp.nodemargin2()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.NA_OT_ArrangeNodesOp.execute"><code class="docutils literal notranslate"><span class="pre">NA_OT_ArrangeNodesOp.execute()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pynodes.main.outputnode_search"><code class="docutils literal notranslate"><span class="pre">outputnode_search()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.nodes_iterate"><code class="docutils literal notranslate"><span class="pre">nodes_iterate()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.nodes_odd"><code class="docutils literal notranslate"><span class="pre">nodes_odd()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.nodes_arrange"><code class="docutils literal notranslate"><span class="pre">nodes_arrange()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.nodetree_get"><code class="docutils literal notranslate"><span class="pre">nodetree_get()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.nodes_center"><code class="docutils literal notranslate"><span class="pre">nodes_center()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.register"><code class="docutils literal notranslate"><span class="pre">register()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.main.unregister"><code class="docutils literal notranslate"><span class="pre">unregister()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/furo.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    </body>
+</html>
