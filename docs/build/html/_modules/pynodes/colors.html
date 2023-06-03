@@ -159,8 +159,8 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../%E6%95%99%E7%A8%8B/%E8%AF%B4%E6%98%8E.html">说明</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../%E6%95%99%E7%A8%8B/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/QuickStart.html">Quick Start</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../apidocs/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../apidocs/pynodes/pynodes.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../apidocs/pynodes/pynodes.colors.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.colors</span></code></a></li>
@@ -225,7 +225,7 @@
 
 
 <div class="viewcode-block" id="convert_srgb_to_linear_rgb"><a class="viewcode-back" href="../../apidocs/pynodes/pynodes.colors.html#pynodes.colors.convert_srgb_to_linear_rgb">[docs]</a><span class="k">def</span> <span class="nf">convert_srgb_to_linear_rgb</span><span class="p">(</span><span class="n">srgb_color_component</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Converting from sRGB to Linear RGB, based on https://en.wikipedia.org/wiki/SRGB#From_sRGB_to_CIE_XYZ&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Converting from sRGB to Linear RGB, based on [wikipedia](https://en.wikipedia.org/wiki/SRGB#From_sRGB_to_CIE_XYZ)&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">srgb_color_component</span> <span class="o">&lt;=</span> <span class="mf">0.04045</span><span class="p">:</span>
         <span class="n">linear_color_component</span> <span class="o">=</span> <span class="n">srgb_color_component</span> <span class="o">/</span> <span class="mf">12.92</span>
     <span class="k">else</span><span class="p">:</span>

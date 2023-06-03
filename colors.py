@@ -15,7 +15,7 @@ def hex_color_to_rgba(hex_color: str, alpha=1.0):
 
 
 def convert_srgb_to_linear_rgb(srgb_color_component: float):
-    """Converting from sRGB to Linear RGB, based on https://en.wikipedia.org/wiki/SRGB#From_sRGB_to_CIE_XYZ"""
+    """Converting from sRGB to Linear RGB, based on [wikipedia](https://en.wikipedia.org/wiki/SRGB#From_sRGB_to_CIE_XYZ)"""
     if srgb_color_component <= 0.04045:
         linear_color_component = srgb_color_component / 12.92
     else:
