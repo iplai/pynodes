@@ -14,11 +14,11 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
+   pynodes.addon
    pynodes.colors
    pynodes.core
    pynodes.datasocks
    pynodes.geosocks
-   pynodes.main
    pynodes.nodes
    pynodes.scene
 
