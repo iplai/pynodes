@@ -366,6 +366,14 @@ class Tree:
             self._group_input_node = self.new_node("NodeGroupInput")
         return self._group_input_node
 
+    def remove_orphan_input_node(self):
+        if self._group_input_node is None:
+            return
+        for output in self._group_input_node.outputs:
+            if output.bsocket.is_linked:
+                return
+        self.btree.nodes.remove(self._group_input_node.bnode)
+
     @property
     def group_output_node(self):
         if self._group_output_node is None:
@@ -720,6 +728,7 @@ def tree(func: typing.Callable[Param, RT]) -> typing.Callable[Param, RT]:
         outputs.func_ret_to_tree_output()
 
     from .arrange import arrange
+    Tree.tree.remove_orphan_input_node()
     arrange(Tree.tree.btree)
 
     @functools.wraps(func)

@@ -1,0 +1,890 @@
+{
+  "GeometryNodeAttributeStatistic": {
+    "data_type": "FLOAT, FLOAT_VECTOR",
+    "domain": "POINT, EDGE, FACE, CORNER, CURVE, INSTANCE"
+  },
+  "GeometryNodeAttributeDomainSize": {
+    "component": "MESH, POINTCLOUD, CURVE, INSTANCES"
+  },
+  "GeometryNodeBlurAttribute": {
+    "data_type": "FLOAT, INT, FLOAT_VECTOR, FLOAT_COLOR"
+  },
+  "GeometryNodeCaptureAttribute": {
+    "data_type": "FLOAT, INT, FLOAT_VECTOR, FLOAT_COLOR, BOOLEAN",
+    "domain": "POINT, EDGE, FACE, CORNER, CURVE, INSTANCE"
+  },
+  "GeometryNodeRemoveAttribute": {},
+  "GeometryNodeStoreNamedAttribute": {
+    "data_type": "FLOAT, INT, FLOAT_VECTOR, FLOAT_COLOR, BYTE_COLOR, BOOLEAN, FLOAT2",
+    "domain": "POINT, EDGE, FACE, CORNER, CURVE, INSTANCE"
+  },
+  "FunctionNodeInputBool": {
+    "boolean": {
+      "default": "False",
+      "type": "bool"
+    }
+  },
+  "FunctionNodeInputColor": {},
+  "GeometryNodeInputImage": {
+    "image": {
+      "default": "None",
+      "type": "NoneType"
+    }
+  },
+  "FunctionNodeInputInt": {
+    "integer": {
+      "default": "0",
+      "type": "int"
+    }
+  },
+  "GeometryNodeInputMaterial": {
+    "material": {
+      "default": "None",
+      "type": "bpy.types.Material"
+    }
+  },
+  "FunctionNodeInputString": {
+    "string": {
+      "default": "",
+      "type": "str"
+    }
+  },
+  "ShaderNodeValue": {},
+  "FunctionNodeInputVector": {
+    "vector": {
+      "default": "(0.0, 0.0, 0.0)",
+      "type": "Vector"
+    }
+  },
+  "GeometryNodeCollectionInfo": {
+    "transform_space": "ORIGINAL, RELATIVE"
+  },
+  "GeometryNodeImageInfo": {},
+  "GeometryNodeIsViewport": {},
+  "GeometryNodeObjectInfo": {
+    "transform_space": "ORIGINAL, RELATIVE"
+  },
+  "GeometryNodeSelfObject": {},
+  "GeometryNodeViewer": {
+    "data_type": "FLOAT, INT, FLOAT_VECTOR, FLOAT_COLOR, BOOLEAN",
+    "domain": "AUTO, POINT, EDGE, FACE, CORNER, CURVE, INSTANCE"
+  },
+  "GeometryNodeInputID": {},
+  "GeometryNodeInputIndex": {},
+  "GeometryNodeInputNamedAttribute": {
+    "data_type": "FLOAT, INT, FLOAT_VECTOR, FLOAT_COLOR, BOOLEAN"
+  },
+  "GeometryNodeInputNormal": {},
+  "GeometryNodeInputPosition": {},
+  "GeometryNodeInputRadius": {},
+  "GeometryNodeSetID": {},
+  "GeometryNodeSetPosition": {},
+  "GeometryNodeProximity": {
+    "target_element": "FACES, POINTS, EDGES"
+  },
+  "GeometryNodeRaycast": {
+    "data_type": "FLOAT, INT, FLOAT_VECTOR, FLOAT_COLOR, BOOLEAN",
+    "mapping": "INTERPOLATED, NEAREST"
+  },
+  "GeometryNodeSampleIndex": {
+    "data_type": "FLOAT, INT, FLOAT_VECTOR, FLOAT_COLOR, BOOLEAN",
+    "domain": "POINT, EDGE, FACE, CORNER, CURVE, INSTANCE",
+    "clamp": {
+      "default": "False",
+      "type": "bool"
+    }
+  },
+  "GeometryNodeSampleNearest": {
+    "domain": "POINT, EDGE, FACE, CORNER"
+  },
+  "GeometryNodeBoundBox": {},
+  "GeometryNodeConvexHull": {},
+  "GeometryNodeDeleteGeometry": {
+    "domain": "POINT, EDGE, FACE, CURVE, INSTANCE",
+    "mode": "ALL, EDGE_FACE, ONLY_FACE"
+  },
+  "GeometryNodeDuplicateElements": {
+    "domain": "POINT, EDGE, FACE, SPLINE, INSTANCE"
+  },
+  "GeometryNodeMergeByDistance": {
+    "mode": "ALL, CONNECTED"
+  },
+  "GeometryNodeTransform": {},
+  "GeometryNodeSeparateComponents": {},
+  "GeometryNodeSeparateGeometry": {
+    "domain": "POINT, EDGE, FACE, CURVE, INSTANCE"
+  },
+  "GeometryNodeJoinGeometry": {},
+  "GeometryNodeGeometryToInstance": {},
+  "GeometryNodeInputCurveHandlePositions": {},
+  "GeometryNodeCurveLength": {},
+  "GeometryNodeInputTangent": {},
+  "GeometryNodeInputCurveTilt": {},
+  "GeometryNodeCurveEndpointSelection": {},
+  "GeometryNodeCurveHandleTypeSelection": {
+    "handle_type": "AUTO, FREE, VECTOR, ALIGN",
+    "mode": {
+      "default": "{'RIGHT', 'LEFT'}",
+      "type": "set"
+    }
+  },
+  "GeometryNodeInputSplineCyclic": {},
+  "GeometryNodeSplineLength": {},
+  "GeometryNodeSplineParameter": {},
+  "GeometryNodeInputSplineResolution": {},
+  "GeometryNodeSampleCurve": {
+    "data_type": "FLOAT, INT, FLOAT_VECTOR, FLOAT_COLOR, BOOLEAN",
+    "mode": "FACTOR, LENGTH",
+    "use_all_curves": {
+      "default": "False",
+      "type": "bool"
+    }
+  },
+  "GeometryNodeSetCurveNormal": {
+    "mode": "MINIMUM_TWIST, Z_UP"
+  },
+  "GeometryNodeSetCurveRadius": {},
+  "GeometryNodeSetCurveTilt": {},
+  "GeometryNodeSetCurveHandlePositions": {
+    "mode": "LEFT, RIGHT"
+  },
+  "GeometryNodeCurveSetHandles": {
+    "handle_type": "AUTO, FREE, VECTOR, ALIGN",
+    "mode": {
+      "default": "{'RIGHT', 'LEFT'}",
+      "type": "set"
+    }
+  },
+  "GeometryNodeSetSplineCyclic": {},
+  "GeometryNodeSetSplineResolution": {},
+  "GeometryNodeCurveSplineType": {
+    "spline_type": "POLY, CATMULL_ROM, BEZIER, NURBS"
+  },
+  "GeometryNodeCurveToMesh": {},
+  "GeometryNodeCurveToPoints": {
+    "mode": "COUNT, EVALUATED, LENGTH"
+  },
+  "GeometryNodeDeformCurvesOnSurface": {},
+  "GeometryNodeFillCurve": {
+    "mode": "TRIANGLES, NGONS"
+  },
+  "GeometryNodeFilletCurve": {
+    "mode": "BEZIER, POLY"
+  },
+  "GeometryNodeInterpolateCurves": {},
+  "GeometryNodeResampleCurve": {
+    "mode": "COUNT, EVALUATED, LENGTH"
+  },
+  "GeometryNodeReverseCurve": {},
+  "GeometryNodeSubdivideCurve": {},
+  "GeometryNodeTrimCurve": {
+    "mode": "FACTOR, LENGTH"
+  },
+  "GeometryNodeCurveArc": {
+    "mode": "RADIUS, POINTS"
+  },
+  "GeometryNodeCurvePrimitiveBezierSegment": {
+    "mode": "POSITION, OFFSET"
+  },
+  "GeometryNodeCurvePrimitiveCircle": {
+    "mode": "RADIUS, POINTS"
+  },
+  "GeometryNodeCurvePrimitiveLine": {
+    "mode": "POINTS, DIRECTION"
+  },
+  "GeometryNodeCurveSpiral": {},
+  "GeometryNodeCurveQuadraticBezier": {},
+  "GeometryNodeCurvePrimitiveQuadrilateral": {
+    "mode": "RECTANGLE, PARALLELOGRAM, TRAPEZOID, KITE, POINTS"
+  },
+  "GeometryNodeCurveStar": {},
+  "GeometryNodeCurveOfPoint": {},
+  "GeometryNodeOffsetPointInCurve": {},
+  "GeometryNodePointsOfCurve": {},
+  "GeometryNodeInstanceOnPoints": {},
+  "GeometryNodeInstancesToPoints": {},
+  "GeometryNodeRotateInstances": {},
+  "GeometryNodeScaleInstances": {},
+  "GeometryNodeTranslateInstances": {},
+  "GeometryNodeRealizeInstances": {
+    "legacy_behavior": {
+      "default": "False",
+      "type": "bool"
+    }
+  },
+  "GeometryNodeInputInstanceRotation": {},
+  "GeometryNodeInputInstanceScale": {},
+  "GeometryNodeInputMeshEdgeAngle": {},
+  "GeometryNodeInputMeshEdgeNeighbors": {},
+  "GeometryNodeInputMeshEdgeVertices": {},
+  "GeometryNodeEdgesToFaceGroups": {},
+  "GeometryNodeInputMeshFaceArea": {},
+  "GeometryNodeInputMeshFaceNeighbors": {},
+  "GeometryNodeMeshFaceSetBoundaries": {},
+  "GeometryNodeInputMeshFaceIsPlanar": {},
+  "GeometryNodeInputShadeSmooth": {},
+  "GeometryNodeInputMeshIsland": {},
+  "GeometryNodeInputShortestEdgePaths": {},
+  "GeometryNodeInputMeshVertexNeighbors": {},
+  "GeometryNodeSampleNearestSurface": {
+    "data_type": "FLOAT, INT, FLOAT_VECTOR, FLOAT_COLOR, BOOLEAN"
+  },
+  "GeometryNodeSampleUVSurface": {
+    "data_type": "FLOAT, INT, FLOAT_VECTOR, FLOAT_COLOR, BOOLEAN"
+  },
+  "GeometryNodeSetShadeSmooth": {},
+  "GeometryNodeDualMesh": {},
+  "GeometryNodeEdgePathsToCurves": {},
+  "GeometryNodeEdgePathsToSelection": {},
+  "GeometryNodeExtrudeMesh": {
+    "mode": "FACES, VERTICES, EDGES"
+  },
+  "GeometryNodeFlipFaces": {},
+  "GeometryNodeMeshBoolean": {
+    "operation": "DIFFERENCE, INTERSECT, UNION"
+  },
+  "GeometryNodeMeshToCurve": {},
+  "GeometryNodeMeshToPoints": {
+    "mode": "VERTICES, EDGES, FACES, CORNERS"
+  },
+  "GeometryNodeMeshToVolume": {
+    "resolution_mode": "VOXEL_AMOUNT, VOXEL_SIZE"
+  },
+  "GeometryNodeScaleElements": {
+    "domain": "FACE, EDGE",
+    "scale_mode": "UNIFORM, SINGLE_AXIS"
+  },
+  "GeometryNodeSplitEdges": {},
+  "GeometryNodeSubdivideMesh": {},
+  "GeometryNodeSubdivisionSurface": {
+    "boundary_smooth": "ALL, PRESERVE_CORNERS",
+    "uv_smooth": "PRESERVE_BOUNDARIES, NONE, PRESERVE_CORNERS, PRESERVE_CORNERS_AND_JUNCTIONS, PRESERVE_CORNERS_JUNCTIONS_AND_CONCAVE, SMOOTH_ALL"
+  },
+  "GeometryNodeTriangulate": {
+    "ngon_method": "BEAUTY, CLIP",
+    "quad_method": "SHORTEST_DIAGONAL, BEAUTY, FIXED, FIXED_ALTERNATE, LONGEST_DIAGONAL"
+  },
+  "GeometryNodeMeshCone": {
+    "fill_type": "NGON, NONE, TRIANGLE_FAN"
+  },
+  "GeometryNodeMeshCube": {},
+  "GeometryNodeMeshCylinder": {
+    "fill_type": "NGON, NONE, TRIANGLE_FAN"
+  },
+  "GeometryNodeMeshGrid": {},
+  "GeometryNodeMeshIcoSphere": {},
+  "GeometryNodeMeshCircle": {
+    "fill_type": "NONE, NGON, TRIANGLE_FAN"
+  },
+  "GeometryNodeMeshLine": {
+    "count_mode": "TOTAL, RESOLUTION",
+    "mode": "OFFSET, END_POINTS"
+  },
+  "GeometryNodeMeshUVSphere": {},
+  "GeometryNodeCornersOfFace": {},
+  "GeometryNodeCornersOfVertex": {},
+  "GeometryNodeEdgesOfCorner": {},
+  "GeometryNodeEdgesOfVertex": {},
+  "GeometryNodeFaceOfCorner": {},
+  "GeometryNodeOffsetCornerInFace": {},
+  "GeometryNodeVertexOfCorner": {},
+  "GeometryNodeUVPackIslands": {},
+  "GeometryNodeUVUnwrap": {
+    "method": "ANGLE_BASED, CONFORMAL"
+  },
+  "GeometryNodeDistributePointsInVolume": {
+    "mode": "DENSITY_RANDOM, DENSITY_GRID"
+  },
+  "GeometryNodeDistributePointsOnFaces": {
+    "distribute_method": "RANDOM, POISSON",
+    "use_legacy_normal": {
+      "default": "False",
+      "type": "bool"
+    }
+  },
+  "GeometryNodePoints": {},
+  "GeometryNodePointsToVertices": {},
+  "GeometryNodePointsToVolume": {
+    "resolution_mode": "VOXEL_AMOUNT, VOXEL_SIZE"
+  },
+  "GeometryNodeSetPointRadius": {},
+  "GeometryNodeVolumeCube": {},
+  "GeometryNodeVolumeToMesh": {
+    "resolution_mode": "GRID, VOXEL_AMOUNT, VOXEL_SIZE"
+  },
+  "GeometryNodeReplaceMaterial": {},
+  "GeometryNodeInputMaterialIndex": {},
+  "GeometryNodeMaterialSelection": {},
+  "GeometryNodeSetMaterial": {},
+  "GeometryNodeSetMaterialIndex": {},
+  "ShaderNodeTexBrick": {
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "offset": {
+      "default": "0.5",
+      "type": "float"
+    },
+    "offset_frequency": {
+      "default": "2",
+      "type": "int"
+    },
+    "squash": {
+      "default": "1.0",
+      "type": "float"
+    },
+    "squash_frequency": {
+      "default": "2",
+      "type": "int"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    }
+  },
+  "ShaderNodeTexChecker": {
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    }
+  },
+  "ShaderNodeTexGradient": {
+    "gradient_type": "LINEAR, QUADRATIC, EASING, DIAGONAL, SPHERICAL, QUADRATIC_SPHERE, RADIAL",
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    }
+  },
+  "GeometryNodeImageTexture": {
+    "extension": "REPEAT, EXTEND, CLIP, MIRROR",
+    "interpolation": "Linear, Closest, Cubic"
+  },
+  "ShaderNodeTexMagic": {
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    },
+    "turbulence_depth": {
+      "default": "2",
+      "type": "int"
+    }
+  },
+  "ShaderNodeTexMusgrave": {
+    "musgrave_dimensions": "3D, 1D, 2D, 4D",
+    "musgrave_type": "FBM, MULTIFRACTAL, RIDGED_MULTIFRACTAL, HYBRID_MULTIFRACTAL, HETERO_TERRAIN",
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    }
+  },
+  "ShaderNodeTexNoise": {
+    "noise_dimensions": "3D, 1D, 2D, 4D",
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    }
+  },
+  "ShaderNodeTexVoronoi": {
+    "distance": "EUCLIDEAN, MANHATTAN, CHEBYCHEV, MINKOWSKI",
+    "feature": "F1, F2, SMOOTH_F1, DISTANCE_TO_EDGE, N_SPHERE_RADIUS",
+    "voronoi_dimensions": "3D, 1D, 2D, 4D",
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    }
+  },
+  "ShaderNodeTexWave": {
+    "bands_direction": "X, Y, Z, DIAGONAL",
+    "rings_direction": "X, Y, Z, SPHERICAL",
+    "wave_profile": "SIN, SAW, TRI",
+    "wave_type": "BANDS, RINGS",
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    }
+  },
+  "ShaderNodeTexWhiteNoise": {
+    "noise_dimensions": "3D, 1D, 2D, 4D"
+  },
+  "ShaderNodeValToRGB": {
+    "color_ramp": {
+      "default": "None",
+      "type": "bpy.types.ColorRamp"
+    }
+  },
+  "FunctionNodeCombineColor": {
+    "mode": "RGB, HSV, HSL"
+  },
+  "ShaderNodeMix": {
+    "blend_type": "MIX, DARKEN, MULTIPLY, BURN, LIGHTEN, SCREEN, DODGE, ADD, OVERLAY, SOFT_LIGHT, LINEAR_LIGHT, DIFFERENCE, EXCLUSION, SUBTRACT, DIVIDE, HUE, SATURATION, COLOR, VALUE",
+    "data_type": "FLOAT, VECTOR, RGBA",
+    "factor_mode": "UNIFORM, NON_UNIFORM",
+    "clamp_factor": {
+      "default": "True",
+      "type": "bool"
+    },
+    "clamp_result": {
+      "default": "False",
+      "type": "bool"
+    }
+  },
+  "ShaderNodeRGBCurve": {
+    "mapping": {
+      "default": "None",
+      "type": "bpy.types.CurveMapping"
+    }
+  },
+  "FunctionNodeSeparateColor": {
+    "mode": "RGB, HSV, HSL"
+  },
+  "GeometryNodeStringJoin": {},
+  "FunctionNodeReplaceString": {},
+  "FunctionNodeSliceString": {},
+  "FunctionNodeInputSpecialCharacters": {},
+  "FunctionNodeStringLength": {},
+  "GeometryNodeStringToCurves": {
+    "align_x": "LEFT, CENTER, RIGHT, JUSTIFY, FLUSH",
+    "align_y": "TOP_BASELINE, TOP, MIDDLE, BOTTOM_BASELINE, BOTTOM",
+    "overflow": "OVERFLOW, SCALE_TO_FIT, TRUNCATE",
+    "pivot_mode": "BOTTOM_LEFT, MIDPOINT, TOP_LEFT, TOP_CENTER, TOP_RIGHT, BOTTOM_CENTER, BOTTOM_RIGHT",
+    "font": {
+      "default": "None",
+      "type": "bpy.types.VectorFont"
+    }
+  },
+  "FunctionNodeValueToString": {},
+  "ShaderNodeCombineXYZ": {},
+  "ShaderNodeSeparateXYZ": {},
+  "ShaderNodeVectorCurve": {
+    "mapping": {
+      "default": "None",
+      "type": "bpy.types.CurveMapping"
+    }
+  },
+  "ShaderNodeVectorMath": {
+    "operation": "ADD, SUBTRACT, MULTIPLY, DIVIDE, MULTIPLY_ADD, CROSS_PRODUCT, PROJECT, REFLECT, REFRACT, FACEFORWARD, DOT_PRODUCT, DISTANCE, LENGTH, SCALE, NORMALIZE, ABSOLUTE, MINIMUM, MAXIMUM, FLOOR, CEIL, FRACTION, MODULO, WRAP, SNAP, SINE, COSINE, TANGENT"
+  },
+  "ShaderNodeVectorRotate": {
+    "rotation_type": "AXIS_ANGLE, X_AXIS, Y_AXIS, Z_AXIS, EULER_XYZ",
+    "invert": {
+      "default": "False",
+      "type": "bool"
+    }
+  },
+  "GeometryNodeAccumulateField": {
+    "data_type": "FLOAT, INT, FLOAT_VECTOR",
+    "domain": "POINT, EDGE, FACE, CORNER, CURVE, INSTANCE"
+  },
+  "GeometryNodeFieldAtIndex": {
+    "data_type": "FLOAT, INT, FLOAT_VECTOR, FLOAT_COLOR, BOOLEAN",
+    "domain": "POINT, EDGE, FACE, CORNER, CURVE, INSTANCE"
+  },
+  "GeometryNodeFieldOnDomain": {
+    "data_type": "FLOAT, INT, FLOAT_VECTOR, FLOAT_COLOR, BOOLEAN",
+    "domain": "POINT, EDGE, FACE, CORNER, CURVE, INSTANCE"
+  },
+  "FunctionNodeBooleanMath": {
+    "operation": "AND, OR, NOT, NAND, NOR, XNOR, XOR, IMPLY, NIMPLY"
+  },
+  "ShaderNodeClamp": {
+    "clamp_type": "MINMAX, RANGE"
+  },
+  "FunctionNodeCompare": {
+    "data_type": "FLOAT, INT, VECTOR, STRING, RGBA",
+    "mode": "ELEMENT, LENGTH, AVERAGE, DOT_PRODUCT, DIRECTION",
+    "operation": "GREATER_THAN, LESS_THAN, LESS_EQUAL, GREATER_EQUAL, EQUAL, NOT_EQUAL"
+  },
+  "ShaderNodeFloatCurve": {
+    "mapping": {
+      "default": "None",
+      "type": "bpy.types.CurveMapping"
+    }
+  },
+  "FunctionNodeFloatToInt": {
+    "rounding_mode": "ROUND, FLOOR, CEILING, TRUNCATE"
+  },
+  "ShaderNodeMapRange": {
+    "data_type": "FLOAT, FLOAT_VECTOR",
+    "interpolation_type": "LINEAR, STEPPED, SMOOTHSTEP, SMOOTHERSTEP",
+    "clamp": {
+      "default": "True",
+      "type": "bool"
+    }
+  },
+  "ShaderNodeMath": {
+    "operation": "ADD, SUBTRACT, MULTIPLY, DIVIDE, MULTIPLY_ADD, POWER, LOGARITHM, SQRT, INVERSE_SQRT, ABSOLUTE, EXPONENT, MINIMUM, MAXIMUM, LESS_THAN, GREATER_THAN, SIGN, COMPARE, SMOOTH_MIN, SMOOTH_MAX, ROUND, FLOOR, CEIL, TRUNC, FRACT, MODULO, WRAP, SNAP, PINGPONG, SINE, COSINE, TANGENT, ARCSINE, ARCCOSINE, ARCTANGENT, ARCTAN2, SINH, COSH, TANH, RADIANS, DEGREES",
+    "use_clamp": {
+      "default": "False",
+      "type": "bool"
+    }
+  },
+  "FunctionNodeAlignEulerToVector": {
+    "axis": "X, Y, Z",
+    "pivot_axis": "AUTO, X, Y, Z"
+  },
+  "FunctionNodeRotateEuler": {
+    "space": "OBJECT, LOCAL",
+    "type": "EULER, AXIS_ANGLE"
+  },
+  "FunctionNodeRandomValue": {
+    "data_type": "FLOAT, INT, FLOAT_VECTOR, BOOLEAN"
+  },
+  "GeometryNodeSwitch": {
+    "input_type": "GEOMETRY, FLOAT, INT, BOOLEAN, VECTOR, STRING, RGBA, OBJECT, IMAGE, COLLECTION, TEXTURE, MATERIAL"
+  },
+  "ShaderNodeAmbientOcclusion": {
+    "inside": {
+      "default": "False",
+      "type": "bool"
+    },
+    "only_local": {
+      "default": "False",
+      "type": "bool"
+    },
+    "samples": {
+      "default": "16",
+      "type": "int"
+    }
+  },
+  "ShaderNodeAttribute": {
+    "attribute_type": "GEOMETRY, OBJECT, INSTANCER, VIEW_LAYER",
+    "attribute_name": {
+      "default": "",
+      "type": "str"
+    }
+  },
+  "ShaderNodeBevel": {
+    "samples": {
+      "default": "4",
+      "type": "int"
+    }
+  },
+  "ShaderNodeCameraData": {},
+  "ShaderNodeFresnel": {},
+  "ShaderNodeNewGeometry": {},
+  "ShaderNodeHairInfo": {},
+  "ShaderNodeLayerWeight": {},
+  "ShaderNodeLightPath": {},
+  "ShaderNodeObjectInfo": {},
+  "ShaderNodeParticleInfo": {},
+  "ShaderNodePointInfo": {},
+  "ShaderNodeRGB": {},
+  "ShaderNodeTangent": {
+    "axis": "Z, X, Y",
+    "direction_type": "RADIAL, UV_MAP",
+    "uv_map": {
+      "default": "",
+      "type": "str"
+    }
+  },
+  "ShaderNodeTexCoord": {
+    "from_instancer": {
+      "default": "False",
+      "type": "bool"
+    },
+    "object": {
+      "default": "None",
+      "type": "NoneType"
+    }
+  },
+  "ShaderNodeUVMap": {
+    "from_instancer": {
+      "default": "False",
+      "type": "bool"
+    },
+    "uv_map": {
+      "default": "",
+      "type": "str"
+    }
+  },
+  "ShaderNodeVertexColor": {
+    "layer_name": {
+      "default": "",
+      "type": "str"
+    }
+  },
+  "ShaderNodeVolumeInfo": {},
+  "ShaderNodeWireframe": {
+    "use_pixel_size": {
+      "default": "False",
+      "type": "bool"
+    }
+  },
+  "ShaderNodeOutputAOV": {},
+  "ShaderNodeOutputMaterial": {
+    "target": "ALL, EEVEE, CYCLES",
+    "is_active_output": {
+      "default": "True",
+      "type": "bool"
+    }
+  },
+  "ShaderNodeOutputLight": {
+    "target": "ALL, EEVEE, CYCLES",
+    "is_active_output": {
+      "default": "True",
+      "type": "bool"
+    }
+  },
+  "ShaderNodeOutputWorld": {
+    "target": "ALL, EEVEE, CYCLES",
+    "is_active_output": {
+      "default": "True",
+      "type": "bool"
+    }
+  },
+  "ShaderNodeAddShader": {},
+  "ShaderNodeBsdfAnisotropic": {
+    "distribution": "GGX, BECKMANN, MULTI_GGX, ASHIKHMIN_SHIRLEY"
+  },
+  "ShaderNodeBackground": {},
+  "ShaderNodeBsdfDiffuse": {},
+  "ShaderNodeEmission": {},
+  "ShaderNodeBsdfGlass": {
+    "distribution": "BECKMANN, SHARP, GGX, MULTI_GGX"
+  },
+  "ShaderNodeBsdfGlossy": {
+    "distribution": "GGX, SHARP, BECKMANN, ASHIKHMIN_SHIRLEY, MULTI_GGX"
+  },
+  "ShaderNodeBsdfHair": {
+    "component": "Reflection, Transmission"
+  },
+  "ShaderNodeHoldout": {},
+  "ShaderNodeMixShader": {},
+  "ShaderNodeBsdfPrincipled": {
+    "distribution": "GGX, MULTI_GGX",
+    "subsurface_method": "RANDOM_WALK, BURLEY, RANDOM_WALK_FIXED_RADIUS"
+  },
+  "ShaderNodeBsdfHairPrincipled": {
+    "parametrization": "COLOR, ABSORPTION, MELANIN"
+  },
+  "ShaderNodeVolumePrincipled": {},
+  "ShaderNodeBsdfRefraction": {
+    "distribution": "BECKMANN, SHARP, GGX"
+  },
+  "ShaderNodeEeveeSpecular": {},
+  "ShaderNodeSubsurfaceScattering": {
+    "falloff": "RANDOM_WALK, BURLEY, RANDOM_WALK_FIXED_RADIUS"
+  },
+  "ShaderNodeBsdfToon": {
+    "component": "DIFFUSE, GLOSSY"
+  },
+  "ShaderNodeBsdfTranslucent": {},
+  "ShaderNodeBsdfTransparent": {},
+  "ShaderNodeBsdfVelvet": {},
+  "ShaderNodeVolumeAbsorption": {},
+  "ShaderNodeVolumeScatter": {},
+  "ShaderNodeTexEnvironment": {
+    "interpolation": "Linear, Closest, Cubic, Smart",
+    "projection": "EQUIRECTANGULAR, MIRROR_BALL",
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "image": {
+      "default": "None",
+      "type": "NoneType"
+    },
+    "image_user": {
+      "default": "None",
+      "type": "bpy.types.ImageUser"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    }
+  },
+  "ShaderNodeTexIES": {
+    "mode": "INTERNAL, EXTERNAL",
+    "filepath": {
+      "default": "",
+      "type": "str"
+    },
+    "ies": {
+      "default": "None",
+      "type": "NoneType"
+    }
+  },
+  "ShaderNodeTexImage": {
+    "extension": "REPEAT, EXTEND, CLIP, MIRROR",
+    "interpolation": "Linear, Closest, Cubic, Smart",
+    "projection": "FLAT, BOX, SPHERE, TUBE",
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "image": {
+      "default": "None",
+      "type": "NoneType"
+    },
+    "image_user": {
+      "default": "None",
+      "type": "bpy.types.ImageUser"
+    },
+    "projection_blend": {
+      "default": "0.0",
+      "type": "float"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    }
+  },
+  "ShaderNodeTexPointDensity": {
+    "interpolation": "Linear, Closest, Cubic",
+    "particle_color_source": "PARTICLE_AGE, PARTICLE_SPEED, PARTICLE_VELOCITY",
+    "point_source": "PARTICLE_SYSTEM, OBJECT",
+    "space": "OBJECT, WORLD",
+    "vertex_color_source": "VERTEX_COLOR, VERTEX_WEIGHT, VERTEX_NORMAL",
+    "object": {
+      "default": "None",
+      "type": "NoneType"
+    },
+    "particle_system": {
+      "default": "None",
+      "type": "NoneType"
+    },
+    "radius": {
+      "default": "0.3",
+      "type": "float"
+    },
+    "resolution": {
+      "default": "100",
+      "type": "int"
+    },
+    "vertex_attribute_name": {
+      "default": "",
+      "type": "str"
+    }
+  },
+  "ShaderNodeTexSky": {
+    "sky_type": "NISHITA, PREETHAM, HOSEK_WILKIE",
+    "air_density": {
+      "default": "1.0",
+      "type": "float"
+    },
+    "altitude": {
+      "default": "0.0",
+      "type": "float"
+    },
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "dust_density": {
+      "default": "1.0",
+      "type": "float"
+    },
+    "ground_albedo": {
+      "default": "0.3",
+      "type": "float"
+    },
+    "ozone_density": {
+      "default": "1.0",
+      "type": "float"
+    },
+    "sun_direction": {
+      "default": "(0.0, 0.0, 1.0)",
+      "type": "Vector"
+    },
+    "sun_disc": {
+      "default": "True",
+      "type": "bool"
+    },
+    "sun_elevation": {
+      "default": "math.radians(15.0)",
+      "type": "float"
+    },
+    "sun_intensity": {
+      "default": "1.0",
+      "type": "float"
+    },
+    "sun_rotation": {
+      "default": "0.0",
+      "type": "float"
+    },
+    "sun_size": {
+      "default": "math.radians(0.545)",
+      "type": "float"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    },
+    "turbidity": {
+      "default": "2.2",
+      "type": "float"
+    }
+  },
+  "ShaderNodeBrightContrast": {},
+  "ShaderNodeGamma": {},
+  "ShaderNodeHueSaturation": {},
+  "ShaderNodeInvert": {},
+  "ShaderNodeLightFalloff": {},
+  "ShaderNodeBump": {
+    "invert": {
+      "default": "False",
+      "type": "bool"
+    }
+  },
+  "ShaderNodeDisplacement": {
+    "space": "OBJECT, WORLD"
+  },
+  "ShaderNodeMapping": {
+    "vector_type": "POINT, TEXTURE, VECTOR, NORMAL"
+  },
+  "ShaderNodeNormal": {},
+  "ShaderNodeNormalMap": {
+    "space": "TANGENT, OBJECT, WORLD, BLENDER_OBJECT, BLENDER_WORLD",
+    "uv_map": {
+      "default": "",
+      "type": "str"
+    }
+  },
+  "ShaderNodeVectorDisplacement": {
+    "space": "TANGENT, OBJECT, WORLD"
+  },
+  "ShaderNodeVectorTransform": {
+    "convert_from": "WORLD, OBJECT, CAMERA",
+    "convert_to": "OBJECT, WORLD, CAMERA",
+    "vector_type": "VECTOR, POINT, NORMAL"
+  },
+  "ShaderNodeBlackbody": {},
+  "ShaderNodeCombineColor": {
+    "mode": "RGB, HSV, HSL"
+  },
+  "ShaderNodeRGBToBW": {},
+  "ShaderNodeSeparateColor": {
+    "mode": "RGB, HSV, HSL"
+  },
+  "ShaderNodeShaderToRGB": {},
+  "ShaderNodeWavelength": {}
+}

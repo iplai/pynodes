@@ -1,0 +1,19 @@
+shader colorrange(
+    float value = 0,
+    float low = 0,
+    float high = 0,
+    color low_color = 0,
+    color mid_color = 0.5, // grey
+    color high_color = 1,
+
+    output color Color = 0 // [xxx check if Color = Low is legal]
+){
+    Color = low_color;
+    if( value >= low && value <= high ){
+        Color = mid_color;
+    } else {
+        if( value > high ){
+            Color = high_color;
+        }
+    }
+}

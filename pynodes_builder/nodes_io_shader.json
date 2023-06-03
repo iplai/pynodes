@@ -1,0 +1,4681 @@
+{
+  "ShaderNodeAmbientOcclusion": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(1.0, 1.0, 1.0, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Distance",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Distance",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "AO",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "AO",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeAttribute": {
+    "inputs": [],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Fac",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Fac",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Alpha",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Alpha",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeBevel": {
+    "inputs": [
+      {
+        "identifier": "Radius",
+        "default": "0.05",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Radius",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeCameraData": {
+    "inputs": [],
+    "outputs": [
+      {
+        "identifier": "View Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "View Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "View Z Depth",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "View Z Depth",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "View Distance",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "View Distance",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeFresnel": {
+    "inputs": [
+      {
+        "identifier": "IOR",
+        "default": "1.45",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "IOR",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Fac",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Fac",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeNewGeometry": {
+    "inputs": [],
+    "outputs": [
+      {
+        "identifier": "Position",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Position",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Tangent",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Tangent",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "True Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "True Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Incoming",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Incoming",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Parametric",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Parametric",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Backfacing",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Backfacing",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Pointiness",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Pointiness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Random Per Island",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Random Per Island",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeHairInfo": {
+    "inputs": [],
+    "outputs": [
+      {
+        "identifier": "Is Strand",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Is Strand",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Intercept",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Intercept",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Length",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Length",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Thickness",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Thickness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Tangent Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Tangent Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Random",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Random",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeLayerWeight": {
+    "inputs": [
+      {
+        "identifier": "Blend",
+        "default": "0.5",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Blend",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Fresnel",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Fresnel",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Facing",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Facing",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeLightPath": {
+    "inputs": [],
+    "outputs": [
+      {
+        "identifier": "Is Camera Ray",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Is Camera Ray",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Is Shadow Ray",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Is Shadow Ray",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Is Diffuse Ray",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Is Diffuse Ray",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Is Glossy Ray",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Is Glossy Ray",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Is Singular Ray",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Is Singular Ray",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Is Reflection Ray",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Is Reflection Ray",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Is Transmission Ray",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Is Transmission Ray",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Ray Length",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Ray Length",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Ray Depth",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Ray Depth",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Diffuse Depth",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Diffuse Depth",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Glossy Depth",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Glossy Depth",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Transparent Depth",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Transparent Depth",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Transmission Depth",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Transmission Depth",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeObjectInfo": {
+    "inputs": [],
+    "outputs": [
+      {
+        "identifier": "Location",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Location",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Alpha",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Alpha",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Object Index",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Object Index",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Material Index",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Material Index",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Random",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Random",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeParticleInfo": {
+    "inputs": [],
+    "outputs": [
+      {
+        "identifier": "Index",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Index",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Random",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Random",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Age",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Age",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Lifetime",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Lifetime",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Location",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Location",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Size",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Size",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Velocity",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Velocity",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Angular Velocity",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Angular Velocity",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodePointInfo": {
+    "inputs": [],
+    "outputs": [
+      {
+        "identifier": "Position",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Position",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Radius",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Radius",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Random",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Random",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeRGB": {
+    "inputs": [],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.5, 0.5, 0.5, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeTangent": {
+    "inputs": [],
+    "outputs": [
+      {
+        "identifier": "Tangent",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Tangent",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeTexCoord": {
+    "inputs": [],
+    "outputs": [
+      {
+        "identifier": "Generated",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Generated",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "UV",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "UV",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Object",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Object",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Camera",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Camera",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Window",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Window",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Reflection",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Reflection",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeUVMap": {
+    "inputs": [],
+    "outputs": [
+      {
+        "identifier": "UV",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "UV",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeValue": {
+    "inputs": [],
+    "outputs": [
+      {
+        "identifier": "Value",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Value",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeVertexColor": {
+    "inputs": [],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Alpha",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Alpha",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeVolumeInfo": {
+    "inputs": [],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Density",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Density",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Flame",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Flame",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Temperature",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Temperature",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeWireframe": {
+    "inputs": [
+      {
+        "identifier": "Size",
+        "default": "0.01",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Size",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Fac",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Fac",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeOutputAOV": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Value",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Value",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": []
+  },
+  "ShaderNodeOutputMaterial": {
+    "inputs": [
+      {
+        "identifier": "Surface",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "Surface",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Volume",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "Volume",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Displacement",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Displacement",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Thickness",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Thickness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": []
+  },
+  "ShaderNodeOutputLight": {
+    "inputs": [
+      {
+        "identifier": "Surface",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "Surface",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": []
+  },
+  "ShaderNodeOutputWorld": {
+    "inputs": [
+      {
+        "identifier": "Surface",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "Surface",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Volume",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "Volume",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": []
+  },
+  "ShaderNodeAddShader": {
+    "inputs": [
+      {
+        "identifier": "Shader",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "Shader",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Shader_001",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "Shader",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Shader",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "Shader",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeBsdfAnisotropic": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.8, 0.8, 0.8, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Roughness",
+        "default": "0.5",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Roughness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Anisotropy",
+        "default": "0.5",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Anisotropy",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Rotation",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Rotation",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Tangent",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Tangent",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Weight",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Weight",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "BSDF",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "BSDF",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeBackground": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.8, 0.8, 0.8, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Strength",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Strength",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Weight",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Weight",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Background",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "Background",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeBsdfDiffuse": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.8, 0.8, 0.8, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Roughness",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Roughness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Weight",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Weight",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "BSDF",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "BSDF",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeEmission": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(1.0, 1.0, 1.0, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Strength",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Strength",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Weight",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Weight",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Emission",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "Emission",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeBsdfGlass": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(1.0, 1.0, 1.0, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Roughness",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Roughness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "IOR",
+        "default": "1.45",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "IOR",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Weight",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Weight",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "BSDF",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "BSDF",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeBsdfGlossy": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.8, 0.8, 0.8, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Roughness",
+        "default": "0.5",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Roughness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Weight",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Weight",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "BSDF",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "BSDF",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeBsdfHair": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.8, 0.8, 0.8, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Offset",
+        "default": "math.radians(0.0)",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatAngle",
+        "name": "Offset",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "RoughnessU",
+        "default": "0.1",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "RoughnessU",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "RoughnessV",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "RoughnessV",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Tangent",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Tangent",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Weight",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Weight",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "BSDF",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "BSDF",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeHoldout": {
+    "inputs": [
+      {
+        "identifier": "Weight",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Weight",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Holdout",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "Holdout",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeMixShader": {
+    "inputs": [
+      {
+        "identifier": "Fac",
+        "default": "0.5",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Fac",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Shader",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "Shader",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Shader_001",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "Shader",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Shader",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "Shader",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeBsdfPrincipled": {
+    "inputs": [
+      {
+        "identifier": "Base Color",
+        "default": "(0.8, 0.8, 0.8, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Base Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Subsurface",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Subsurface",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Subsurface Radius",
+        "default": "(1.0, 0.2, 0.1)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Subsurface Radius",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Subsurface Color",
+        "default": "(0.8, 0.8, 0.8, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Subsurface Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Subsurface IOR",
+        "default": "1.4",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Subsurface IOR",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Subsurface Anisotropy",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Subsurface Anisotropy",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Metallic",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Metallic",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Specular",
+        "default": "0.5",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Specular",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Specular Tint",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Specular Tint",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Roughness",
+        "default": "0.5",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Roughness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Anisotropic",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Anisotropic",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Anisotropic Rotation",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Anisotropic Rotation",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Sheen",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Sheen",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Sheen Tint",
+        "default": "0.5",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Sheen Tint",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Clearcoat",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Clearcoat",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Clearcoat Roughness",
+        "default": "0.03",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Clearcoat Roughness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "IOR",
+        "default": "1.45",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "IOR",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Transmission",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Transmission",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Transmission Roughness",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Transmission Roughness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Emission",
+        "default": "(0.0, 0.0, 0.0, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Emission",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Emission Strength",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Emission Strength",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Alpha",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Alpha",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Clearcoat Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Clearcoat Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Tangent",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Tangent",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Weight",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Weight",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "BSDF",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "BSDF",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeBsdfHairPrincipled": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.018, 0.006, 0.002, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Melanin",
+        "default": "0.8",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Melanin",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Melanin Redness",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Melanin Redness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Tint",
+        "default": "(1.0, 1.0, 1.0, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Tint",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Absorption Coefficient",
+        "default": "(0.246, 0.52, 1.365)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Absorption Coefficient",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Roughness",
+        "default": "0.3",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Roughness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Radial Roughness",
+        "default": "0.3",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Radial Roughness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Coat",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Coat",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "IOR",
+        "default": "1.55",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "IOR",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Offset",
+        "default": "math.radians(2.0)",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatAngle",
+        "name": "Offset",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Random Color",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Random Color",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Random Roughness",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Random Roughness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Random",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Random",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Weight",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Weight",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "BSDF",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "BSDF",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeVolumePrincipled": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.5, 0.5, 0.5, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Color Attribute",
+        "default": "",
+        "type": "STRING",
+        "bl_idname": "NodeSocketString",
+        "name": "Color Attribute",
+        "bl_label": "String",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Density",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Density",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Density Attribute",
+        "default": "density",
+        "type": "STRING",
+        "bl_idname": "NodeSocketString",
+        "name": "Density Attribute",
+        "bl_label": "String",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Anisotropy",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Anisotropy",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Absorption Color",
+        "default": "(0.0, 0.0, 0.0, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Absorption Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Emission Strength",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Emission Strength",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Emission Color",
+        "default": "(1.0, 1.0, 1.0, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Emission Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Blackbody Intensity",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Blackbody Intensity",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Blackbody Tint",
+        "default": "(1.0, 1.0, 1.0, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Blackbody Tint",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Temperature",
+        "default": "1000.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Temperature",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Temperature Attribute",
+        "default": "temperature",
+        "type": "STRING",
+        "bl_idname": "NodeSocketString",
+        "name": "Temperature Attribute",
+        "bl_label": "String",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Weight",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Weight",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Volume",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "Volume",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeBsdfRefraction": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(1.0, 1.0, 1.0, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Roughness",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Roughness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "IOR",
+        "default": "1.45",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "IOR",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Weight",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Weight",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "BSDF",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "BSDF",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeEeveeSpecular": {
+    "inputs": [
+      {
+        "identifier": "Base Color",
+        "default": "(0.8, 0.8, 0.8, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Base Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Specular",
+        "default": "(0.03, 0.03, 0.03, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Specular",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Roughness",
+        "default": "0.2",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Roughness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Emissive Color",
+        "default": "(0.0, 0.0, 0.0, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Emissive Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Transparency",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Transparency",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Clear Coat",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Clear Coat",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Clear Coat Roughness",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Clear Coat Roughness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Clear Coat Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Clear Coat Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Ambient Occlusion",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Ambient Occlusion",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Weight",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Weight",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "BSDF",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "BSDF",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeSubsurfaceScattering": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.8, 0.8, 0.8, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Scale",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Scale",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Radius",
+        "default": "(1.0, 0.2, 0.1)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Radius",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "IOR",
+        "default": "1.4",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "IOR",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Anisotropy",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Anisotropy",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Weight",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Weight",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "BSSRDF",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "BSSRDF",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeBsdfToon": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.8, 0.8, 0.8, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Size",
+        "default": "0.5",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Size",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Smooth",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Smooth",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Weight",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Weight",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "BSDF",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "BSDF",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeBsdfTranslucent": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.8, 0.8, 0.8, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Weight",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Weight",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "BSDF",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "BSDF",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeBsdfTransparent": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(1.0, 1.0, 1.0, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Weight",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Weight",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "BSDF",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "BSDF",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeBsdfVelvet": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.8, 0.8, 0.8, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Sigma",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Sigma",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Weight",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Weight",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "BSDF",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "BSDF",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeVolumeAbsorption": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.8, 0.8, 0.8, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Density",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Density",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Weight",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Weight",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Volume",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "Volume",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeVolumeScatter": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.8, 0.8, 0.8, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Density",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Density",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Anisotropy",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Anisotropy",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Weight",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Weight",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Volume",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "Volume",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeTexBrick": {
+    "inputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Color1",
+        "default": "(0.8, 0.8, 0.8, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color1",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Color2",
+        "default": "(0.2, 0.2, 0.2, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color2",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Mortar",
+        "default": "(0.0, 0.0, 0.0, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Mortar",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Scale",
+        "default": "5.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Scale",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Mortar Size",
+        "default": "0.02",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Mortar Size",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Mortar Smooth",
+        "default": "0.1",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Mortar Smooth",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Bias",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Bias",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Brick Width",
+        "default": "0.5",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Brick Width",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Row Height",
+        "default": "0.25",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Row Height",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Fac",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Fac",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeTexChecker": {
+    "inputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Color1",
+        "default": "(0.8, 0.8, 0.8, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color1",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Color2",
+        "default": "(0.2, 0.2, 0.2, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color2",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Scale",
+        "default": "5.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Scale",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Fac",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Fac",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeTexEnvironment": {
+    "inputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeTexGradient": {
+    "inputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Fac",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Fac",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeTexIES": {
+    "inputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Strength",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Strength",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Fac",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Fac",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeTexImage": {
+    "inputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Alpha",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Alpha",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeTexMagic": {
+    "inputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Scale",
+        "default": "5.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Scale",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Distortion",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Distortion",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Fac",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Fac",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeTexMusgrave": {
+    "inputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "W",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "W",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Scale",
+        "default": "5.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Scale",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Detail",
+        "default": "2.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Detail",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Dimension",
+        "default": "2.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Dimension",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Lacunarity",
+        "default": "2.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Lacunarity",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Offset",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Offset",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Gain",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Gain",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Fac",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Fac",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeTexNoise": {
+    "inputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "W",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "W",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Scale",
+        "default": "5.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Scale",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Detail",
+        "default": "2.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Detail",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Roughness",
+        "default": "0.5",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Roughness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Distortion",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Distortion",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Fac",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Fac",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeTexPointDensity": {
+    "inputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Density",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Density",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeTexSky": {
+    "inputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeTexVoronoi": {
+    "inputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "W",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "W",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Scale",
+        "default": "5.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Scale",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Smoothness",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Smoothness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Exponent",
+        "default": "0.5",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Exponent",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Randomness",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Randomness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Distance",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Distance",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Position",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Position",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "W",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "W",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Radius",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Radius",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeTexWave": {
+    "inputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Scale",
+        "default": "5.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Scale",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Distortion",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Distortion",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Detail",
+        "default": "2.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Detail",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Detail Scale",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Detail Scale",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Detail Roughness",
+        "default": "0.5",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Detail Roughness",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Phase Offset",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Phase Offset",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Fac",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Fac",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeTexWhiteNoise": {
+    "inputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "W",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "W",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Value",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Value",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeBrightContrast": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(1.0, 1.0, 1.0, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Bright",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Bright",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Contrast",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Contrast",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeGamma": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(1.0, 1.0, 1.0, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Gamma",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatUnsigned",
+        "name": "Gamma",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeHueSaturation": {
+    "inputs": [
+      {
+        "identifier": "Hue",
+        "default": "0.5",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Hue",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Saturation",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Saturation",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Value",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Value",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Fac",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Fac",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Color",
+        "default": "(0.8, 0.8, 0.8, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeInvert": {
+    "inputs": [
+      {
+        "identifier": "Fac",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Fac",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeLightFalloff": {
+    "inputs": [
+      {
+        "identifier": "Strength",
+        "default": "100.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Strength",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Smooth",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Smooth",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Quadratic",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Quadratic",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Linear",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Linear",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Constant",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Constant",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeRGBCurve": {
+    "inputs": [
+      {
+        "identifier": "Fac",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Fac",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Color",
+        "default": "(1.0, 1.0, 1.0, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeBump": {
+    "inputs": [
+      {
+        "identifier": "Strength",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Strength",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Distance",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Distance",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Height",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Height",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeDisplacement": {
+    "inputs": [
+      {
+        "identifier": "Height",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Height",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Midlevel",
+        "default": "0.5",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Midlevel",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Scale",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Scale",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Displacement",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Displacement",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeMapping": {
+    "inputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Location",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVectorTranslation",
+        "name": "Location",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Rotation",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVectorEuler",
+        "name": "Rotation",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Scale",
+        "default": "(1.0, 1.0, 1.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVectorXYZ",
+        "name": "Scale",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeNormal": {
+    "inputs": [
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 1.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVectorDirection",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 1.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVectorDirection",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Dot",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Dot",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeNormalMap": {
+    "inputs": [
+      {
+        "identifier": "Strength",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Strength",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Color",
+        "default": "(0.5, 0.5, 1.0, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Normal",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Normal",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeVectorCurve": {
+    "inputs": [
+      {
+        "identifier": "Fac",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Fac",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeVectorDisplacement": {
+    "inputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Vector",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Midlevel",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Midlevel",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Scale",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Scale",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Displacement",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Displacement",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeVectorRotate": {
+    "inputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Center",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Center",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Axis",
+        "default": "(0.0, 0.0, 1.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Axis",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Angle",
+        "default": "math.radians(0.0)",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatAngle",
+        "name": "Angle",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Rotation",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVectorEuler",
+        "name": "Rotation",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeVectorTransform": {
+    "inputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.5, 0.5, 0.5)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeBlackbody": {
+    "inputs": [
+      {
+        "identifier": "Temperature",
+        "default": "1500.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Temperature",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeClamp": {
+    "inputs": [
+      {
+        "identifier": "Value",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Value",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Min",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Min",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Max",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Max",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Result",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Result",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeValToRGB": {
+    "inputs": [
+      {
+        "identifier": "Fac",
+        "default": "0.5",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Fac",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Alpha",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Alpha",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeCombineColor": {
+    "inputs": [
+      {
+        "identifier": "Red",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Red",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Green",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Green",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Blue",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Blue",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeCombineXYZ": {
+    "inputs": [
+      {
+        "identifier": "X",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "X",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Y",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Y",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Z",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Z",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeFloatCurve": {
+    "inputs": [
+      {
+        "identifier": "Factor",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Factor",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Value",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Value",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Value",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Value",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeMapRange": {
+    "inputs": [
+      {
+        "identifier": "Value",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Value",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "From Min",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "From Min",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "From Max",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "From Max",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "To Min",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "To Min",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "To Max",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "To Max",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Steps",
+        "default": "4.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Steps",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "From_Min_FLOAT3",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "From Min",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "From_Max_FLOAT3",
+        "default": "(1.0, 1.0, 1.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "From Max",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "To_Min_FLOAT3",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "To Min",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "To_Max_FLOAT3",
+        "default": "(1.0, 1.0, 1.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "To Max",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Steps_FLOAT3",
+        "default": "(4.0, 4.0, 4.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Steps",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Result",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Result",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeMath": {
+    "inputs": [
+      {
+        "identifier": "Value",
+        "default": "0.5",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Value",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Value_001",
+        "default": "0.5",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Value",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Value_002",
+        "default": "0.5",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Value",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Value",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Value",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeMix": {
+    "inputs": [
+      {
+        "identifier": "Factor_Float",
+        "default": "0.5",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloatFactor",
+        "name": "Factor",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Factor_Vector",
+        "default": "(0.5, 0.5, 0.5)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Factor",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "A_Float",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "A",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "B_Float",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "B",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "A_Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "A",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "B_Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "B",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "A_Color",
+        "default": "(0.5, 0.5, 0.5, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "A",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "B_Color",
+        "default": "(0.5, 0.5, 0.5, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "B",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Result_Float",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Result",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Result_Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Result",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Result_Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Result",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeRGBToBW": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.5, 0.5, 0.5, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Val",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Val",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeSeparateColor": {
+    "inputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.8, 0.8, 0.8, 1.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Red",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Red",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Green",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Green",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Blue",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Blue",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeSeparateXYZ": {
+    "inputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "X",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "X",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Y",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Y",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Z",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Z",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeShaderToRGB": {
+    "inputs": [
+      {
+        "identifier": "Shader",
+        "default": "None",
+        "type": "SHADER",
+        "bl_idname": "NodeSocketShader",
+        "name": "Shader",
+        "bl_label": "Shader",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Alpha",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Alpha",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeVectorMath": {
+    "inputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Vector_001",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Vector_002",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Scale",
+        "default": "1.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Scale",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Vector",
+        "default": "(0.0, 0.0, 0.0)",
+        "type": "VECTOR",
+        "bl_idname": "NodeSocketVector",
+        "name": "Vector",
+        "bl_label": "Vector",
+        "display_shape": "CIRCLE"
+      },
+      {
+        "identifier": "Value",
+        "default": "0.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Value",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  },
+  "ShaderNodeWavelength": {
+    "inputs": [
+      {
+        "identifier": "Wavelength",
+        "default": "500.0",
+        "type": "FLOAT",
+        "bl_idname": "NodeSocketFloat",
+        "name": "Wavelength",
+        "bl_label": "Float",
+        "display_shape": "CIRCLE"
+      }
+    ],
+    "outputs": [
+      {
+        "identifier": "Color",
+        "default": "(0.0, 0.0, 0.0, 0.0)",
+        "type": "RGBA",
+        "bl_idname": "NodeSocketColor",
+        "name": "Color",
+        "bl_label": "Color",
+        "display_shape": "CIRCLE"
+      }
+    ]
+  }
+}

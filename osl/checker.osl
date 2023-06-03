@@ -1,0 +1,19 @@
+shader checker(
+    point Vector = P,
+    float Scale = 8,
+    color Color1 = color(1, 0, 0), // red
+    color Color2 = color(0, 1, 0), // green
+
+    output color Color = 0)
+{
+    point p = Vector * Scale;
+    int x = (int) mod(p[0], 2.0);
+    int y = (int) mod(p[1], 2.0);
+    int z = (int) mod(p[2], 2.0);
+
+    if( ((x % 2) ^ (y % 2)) == (z % 2) ){
+        Color = Color1;
+    } else {
+        Color = Color2;
+    }
+}

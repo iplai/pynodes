@@ -1,0 +1,1339 @@
+[
+  {
+    "bl_idname": "GeometryNodeAttributeStatistic",
+    "path": "Attribute > Attribute Statistic Node",
+    "documentation": "The Attribute Statistic node evaluates a field on a geometry and outputs a statistic about the entire data set.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/attribute_statistic.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeAttributeStatistic.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeAttributeDomainSize",
+    "path": "Attribute > Domain Size Node",
+    "documentation": "The Domain Size outputs the size of an attribute domain on the selected geometry type, for example, the number of edges in a mesh, or the number of points in a point cloud.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/domain_size.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeAttributeDomainSize.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeBlurAttribute",
+    "path": "Attribute > Blur Attribute Node",
+    "documentation": "The Blur Attribute node smooths attribute values between neighboring geometry elements.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/blur_attribute.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeBlurAttribute.jpg"
+  },
+  {
+    "bl_idname": "GeometryNodeCaptureAttribute",
+    "path": "Attribute > Capture Attribute Node",
+    "documentation": "The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCaptureAttribute.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeRemoveAttribute",
+    "path": "Attribute > Remove Named Attribute Node",
+    "documentation": "The Remove Named Attribute node deletes an attribute with a certain name from its geometry input. Any attribute that exists on geometry data will be automatically propagated when the geometry storing it is changed, which can be an expensive operation, so using this node can be a simple way to optimize the performance of a geometry node tree or even to lower the memory usage of the entire scene.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/remove_named_attribute.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeRemoveNamedAttribute.png"
+  },
+  {
+    "bl_idname": "GeometryNodeStoreNamedAttribute",
+    "path": "Attribute > Store Named Attribute Node",
+    "documentation": "The Store Named Attribute node stores the result of a field on a geometry as an attribute with the specified name. If the attribute already exists, the data type and domain will be updated to the values chosen in the node. However, keep in mind that the domain and data type of Built-In Attributes cannot be changed.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/store_named_attribute.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeStoreNamedAttribute.png"
+  },
+  {
+    "bl_idname": "FunctionNodeInputBool",
+    "path": "Input > Constant > Boolean Node",
+    "documentation": "The Boolean node provides a Boolean value.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/input/constant/boolean.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeInputBool.webp"
+  },
+  {
+    "bl_idname": "FunctionNodeInputColor",
+    "path": "Input > Constant > Color Node",
+    "documentation": "The Color node outputs the color value chosen with the color picker widget.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/input/constant/color.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeInputColor.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInputImage",
+    "path": "Input > Constant > Image Node",
+    "documentation": "The Image node provides access to a image file which allows you to conveniently enter and switch images for multiple nodes in the tree.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/input/constant/image.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeImage.jpg"
+  },
+  {
+    "bl_idname": "FunctionNodeInputInt",
+    "path": "Input > Constant > Integer Node",
+    "documentation": "The Integer node provides an integer value.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/input/constant/integer.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeInputInt.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInputMaterial",
+    "path": "Input > Constant > Material Node",
+    "documentation": "The Material input node outputs a single material. It can be connected to other material sockets to make using the same material name in multiple places more convenient.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/input/constant/material.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputMaterial.webp"
+  },
+  {
+    "bl_idname": "FunctionNodeInputString",
+    "path": "Input > Constant > String Node",
+    "documentation": "The String input node creates a single string. It can be connected to attribute name sockets to make using the same attribute name in multiple places more convenient.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/input/constant/string.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeInputString.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeValue",
+    "path": "Input > Constant > Value Node",
+    "documentation": "The Value Node is a simple node to input numerical values to other nodes in the tree.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/input/constant/value.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeValue.webp"
+  },
+  {
+    "bl_idname": "FunctionNodeInputVector",
+    "path": "Input > Constant > Vector Node",
+    "documentation": "The Vector input node creates a single vector.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/input/constant/vector.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeInputVector.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeCollectionInfo",
+    "path": "Input > Scene > Collection Info Node",
+    "documentation": "The Collection Info node gets information from collections. This can be useful to control parameters in the geometry node tree with an external collection.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/input/scene/collection_info.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCollectionInfo.jpeg"
+  },
+  {
+    "bl_idname": "GeometryNodeImageInfo",
+    "path": "Input > Scene > Image Info Node",
+    "documentation": "The Image Info node gets information from image and animation. This can be useful to generate parameters in the geometry node for arbitrary images. Image information can be either general or frame-specific.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/input/scene/image_info.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeImageInfo.jpg"
+  },
+  {
+    "bl_idname": "GeometryNodeIsViewport",
+    "path": "Input > Scene > Is Viewport Node",
+    "documentation": "The Is Viewport node outputs true when geometry nodes are evaluated for the viewport. For the final render the node outputs false.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/input/scene/is_viewport.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeIsViewport.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeObjectInfo",
+    "path": "Input > Scene > Object Info Node",
+    "documentation": "The Object Info node gets information from objects. This can be useful to control parameters in the geometry node tree with an external object, either directly by using its geometry, or via its transformation properties.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/input/scene/object_info.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeObjectInfo.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSelfObject",
+    "path": "Input > Scene > Self Object Node",
+    "documentation": "The Self Object node outputs the object that contains the geometry nodes modifier currently being executed. This can be used to retrieve the original transforms.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/input/scene/self_object.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSelfObject.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeViewer",
+    "path": "Output > Viewer Node",
+    "documentation": "The Viewer node allows viewing data from inside a geometry node group in the Spreadsheet Editor and the 3D Viewport.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/output/viewer.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeViewer.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInputID",
+    "path": "Geometry > Read > ID Node",
+    "documentation": "The ID node gives an integer value indicating the stable random identifier of each element on the point domain, which is stored in the id attribute.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/read/id.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputID.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInputIndex",
+    "path": "Geometry > Read > Index Node",
+    "documentation": "The Index node gives an integer value indicating the position of each element in the list, starting at zero. This depends on the internal order of the data in the geometry, which is not necessarily visible in the 3D Viewport. However, the index value is visible in the left-most column in the Spreadsheet Editor.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/read/input_index.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputIndex.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInputNamedAttribute",
+    "path": "Geometry > Read > Named Attribute Node",
+    "documentation": "The Named Attribute node outputs the data of an attribute based on the context of where it is connected (the Field Context).",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/read/named_attribute.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeNamedAttribute.png"
+  },
+  {
+    "bl_idname": "GeometryNodeInputNormal",
+    "path": "Geometry > Read > Normal Node",
+    "documentation": "The Normal node returns a vector for each evaluated point indicating the normal direction. The output can depend on the attribute domain used in the node evaluating the field, but the output is always a normalized unit vector.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/read/normal.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputNormal.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInputPosition",
+    "path": "Geometry > Read > Position Node",
+    "documentation": "The Position node outputs a vector of each point of the geometry the node is connected to.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/read/position.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputPosition.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInputRadius",
+    "path": "Geometry > Read > Radius Node",
+    "documentation": "The Radius node outputs the radius value at each point on the evaluated geometry. For curves, this value is used for things like determining the size of the mesh created in the Curve to Mesh node. For point clouds, the value is used for the display size of the point in the viewport.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/read/radius.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputRadius.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSetID",
+    "path": "Geometry > Write > Set ID Node",
+    "documentation": "The Set ID node fills the id attribute on the input geometry. If the attribute does not exist yet, it will be created with a default value of zero. The ID is also created by the Distribute Points on Faces, and it is used in the Random Value Node and other nodes if it exists.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/write/set_id.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSetID.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSetPosition",
+    "path": "Geometry > Write > Set Position Node",
+    "documentation": "The Set Position node controls the location of each point, the same way as controlling the position attribute. If the input geometry contains instances, this node will affect the location of the origin of each instance.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/write/set_position.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSetPosition.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeProximity",
+    "path": "Geometry > Sample > Geometry Proximity Node",
+    "documentation": "The Geometry Proximity node computes the closest location on the target geometry.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/geometry_proximity.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeProximity.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeRaycast",
+    "path": "Geometry > Sample > Raycast Node",
+    "documentation": "The Raycast node intersects rays from one geometry onto another. The source geometry is defined by the context of the node that the Raycast node is connected to. Each ray computes hit points on the target mesh and outputs normals, distances and any surface attribute specified.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/raycast.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeRaycast.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSampleIndex",
+    "path": "Geometry > Sample > Sample Index Node",
+    "documentation": "The Sample Index node retrieves values from a source geometry at a specific index.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/sample_index.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSampleIndex.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSampleNearest",
+    "path": "Geometry > Sample > Sample Nearest Node",
+    "documentation": "The Sample Nearest node retrieves the index of the geometry element in its input geometry that is closest to the input position. This node is similar to the Geometry Proximity Node, but it outputs the index of the closest element instead of its distance from the current location.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/sample_nearest.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSampleNearest.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeBoundBox",
+    "path": "Geometry > Operations > Bounding Box Node",
+    "documentation": "The Bounding Box node creates a box mesh with the minimum volume that encapsulates the geometry of the input. The node also can output the vector positions of the bounding dimensions.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/bounding_box.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeBoundBox.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeConvexHull",
+    "path": "Geometry > Operations > Convex Hull Node",
+    "documentation": "The Convex Hull node outputs a convex mesh that is enclosing all points in the input geometry.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/convex_hull.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeConvexHull.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeDeleteGeometry",
+    "path": "Geometry > Operations > Delete Geometry Node",
+    "documentation": "The Delete Geometry node removes the selected part of a geometry. It behaves similarly to the Delete tool in Edit Mode. The type of elements to be deleted can be specified with the domain and mode properties.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/delete_geometry.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeDeleteGeometry.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeDuplicateElements",
+    "path": "Geometry > Operations > Duplicate Elements Node",
+    "documentation": "The Duplicate Elements node creates a new geometry with the specified elements from the input duplicated an arbitrary number of times. The positions of elements are not changed, so all of the duplicates will be at the exact same location.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/duplicate_elements.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeDuplicateElements.png"
+  },
+  {
+    "bl_idname": "GeometryNodeMergeByDistance",
+    "path": "Geometry > Operations > Merge by Distance Node",
+    "documentation": "The Merge by Distance node merges selected mesh vertices or point cloud points within a given distance, merging surrounding geometry where necessary. This operation is similar to the Merge by Distance operator or the Weld Modifier.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/merge_by_distance.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeMergeByDistance.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeTransform",
+    "path": "Geometry > Operations > Transform Geometry Node",
+    "documentation": "The Transform Geometry Node allows you to move, rotate or scale the geometry. The transformation is applied to the entire geometry, and not per element. The Set Position Node is used for moving individual points of a geometry. For transforming instances individually, the instance translate, rotate, or scale nodes can be used.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/transform_geometry.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeTransformGeometry.jpg"
+  },
+  {
+    "bl_idname": "GeometryNodeSeparateComponents",
+    "path": "Geometry > Operations > Separate Components Node",
+    "documentation": "The Separate Components node splits a geometry into a separate output for each type of data in the geometry.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/separate_components.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSeparateComponents.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSeparateGeometry",
+    "path": "Geometry > Operations > Separate Geometry Node",
+    "documentation": "The Separate Geometry node produces two geometry outputs. Based on the Selection input, the input geometry is split between the two outputs.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/separate_geometry.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSeparateGeometry.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeJoinGeometry",
+    "path": "Geometry > Join Geometry Node",
+    "documentation": "The Join Geometry node merges separately generated geometries into a single one. If the geometry inputs contain different types of data, the output will also contain different data types.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/join_geometry.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeJoinGeometry.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeGeometryToInstance",
+    "path": "Geometry > Geometry to Instance Node",
+    "documentation": "The Geometry to Instance node turns every connected input geometry into an instance. Visually, the node has a similar result as the Join Geometry Node, but it outputs the result as separate instances instead. The geometry data itself isn\u2019t actually joined.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/geometry_to_instance.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeGeometryToInstance.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInputCurveHandlePositions",
+    "path": "Curve > Read > Curve Handle Position Node",
+    "documentation": "The Curve Handle Position node outputs the position of each of a B\u00e9zier spline\u2019s handles. If the curve does not contain B\u00e9zier splines, the node will output zero.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/read/curve_handle_position.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputCurveHandlePositions.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeCurveLength",
+    "path": "Curve > Read > Curve Length Node",
+    "documentation": "The Curve Length node outputs the length of all splines added together.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/read/curve_length.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveLength.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInputTangent",
+    "path": "Curve > Read > Curve Tangent Node",
+    "documentation": "The Curve Tangent node outputs the direction that a curve points in at each control point, depending on the direction of the curve (which can be controlled with the Reverse Curve Node). The output values are normalized vectors.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/read/curve_tangent.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputTangent.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInputCurveTilt",
+    "path": "Curve > Read > Curve Tilt Node",
+    "documentation": "The Curve Tilt node outputs the angle used to turn the curve normal around the direction of the curve tangent in its evaluated points. Keep in mind that the output is per control point, just like the values that can be controlled in curve Edit Mode. For NURBS and B\u00e9zier splines, the values will be interpolated to the final evaluated points.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/read/curve_tilt.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputCurveTilt.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeCurveEndpointSelection",
+    "path": "Curve > Read > Endpoint Selection Node",
+    "documentation": "The Endpoint Selection node provides a selection for an arbitrary number of endpoints in each spline in a curve.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/read/endpoint_selection.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveEndpointSelection.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeCurveHandleTypeSelection",
+    "path": "Curve > Read > Handle Type Selection Node",
+    "documentation": "Creates a selection based on the handle types of the control points.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/read/handle_type_selection.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveHandleTypeSelection.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInputSplineCyclic",
+    "path": "Curve > Read > Is Spline Cyclic Node",
+    "documentation": "The Is Spline Cyclic controls whether each of the curve splines start and endpoints form a connection. Its output corresponds to the built-in cyclic attribute on the curve spline domain.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/read/is_spline_cyclic.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputSplineCyclic.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSplineLength",
+    "path": "Curve > Read > Spline Length Node",
+    "documentation": "The Spline Length node outputs the total length of each spline, as a distance, or a number of points. This is different than the Curve Length node, which adds up the total length for all of the curve\u2019s splines.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/read/spline_length.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSplineLength.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSplineParameter",
+    "path": "Curve > Read > Spline Parameter Node",
+    "documentation": "The Spline Parameter node outputs how far along each spline a control point is. The Factor output is different from dividing the index by the total number of control points, because the control points might not be equally spaced along the curve.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/read/spline_parameter.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSplineParameter.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInputSplineResolution",
+    "path": "Curve > Read > Spline Resolution Node",
+    "documentation": "The Spline Resolution outputs the number of evaluated curve points that will be generated for every control point on the spline. This node works for NURBS and B\u00e9zier splines, for poly splines, there is a one-to-one correspondence between original points and evaluated points, so the resolution value will be 1.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/read/spline_resolution.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputSplineResolution.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSampleCurve",
+    "path": "Curve > Sample > Sample Curve Node",
+    "documentation": "The Sample Curve calculates a point on a curve at a certain distance from the start of the curve, specified by the length or factor inputs. It also outputs data retrieved from that position on the curve. The sampled values are linearly interpolated from the values at the evaluated curve points at each side of the sampled point.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/sample/sample_curve.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSampleCurve.png"
+  },
+  {
+    "bl_idname": "GeometryNodeSetCurveNormal",
+    "path": "Curve > Write > Set Curve Normal Node",
+    "documentation": "The Set Curve Normal controls the method used to calculate curve normals for every curve.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/write/set_curve_normal.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSetCurveNormal.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSetCurveRadius",
+    "path": "Curve > Write > Set Curve Radius Node",
+    "documentation": "The Set Curve Radius controls the radius of the curve, used for operations like the size of the profile in the Curve to Mesh node. The value is set for every control point, and is then interpolated to each evaluated point in between the control points.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/write/set_curve_radius.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSetCurveRadius.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSetCurveTilt",
+    "path": "Curve > Write > Set Curve Tilt Node",
+    "documentation": "The Set Curve Tilt controls the tilt angle at each curve control point. That angle rotates normal vector which is generated at each point when evaluating the curve. The normal then can be retrieved with the Normal Node.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/write/set_curve_tilt.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSetCurveTilt.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSetCurveHandlePositions",
+    "path": "Curve > Write > Set Handle Positions Node",
+    "documentation": "The Set Handle Positions node sets the positions for the handles of B\u00e9zier curves. They can be used to alter the generated shape of the curve. The input node for this data is the Curve Handle Position Node. See the B\u00e9zier curves page for more details.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/write/set_handle_positions.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSetCurveHandlePositions.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeCurveSetHandles",
+    "path": "Curve > Write > Set Handle Type Node",
+    "documentation": "Sets the handle type for the points on the B\u00e9zier curve that are in the selection.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/write/set_handle_type.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveSetHandles.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSetSplineCyclic",
+    "path": "Curve > Write > Set Spline Cyclic Node",
+    "documentation": "The Set Spline Cyclic controls whether each spline will loop back on itself. Each spline has the same number of control points whether or not it is set as cyclic. But when displaying in the viewport or for operations with other nodes, a connection will be made between the first and last control points.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/write/set_spline_cyclic.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSetSplineCyclic.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSetSplineResolution",
+    "path": "Curve > Write > Set Spline Resolution Node",
+    "documentation": "The Set Spline Resolution node sets the value for how many evaluated points should be generated on the curve for every control point. It only has an effect on NURBS and B\u00e9zier splines. The evaluated points are displayed in the viewport, used in the Curve to Mesh Node node, and optionally used in the Resample Curve Node.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/write/set_spline_resolution.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSetSplineResolution.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeCurveSplineType",
+    "path": "Curve > Write > Set Spline Type Node",
+    "documentation": "Sets the spline type for the splines in the curve component that are in the selection.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/write/set_spline_type.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveSplineType.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeCurveToMesh",
+    "path": "Curve > Operations > Curve to Mesh Node",
+    "documentation": "The Curve to Mesh node converts all splines of a curve to a mesh. Optionally, a profile curve can be provided to give the curve a custom shape.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/operations/curve_to_mesh.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveToMesh.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeCurveToPoints",
+    "path": "Curve > Operations > Curve to Points Node",
+    "documentation": "The Curve to Points node generates a point cloud from a curve.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/operations/curve_to_points.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveToPoints.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeDeformCurvesOnSurface",
+    "path": "Curve > Operations > Deform Curves on Surface Node",
+    "documentation": "The Deform Curves on Surface node translates and rotates each curve based on the difference in its root position. The root position is defined by UV coordinates stored on each curve and the UV Map selected for the purpose in the Curves surface settings.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/operations/deform_curves_on_surface.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryDeformCurvesOnSurface.png"
+  },
+  {
+    "bl_idname": "GeometryNodeFillCurve",
+    "path": "Curve > Operations > Fill Curve Node",
+    "documentation": "The Fill Curve node generates a mesh using the constrained Delaunay triangulation algorithm with the curves as boundaries. The mesh is only generated flat with a local Z of 0.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/operations/fill_curve.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeFillCurve.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeFilletCurve",
+    "path": "Curve > Operations > Fillet Curve Node",
+    "documentation": "The Fillet Curve rounds corners on curve control points, similar to the effect of the Bevel Modifier on a 2D mesh. However, a key difference is that the rounded portions created by the Fillet Curve node are always portions of a circle.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/operations/fillet_curve.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeFilletCurve.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInterpolateCurves",
+    "path": "Curve > Operations > Interpolate Curves Node",
+    "documentation": "Generate new curves on points by interpolating between existing curves. This is useful to have a smaller set of original curves to make editing easier and faster while still generating high-density curves for the viewport or a final render.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/operations/interpolate_curves.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInterpolateCurves.png"
+  },
+  {
+    "bl_idname": "GeometryNodeResampleCurve",
+    "path": "Curve > Operations > Resample Curve Node",
+    "documentation": "The Resample Curve node creates a poly spline for each input spline. In the Count and Length modes, the control points of the new poly splines will have uniform spacing.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/operations/resample_curve.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeResampleCurve.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeReverseCurve",
+    "path": "Curve > Operations > Reverse Curve Node",
+    "documentation": "The Reverse Curve node swaps the start and end of splines. The shape of the splines is not changed.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/operations/reverse_curve.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeReverseCurve.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSubdivideCurve",
+    "path": "Curve > Operations > Subdivide Curve Node",
+    "documentation": "The Subdivide Curve node adds more control points in between existing control points on the curve input. For B\u00e9zier and poly splines, the shape of the spline will not be changed at all.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/operations/subdivide_curve.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSubdivideCurve.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeTrimCurve",
+    "path": "Curve > Operations > Trim Curve Node",
+    "documentation": "The Trim Curve node shortens each spline in the curve by removing sections at the start and end of each spline.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/operations/trim_curve.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeTrimCurve.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeCurveArc",
+    "path": "Curve > Primitives > Arc Node",
+    "documentation": "The Arc node generates a poly spline arc. The node has two modes, Radius and Points.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/primitives/arc.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveArc.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeCurvePrimitiveBezierSegment",
+    "path": "Curve > Primitives > B\u00e9zier Segment Node",
+    "documentation": "The B\u00e9zier Segment node generates a 2D B\u00e9zier spline from the given control points and handles.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/primitives/bezier_segment.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurvePrimitiveBezierSegment.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeCurvePrimitiveCircle",
+    "path": "Curve > Primitives > Curve Circle Node",
+    "documentation": "The Curve Circle node generates a poly spline circle.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/primitives/curve_circle.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurvePrimitiveCircle.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeCurvePrimitiveLine",
+    "path": "Curve > Primitives > Curve Line Node",
+    "documentation": "The Curve Line node generates poly spline line.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/primitives/curve_line.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurvePrimitiveLine.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeCurveSpiral",
+    "path": "Curve > Primitives > Curve Spiral Node",
+    "documentation": "The Curve Spiral node generates a poly spline in a spiral shape. It can be used to create springs or other similar objects. By default the spiral twists in a clockwise fashion.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/primitives/curve_spiral.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveSpiral.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeCurveQuadraticBezier",
+    "path": "Curve > Primitives > Quadratic B\u00e9zier Node",
+    "documentation": "The Quadratic B\u00e9zier node generates a poly spline curve from the given control points. The generated shape is a parabola.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/primitives/quadratic_bezier.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveQuadraticBezier.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeCurvePrimitiveQuadrilateral",
+    "path": "Curve > Primitives > Quadrilateral Node",
+    "documentation": "The Quadrilateral node generates a polygon with four points, with different modes.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/primitives/quadrilateral.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurvePrimitiveQuadrilateral.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeCurveStar",
+    "path": "Curve > Primitives > Star Node",
+    "documentation": "The Star node generates a poly spline in a star pattern by connecting alternating points of two circles. The points on the inner circle are offset by a rotation so that they lie in between the points on the outer circle. This offset can be changed with the twist input.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/primitives/star.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveStar.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeCurveOfPoint",
+    "path": "Curve > Topology > Curve of Point Node",
+    "documentation": "The Curve of Point node retrieves the index of the curve a control point is part of. This node is conceptually similar to the Face of Corner Node.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/topology/curve_of_point.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveOfPoint.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeOffsetPointInCurve",
+    "path": "Curve > Topology > Offset Point in Curve Node",
+    "documentation": "The Offset Point in Curve node retrieves other points in the same curve as the input control point. This is like starting at a specific control point and walking along neighboring points toward the start or end of the curve.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/topology/offset_point_in_curve.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeOffsetPointInCurve.webp"
+  },
+  {
+    "bl_idname": "GeometryNodePointsOfCurve",
+    "path": "Curve > Topology > Points of Curve Node",
+    "documentation": "The Points of Curve node retrieves indices of specific control points in a curve.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/topology/points_of_curve.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodePointsOfCurve.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInstanceOnPoints",
+    "path": "Instances > Instance on Points Node",
+    "documentation": "The Instance on Points node adds a reference to a geometry to each of the points present in the input geometry. Instances are a fast way to add the same geometry to a scene many times without duplicating the underlying data. The node works on any geometry type with a Point domain, including meshes, point clouds, and curve control points.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/instances/instance_on_points.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInstanceOnPoints.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInstancesToPoints",
+    "path": "Instances > Instances to Points Node",
+    "documentation": "The Instances to Points node generates points at the origins of top-level instances. Attributes on the instance domain are moved to the point cloud points.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/instances/instances_to_points.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInstancesToPoints.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeRotateInstances",
+    "path": "Instances > Rotate Instances Node",
+    "documentation": "The Rotate Instances node rotates geometry instances in local or global space.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/instances/rotate_instances.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeRotateInstances.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeScaleInstances",
+    "path": "Instances > Scale Instances Node",
+    "documentation": "The Scale Instances node scales geometry instances in local or global space.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/instances/scale_instances.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeScaleInstances.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeTranslateInstances",
+    "path": "Instances > Translate Instances Node",
+    "documentation": "The Translate Instances node moves top-level geometry instances in local or global space.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/instances/translate_instances.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeTranslateInstances.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeRealizeInstances",
+    "path": "Instances > Realize Instances Node",
+    "documentation": "The Realize Instances node makes any instances (efficient duplicates of the same geometry) into real geometry data. This makes it possible to affect each instance individually, whereas without this node, the exact same changes are applied to every instance of the same geometry. However, performance can become much worse when the input contains many instances of complex geometry, which is a fundamental limitation when procedurally processing geometry.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/instances/realize_instances.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeRealizeInstances.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInputInstanceRotation",
+    "path": "Instances > Instance Rotation Node",
+    "documentation": "The Instance Rotation outputs the XYZ Euler rotation of each top-level instance in the local space of the modifier object.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/instances/instance_rotation.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputInstanceRotation.png"
+  },
+  {
+    "bl_idname": "GeometryNodeInputInstanceScale",
+    "path": "Instances > Instance Scale Node",
+    "documentation": "The Instance Scale outputs the size of top-level instances on each axis in the local space of the modifier object.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/instances/instance_scale.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputInstanceScale.png"
+  },
+  {
+    "bl_idname": "GeometryNodeInputMeshEdgeAngle",
+    "path": "Mesh > Read > Edge Angle Node",
+    "documentation": "The Edge Angle node calculates the angle in radians between two faces that meet at an edge. For the Face, Face Corner, and Point domains, the node uses simple domain interpolation to move values from the mesh\u2019s edges.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/read/edge_angle.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputMeshEdgeAngle.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInputMeshEdgeNeighbors",
+    "path": "Mesh > Read > Edge Neighbors Node",
+    "documentation": "The Edge Neighbors node outputs topology information relating to each edge of a mesh.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/read/edge_neighbors.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputMeshEdgeNeighbors.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInputMeshEdgeVertices",
+    "path": "Mesh > Read > Edge Vertices Node",
+    "documentation": "The Edge Vertices node outputs the position and index of the two vertices of each of a mesh\u2019s edges.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/read/edge_vertices.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputMeshEdgeVertices.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeEdgesToFaceGroups",
+    "path": "Mesh > Read > Edges to Face Groups Node",
+    "documentation": "The Edges to Face Groups node group faces into regions surrounded by the selected boundary edges.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/read/edges_to_face_groups.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeEdgesToFaceGroups.png"
+  },
+  {
+    "bl_idname": "GeometryNodeInputMeshFaceArea",
+    "path": "Mesh > Read > Face Area Node",
+    "documentation": "The Face Area node outputs the surface area of a mesh\u2019s faces. The units are in Blender units no matter the unit system, equivalent to meters-squared at the default unit scale.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/read/face_area.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputMeshFaceArea.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInputMeshFaceNeighbors",
+    "path": "Mesh > Read > Face Neighbors Node",
+    "documentation": "The Face Neighbors node outputs topology information relating to each face of a mesh.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/read/face_neighbors.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputMeshFaceNeighbors.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeMeshFaceSetBoundaries",
+    "path": "Mesh > Read > Face Group Boundaries Node",
+    "documentation": "The Face Group Boundaries Node finds the edges which lie on the boundaries of specified regions. These edges could be used to mark seams for UV unwrapping, for example.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/read/face_group_boundaries.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeMeshFaceSetBoundaries.png"
+  },
+  {
+    "bl_idname": "GeometryNodeInputMeshFaceIsPlanar",
+    "path": "Mesh > Read > Is Face Planar Node",
+    "documentation": "The Is Face Planar node outputs whether every triangle of a quads or N-gons is on the same plane as all of the others, in other words, if they have the same normal.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/read/face_is_planar.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputMeshFaceIsPlanar.png"
+  },
+  {
+    "bl_idname": "GeometryNodeInputShadeSmooth",
+    "path": "Mesh > Read > Is Shade Smooth Node",
+    "documentation": "The Is Shade Smooth node outputs true for each face of the mesh if that face is marked to render smooth shaded. Otherwise, if the face is marked to render as flat shaded, so the node outputs false.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/read/is_shade_smooth.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputShadeSmooth.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInputMeshIsland",
+    "path": "Mesh > Read > Mesh Island Node",
+    "documentation": "The Mesh Island node outputs information about separate connected regions, or \u201cislands\u201d of a mesh. Whenever two vertices are connected together by an edge, they are considered as part of the same island, and will have the same Island Index output.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/read/mesh_island.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputMeshIsland.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInputShortestEdgePaths",
+    "path": "Mesh > Read > Shortest Edge Paths Node",
+    "documentation": "The Shortest Edge Paths node finds paths along mesh edges to a selection of end vertices. The cost used to define \u201cshortest\u201d can be set to anything. By default there is a constant cost for every edge, but a typical input would be the length of each edge.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/read/shortest_edge_paths.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputShortestEdgePaths.png"
+  },
+  {
+    "bl_idname": "GeometryNodeInputMeshVertexNeighbors",
+    "path": "Mesh > Read > Vertex Neighbors Node",
+    "documentation": "The Vertex Neighbors node outputs topology information relating to each vertex of a mesh.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/read/vertex_neighbors.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputMeshVertexNeighbors.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSampleNearestSurface",
+    "path": "Mesh > Sample > Sample Nearest Surface Node",
+    "documentation": "The Sample Nearest Surface node finds values at the closest points on the surface of a source mesh geometry. Non-face attributes are interpolated across the surface.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/sample/sample_nearest_surface.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSampleNearestSurface.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSampleUVSurface",
+    "path": "Mesh > Sample > Sample UV Surface Node",
+    "documentation": "The Sample UV Surface node finds values on a mesh\u2019s surface at specific UV locations. Internally the process is a \u201creverse UV lookup\u201d from a location in 2D space. The node then finds the face that corresponds to each UV coordinate, and the location within that face.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/sample/sample_uv_surface.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSampleUVSurface.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSetShadeSmooth",
+    "path": "Mesh > Write > Set Shade Smooth Node",
+    "documentation": "The Set Shade Smooth node controls whether the mesh\u2019s faces look smooth in the viewport and renders. The input node for this data is the Is Shade Smooth node.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/write/set_shade_smooth.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSetShadeSmooth.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeDualMesh",
+    "path": "Mesh > Operations > Dual Mesh Node",
+    "documentation": "The Dual Mesh Node converts a mesh into it\u2019s dual, i.e. faces are turned into vertices and vertices are turned into faces. This also means that attributes which were on the face domain are transferred to the point domain in the dual mesh.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/operations/dual_mesh.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeDualMesh.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeEdgePathsToCurves",
+    "path": "Mesh > Operations > Edge Paths to Curves Node",
+    "documentation": "The Edge Paths to Curves node output curves that follow paths across mesh edges.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/operations/edge_paths_to_curves.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeEdgePathsToCurves.png"
+  },
+  {
+    "bl_idname": "GeometryNodeEdgePathsToSelection",
+    "path": "Mesh > Operations > Edge Paths to Selection Node",
+    "documentation": "The Edge Paths to Selection node follows paths across mesh edges and outputs a selection of every visited edge.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/operations/edge_paths_to_selection.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeEdgePathsToSelection.png"
+  },
+  {
+    "bl_idname": "GeometryNodeExtrudeMesh",
+    "path": "Mesh > Operations > Extrude Mesh Node",
+    "documentation": "The Extrude Mesh Node generates new vertices, edges, or faces, on selected geometry and transforms them based on an offset.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/operations/extrude_mesh.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeExtrudeMesh.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeFlipFaces",
+    "path": "Mesh > Operations > Flip Faces Node",
+    "documentation": "The Flip Faces Node reverses the order of the vertices and edges of each selected face. The most common use of this node is to flip the normals of a face. Any face corner domain attributes of selected faces are also reversed.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/operations/flip_faces.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeFlipFaces.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeMeshBoolean",
+    "path": "Mesh > Operations > Mesh Boolean Node",
+    "documentation": "The Mesh Boolean Node allows you to cut, subtract, and join the geometry of two inputs. This node offers the same operations as the Boolean modifier.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/operations/mesh_boolean.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeMeshBoolean.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeMeshToCurve",
+    "path": "Mesh > Operations > Mesh to Curve Node",
+    "documentation": "The Mesh to Curve node generates a curve from a mesh. The result is a poly spline, with a point for every selected vertex on the mesh. Any intersection of more than two selected edges will cause a break in the spline. Meaning that if a the mesh has grid-like topology and a continuous spline is desired, the Selection input is very important.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/operations/mesh_to_curve.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeMeshToCurve.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeMeshToPoints",
+    "path": "Mesh > Operations > Mesh to Points Node",
+    "documentation": "The Mesh to Points node generates a point cloud from a mesh.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/operations/mesh_to_points.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeMeshToPoints.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeMeshToVolume",
+    "path": "Mesh > Operations > Mesh to Volume Node",
+    "documentation": "The Mesh to Volume node creates a fog volumes based on the shape of a mesh. The volume is created with a grid of the name \u201cdensity\u201d.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/operations/mesh_to_volume.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeMeshToVolume.png"
+  },
+  {
+    "bl_idname": "GeometryNodeScaleElements",
+    "path": "Mesh > Operations > Scale Elements Node",
+    "documentation": "The Scale Elements Node scales groups of connected edges and faces. When multiple selected faces/edges share the same vertices, they are scaled together. The center and scaling factor is averaged in this case.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/operations/scale_elements.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeScaleElements.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSplitEdges",
+    "path": "Mesh > Operations > Split Edges Node",
+    "documentation": "Like the Edge Split Modifier, the Split Edges node splits and duplicates edges within a mesh, breaking \u2018links\u2019 between faces around those split edges.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/operations/split_edges.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSplitEdges.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSubdivideMesh",
+    "path": "Mesh > Operations > Subdivide Mesh Node",
+    "documentation": "The Subdivide Mesh node adds new faces to mesh geometry using a simple interpolation for deformation.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/operations/subdivide_mesh.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSubdivideMesh.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSubdivisionSurface",
+    "path": "Mesh > Operations > Subdivision Surface Node",
+    "documentation": "The Subdivision Surface node adds new faces to mesh geometry using a Catmull-Clark subdivision method.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/operations/subdivision_surface.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSubdivisionSurface.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeTriangulate",
+    "path": "Mesh > Operations > Triangulate Node",
+    "documentation": "The Triangulate node converts all faces in a mesh (quads and n-gons) to triangular faces. It functions the same as the Triangulate tool in Edit Mode.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/operations/triangulate.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeTriangulate.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeMeshCone",
+    "path": "Mesh > Primitives > Cone Node",
+    "documentation": "The Cone node generates a cone mesh that is optionally truncated.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/primitives/cone.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeMeshCone.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeMeshCube",
+    "path": "Mesh > Primitives > Cube Node",
+    "documentation": "The Cube node generates a cuboid mesh with variable side lengths and subdivisions. The inside of the mesh is still hollow like a normal cube.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/primitives/cube.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeMeshCube.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeMeshCylinder",
+    "path": "Mesh > Primitives > Cylinder Node",
+    "documentation": "The Cylinder node generates a cylinder mesh. It is similar to the Cone node but always uses the same radius for the circles at the top and bottom.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/primitives/cylinder.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeMeshCylinder.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeMeshGrid",
+    "path": "Mesh > Primitives > Grid Node",
+    "documentation": "The Grid node generates a planar mesh on the XY plane.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/primitives/grid.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeMeshGrid.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeMeshIcoSphere",
+    "path": "Mesh > Primitives > Icosphere Node",
+    "documentation": "The Icosphere node generates a spherical mesh that consists of equally sized triangles.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/primitives/icosphere.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeMeshIcoSphere.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeMeshCircle",
+    "path": "Mesh > Primitives > Mesh Circle Node",
+    "documentation": "The Mesh Circle node generates a circular ring of edges that is optionally filled with faces.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/primitives/mesh_circle.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeMeshCircle.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeMeshLine",
+    "path": "Mesh > Primitives > Mesh Line Node",
+    "documentation": "The Mesh Line node generates vertices in a line and connects them with edges.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/primitives/mesh_line.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeMeshLine.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeMeshUVSphere",
+    "path": "Mesh > Primitives > UV Sphere Node",
+    "documentation": "The UV Sphere node generates a spherical mesh mostly out of quads except for triangles at the top and bottom.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/primitives/uv_sphere.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeMeshUVSphere.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeCornersOfFace",
+    "path": "Mesh > Topology > Corners of Face Node",
+    "documentation": "The Corners of Face node gives access to specific corners of input faces.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/topology/corners_of_face.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryCornersOfFace.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeCornersOfVertex",
+    "path": "Mesh > Topology > Corners of Vertex Node",
+    "documentation": "The Corners of Vertex node retrieves face corners attached to each vertex. The node first gathers a list of the corners of all faces connected to the vertex. That list is then sorted based on the values of the Sort Weight input. The Total output is the number of connected faces/corners, and the Corner Index output is one of those corners, chosen with the Sort Index input.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/topology/corners_of_vertex.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCornersOfVertex.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeEdgesOfCorner",
+    "path": "Mesh > Topology > Edges of Corner Node",
+    "documentation": "The Edges of Corner node retrieves the edges on both sides of a face corner.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/topology/edges_of_corner.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeEdgesOfCorner.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeEdgesOfVertex",
+    "path": "Mesh > Topology > Edges of Vertex Node",
+    "documentation": "The Edges of Vertex node retrieves the edges connected to each vertex. Each vertex is connected to several edges. The node first collects a list of those edges, then sorts them based on the Sort Weight input. The Total output is the number of edges in that list, and the Edge Index output is one of those edges chosen with the Sort Index input.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/topology/edges_of_vertex.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeEdgesOfVertex.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeFaceOfCorner",
+    "path": "Mesh > Topology > Face of Corner Node",
+    "documentation": "The Face of Corner node retrieves the face a face corner is part of.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/topology/face_of_corner.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeFaceOfCorner.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeOffsetCornerInFace",
+    "path": "Mesh > Topology > Offset Corner in Face Node",
+    "documentation": "The Offset Corner in Face node retrieves other corners in the same face as the input face corner. This is like \u201crotating\u201d the input corner around in its face.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/topology/offset_corner_in_face.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeOffsetCornerInFace.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeVertexOfCorner",
+    "path": "Mesh > Topology > Vertex of Corner Node",
+    "documentation": "The Vertex of Corner node outputs the index of the vertex that a face corner is attached to.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/topology/vertex_of_corner.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeVertexOfCorner.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeUVPackIslands",
+    "path": "Mesh > UV > Pack UV Islands Node",
+    "documentation": "The Pack UV Islands Node scales islands of a UV map and moves them so they fill the UV space as much as possible.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/uv/pack_uv_islands.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryUVPackIslands.png"
+  },
+  {
+    "bl_idname": "GeometryNodeUVUnwrap",
+    "path": "Mesh > UV > UV Unwrap Node",
+    "documentation": "The UV Unwrap Node generates a UV map islands based on a selection of seam edges. The node implicitly performs a Pack Islands operation upon completion, because the results may not be generally useful otherwise.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/uv/uv_unwrap.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryUVUnrwap.png"
+  },
+  {
+    "bl_idname": "GeometryNodeDistributePointsInVolume",
+    "path": "Point > Distribute Points in Volume",
+    "documentation": "The Distribute Points in Volume node creates points inside of volume grids. The node has two basic modes of operation: distributing points randomly, or in a regular grid. Both methods operate on all of the float grids in the volume.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/point/distribute_points_in_volume.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeDistributePointsInVolume.png"
+  },
+  {
+    "bl_idname": "GeometryNodeDistributePointsOnFaces",
+    "path": "Point > Distribute Points on Faces",
+    "documentation": "The Distribute Points on Faces node places points on the surface of the input geometry object. Point, corner, and polygon attributes of the input geometry are transferred to the generated points. That includes vertex weights and UV maps. Additionally, the node has Normal and Rotation outputs.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/point/distribute_points_on_faces.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeDistributePointsOnFaces.webp"
+  },
+  {
+    "bl_idname": "GeometryNodePoints",
+    "path": "Point > Points Node",
+    "documentation": "The Points node generate a point cloud with positions and radii defined by fields.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/point/points.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodePoints.png"
+  },
+  {
+    "bl_idname": "GeometryNodePointsToVertices",
+    "path": "Point > Points to Vertices Node",
+    "documentation": "The Points to Vertices node generate a mesh vertex in the output geometry for each point cloud point in the input geometry.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/point/points_to_vertices.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodePointsToVertices.webp"
+  },
+  {
+    "bl_idname": "GeometryNodePointsToVolume",
+    "path": "Point > Points to Volume Node",
+    "documentation": "The Points to Volume node generates a fog volume sphere around every point in the input geometry. The new volume grid is named \u201cdensity\u201d.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/point/points_to_volume.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodePointsToVolume.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSetPointRadius",
+    "path": "Point > Set Point Radius Node",
+    "documentation": "The Set Point Radius node controls the size each selected point cloud point should display with in the viewport.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/point/set_point_radius.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSetPointRadius.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeVolumeCube",
+    "path": "Volume > Volume Cube Node",
+    "documentation": "The Volume Cube generates a volume from scratch by evaluating an input field on every single voxel in a rectangular prism. The Density field defines the output volume grid\u2019s value at every voxel. The field can only depend on the Position Node.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/volume/volume_cube.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeVolumeCube.png"
+  },
+  {
+    "bl_idname": "GeometryNodeVolumeToMesh",
+    "path": "Volume > Volume to Mesh Node",
+    "documentation": "The Volume to Mesh node generates a mesh on the \u201csurface\u201d of a volume. The surface is defined by a threshold value. All voxels with a larger value than the threshold are considered to be inside.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/volume/volume_to_mesh.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeVolumeToMesh.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeReplaceMaterial",
+    "path": "Material > Replace Material Node",
+    "documentation": "The Replace Material node swaps one material with another. Replacing a material with this node is more efficient than creating a selection of all faces with the old material with the Material Selection Node and then using the Set Material Node.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/material/replace_material.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeReplaceMaterial.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeInputMaterialIndex",
+    "path": "Material > Material Index Node",
+    "documentation": "The Material Index node outputs which material in the list of materials of the geometry each element corresponds to. Currently the node supports mesh data, where material_index is a built-in attribute on faces.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/material/material_index.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputMaterialIndex.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeMaterialSelection",
+    "path": "Material > Material Selection Node",
+    "documentation": "The Material Selection node provides a selection for meshes that use this material. Since the material_index is stored on each face, the output will be implicitly interpolated to a different domain when necessary. For example, every vertex connected to a selected face will be selected.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/material/material_selection.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/modeling_geometry-nodes_material_material-selection_node.png"
+  },
+  {
+    "bl_idname": "GeometryNodeSetMaterial",
+    "path": "Material > Set Material Node",
+    "documentation": "The Set Material changes the material assignment in the specified selection, by adjusting the material_index attribute. If the material is already used on the geometry, the existing material index will be reused.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/material/set_material.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSetMaterial.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSetMaterialIndex",
+    "path": "Material > Set Material Index Node",
+    "documentation": "The Set Material Index node sets the material index for a geometry.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/material/set_material_index.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSetMaterialIndex.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexBrick",
+    "path": "Texture > Brick Texture Node",
+    "documentation": "The Brick Texture is used to add a procedural texture producing bricks.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/brick.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexBrick.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexChecker",
+    "path": "Texture > Checker Texture Node",
+    "documentation": "The Checker Texture is used to add a checkerboard texture.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/checker.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexChecker.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexGradient",
+    "path": "Texture > Gradient Texture Node",
+    "documentation": "The Gradient Texture node generates interpolated color and intensity values based on the input vector.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/gradient.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexGradient.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeImageTexture",
+    "path": "Texture > Image Texture Node",
+    "documentation": "The Image Texture node is used to add an image file as a texture. The image data is sampled with the input Vector and outputs a Color and Alpha value.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/image.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeImageTexture.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexMagic",
+    "path": "Texture > Magic Texture Node",
+    "documentation": "The Magic Texture node is used to add a psychedelic color texture.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/magic.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexMagic.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexMusgrave",
+    "path": "Texture > Musgrave Texture Node",
+    "documentation": "The Musgrave Texture node evaluates a fractal Perlin noise at the input texture coordinates. Unlike the Noise Texture, which is also a fractal Perlin noise, the Musgrave Texture allows greater control over how octaves are combined.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/musgrave.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexMusgrave.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexNoise",
+    "path": "Texture > Noise Texture Node",
+    "documentation": "The Noise Texture node evaluates a fractal Perlin noise at the input texture coordinates.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/noise.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexNoise.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexVoronoi",
+    "path": "Texture > Voronoi Texture Node",
+    "documentation": "The Voronoi Texture node evaluates a Worley Noise at the input texture coordinates.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/voronoi.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexVoronoi.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexWave",
+    "path": "Texture > Wave Texture Node",
+    "documentation": "The Wave Texture node adds procedural bands or rings with noise distortion.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/wave.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexWave.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexWhiteNoise",
+    "path": "Texture > White Noise Texture Node",
+    "documentation": "The White Noise Texture node returns a random number based on an input Seed. The seed can be a number, a 2D vector, a 3D vector, or a 4D vector; depending on the Dimensions property. The output number ranges between zero and one.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/white_noise.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexWhiteNoise.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeValToRGB",
+    "path": "Utilities > Color > Color Ramp Node",
+    "documentation": "The Color Ramp Node is used for mapping values to colors with the use of a gradient.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/color/color_ramp.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeValToRGB.webp"
+  },
+  {
+    "bl_idname": "FunctionNodeCombineColor",
+    "path": "Utilities > Color > Combine Color Node",
+    "documentation": "The Combine Color Node combines an image from its composite color channels. The node can combine multiple Color Models depending on the Mode property.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/color/combine_color.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeCombineColor.png"
+  },
+  {
+    "bl_idname": "ShaderNodeMix",
+    "path": "Utilities > Color > Mix Node",
+    "documentation": "The Mix Node mixes images by working on the individual and corresponding pixels of the two input images. Called \u201cMix Color\u201d in the shader, geometry, and texture context.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/color/mix_rgb.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeMixRGB.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeRGBCurve",
+    "path": "Utilities > Color > RGB Curves Node",
+    "documentation": "The RGB Curves Node allows color corrections for each color channel and levels adjustments in the compositing context.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/color/rgb_curves.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeCurveRGB.webp"
+  },
+  {
+    "bl_idname": "FunctionNodeSeparateColor",
+    "path": "Utilities > Color > Separate Color Node",
+    "documentation": "The Separate Color Node splits an image into its composite color channels. The node can output multiple Color Models depending on the Mode property.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/color/separate_color.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeSeparateColor.png"
+  },
+  {
+    "bl_idname": "GeometryNodeStringJoin",
+    "path": "Utilities > Text > Join Strings Node",
+    "documentation": "The Join Strings node combines any number of input strings into the output string. The order of the result depends on the vertical ordering of the inputs in the multi-input socket.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/text/join_strings.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeStringJoin.webp"
+  },
+  {
+    "bl_idname": "FunctionNodeReplaceString",
+    "path": "Utilities > Text > Replace String Node",
+    "documentation": "The Replace String node replaces a string segment with another.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/text/replace_string.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeReplaceString.webp"
+  },
+  {
+    "bl_idname": "FunctionNodeSliceString",
+    "path": "Utilities > Text > Slice String Node",
+    "documentation": "The Slice String node extracts a string segment from a larger string.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/text/slice_string.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeSliceString.webp"
+  },
+  {
+    "bl_idname": "FunctionNodeInputSpecialCharacters",
+    "path": "Utilities > Text > Special Characters Node",
+    "documentation": "The Special Characters node is used to output string characters that can\u2019t be typed directly with the keyboard.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/text/special_characters.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeInputSpecialCharacters.webp"
+  },
+  {
+    "bl_idname": "FunctionNodeStringLength",
+    "path": "Utilities > Text > String Length Node",
+    "documentation": "The String Length node outputs the number of characters in the input string.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/text/string_length.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeStringLength.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeStringToCurves",
+    "path": "Utilities > Text > String to Curves Node",
+    "documentation": "The String to Curves converts a string to curve instances. Each unique character used in the string is converted to a curve once, and further uses of that character are more instances of the same geometry.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/text/string_to_curves.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeStringToCurves.webp"
+  },
+  {
+    "bl_idname": "FunctionNodeValueToString",
+    "path": "Utilities > Text > Value to String Node",
+    "documentation": "The Value to String node generates string representation of the input value.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/text/value_to_string.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeValueToString.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeCombineXYZ",
+    "path": "Utilities > Vector > Combine XYZ Node",
+    "documentation": "The Combine XYZ Node combines a vector from its individual components.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/vector/combine_xyz.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeCombineXYZ.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeSeparateXYZ",
+    "path": "Utilities > Vector > Separate XYZ Node",
+    "documentation": "The Separate XYZ Node splits a vector into its individual components.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/vector/separate_xyz.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeSeparateXYZ.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeVectorCurve",
+    "path": "Utilities > Vector > Vector Curves Node",
+    "documentation": "The Vector Curves node maps an input vector components to a curve.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/vector/vector_curves.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeCurveVec.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeVectorMath",
+    "path": "Utilities > Vector > Vector Math Node",
+    "documentation": "The Vector Math node performs the selected math operation on the input vectors.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/vector/vector_math.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeVectorMath.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeVectorRotate",
+    "path": "Utilities > Vector > Vector Rotate Node",
+    "documentation": "The Vector Rotate Node provides the ability to rotate a vector around a pivot point (Center).",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/vector/vector_rotate.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeVectorRotate.png"
+  },
+  {
+    "bl_idname": "GeometryNodeAccumulateField",
+    "path": "Utilities > Field > Accumulate Field Node",
+    "documentation": "The Accumulate Field node counts a running total of its input values, in the order defined by the geometry\u2019s indices. The node\u2019s essential operation is just addition, but instead of only outputting the final total, it outputs the current value at every element.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/accumulate_field.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeAccumulateField.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeFieldAtIndex",
+    "path": "Utilities > Field > Evaluate at Index Node",
+    "documentation": "The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeFieldAtIndex.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeFieldOnDomain",
+    "path": "Utilities > Field > Evaluate on Domain Node",
+    "documentation": "The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInterpolateDomain.png"
+  },
+  {
+    "bl_idname": "FunctionNodeBooleanMath",
+    "path": "Utilities > Math > Boolean Math Node",
+    "documentation": "The Boolean Math node performs a basic logical operation on its inputs.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/math/boolean_math.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeBooleanMath.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeClamp",
+    "path": "Utilities > Math > Clamp Node",
+    "documentation": "The Clamp node clamps a value between a minimum and a maximum.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/math/clamp.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeClamp.webp"
+  },
+  {
+    "bl_idname": "FunctionNodeCompare",
+    "path": "Utilities > Math > Compare Node",
+    "documentation": "The Compare node takes two inputs and does an operation to determine whether they are similar. The node can work on all generic data types, and has modes for vectors that contain more complex comparisons, which can help to reduce the number of necessary nodes, and make a node tree more readable.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/math/compare.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeCompare.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeFloatCurve",
+    "path": "Utilities > Math > Float Curve",
+    "documentation": "The Float Curve node maps an input float to a curve and outputs a float value.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/math/float_curve.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeFloatCurve.webp"
+  },
+  {
+    "bl_idname": "FunctionNodeFloatToInt",
+    "path": "Utilities > Math > Float To Integer Node",
+    "documentation": "The Float To Integer node takes a single floating point number input and converts it to an integer with a choice of methods.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/math/float_to_integer.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeFloatToInt.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeMapRange",
+    "path": "Utilities > Math > Map Range Node",
+    "documentation": "The Map Range node remaps a value from a range to a target range.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/math/map_range.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeMapRange.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeMath",
+    "path": "Utilities > Math > Math Node",
+    "documentation": "The Math Node performs math operations.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/math/math.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeMath.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeMix",
+    "path": "Utilities > Math > Mix Node",
+    "documentation": "The Mix Node mixes values, colors and vectors inputs using a factor to control the amount of interpolation. The Color mode has additional blending modes.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/math/mix.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/render_shader-nodes_shader_mix_node.jpg"
+  },
+  {
+    "bl_idname": "FunctionNodeAlignEulerToVector",
+    "path": "Utilities > Rotation > Align Euler to Vector Node",
+    "documentation": "The Align Euler to Vector node rotates an Euler rotation into the given direction.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/rotation/align_euler_to_vector.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeAlignEulerToVector.webp"
+  },
+  {
+    "bl_idname": "FunctionNodeRotateEuler",
+    "path": "Utilities > Rotation > Rotate Euler Node",
+    "documentation": "The Rotate Euler node rotates an Euler rotation.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/rotation/rotate_euler.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeRotateEuler.webp"
+  },
+  {
+    "bl_idname": "FunctionNodeRandomValue",
+    "path": "Utilities > Random Value Node",
+    "documentation": "The Random Value node outputs a white noise like value as a Float, Integer, Vector, or Boolean field.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/random_value.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeRandomValue.webp"
+  },
+  {
+    "bl_idname": "GeometryNodeSwitch",
+    "path": "Utilities > Switch Node",
+    "documentation": "The Switch node outputs one of two inputs depending on a condition. Only the input that is passed through the node is computed.",
+    "url1": "https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/switch.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSwitch.webp"
+  }
+]

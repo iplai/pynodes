@@ -1,0 +1,632 @@
+[
+  {
+    "bl_idname": "ShaderNodeAmbientOcclusion",
+    "path": "Input > Ambient Occlusion",
+    "documentation": "The Ambient Occlusion shader computes how much the hemisphere above the shading point is occluded. This can be used for procedural texturing, for example to add weathering effects to corners only.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/input/ao.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeAmbientOcclusion.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeAttribute",
+    "path": "Input > Attribute Node",
+    "documentation": "The Attribute node allows you to retrieve attributes attached to an object or mesh.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/input/attribute.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeAttribute.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeBevel",
+    "path": "Input > Bevel Node",
+    "documentation": "Cycles Only",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/input/bevel.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeBevel.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeCameraData",
+    "path": "Input > Camera Data Node",
+    "documentation": "The Camera Data node returns information about the shading point relative to the camera. This could be used for example to change the shading of objects further away from the camera, or make custom fog effects.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/input/camera_data.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeCameraData.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeFresnel",
+    "path": "Input > Fresnel Node",
+    "documentation": "The Fresnel or Dielectric Fresnel node computes how much light is reflected off a layer, where the rest will be refracted through the layer. The resulting weight can be used for layering shaders with the Mix Shader node. It is dependent on the angle between the surface normal and the viewing direction.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/input/fresnel.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeFresnel.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeNewGeometry",
+    "path": "Input > Geometry Node",
+    "documentation": "The Geometry node gives geometric information about the current shading point. All vector coordinates are in World Space. For volume shaders, only the position and incoming vector are available.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/input/geometry.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeNewGeometry.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeHairInfo",
+    "path": "Input > Curves Info Node",
+    "documentation": "The Curves Info node gives access to Hair information.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/input/hair_info.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeHairInfo.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeLayerWeight",
+    "path": "Input > Layer Weight Node",
+    "documentation": "The Layer Weight node outputs a weight typically used for layering shaders with the Mix Shader node.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/input/layer_weight.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeLayerWeight.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeLightPath",
+    "path": "Input > Light Path Node",
+    "documentation": "The Light Path node is used to find out for which kind of incoming ray the shader is being executed; particularly useful for non-physically-based tricks. More information about the meaning of each type is in the Light Paths documentation.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/input/light_path.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeLightPath.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeObjectInfo",
+    "path": "Input > Object Info Node",
+    "documentation": "The Object Info node gives information about the object instance. This can be useful to give some variation to a single material assigned to multiple instances, either manually controlled through the object index, based on the object location, or randomized for each instance. For example a Noise texture can give random colors or a Color Ramp can give a range of colors to be randomly picked from.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/input/object_info.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeObjectInfo.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeParticleInfo",
+    "path": "Input > Particle Info Node",
+    "documentation": "Cycles Only",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/input/particle_info.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeParticleInfo.webp"
+  },
+  {
+    "bl_idname": "ShaderNodePointInfo",
+    "path": "Input > Point Info",
+    "documentation": "Cycles Only",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/input/point_info.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodePointInfo.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeRGB",
+    "path": "Input > RGB Node",
+    "documentation": "",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/input/rgb.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeRGB.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTangent",
+    "path": "Input > Tangent Node",
+    "documentation": "The Tangent node generates a tangent direction for the Anisotropic BSDF.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/input/tangent.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTangent.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexCoord",
+    "path": "Input > Texture Coordinate Node",
+    "documentation": "The Texture Coordinate node is commonly used for the coordinates of textures, typically used as inputs for the Vector input for texture nodes.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/input/texture_coordinate.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexCoord.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeUVMap",
+    "path": "Input > UV Map Node",
+    "documentation": "The UV Map node is used to retrieve specific UV maps. Unlike the Texture Coordinate Node which only provides the active UV map, this node can retrieve any UV map belonging to the object using the material.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/input/uv_map.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeUVMap.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeValue",
+    "path": "Input > Value Node",
+    "documentation": "The Value Node is a simple node to input numerical values to other nodes in the tree.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/input/value.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeValue.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeVertexColor",
+    "path": "Input > Color Attribute Node",
+    "documentation": "The Color Attribute node provides access to Color Attributes as well as their alpha value.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/input/vertex_color.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeVertexColor.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeVolumeInfo",
+    "path": "Input > Volume Info Node",
+    "documentation": "The Volume Info node provides information about Smoke Domains.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/input/volume_info.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeVolumeInfo.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeWireframe",
+    "path": "Input > Wireframe Node",
+    "documentation": "The Wireframe node is used to retrieve the edges of an object as it appears to Cycles. As meshes are triangulated before being processed by Cycles, topology will always appear triangulated when viewed with the Wireframe node.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/input/wireframe.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeWireframe.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeOutputAOV",
+    "path": "Output > AOV Output Node",
+    "documentation": "Shader AOVs (Arbitrary Output Variables) provide custom render passes for arbitrary shader node components. As an artist this can be a good way to debug or tweak very fine details of a scene in post-processing. To use shader AOVs create the pass in the Shader AOV panel then reference that pass with the AOV Output shading node. Shader AOVs can be added or removed in the Shader AOV panel.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/output/aov.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeOutputAOV.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeOutputMaterial",
+    "path": "Output > Material Node",
+    "documentation": "The Material Output node is used to output surface material information to a surface object.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/output/material.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeOutputMaterial.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeOutputLight",
+    "path": "Output > Light Node",
+    "documentation": "The Light Output node is used to output light information to a light object.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/output/light.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeOutputLight.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeOutputWorld",
+    "path": "Output > World Node",
+    "documentation": "The World Output node is used to output light a color information to the scene\u2019s World.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/output/world.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeOutputWorld.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeAddShader",
+    "path": "Shader > Add Shader",
+    "documentation": "The Add node is used to add two Shaders together.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/add.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeAddShader.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeBsdfAnisotropic",
+    "path": "Shader > Anisotropic BSDF",
+    "documentation": "Cycles Only",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/anisotropic.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeBsdfAnisotropic.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeBackground",
+    "path": "Shader > Background",
+    "documentation": "The Background shader node is used to add background light emission. This node should only be used for the world surface output.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/background.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeBackground.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeBsdfDiffuse",
+    "path": "Shader > Diffuse BSDF",
+    "documentation": "The Diffuse BSDF node is used to add Lambertian and Oren-Nayar diffuse reflection.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/diffuse.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeBsdfDiffuse.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeEmission",
+    "path": "Shader > Emission",
+    "documentation": "The Emission node is used to add Lambertian emission shader. This can for example, be used for material and light surface outputs.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/emission.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeEmission.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeBsdfGlass",
+    "path": "Shader > Glass BSDF",
+    "documentation": "The Glass BSDF is used to add a Glass-like shader mixing refraction and reflection at grazing angles. Like the transparent shader, only pure white will make it transparent. The glass shader tends to cause noise due to caustics. Since the Cycles path tracing integrator is not very good at rendering caustics, it helps to combine this with a transparent shader for shadows; for more details see here.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/glass.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeBsdfGlass.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeBsdfGlossy",
+    "path": "Shader > Glossy BSDF",
+    "documentation": "The Glossy BSDF node is used to add reflection with microfacet distribution, used for materials such as metal or mirrors.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/glossy.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeBsdfGlossy.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeBsdfHair",
+    "path": "Shader > Hair BSDF",
+    "documentation": "Cycles Only",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/hair.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeBsdfHair.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeHoldout",
+    "path": "Shader > Holdout",
+    "documentation": "The Holdout shader node is used to create a \u201chole\u201d in the image with zero alpha transparency, which is useful for compositing (see Alpha Channel).",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/holdout.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeHoldout.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeMixShader",
+    "path": "Shader > Mix Shader",
+    "documentation": "The Mix node is used to mix two shaders together. Mixing can be used for material layering, where the Factor input may, for example, be connected to a Blend Weight node.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/mix.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeMixShader.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeBsdfPrincipled",
+    "path": "Shader > Principled BSDF",
+    "documentation": "The Principled BSDF that combines multiple layers into a single easy to use node. It is based on the Disney principled model also known as the \u201cPBR\u201d shader, making it compatible with other software such as Pixar\u2019s Renderman\u00ae and Unreal Engine\u00ae. Image textures painted or baked from software like Substance Painter\u00ae may be directly linked to the corresponding parameters in this shader.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/principled.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeBsdfPrincipled.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeBsdfHairPrincipled",
+    "path": "Shader > Principled Hair BSDF",
+    "documentation": "Cycles Only",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/hair_principled.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeBsdfHairPrincipled.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeVolumePrincipled",
+    "path": "Shader > Principled Volume",
+    "documentation": "The Principled Volume shader combines all volume shading components into a single easy to use node. Volumes like smoke and fire can be rendered with a single shader node, which includes scattering, absorption and blackbody emission.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/volume_principled.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeVolumePrincipled.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeBsdfRefraction",
+    "path": "Shader > Refraction BSDF",
+    "documentation": "The Refraction BSDF is used to add glossy refraction with sharp or microfacet distribution, used for materials that transmit light. For best results this node should be considered as a building block and not be used on its own, but rather mixed with a glossy node using a Fresnel factor. Otherwise it will give quite dark results at the edges for glossy refraction.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/refraction.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeBsdfRefraction.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeEeveeSpecular",
+    "path": "Shader > Specular BSDF",
+    "documentation": "Eevee Only",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/specular_bsdf.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeEeveeSpecular.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeSubsurfaceScattering",
+    "path": "Shader > Subsurface Scattering",
+    "documentation": "The Subsurface Scattering node is used to add simple subsurface multiple scattering, for materials such as skin, wax, marble, milk and others. For these materials, rather than light being reflect directly off the surface, it will penetrate the surface and bounce around internally before getting absorbed or leaving the surface at a nearby point.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/sss.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeSubsurfaceScattering.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeBsdfToon",
+    "path": "Shader > Toon BSDF",
+    "documentation": "Cycles Only",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/toon.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeBsdfToon.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeBsdfTranslucent",
+    "path": "Shader > Translucent BSDF",
+    "documentation": "The Translucent BSDF is used to add Lambertian diffuse transmission.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/translucent.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeBsdfTranslucent.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeBsdfTransparent",
+    "path": "Shader > Transparent BSDF",
+    "documentation": "The Transparent BSDF is used to add transparency without refraction, passing straight through the surface, as if there were no geometry there. Useful with alpha maps, for example. This shader affects light paths somewhat differently than other BSDFs. Note that only pure white transparent shaders are completely transparent.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/transparent.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeBsdfTransparent.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeBsdfVelvet",
+    "path": "Shader > Velvet BSDF",
+    "documentation": "Cycles Only",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/velvet.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeBsdfVelvet.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeVolumeAbsorption",
+    "path": "Shader > Volume Absorption",
+    "documentation": "The Volume Absorption node allows light to be absorbed as it passes through the volume. Typical usage for this node would be water and colored glass.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/volume_absorption.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeVolumeAbsorption.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeVolumeScatter",
+    "path": "Shader > Volume Scatter",
+    "documentation": "The Volume Scatter node allows light to be scattered as it passes through the volume. Typical usage would be to add fog to a scene. It can also be used with the Volume Absorption node to create smoke.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/volume_scatter.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeVolumeScatter.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexBrick",
+    "path": "Texture > Brick Texture Node",
+    "documentation": "The Brick Texture is used to add a procedural texture producing bricks.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/textures/brick.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexBrick.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexChecker",
+    "path": "Texture > Checker Texture Node",
+    "documentation": "The Checker Texture is used to add a checkerboard texture.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/textures/checker.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexChecker.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexEnvironment",
+    "path": "Texture > Environment Texture Node",
+    "documentation": "The Node Environmental Texture is used to light your scene using an environment map image file as a texture.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/textures/environment.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexEnvironment.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexGradient",
+    "path": "Texture > Gradient Texture Node",
+    "documentation": "The Gradient Texture node generates interpolated color and intensity values based on the input vector.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/textures/gradient.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexGradient.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexIES",
+    "path": "Texture > IES Texture Node",
+    "documentation": "The IES Texture is used to match real world lights based on IES files (IES). IES files store the directional intensity distribution of light sources.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/textures/ies.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexIES.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexImage",
+    "path": "Texture > Image Texture Node",
+    "documentation": "The Image Texture is used to add an image file as a texture.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/textures/image.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexImage.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexMagic",
+    "path": "Texture > Magic Texture Node",
+    "documentation": "The Magic Texture node is used to add a psychedelic color texture.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/textures/magic.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexMagic.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexMusgrave",
+    "path": "Texture > Musgrave Texture Node",
+    "documentation": "The Musgrave Texture node evaluates a fractal Perlin noise at the input texture coordinates. Unlike the Noise Texture, which is also a fractal Perlin noise, the Musgrave Texture allows greater control over how octaves are combined.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/textures/musgrave.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexMusgrave.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexNoise",
+    "path": "Texture > Noise Texture Node",
+    "documentation": "The Noise Texture node evaluates a fractal Perlin noise at the input texture coordinates.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/textures/noise.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexNoise.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexPointDensity",
+    "path": "Texture > Point Density Node",
+    "documentation": "The Point Density node is used to add volumetric points for each particle or vertex of another object.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/textures/point_density.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexPointDensity.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexSky",
+    "path": "Texture > Sky Texture Node",
+    "documentation": "The Sky Texture node adds a procedural Sky texture.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/textures/sky.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexSky.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexVoronoi",
+    "path": "Texture > Voronoi Texture Node",
+    "documentation": "The Voronoi Texture node evaluates a Worley Noise at the input texture coordinates.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/textures/voronoi.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexVoronoi.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexWave",
+    "path": "Texture > Wave Texture Node",
+    "documentation": "The Wave Texture node adds procedural bands or rings with noise distortion.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/textures/wave.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexWave.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeTexWhiteNoise",
+    "path": "Texture > White Noise Texture Node",
+    "documentation": "The White Noise Texture node returns a random number based on an input Seed. The seed can be a number, a 2D vector, a 3D vector, or a 4D vector; depending on the Dimensions property. The output number ranges between zero and one.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/textures/white_noise.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexWhiteNoise.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeBrightContrast",
+    "path": "Color > Bright/Contrast Node",
+    "documentation": "",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/color/bright_contrast.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeBrightContrast.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeGamma",
+    "path": "Color > Gamma Node",
+    "documentation": "Use this node to apply a gamma correction.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/color/gamma.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeGamma.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeHueSaturation",
+    "path": "Color > Hue Saturation Value Node",
+    "documentation": "The Hue Saturation Value Node applies a color transformation in the HSV Color Model.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/color/hue_saturation.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeHueSat.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeInvert",
+    "path": "Color > Invert Node",
+    "documentation": "The Invert Node inverts the colors in the input image, producing a negative.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/color/invert.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeInvert.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeLightFalloff",
+    "path": "Color > Light Falloff Node",
+    "documentation": "Cycles Only",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/color/light_falloff.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeLightFalloff.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeRGBCurve",
+    "path": "Color > RGB Curves Node",
+    "documentation": "The RGB Curves Node allows color corrections for each color channel and levels adjustments in the compositing context.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/color/rgb_curves.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeCurveRGB.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeBump",
+    "path": "Vector > Bump Node",
+    "documentation": "The Bump node generates a perturbed normal from a height texture, for bump mapping. The height value will be sampled at the shading point and two nearby points on the surface to determine the local direction of the normal.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/vector/bump.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeBump.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeDisplacement",
+    "path": "Vector > Displacement Node",
+    "documentation": "The Displacement node is used to displace the surface along the surface normal, to add more detail to the geometry. Both procedural textures and baked displacement maps can be used.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/vector/displacement.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeDisplacement.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeMapping",
+    "path": "Vector > Mapping Node",
+    "documentation": "The Mapping node transforms the input vector by applying translation, rotation, and scaling.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/vector/mapping.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeMapping.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeNormal",
+    "path": "Vector > Normal Node",
+    "documentation": "The Normal node generates a normal vector and a dot product.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/vector/normal.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeNormal.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeNormalMap",
+    "path": "Vector > Normal Map Node",
+    "documentation": "The Normal Map node generates a perturbed normal from an RGB normal map image. This is usually chained with an Image Texture node in the color input, to specify the normal map image. For tangent space normal maps, the UV coordinates for the image must match, and the image texture should be set to Non-Color mode to give correct results.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/vector/normal_map.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeNormalMap.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeVectorCurve",
+    "path": "Vector > Vector Curves Node",
+    "documentation": "The Vector Curves node maps an input vector components to a curve.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/vector/curves.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeCurveVec.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeVectorDisplacement",
+    "path": "Vector > Vector Displacement Node",
+    "documentation": "The Vector Displacement node is used to displace the surface along arbitrary directions, unlike the regular Displacement node which only displaces along the surface normal.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/vector/vector_displacement.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeVectorDisplacement.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeVectorRotate",
+    "path": "Vector > Vector Rotate Node",
+    "documentation": "The Vector Rotate Node provides the ability to rotate a vector around a pivot point (Center).",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/vector/vector_rotate.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeVectorRotate.png"
+  },
+  {
+    "bl_idname": "ShaderNodeVectorTransform",
+    "path": "Vector > Vector Transform Node",
+    "documentation": "The Vector Transform node allows converting a vector, point, or normal between world and camera and object coordinate space.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/vector/transform.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeVectorTransform.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeBlackbody",
+    "path": "Converter > Blackbody Node",
+    "documentation": "The Blackbody node converts a blackbody temperature to RGB value. This can be useful for materials that emit light at natural occurring frequencies.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/converter/blackbody.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeBlackbody.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeClamp",
+    "path": "Converter > Clamp Node",
+    "documentation": "The Clamp node clamps a value between a minimum and a maximum.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/converter/clamp.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeClamp.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeValToRGB",
+    "path": "Converter > Color Ramp Node",
+    "documentation": "The Color Ramp Node is used for mapping values to colors with the use of a gradient.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/converter/color_ramp.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeValToRGB.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeCombineColor",
+    "path": "Converter > Combine Color Node",
+    "documentation": "The Combine Color Node combines an image from its composite color channels. The node can combine multiple Color Models depending on the Mode property.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/converter/combine_color.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeCombineColor.png"
+  },
+  {
+    "bl_idname": "ShaderNodeCombineXYZ",
+    "path": "Converter > Combine XYZ Node",
+    "documentation": "The Combine XYZ Node combines a vector from its individual components.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/converter/combine_xyz.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeCombineXYZ.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeFloatCurve",
+    "path": "Converter > Float Curve",
+    "documentation": "The Float Curve node maps an input float to a curve and outputs a float value.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/converter/float_curve.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeFloatCurve.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeMapRange",
+    "path": "Converter > Map Range Node",
+    "documentation": "The Map Range node remaps a value from a range to a target range.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/converter/map_range.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeMapRange.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeMath",
+    "path": "Converter > Math Node",
+    "documentation": "The Math Node performs math operations.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/converter/math.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeMath.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeMix",
+    "path": "Converter > Mix Node",
+    "documentation": "The Mix Node mixes values, colors and vectors inputs using a factor to control the amount of interpolation. The Color mode has additional blending modes.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/converter/mix.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/render_shader-nodes_shader_mix_node.jpg"
+  },
+  {
+    "bl_idname": "ShaderNodeRGBToBW",
+    "path": "Converter > RGB to BW Node",
+    "documentation": "The RGB to BW Node maps an RGB color image to a gray-scale by the luminance.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/converter/rgb_to_bw.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeRGBToBW.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeSeparateColor",
+    "path": "Converter > Separate Color Node",
+    "documentation": "The Separate Color Node splits an image into its composite color channels. The node can output multiple Color Models depending on the Mode property.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/converter/separate_color.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeSeparateColor.png"
+  },
+  {
+    "bl_idname": "ShaderNodeSeparateXYZ",
+    "path": "Converter > Separate XYZ Node",
+    "documentation": "The Separate XYZ Node splits a vector into its individual components.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/converter/separate_xyz.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeSeparateXYZ.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeShaderToRGB",
+    "path": "Converter > Shader To RGB",
+    "documentation": "Eevee Only",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/converter/shader_to_rgb.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeShaderToRGB.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeVectorMath",
+    "path": "Converter > Vector Math Node",
+    "documentation": "The Vector Math node performs the selected math operation on the input vectors.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/converter/vector_math.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeVectorMath.webp"
+  },
+  {
+    "bl_idname": "ShaderNodeWavelength",
+    "path": "Converter > Wavelength Node",
+    "documentation": "The Wavelength node converts a wavelength value to an RGB value. This can be used to achieve a specific color on the light spectrum.",
+    "url1": "https://docs.blender.org/manual/en/latest/render/shader_nodes/converter/wavelength.html",
+    "url2": "https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeWavelength.webp"
+  }
+]

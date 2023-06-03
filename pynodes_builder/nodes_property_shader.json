@@ -1,0 +1,510 @@
+{
+  "ShaderNodeAmbientOcclusion": {
+    "inside": {
+      "default": "False",
+      "type": "bool"
+    },
+    "only_local": {
+      "default": "False",
+      "type": "bool"
+    },
+    "samples": {
+      "default": "16",
+      "type": "int"
+    }
+  },
+  "ShaderNodeAttribute": {
+    "attribute_type": "GEOMETRY, OBJECT, INSTANCER, VIEW_LAYER",
+    "attribute_name": {
+      "default": "",
+      "type": "str"
+    }
+  },
+  "ShaderNodeBevel": {
+    "samples": {
+      "default": "4",
+      "type": "int"
+    }
+  },
+  "ShaderNodeCameraData": {},
+  "ShaderNodeFresnel": {},
+  "ShaderNodeNewGeometry": {},
+  "ShaderNodeHairInfo": {},
+  "ShaderNodeLayerWeight": {},
+  "ShaderNodeLightPath": {},
+  "ShaderNodeObjectInfo": {},
+  "ShaderNodeParticleInfo": {},
+  "ShaderNodePointInfo": {},
+  "ShaderNodeRGB": {},
+  "ShaderNodeTangent": {
+    "axis": "Z, X, Y",
+    "direction_type": "RADIAL, UV_MAP",
+    "uv_map": {
+      "default": "",
+      "type": "str"
+    }
+  },
+  "ShaderNodeTexCoord": {
+    "from_instancer": {
+      "default": "False",
+      "type": "bool"
+    },
+    "object": {
+      "default": "None",
+      "type": "NoneType"
+    }
+  },
+  "ShaderNodeUVMap": {
+    "from_instancer": {
+      "default": "False",
+      "type": "bool"
+    },
+    "uv_map": {
+      "default": "",
+      "type": "str"
+    }
+  },
+  "ShaderNodeValue": {},
+  "ShaderNodeVertexColor": {
+    "layer_name": {
+      "default": "",
+      "type": "str"
+    }
+  },
+  "ShaderNodeVolumeInfo": {},
+  "ShaderNodeWireframe": {
+    "use_pixel_size": {
+      "default": "False",
+      "type": "bool"
+    }
+  },
+  "ShaderNodeOutputAOV": {},
+  "ShaderNodeOutputMaterial": {
+    "target": "ALL, EEVEE, CYCLES",
+    "is_active_output": {
+      "default": "True",
+      "type": "bool"
+    }
+  },
+  "ShaderNodeOutputLight": {
+    "target": "ALL, EEVEE, CYCLES",
+    "is_active_output": {
+      "default": "True",
+      "type": "bool"
+    }
+  },
+  "ShaderNodeOutputWorld": {
+    "target": "ALL, EEVEE, CYCLES",
+    "is_active_output": {
+      "default": "True",
+      "type": "bool"
+    }
+  },
+  "ShaderNodeAddShader": {},
+  "ShaderNodeBsdfAnisotropic": {
+    "distribution": "GGX, BECKMANN, MULTI_GGX, ASHIKHMIN_SHIRLEY"
+  },
+  "ShaderNodeBackground": {},
+  "ShaderNodeBsdfDiffuse": {},
+  "ShaderNodeEmission": {},
+  "ShaderNodeBsdfGlass": {
+    "distribution": "BECKMANN, SHARP, GGX, MULTI_GGX"
+  },
+  "ShaderNodeBsdfGlossy": {
+    "distribution": "GGX, SHARP, BECKMANN, ASHIKHMIN_SHIRLEY, MULTI_GGX"
+  },
+  "ShaderNodeBsdfHair": {
+    "component": "Reflection, Transmission"
+  },
+  "ShaderNodeHoldout": {},
+  "ShaderNodeMixShader": {},
+  "ShaderNodeBsdfPrincipled": {
+    "distribution": "GGX, MULTI_GGX",
+    "subsurface_method": "RANDOM_WALK, BURLEY, RANDOM_WALK_FIXED_RADIUS"
+  },
+  "ShaderNodeBsdfHairPrincipled": {
+    "parametrization": "COLOR, ABSORPTION, MELANIN"
+  },
+  "ShaderNodeVolumePrincipled": {},
+  "ShaderNodeBsdfRefraction": {
+    "distribution": "BECKMANN, SHARP, GGX"
+  },
+  "ShaderNodeEeveeSpecular": {},
+  "ShaderNodeSubsurfaceScattering": {
+    "falloff": "RANDOM_WALK, BURLEY, RANDOM_WALK_FIXED_RADIUS"
+  },
+  "ShaderNodeBsdfToon": {
+    "component": "DIFFUSE, GLOSSY"
+  },
+  "ShaderNodeBsdfTranslucent": {},
+  "ShaderNodeBsdfTransparent": {},
+  "ShaderNodeBsdfVelvet": {},
+  "ShaderNodeVolumeAbsorption": {},
+  "ShaderNodeVolumeScatter": {},
+  "ShaderNodeTexBrick": {
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "offset": {
+      "default": "0.5",
+      "type": "float"
+    },
+    "offset_frequency": {
+      "default": "2",
+      "type": "int"
+    },
+    "squash": {
+      "default": "1.0",
+      "type": "float"
+    },
+    "squash_frequency": {
+      "default": "2",
+      "type": "int"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    }
+  },
+  "ShaderNodeTexChecker": {
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    }
+  },
+  "ShaderNodeTexEnvironment": {
+    "interpolation": "Linear, Closest, Cubic, Smart",
+    "projection": "EQUIRECTANGULAR, MIRROR_BALL",
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "image": {
+      "default": "None",
+      "type": "NoneType"
+    },
+    "image_user": {
+      "default": "None",
+      "type": "bpy.types.ImageUser"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    }
+  },
+  "ShaderNodeTexGradient": {
+    "gradient_type": "LINEAR, QUADRATIC, EASING, DIAGONAL, SPHERICAL, QUADRATIC_SPHERE, RADIAL",
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    }
+  },
+  "ShaderNodeTexIES": {
+    "mode": "INTERNAL, EXTERNAL",
+    "filepath": {
+      "default": "",
+      "type": "str"
+    },
+    "ies": {
+      "default": "None",
+      "type": "NoneType"
+    }
+  },
+  "ShaderNodeTexImage": {
+    "extension": "REPEAT, EXTEND, CLIP, MIRROR",
+    "interpolation": "Linear, Closest, Cubic, Smart",
+    "projection": "FLAT, BOX, SPHERE, TUBE",
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "image": {
+      "default": "None",
+      "type": "NoneType"
+    },
+    "image_user": {
+      "default": "None",
+      "type": "bpy.types.ImageUser"
+    },
+    "projection_blend": {
+      "default": "0.0",
+      "type": "float"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    }
+  },
+  "ShaderNodeTexMagic": {
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    },
+    "turbulence_depth": {
+      "default": "2",
+      "type": "int"
+    }
+  },
+  "ShaderNodeTexMusgrave": {
+    "musgrave_dimensions": "3D, 1D, 2D, 4D",
+    "musgrave_type": "FBM, MULTIFRACTAL, RIDGED_MULTIFRACTAL, HYBRID_MULTIFRACTAL, HETERO_TERRAIN",
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    }
+  },
+  "ShaderNodeTexNoise": {
+    "noise_dimensions": "3D, 1D, 2D, 4D",
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    }
+  },
+  "ShaderNodeTexPointDensity": {
+    "interpolation": "Linear, Closest, Cubic",
+    "particle_color_source": "PARTICLE_AGE, PARTICLE_SPEED, PARTICLE_VELOCITY",
+    "point_source": "PARTICLE_SYSTEM, OBJECT",
+    "space": "OBJECT, WORLD",
+    "vertex_color_source": "VERTEX_COLOR, VERTEX_WEIGHT, VERTEX_NORMAL",
+    "object": {
+      "default": "None",
+      "type": "NoneType"
+    },
+    "particle_system": {
+      "default": "None",
+      "type": "NoneType"
+    },
+    "radius": {
+      "default": "0.3",
+      "type": "float"
+    },
+    "resolution": {
+      "default": "100",
+      "type": "int"
+    },
+    "vertex_attribute_name": {
+      "default": "",
+      "type": "str"
+    }
+  },
+  "ShaderNodeTexSky": {
+    "sky_type": "NISHITA, PREETHAM, HOSEK_WILKIE",
+    "air_density": {
+      "default": "1.0",
+      "type": "float"
+    },
+    "altitude": {
+      "default": "0.0",
+      "type": "float"
+    },
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "dust_density": {
+      "default": "1.0",
+      "type": "float"
+    },
+    "ground_albedo": {
+      "default": "0.3",
+      "type": "float"
+    },
+    "ozone_density": {
+      "default": "1.0",
+      "type": "float"
+    },
+    "sun_direction": {
+      "default": "(0.0, 0.0, 1.0)",
+      "type": "Vector"
+    },
+    "sun_disc": {
+      "default": "True",
+      "type": "bool"
+    },
+    "sun_elevation": {
+      "default": "math.radians(15.0)",
+      "type": "float"
+    },
+    "sun_intensity": {
+      "default": "1.0",
+      "type": "float"
+    },
+    "sun_rotation": {
+      "default": "0.0",
+      "type": "float"
+    },
+    "sun_size": {
+      "default": "math.radians(0.545)",
+      "type": "float"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    },
+    "turbidity": {
+      "default": "2.2",
+      "type": "float"
+    }
+  },
+  "ShaderNodeTexVoronoi": {
+    "distance": "EUCLIDEAN, MANHATTAN, CHEBYCHEV, MINKOWSKI",
+    "feature": "F1, F2, SMOOTH_F1, DISTANCE_TO_EDGE, N_SPHERE_RADIUS",
+    "voronoi_dimensions": "3D, 1D, 2D, 4D",
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    }
+  },
+  "ShaderNodeTexWave": {
+    "bands_direction": "X, Y, Z, DIAGONAL",
+    "rings_direction": "X, Y, Z, SPHERICAL",
+    "wave_profile": "SIN, SAW, TRI",
+    "wave_type": "BANDS, RINGS",
+    "color_mapping": {
+      "default": "None",
+      "type": "bpy.types.ColorMapping"
+    },
+    "texture_mapping": {
+      "default": "None",
+      "type": "bpy.types.TexMapping"
+    }
+  },
+  "ShaderNodeTexWhiteNoise": {
+    "noise_dimensions": "3D, 1D, 2D, 4D"
+  },
+  "ShaderNodeBrightContrast": {},
+  "ShaderNodeGamma": {},
+  "ShaderNodeHueSaturation": {},
+  "ShaderNodeInvert": {},
+  "ShaderNodeLightFalloff": {},
+  "ShaderNodeRGBCurve": {
+    "mapping": {
+      "default": "None",
+      "type": "bpy.types.CurveMapping"
+    }
+  },
+  "ShaderNodeBump": {
+    "invert": {
+      "default": "False",
+      "type": "bool"
+    }
+  },
+  "ShaderNodeDisplacement": {
+    "space": "OBJECT, WORLD"
+  },
+  "ShaderNodeMapping": {
+    "vector_type": "POINT, TEXTURE, VECTOR, NORMAL"
+  },
+  "ShaderNodeNormal": {},
+  "ShaderNodeNormalMap": {
+    "space": "TANGENT, OBJECT, WORLD, BLENDER_OBJECT, BLENDER_WORLD",
+    "uv_map": {
+      "default": "",
+      "type": "str"
+    }
+  },
+  "ShaderNodeVectorCurve": {
+    "mapping": {
+      "default": "None",
+      "type": "bpy.types.CurveMapping"
+    }
+  },
+  "ShaderNodeVectorDisplacement": {
+    "space": "TANGENT, OBJECT, WORLD"
+  },
+  "ShaderNodeVectorRotate": {
+    "rotation_type": "AXIS_ANGLE, X_AXIS, Y_AXIS, Z_AXIS, EULER_XYZ",
+    "invert": {
+      "default": "False",
+      "type": "bool"
+    }
+  },
+  "ShaderNodeVectorTransform": {
+    "convert_from": "WORLD, OBJECT, CAMERA",
+    "convert_to": "OBJECT, WORLD, CAMERA",
+    "vector_type": "VECTOR, POINT, NORMAL"
+  },
+  "ShaderNodeBlackbody": {},
+  "ShaderNodeClamp": {
+    "clamp_type": "MINMAX, RANGE"
+  },
+  "ShaderNodeValToRGB": {
+    "color_ramp": {
+      "default": "None",
+      "type": "bpy.types.ColorRamp"
+    }
+  },
+  "ShaderNodeCombineColor": {
+    "mode": "RGB, HSV, HSL"
+  },
+  "ShaderNodeCombineXYZ": {},
+  "ShaderNodeFloatCurve": {
+    "mapping": {
+      "default": "None",
+      "type": "bpy.types.CurveMapping"
+    }
+  },
+  "ShaderNodeMapRange": {
+    "data_type": "FLOAT, FLOAT_VECTOR",
+    "interpolation_type": "LINEAR, STEPPED, SMOOTHSTEP, SMOOTHERSTEP",
+    "clamp": {
+      "default": "True",
+      "type": "bool"
+    }
+  },
+  "ShaderNodeMath": {
+    "operation": "ADD, SUBTRACT, MULTIPLY, DIVIDE, MULTIPLY_ADD, POWER, LOGARITHM, SQRT, INVERSE_SQRT, ABSOLUTE, EXPONENT, MINIMUM, MAXIMUM, LESS_THAN, GREATER_THAN, SIGN, COMPARE, SMOOTH_MIN, SMOOTH_MAX, ROUND, FLOOR, CEIL, TRUNC, FRACT, MODULO, WRAP, SNAP, PINGPONG, SINE, COSINE, TANGENT, ARCSINE, ARCCOSINE, ARCTANGENT, ARCTAN2, SINH, COSH, TANH, RADIANS, DEGREES",
+    "use_clamp": {
+      "default": "False",
+      "type": "bool"
+    }
+  },
+  "ShaderNodeMix": {
+    "blend_type": "MIX, DARKEN, MULTIPLY, BURN, LIGHTEN, SCREEN, DODGE, ADD, OVERLAY, SOFT_LIGHT, LINEAR_LIGHT, DIFFERENCE, EXCLUSION, SUBTRACT, DIVIDE, HUE, SATURATION, COLOR, VALUE",
+    "data_type": "FLOAT, VECTOR, RGBA",
+    "factor_mode": "UNIFORM, NON_UNIFORM",
+    "clamp_factor": {
+      "default": "True",
+      "type": "bool"
+    },
+    "clamp_result": {
+      "default": "False",
+      "type": "bool"
+    }
+  },
+  "ShaderNodeRGBToBW": {},
+  "ShaderNodeSeparateColor": {
+    "mode": "RGB, HSV, HSL"
+  },
+  "ShaderNodeSeparateXYZ": {},
+  "ShaderNodeShaderToRGB": {},
+  "ShaderNodeVectorMath": {
+    "operation": "ADD, SUBTRACT, MULTIPLY, DIVIDE, MULTIPLY_ADD, CROSS_PRODUCT, PROJECT, REFLECT, REFRACT, FACEFORWARD, DOT_PRODUCT, DISTANCE, LENGTH, SCALE, NORMALIZE, ABSOLUTE, MINIMUM, MAXIMUM, FLOOR, CEIL, FRACTION, MODULO, WRAP, SNAP, SINE, COSINE, TANGENT"
+  },
+  "ShaderNodeWavelength": {}
+}
