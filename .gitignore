@@ -3,12 +3,17 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+.vscode
+pynodes_builder
+my_examples
+osl
+
 # C extensions
 *.so
 
 # Distribution / packaging
 .Python
-build/
+# build/
 develop-eggs/
 dist/
 downloads/
@@ -70,6 +75,8 @@ instance/
 
 # Sphinx documentation
 docs/_build/
+docs/apidocs/
+docs/build/doctrees/
 
 # PyBuilder
 .pybuilder/

@@ -1,0 +1,13 @@
+strong {
+    font-weight: bolder;
+    color: crimson;
+}
+
+code.literal {
+    border: 1px solid #dddddd;
+    color: #e83e8c;
+}
+
+h2 {
+    font-size: 1.3em;
+}
