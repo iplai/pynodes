@@ -1,4 +1,4 @@
-from bpy.types import Node, NodeFrame, NodeTree, NodeLink
+from bpy.types import Node, NodeFrame, NodeTree, NodeLink, ShaderNodeFloatCurve
 
 from .dimensions import NODE_DIMS
 
@@ -69,6 +69,14 @@ def node_dim(node: Node):
 
     if node.bl_idname == "ShaderNodeTexImage":
         h = 277
+
+    if node.bl_idname == "ShaderNodeFloatCurve":
+        float_curve: ShaderNodeFloatCurve = node
+        curve = float_curve.mapping.curves[0]
+        for point in curve.points:
+            if point.select:
+                h += 25
+                break
 
     return [nd[0], h]
 

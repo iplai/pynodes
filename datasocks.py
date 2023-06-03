@@ -106,8 +106,15 @@ class Float(Socket):
         node = new_node(*nodes.ShaderNodeClamp(clamp_type, self, min, max))
         return node.outputs[0].Float
 
-    def float_curve(self, factor=1.0, points: list[tuple[float, float]] = None):
+    def float_curve(self, factor=1.0, points: list[tuple[float, float, str]] = None):
         """The Float Curve node maps an input float to a curve and outputs a float value.
+        - `points`: `[(posx, posy, 'handle_type'), ...]`
+        - `handle_type`[Optional]: `AUTO`, `AUTO_CLAMPED`, `VECTOR`
+        - Example:
+
+        ```
+        value.float_curve(points=[(0, 0), (0.05, 0.03), (0.5, 0.5, "AUTO_CLAMPED"), (1, 0.5)]
+        ```
         #### Path
         - Utilities > Math > Float Curve
         #### Outputs:
@@ -125,7 +132,9 @@ class Float(Socket):
                 for _ in range(len(points) - 2):
                     curve.points.new(0, 0)
             for i, point in enumerate(points):
-                curve.points[i].location = point
+                curve.points[i].location = point[:2]
+                if len(point) > 2:
+                    curve.points[i].handle_type = point[2].upper()
         return node.outputs[0].Float
 
     @classmethod
@@ -627,6 +636,21 @@ class Float(Socket):
         """
         return self.math("DEGREES")
 
+    def to_euler(self, axis=(0.0, 0.0, 1.0), space='OBJECT'):
+        """Use separate axis and angle inputs to control the rotation.
+        - `space`: `OBJECT`, `LOCAL`
+        #### Path
+        - Utilities > Rotation > Rotate Euler Node
+        #### Outputs:
+        - `#0 rotation: Vector = (0.0, 0.0, 0.0)`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeRotateEuler.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/rotation/rotate_euler.html) [[API]](https://docs.blender.org/api/current/bpy.types.FunctionNodeRotateEuler.html)
+        """
+        node = new_node(*nodes.FunctionNodeRotateEuler(space, "AXIS_ANGLE", axis=axis, angle=self))
+        return node.outputs[0].Vector
+
 
 class Angle(Float):
     bl_idname = "NodeSocketFloatAngle"
@@ -933,6 +957,9 @@ class Vector(Socket):
 
     def __rsub__(self, other):
         return VectorMath("SUBTRACT", other, self).vector
+
+    def __neg__(self):
+        return VectorMath("SCALE", self, scale=-1).vector
 
     def __mul__(self, other):
         """1.The result of multiplying A by the scalar input Scale; 2.The entrywise product of A and B."""

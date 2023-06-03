@@ -1802,7 +1802,7 @@ class Geometry(Socket):
             self.tree.new_link(item.bsocket, node.bnode.inputs[0])
         return node.outputs[0].Instances
 
-    def on_points(self, points=None, pick_instance=False, instance_index: "Integer" = None, rotation=(0.0, 0.0, 0.0), scale=(1.0, 1.0, 1.0), selection=True):
+    def on_points(self, points: "Points" = None, pick_instance=False, instance_index: "Integer" = None, rotation=(0.0, 0.0, 0.0), scale=(1.0, 1.0, 1.0), selection=True):
         """The Instance on Points node adds a reference to a geometry to each of the points present in the input geometry. Instances are a fast way to add the same geometry to a scene many times without duplicating the underlying data. The node works on any geometry type with a Point domain, including meshes, point clouds, and curve control points.
         - In-Place Operation
         #### Path
@@ -1814,7 +1814,7 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/instances/instance_on_points.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeInstanceOnPoints.html)
         """
-        selection = selection if self._selection is None else self.selection
+        selection = selection if points._selection is None else points.selection
         node = new_node(*nodes.GeometryNodeInstanceOnPoints(points, selection, self, pick_instance, instance_index, rotation, scale))
         self.bsocket = node.outputs[0].bsocket
         return self
@@ -3090,6 +3090,22 @@ class Geometry(Socket):
         """
         node = new_node(*nodes.GeometryNodeFieldOnDomain("BOOLEAN", "INSTANCE", value_bool=value_bool))
         return node.outputs[4].Boolean
+
+    def realize_instances(self, legacy_behavior=False):
+        """The Realize Instances node makes any instances (efficient duplicates of the same geometry) into real geometry data. This makes it possible to affect each instance individually, whereas without this node, the exact same changes are applied to every instance of the same geometry. However, performance can become much worse when the input contains many instances of complex geometry, which is a fundamental limitation when procedurally processing geometry.
+        - In-Place Operation
+        #### Path
+        - Instances > Realize Instances Node
+        #### Outputs:
+        - `#0 geometry: Geometry = None`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeRealizeInstances.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/instances/realize_instances.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeRealizeInstances.html)
+        """
+        node = new_node(*nodes.GeometryNodeRealizeInstances(legacy_behavior, self))
+        self.bsocket = node.outputs[0].bsocket
+        return self
 
 
 class Curve(Geometry):
@@ -5426,7 +5442,7 @@ def MeshUVSphere(segments=32, rings=16, radius=1.0):
     return ret(node.outputs[0].Mesh, node.outputs[1].Vector)
 
 
-def PointsNode(count=1, position=(0.0, 0.0, 0.0), radius=0.1):
+def InputPoints(count=1, position=(0.0, 0.0, 0.0), radius=0.1):
     """The Points node generate a point cloud with positions and radii defined by fields.
     #### Path
     - Point > Points Node

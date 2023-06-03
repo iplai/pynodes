@@ -107,6 +107,9 @@ class Tree:
                         node_input = mod.node_group.inputs[mod_k]
                         if node_input.bl_label == "Float":
                             value = float(value)
+                        elif node_input.bl_label == "Object":
+                            if isinstance(value, str):
+                                value = bpy.data.objects[value]
                         if isinstance(value, mathutils.Vector):
                             bpy.data.objects[obj.name].modifiers[mod_name][node_input.identifier][:] = value[:]
                         else:

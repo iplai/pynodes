@@ -24,7 +24,7 @@ def balls_push_apart(obj: Object):
 
     points.set_position(position=pos)
 
-    return points
+    return MeshIcoSphere(subdivisions=2, radius=0.06).mesh.on_points(points)
 
 
 from pynodes.scene import *
