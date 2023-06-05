@@ -1117,7 +1117,7 @@ class Geometry(Socket):
         return ret(node.outputs[4].Integer, node.outputs[5].Boolean)
 
     @property
-    def nornal(self):
+    def normal(self):
         """The Normal node returns a vector for each evaluated point indicating the normal direction. The output can depend on the attribute domain used in the node evaluating the field, but the output is always a normalized unit vector.
         #### Path
         - Geometry > Read > Normal Node

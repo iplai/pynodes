@@ -133,6 +133,10 @@ class SocketWraper:
             if type(value) == str:
                 if bpy.data.materials.get(value) is None:
                     bpy.data.materials.new(value)
+                    if value.startswith("#"):
+                        from .colors import hex_color_to_rgba
+                        mat = bpy.data.materials[value]
+                        mat.diffuse_color = hex_color_to_rgba(value)
                 value = bpy.data.materials[value]
             else:
                 assert isinstance(value, bpy.types.Material)
@@ -367,6 +371,12 @@ class Tree:
         return self._group_input_node
 
     def remove_orphan_input_node(self):
+        for bnode in self.tree.btree.nodes:
+            if bnode.bl_idname == "NodeGroupInput":
+                for ouput in bnode.outputs:
+                    if not ouput.is_linked:
+                        ouput.hide = True
+
         if self._group_input_node is None:
             return
         for output in self._group_input_node.outputs:

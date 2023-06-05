@@ -23,7 +23,7 @@ def group_dim(node: Node):
     """Custom group dimensions"""
 
     w = 140
-    h = 32 + 22 * len(node.outputs)
+    h = 32 + 22 * len([output for output in node.outputs if not output.hide])
 
     if node.bl_idname in ["GeometryNodeGroup", "ShaderNodeGroup"]:
         h += 30

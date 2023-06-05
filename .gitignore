@@ -5,8 +5,7 @@ __pycache__/
 
 .vscode
 # pynodes_builder
-# my_examples
-# osl
+my_examples
 
 # C extensions
 *.so
