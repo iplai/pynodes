@@ -19,7 +19,7 @@ def calculate_coord(p: Integer, q: Integer, R: Float, r: Float, ɸ: Float):
 
 
 @tree
-def torus_kont(
+def torus_knot(
     resolution_ratio: Float = 10,
     p: Integer = 1,
     q: Integer = 3,

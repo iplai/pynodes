@@ -14,6 +14,8 @@ class O(ObjType):
     circle = enum.auto()
     cone = enum.auto()
     nurbs_path = enum.auto()
+    bezier_curve = "bpy.ops.curve.primitive_bezier_curve_add()"
+    empty_sphere = "bpy.ops.object.empty_add(type='SPHERE')"
 
 
 class Mod(ObjType):
@@ -125,13 +127,17 @@ class Tree:
             else:
                 value = mod_v
                 if mod_k == "node_group":
-                    if bpy.data.node_groups.get(mod_v) is None:
-                        bpy.data.node_groups.new(mod_v, "GeometryNodeTree")
-                    node_group = bpy.data.node_groups[mod_v]
+                    tree_name = mod_v.replace("_", " ").title()
+                    if bpy.data.node_groups.get(tree_name) is None:
+                        bpy.data.node_groups.new(tree_name, "GeometryNodeTree")
+                    node_group = bpy.data.node_groups[tree_name]
                     if mod.node_group != node_group:
                         mod.node_group = node_group
                 elif k.type == Mod.geometry_nodes:
-                    node_input = mod.node_group.inputs[mod_k]
+                    try:
+                        node_input = mod.node_group.inputs[mod_k]
+                    except KeyError:
+                        node_input = mod.node_group.inputs[mod_k.title()]
                     if node_input.bl_label == "Float":
                         value = float(value)
                     elif isinstance(value, (ObjType, Key)):

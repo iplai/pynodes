@@ -123,21 +123,24 @@ class SocketWraper:
     def default_value(self, value):
         bsocket = self.bsocket
         bnode = bsocket.node
-        if bsocket.bl_label in ["Vector", "Color"]:
-            if not hasattr(value, "__len__") and isinstance(value, (int, float)):
-                value = (value,) * len(self.default_value)
-            elif bsocket.bl_label == "Color" and type(value) == str and value.startswith("#"):
-                from .colors import hex_color_to_rgba
-                value = hex_color_to_rgba(value)
+        if bsocket.bl_label == "Vector":
+            if isinstance(value, (int, float)):
+                value = (value,) * 3
+        elif bsocket.bl_label == "Color":
+            from .colors import color_tuple
+            value = color_tuple(value)
         elif bsocket.bl_label == "Material":
             if type(value) == str:
-                if bpy.data.materials.get(value) is None:
-                    bpy.data.materials.new(value)
+                mat_name = value.replace("_", " ").title()
+                if value.startswith("#"):
+                    mat_name = value
+                if bpy.data.materials.get(mat_name) is None:
+                    bpy.data.materials.new(mat_name)
                     if value.startswith("#"):
                         from .colors import hex_color_to_rgba
-                        mat = bpy.data.materials[value]
+                        mat = bpy.data.materials[mat_name]
                         mat.diffuse_color = hex_color_to_rgba(value)
-                value = bpy.data.materials[value]
+                value = bpy.data.materials[mat_name]
             else:
                 assert isinstance(value, bpy.types.Material)
         elif bsocket.bl_label == "Image":
@@ -157,8 +160,10 @@ class SocketWraper:
                 return
         try:
             setattr(bsocket, "default_value", value)
-        except Exception as e:
+        except TypeError as e:
             print("Cannot set default_value", e, f"{bnode.name = }", f"{bsocket.name = }", f"{value = }", sep="\n")
+            if isinstance(value, tuple):
+                print("You may forget to call the member of the named tuple", value._asdict())
 
 
 class Socket(SocketWraper):
@@ -246,6 +251,9 @@ class Socket(SocketWraper):
                     default = bpy.data.materials.get(mat_name)
                     if default is None:
                         default = bpy.data.materials.new(mat_name)
+            if input.bl_socket_idname == "NodeSocketObject":
+                if type(default) == str:
+                    default = bpy.data.objects.get(default)
             if Tree.tree.btree.bl_idname == "GeometryNodeTree":
                 update_modifier(default, input)
             input.default_value = default
@@ -424,8 +432,14 @@ class Tree:
         if properties is not None:
             for name, value, default_value in properties:
                 if value != default_value:
-                    setattr(bnode, name, value)
                     # TODO
+                    try:
+                        setattr(bnode, name, value)
+                    except TypeError as e:
+                        if str(e).endswith("expected a Object type, not str"):
+                            setattr(bnode, name, bpy.data.objects.get(value))
+                        else:
+                            raise e
         if inputs is not None:
             node.plug_inputs(inputs)
 
@@ -739,7 +753,8 @@ def tree(func: typing.Callable[Param, RT]) -> typing.Callable[Param, RT]:
 
     from .arrange import arrange
     Tree.tree.remove_orphan_input_node()
-    arrange(Tree.tree.btree)
+    if len(Tree.tree.btree.nodes) < 200:
+        arrange(Tree.tree.btree)
 
     @functools.wraps(func)
     def wrapped_function(*args, **kwargs) -> RT:

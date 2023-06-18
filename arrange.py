@@ -78,6 +78,18 @@ def node_dim(node: Node):
                 h += 25
                 break
 
+    if node.bl_idname == "GeometryNodeJoinGeometry":
+        inputs_count = len(node.inputs[0].links)
+        h = 75
+        if inputs_count == 3:
+            h = 79
+        elif inputs_count == 4:
+            h = 85
+        elif inputs_count == 5:
+            h = 89
+        elif inputs_count > 5:
+            h = 75 + inputs_count * 4
+
     return [nd[0], h]
 
 

@@ -9,9 +9,14 @@ def hex_color_to_rgb(hex_color: str):
     return r, g, b
 
 
-def hex_color_to_rgba(hex_color: str, alpha=1.0):
+def hex_color_to_rgba(hex_color: str):
     r, g, b = hex_color_to_rgb(hex_color)
-    return r, g, b, alpha
+    hex_color = hex_color.lstrip("#")
+    try:
+        a = int(hex_color[6:8], 16) / 255
+    except ValueError:
+        a = 1.0
+    return r, g, b, a
 
 
 def convert_srgb_to_linear_rgb(srgb_color_component: float):
@@ -112,11 +117,22 @@ color_palettes = [
 
 def rgb(r=0, g=0, b=0):
     if isinstance(r, str):
-        from .colors import hex_color_to_rgb
         return hex_color_to_rgb(r)
-    from .colors import convert_srgb_to_linear_rgb as s
-    return s(r / 255), s(g / 255), s(b / 255)
+    c = convert_srgb_to_linear_rgb
+    return c(r / 255), c(g / 255), c(b / 255)
 
 
 def rgba(r=0, g=0, b=0, a=1.0):
     return *mathutils.Color((r, g, b)) / 255, a
+
+
+def color_tuple(color: float | str | tuple[float, float, float] | tuple[float, float, float, float]):
+    a = 1
+    if isinstance(color, str):
+        return hex_color_to_rgba(color)
+    if isinstance(color, (float, int)):
+        r = g = b = color
+        return r, g, b, a
+    if len(color) == 3:
+        return *color, a
+    return color

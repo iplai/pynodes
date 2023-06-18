@@ -1491,6 +1491,101 @@ class Geometry(Socket):
         self.bsocket = node.outputs[0].bsocket
         return self
 
+    def delete_points(self, mode="ALL", selection=True):
+        """The Delete Geometry node removes the selected part of a geometry. It behaves similarly to the Delete tool in Edit Mode. The type of elements to be deleted can be specified with the domain and mode properties.
+        - In-Place Operation
+        #### Path
+        - Geometry > Operations > Delete Geometry Node
+        #### Properties
+        - `mode`: `ALL`, `EDGE_FACE`, `ONLY_FACE`
+        #### Outputs:
+        - `#0 geometry: Geometry = None`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeDeleteGeometry.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/delete_geometry.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeDeleteGeometry.html)
+        """
+        selection = selection if self._selection is None else self.selection
+        node = new_node(*nodes.GeometryNodeDeleteGeometry("POINT", mode, self, selection))
+        self.bsocket = node.outputs[0].bsocket
+        return self
+
+    def delete_edges(self, mode="ALL", selection=True):
+        """The Delete Geometry node removes the selected part of a geometry. It behaves similarly to the Delete tool in Edit Mode. The type of elements to be deleted can be specified with the domain and mode properties.
+        - In-Place Operation
+        #### Path
+        - Geometry > Operations > Delete Geometry Node
+        #### Properties
+        - `mode`: `ALL`, `EDGE_FACE`, `ONLY_FACE`
+        #### Outputs:
+        - `#0 geometry: Geometry = None`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeDeleteGeometry.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/delete_geometry.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeDeleteGeometry.html)
+        """
+        selection = selection if self._selection is None else self.selection
+        node = new_node(*nodes.GeometryNodeDeleteGeometry("EDGE", mode, self, selection))
+        self.bsocket = node.outputs[0].bsocket
+        return self
+
+    def delete_faces(self, mode="ALL", selection=True):
+        """The Delete Geometry node removes the selected part of a geometry. It behaves similarly to the Delete tool in Edit Mode. The type of elements to be deleted can be specified with the domain and mode properties.
+        - In-Place Operation
+        #### Path
+        - Geometry > Operations > Delete Geometry Node
+        #### Properties
+        - `mode`: `ALL`, `EDGE_FACE`, `ONLY_FACE`
+        #### Outputs:
+        - `#0 geometry: Geometry = None`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeDeleteGeometry.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/delete_geometry.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeDeleteGeometry.html)
+        """
+        selection = selection if self._selection is None else self.selection
+        node = new_node(*nodes.GeometryNodeDeleteGeometry("FACE", mode, self, selection))
+        self.bsocket = node.outputs[0].bsocket
+        return self
+
+    def delete_curves(self, mode="ALL", selection=True):
+        """The Delete Geometry node removes the selected part of a geometry. It behaves similarly to the Delete tool in Edit Mode. The type of elements to be deleted can be specified with the domain and mode properties.
+        - In-Place Operation
+        #### Path
+        - Geometry > Operations > Delete Geometry Node
+        #### Properties
+        - `mode`: `ALL`, `EDGE_FACE`, `ONLY_FACE`
+        #### Outputs:
+        - `#0 geometry: Geometry = None`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeDeleteGeometry.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/delete_geometry.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeDeleteGeometry.html)
+        """
+        selection = selection if self._selection is None else self.selection
+        node = new_node(*nodes.GeometryNodeDeleteGeometry("CURVE", mode, self, selection))
+        self.bsocket = node.outputs[0].bsocket
+        return self
+
+    def delete_instances(self, mode="ALL", selection=True):
+        """The Delete Geometry node removes the selected part of a geometry. It behaves similarly to the Delete tool in Edit Mode. The type of elements to be deleted can be specified with the domain and mode properties.
+        - In-Place Operation
+        #### Path
+        - Geometry > Operations > Delete Geometry Node
+        #### Properties
+        - `mode`: `ALL`, `EDGE_FACE`, `ONLY_FACE`
+        #### Outputs:
+        - `#0 geometry: Geometry = None`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeDeleteGeometry.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/delete_geometry.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeDeleteGeometry.html)
+        """
+        selection = selection if self._selection is None else self.selection
+        node = new_node(*nodes.GeometryNodeDeleteGeometry("INSTANCE", mode, self, selection))
+        self.bsocket = node.outputs[0].bsocket
+        return self
+
     def duplicate_elements(self, amount=1, domain="POINT", selection=True):
         """The Duplicate Elements node creates a new geometry with the specified elements from the input duplicated an arbitrary number of times. The positions of elements are not changed, so all of the duplicates will be at the exact same location.
         #### Path
@@ -1814,6 +1909,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/instances/instance_on_points.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeInstanceOnPoints.html)
         """
+        if isinstance(points, tuple):
+            import colorama
+            red, r = colorama.Fore.RED, colorama.Style.RESET_ALL
+            print(f"{red}Error: {r}The parameter {red}points{r} for {red}on_points{r} is not a Geometry instance, you may missed {red}.mesh{r}")
+            return self
         selection = selection if points._selection is None else points.selection
         node = new_node(*nodes.GeometryNodeInstanceOnPoints(points, selection, self, pick_instance, instance_index, rotation, scale))
         self.bsocket = node.outputs[0].bsocket
@@ -5407,13 +5507,10 @@ def MeshCircle(vertices=32, radius=1.0, fill_type='NONE'):
     return node.outputs[0].Mesh
 
 
-def MeshLine(count_mode='TOTAL', mode='OFFSET', count=10, resolution=1.0, start_location=(0.0, 0.0, 0.0), offset=(0.0, 0.0, 1.0)):
+def MeshLine(start_location=(0.0, 0.0, 0.0), offset=(0.0, 0.0, 1.0), count=10):
     """The Mesh Line node generates vertices in a line and connects them with edges.
     #### Path
     - Mesh > Primitives > Mesh Line Node
-    #### Properties
-    - `count_mode`: `TOTAL`, `RESOLUTION`
-    - `mode`: `OFFSET`, `END_POINTS`
     #### Outputs:
     - `#0 mesh: Geometry = None`
 
@@ -5421,7 +5518,24 @@ def MeshLine(count_mode='TOTAL', mode='OFFSET', count=10, resolution=1.0, start_
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/primitives/mesh_line.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeMeshLine.html)
     """
-    node = new_node(*nodes.GeometryNodeMeshLine(count_mode, mode, count, resolution, start_location, offset))
+    node = new_node(*nodes.GeometryNodeMeshLine("TOTAL", "OFFSET", count, 1.0, start_location, offset))
+    return node.outputs[0].Mesh
+
+
+def MeshLineEndPoints(start_location=(0.0, 0.0, 0.0), end_location=(0.0, 0.0, 1.0), count_mode='TOTAL', count=10, resolution=1.0):
+    """The Mesh Line node generates vertices in a line and connects them with edges.
+    #### Path
+    - Mesh > Primitives > Mesh Line Node
+    #### Properties
+    - `count_mode`: `TOTAL`, `RESOLUTION`
+    #### Outputs:
+    - `#0 mesh: Geometry = None`
+
+    ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeMeshLine.webp)
+
+    [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/primitives/mesh_line.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeMeshLine.html)
+    """
+    node = new_node(*nodes.GeometryNodeMeshLine(count_mode, "END_POINTS", count, resolution, start_location, end_location))
     return node.outputs[0].Mesh
 
 
@@ -5485,12 +5599,30 @@ def join(*items: "Geometry"):
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/join_geometry.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeJoinGeometry.html)
     """
     if len(items) == 1 and isinstance(items[0], (tuple, list)):
-        return join(*items[0])
+        items = items[0]
     items = list(reversed(items))
     node = new_node(*nodes.GeometryNodeJoinGeometry())
     for item in items:
         new_link(item.bsocket, node.bnode.inputs[0])
     return node.outputs[0].Geometry
+
+
+def SplineParameter():
+    """The Spline Parameter node outputs how far along each spline a control point is. The Factor output is different from dividing the index by the total number of control points, because the control points might not be equally spaced along the curve.
+    #### Path
+    - Curve > Read > Spline Parameter Node
+    #### Outputs:
+    - `#0 factor: Float = 0.0`
+    - `#1 length: Float = 0.0`
+    - `#2 index: Integer = 0`
+
+    ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSplineParameter.webp)
+
+    [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/read/spline_parameter.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeSplineParameter.html)
+    """
+    node = new_node(*nodes.GeometryNodeSplineParameter())
+    ret = typing.NamedTuple("GeometryNodeSplineParameter", [("factor", Float), ("length", Float), ("index", Integer)])
+    return ret(node.outputs[0].Float, node.outputs[1].Float, node.outputs[2].Integer)
 
 
 from .datasocks import Float, Vector, Integer, Color, Boolean

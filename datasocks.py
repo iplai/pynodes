@@ -36,8 +36,10 @@ class Float(Socket):
         node = new_node(*nodes.ShaderNodeMix(data_type='FLOAT', clamp_factor=clamp_factor, factor_float=factor_float, a_float=self, b_float=b_float))
         return node.outputs[0].Float
 
-    def to_color(self, color_start=(0.0, 0.0, 0.0, 1.0), color_end=(1.0, 1.0, 1.0, 1.0)):
+    def color_ramp_uniform(self, *colors):
         """The Color Ramp Node is used for mapping values to colors with the use of a gradient.
+
+        item of colors: hex string or float or tuple
         #### Path
         - Utilities > Color > Color Ramp Node
         #### Outputs:
@@ -48,18 +50,44 @@ class Float(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/color/color_ramp.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeValToRGB.html)
         """
-        from .colors import rgb
-        if type(color_start) == str:
-            color_start = *rgb(color_start), 1
-        if type(color_end) == str:
-            color_end = *rgb(color_end), 1
+        from .colors import color_tuple
         node = new_node(*nodes.ShaderNodeValToRGB(None, self))
         bnode: bpy.types.ShaderNodeValToRGB = node.bnode
         color_ramp = bnode.color_ramp
-        element = color_ramp.elements[0]
-        element.color = color_start
-        element = color_ramp.elements[-1]
-        element.color = color_end
+        count = len(colors)
+        for _ in range(count - 2):
+            color_ramp.elements.new(0)
+        for i, color in enumerate(colors):
+            element = color_ramp.elements[i]
+            element.position = i / (count - 1)
+            element.color = color_tuple(color)
+        return node.outputs[0].Color
+
+    def color_ramp_with_position(self, *colors: tuple):
+        """The Color Ramp Node is used for mapping values to colors with the use of a gradient.
+
+        colors: `[(position, color), ...]` position from 0 to 1, color: hex string or float or tuple
+        #### Path
+        - Utilities > Color > Color Ramp Node
+        #### Outputs:
+        - `#0 color: Color = (0.0, 0.0, 0.0, 0.0)`
+        - `#1 alpha: Float = 0.0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeValToRGB.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/color/color_ramp.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeValToRGB.html)
+        """
+        from .colors import color_tuple
+        node = new_node(*nodes.ShaderNodeValToRGB(None, self))
+        bnode: bpy.types.ShaderNodeValToRGB = node.bnode
+        color_ramp = bnode.color_ramp
+        count = len(colors)
+        for _ in range(count - 2):
+            color_ramp.elements.new(0)
+        for i, (position, color) in enumerate(colors):
+            element = color_ramp.elements[i]
+            element.position = position
+            element.color = color_tuple(color)
         return node.outputs[0].Color
 
     def to_normal(self, invert=False, strength=1.0, distance=1.0, normal=(0.0, 0.0, 0.0)):
@@ -1951,7 +1979,7 @@ class Shader(Socket):
         return ret(node.outputs[0].Float, node.outputs[1].Float, node.outputs[2].Float, node.outputs[3].Float, node.outputs[4].Float, node.outputs[5].Float, node.outputs[6].Float, node.outputs[7].Float, node.outputs[8].Float, node.outputs[9].Float, node.outputs[10].Float, node.outputs[11].Float, node.outputs[12].Float)
 
     @property
-    def ShaderNodeObjectInfo(self):
+    def object_info(self):
         """The Object Info node gives information about the object instance. This can be useful to give some variation to a single material assigned to multiple instances, either manually controlled through the object index, based on the object location, or randomized for each instance. For example a Noise texture can give random colors or a Color Ramp can give a range of colors to be randomly picked from.
         #### Path
         - Input > Object Info Node
@@ -2690,7 +2718,7 @@ def InputImage(image=None):
     return node.outputs[0].Image
 
 
-def InputInt(integer=0):
+def InputInteger(integer=0):
     """The Integer node provides an integer value.
     #### Path
     - Input > Constant > Integer Node
@@ -3013,7 +3041,7 @@ def BrickTexture(offset=0.5, offset_frequency=2, squash=1.0, squash_frequency=2,
     return ret(node.outputs[0].Color, node.outputs[1].Float)
 
 
-def CheckerTexture(color_mapping=None, texture_mapping=None, vector: Vector = None, color1=(0.8, 0.8, 0.8, 1.0), color2=(0.2, 0.2, 0.2, 1.0), scale=5.0):
+def CheckerTexture(vector: Vector = None, color1=(0.8, 0.8, 0.8, 1.0), color2=(0.2, 0.2, 0.2, 1.0), scale=5.0):
     """The Checker Texture is used to add a checkerboard texture.
     #### Path
     - Texture > Checker Texture Node
@@ -3025,12 +3053,12 @@ def CheckerTexture(color_mapping=None, texture_mapping=None, vector: Vector = No
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/checker.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexChecker.html)
     """
-    node = new_node(*nodes.ShaderNodeTexChecker(color_mapping, texture_mapping, vector, color1, color2, scale))
+    node = new_node(*nodes.ShaderNodeTexChecker(None, None, vector, color1, color2, scale))
     ret = typing.NamedTuple("ShaderNodeTexChecker", [("color", Color), ("fac", Float)])
     return ret(node.outputs[0].Color, node.outputs[1].Float)
 
 
-def GradientTexture(gradient_type='LINEAR', color_mapping=None, texture_mapping=None, vector: Vector = None):
+def GradientTexture(gradient_type='LINEAR', vector: Vector = None):
     """The Gradient Texture node generates interpolated color and intensity values based on the input vector.
     #### Path
     - Texture > Gradient Texture Node
@@ -3044,7 +3072,7 @@ def GradientTexture(gradient_type='LINEAR', color_mapping=None, texture_mapping=
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/gradient.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexGradient.html)
     """
-    node = new_node(*nodes.ShaderNodeTexGradient(gradient_type, color_mapping, texture_mapping, vector))
+    node = new_node(*nodes.ShaderNodeTexGradient(gradient_type, None, None, vector))
     ret = typing.NamedTuple("ShaderNodeTexGradient", [("color", Color), ("fac", Float)])
     return ret(node.outputs[0].Color, node.outputs[1].Float)
 
@@ -3632,7 +3660,7 @@ def SkyTexture(sky_type='NISHITA', air_density=1.0, altitude=0.0, color_mapping=
 
 
 def BrightContrast(color=(1.0, 1.0, 1.0, 1.0), bright=0.0, contrast=0.0):
-    """
+    """ShaderNodeBrightContrast
     #### Path
     - Color > Bright/Contrast Node
     #### Outputs:
