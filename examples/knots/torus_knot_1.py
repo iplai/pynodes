@@ -46,7 +46,7 @@ def torus_knot(
 
     with frame("Make curve to mesh"):
 
-        mesh = circle.to_mesh(profile_curve=CurveCircle(radius))
+        mesh = circle.to_mesh(profile=CurveCircle(radius))
 
         mesh.set_material("Torus Knot")
 

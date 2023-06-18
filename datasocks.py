@@ -3176,7 +3176,7 @@ def VoronoiTexture(voronoi_dimensions='3D', distance='EUCLIDEAN', feature='F1', 
     return ret(node.outputs[0].Float, node.outputs[1].Color, node.outputs[2].Vector, node.outputs[3].Float, node.outputs[4].Float)
 
 
-def WaveTexture(bands_direction='X', rings_direction='X', wave_profile='SIN', wave_type='BANDS', color_mapping=None, texture_mapping=None, vector: Vector = None, scale=5.0, distortion=0.0, detail=2.0, detail_scale=1.0, detail_roughness=0.5, phase_offset=0.0):
+def WaveTexture(wave_type='BANDS', bands_direction='X', rings_direction='X', wave_profile='SIN', vector: Vector = None, scale=5.0, distortion=0.0, detail=2.0, detail_scale=1.0, detail_roughness=0.5, phase_offset=0.0):
     """The Wave Texture node adds procedural bands or rings with noise distortion.
     #### Path
     - Texture > Wave Texture Node
@@ -3193,7 +3193,47 @@ def WaveTexture(bands_direction='X', rings_direction='X', wave_profile='SIN', wa
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/wave.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexWave.html)
     """
-    node = new_node(*nodes.ShaderNodeTexWave(bands_direction, rings_direction, wave_profile, wave_type, color_mapping, texture_mapping, vector, scale, distortion, detail, detail_scale, detail_roughness, phase_offset))
+    node = new_node(*nodes.ShaderNodeTexWave(bands_direction, rings_direction, wave_profile, wave_type, None, None, vector, scale, distortion, detail, detail_scale, detail_roughness, phase_offset))
+    ret = typing.NamedTuple("ShaderNodeTexWave", [("color", Color), ("fac", Float)])
+    return ret(node.outputs[0].Color, node.outputs[1].Float)
+
+
+def WaveTextureBands(bands_direction='X', wave_profile='SIN', vector: Vector = None, scale=5.0, distortion=0.0, detail=2.0, detail_scale=1.0, detail_roughness=0.5, phase_offset=0.0):
+    """The Wave Texture node adds procedural bands or rings with noise distortion.
+    #### Path
+    - Texture > Wave Texture Node
+    #### Properties:
+    - `bands_direction`: `X`, `Y`, `Z`, `DIAGONAL`
+    - `wave_profile`: `SIN`, `SAW`, `TRI`
+    #### Outputs:
+    - `#0 color: Color = (0.0, 0.0, 0.0, 0.0)`
+    - `#1 fac: Float = 0.0`
+
+    ![](https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexWave.webp)
+
+    [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/wave.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexWave.html)
+    """
+    node = new_node(*nodes.ShaderNodeTexWave(bands_direction, "X", wave_profile, "BANDS", None, None, vector, scale, distortion, detail, detail_scale, detail_roughness, phase_offset))
+    ret = typing.NamedTuple("ShaderNodeTexWave", [("color", Color), ("fac", Float)])
+    return ret(node.outputs[0].Color, node.outputs[1].Float)
+
+
+def WaveTextureRings(rings_direction='X', wave_profile='SIN', vector: Vector = None, scale=5.0, distortion=0.0, detail=2.0, detail_scale=1.0, detail_roughness=0.5, phase_offset=0.0):
+    """The Wave Texture node adds procedural bands or rings with noise distortion.
+    #### Path
+    - Texture > Wave Texture Node
+    #### Properties:
+    - `rings_direction`: `X`, `Y`, `Z`, `SPHERICAL`
+    - `wave_profile`: `SIN`, `SAW`, `TRI`
+    #### Outputs:
+    - `#0 color: Color = (0.0, 0.0, 0.0, 0.0)`
+    - `#1 fac: Float = 0.0`
+
+    ![](https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexWave.webp)
+
+    [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/wave.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexWave.html)
+    """
+    node = new_node(*nodes.ShaderNodeTexWave("X", rings_direction, wave_profile, "RINGS", None, None, vector, scale, distortion, detail, detail_scale, detail_roughness, phase_offset))
     ret = typing.NamedTuple("ShaderNodeTexWave", [("color", Color), ("fac", Float)])
     return ret(node.outputs[0].Color, node.outputs[1].Float)
 

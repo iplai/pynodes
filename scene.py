@@ -7,6 +7,7 @@ class ObjType(enum.Enum):
 
 
 class O(ObjType):
+    mesh = enum.auto()
     plane = "bpy.ops.mesh.primitive_plane_add()"
     cube = "bpy.ops.mesh.primitive_cube_add()"
     ico_sphere = "bpy.ops.mesh.primitive_ico_sphere_add()"
@@ -22,6 +23,8 @@ class Mod(ObjType):
     geometry_nodes = "NODES"
     bevel = "BEVEL"
     subdivision = "SUBSURF"
+    decimate = "DECIMATE"
+    smooth = "SMOOTH"
 
 
 class Mat(ObjType):

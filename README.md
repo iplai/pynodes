@@ -4,7 +4,9 @@
 [![Python 3.10 +](https://img.shields.io/badge/python-3.10_+-blue.svg)](https://www.python.org/downloads/release/python-310/)
 [![Blender](https://img.shields.io/badge/Blender-_3.5.1_-blue)](http://www.blender.org)
 
-Programmatical nodes for blender including geometry nodes, shader nodes, compositor nodes, light nodes, world nodes etc.
+#### *Programmatical nodes for blender including geometry nodes, shader nodes, compositor nodes, light nodes, world nodes etc.*
+
+Decorate a python function to represent a blender node group for any kind of tree in blender node editor.
 
 ## Documentation
 
@@ -16,7 +18,7 @@ https://iplai.github.io/pynodes/
 from pynodes import *
 
 
-@tree
+@tree                       # (default, min, max)
 def tulsi_couple(count: Integer = (5, 1, 8)):
 
     line = CurveLine((0, -3, 0), (0, 3, 0))

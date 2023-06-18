@@ -3665,7 +3665,7 @@ class Curve(Geometry):
         self.bsocket = node.outputs[0].bsocket
         return self
 
-    def to_mesh(self, profile_curve=None, fill_caps=False):
+    def to_mesh(self, profile: "Curve" = None, fill_caps=False):
         """The Curve to Mesh node converts all splines of a curve to a mesh. Optionally, a profile curve can be provided to give the curve a custom shape.
         #### Path
         - Curve > Operations > Curve to Mesh Node
@@ -3676,7 +3676,7 @@ class Curve(Geometry):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/operations/curve_to_mesh.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCurveToMesh.html)
         """
-        node = new_node(*nodes.GeometryNodeCurveToMesh(self, profile_curve, fill_caps))
+        node = new_node(*nodes.GeometryNodeCurveToMesh(self, profile, fill_caps))
         return node.outputs[0].Mesh
 
     def to_points(self, mode="COUNT", count=10, length=0.1):
