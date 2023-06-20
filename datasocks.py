@@ -257,6 +257,9 @@ class Float(Socket):
     def __eq__(self, other):
         return Compare("FLOAT", operation="EQUAL", a=self, b=other)
 
+    def __ne__(self, other):
+        return Compare("FLOAT", operation="NOT_EQUAL", a=self, b=other)
+
     def __ge__(self, other):
         return Compare("FLOAT", operation="GREATER_EQUAL", a=self, b=other)
 
@@ -3562,6 +3565,21 @@ def InputPosition():
     """
     node = new_node(*nodes.GeometryNodeInputPosition())
     return node.outputs[0].Vector
+
+
+def InputIndex():
+    """The Index node gives an integer value indicating the position of each element in the list, starting at zero. This depends on the internal order of the data in the geometry, which is not necessarily visible in the 3D Viewport. However, the index value is visible in the left-most column in the Spreadsheet Editor.
+    #### Path
+    - Geometry > Read > Index Node
+    #### Outputs:
+    - `#0 index: Integer = 0`
+
+    ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputIndex.webp)
+
+    [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/read/input_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeInputIndex.html)
+    """
+    node = new_node(*nodes.GeometryNodeInputIndex())
+    return node.outputs[0].Integer
 
 
 def SceneTime():

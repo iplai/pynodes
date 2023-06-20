@@ -24,15 +24,19 @@ class Geometry(Socket):
             if stop is None:
                 start = start if isinstance(start, Socket) else int(start)
                 socket = self.index >= start
-            elif selection.start is None:
+            elif start is None:
                 stop = stop if isinstance(stop, Socket) else int(stop)
                 socket = self.index < stop
             else:
-                from .datasocks import Compare
-                socket = Compare("FLOAT", operation="EQUAL", a=self.index, b=(start + stop) / 2 - 0.1, epsilon=(stop - start) / 2)
-        elif type(selection) == int:
+                # from .datasocks import Compare
+                # socket = Compare("FLOAT", operation="EQUAL", a=self.index, b=(start + stop) / 2 - 0.1, epsilon=(stop - start) / 2)
+                socket = (self.index >= start) & (self.index < stop)
+        elif isinstance(selection, (int, Integer)):
             socket = self.index == selection
         elif isinstance(selection, Boolean):
+            socket = selection
+        elif isinstance(selection, Float):
+            # socket = selection != 0
             socket = selection
         elif type(selection) == tuple:
             conditions: list[Boolean] = []
@@ -195,6 +199,144 @@ class Geometry(Socket):
         node = new_node(*nodes.GeometryNodeAttributeStatistic("FLOAT", "INSTANCE", self, selection, attribute))
         ret = typing.NamedTuple("AttributeStatistic", [("mean", Float), ("median", Float), ("sum", Float), ("min", Float), ("max", Float), ("range", Float), ("standard_deviation", Float), ("variance", Float)])
         return ret(node.outputs[0].Float, node.outputs[1].Float, node.outputs[2].Float, node.outputs[3].Float, node.outputs[4].Float, node.outputs[5].Float, node.outputs[6].Float, node.outputs[7].Float)
+
+    def integer_statistic_on_points(self, attribute=0, selection=True):
+        """The Attribute Statistic node evaluates a field on a geometry and outputs a statistic about the entire data set.
+        #### Path
+        - Attribute > Attribute Statistic Node
+        #### Outputs:
+        - `#0 mean: Float = 0.0`
+        - `#1 median: Float = 0.0`
+        - `#2 sum: Float = 0.0`
+        - `#3 min: Float = 0.0`
+        - `#4 max: Float = 0.0`
+        - `#5 range: Float = 0.0`
+        - `#6 standard_deviation: Float = 0.0`
+        - `#7 variance: Float = 0.0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeAttributeStatistic.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/attribute_statistic.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAttributeStatistic.html)
+        """
+        selection = selection if self._selection is None else self.selection
+        node = new_node(*nodes.GeometryNodeAttributeStatistic("FLOAT", "POINT", self, selection, attribute))
+        ret = typing.NamedTuple("AttributeStatistic", [("mean", Integer), ("median", Integer), ("sum", Integer), ("min", Integer), ("max", Integer), ("range", Integer), ("standard_deviation", Integer), ("variance", Integer)])
+        return ret(node.outputs[0].Integer, node.outputs[1].Integer, node.outputs[2].Integer, node.outputs[3].Integer, node.outputs[4].Integer, node.outputs[5].Integer, node.outputs[6].Integer, node.outputs[7].Integer)
+
+    def integer_statistic_on_edges(self, attribute=0, selection=True):
+        """The Attribute Statistic node evaluates a field on a geometry and outputs a statistic about the entire data set.
+        #### Path
+        - Attribute > Attribute Statistic Node
+        #### Outputs:
+        - `#0 mean: Float = 0.0`
+        - `#1 median: Float = 0.0`
+        - `#2 sum: Float = 0.0`
+        - `#3 min: Float = 0.0`
+        - `#4 max: Float = 0.0`
+        - `#5 range: Float = 0.0`
+        - `#6 standard_deviation: Float = 0.0`
+        - `#7 variance: Float = 0.0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeAttributeStatistic.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/attribute_statistic.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAttributeStatistic.html)
+        """
+        selection = selection if self._selection is None else self.selection
+        node = new_node(*nodes.GeometryNodeAttributeStatistic("FLOAT", "EDGE", self, selection, attribute))
+        ret = typing.NamedTuple("AttributeStatistic", [("mean", Integer), ("median", Integer), ("sum", Integer), ("min", Integer), ("max", Integer), ("range", Integer), ("standard_deviation", Integer), ("variance", Integer)])
+        return ret(node.outputs[0].Integer, node.outputs[1].Integer, node.outputs[2].Integer, node.outputs[3].Integer, node.outputs[4].Integer, node.outputs[5].Integer, node.outputs[6].Integer, node.outputs[7].Integer)
+
+    def integer_statistic_on_faces(self, attribute=0, selection=True):
+        """The Attribute Statistic node evaluates a field on a geometry and outputs a statistic about the entire data set.
+        #### Path
+        - Attribute > Attribute Statistic Node
+        #### Outputs:
+        - `#0 mean: Float = 0.0`
+        - `#1 median: Float = 0.0`
+        - `#2 sum: Float = 0.0`
+        - `#3 min: Float = 0.0`
+        - `#4 max: Float = 0.0`
+        - `#5 range: Float = 0.0`
+        - `#6 standard_deviation: Float = 0.0`
+        - `#7 variance: Float = 0.0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeAttributeStatistic.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/attribute_statistic.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAttributeStatistic.html)
+        """
+        selection = selection if self._selection is None else self.selection
+        node = new_node(*nodes.GeometryNodeAttributeStatistic("FLOAT", "FACE", self, selection, attribute))
+        ret = typing.NamedTuple("AttributeStatistic", [("mean", Integer), ("median", Integer), ("sum", Integer), ("min", Integer), ("max", Integer), ("range", Integer), ("standard_deviation", Integer), ("variance", Integer)])
+        return ret(node.outputs[0].Integer, node.outputs[1].Integer, node.outputs[2].Integer, node.outputs[3].Integer, node.outputs[4].Integer, node.outputs[5].Integer, node.outputs[6].Integer, node.outputs[7].Integer)
+
+    def integer_statistic_on_corners(self, attribute=0, selection=True):
+        """The Attribute Statistic node evaluates a field on a geometry and outputs a statistic about the entire data set.
+        #### Path
+        - Attribute > Attribute Statistic Node
+        #### Outputs:
+        - `#0 mean: Float = 0.0`
+        - `#1 median: Float = 0.0`
+        - `#2 sum: Float = 0.0`
+        - `#3 min: Float = 0.0`
+        - `#4 max: Float = 0.0`
+        - `#5 range: Float = 0.0`
+        - `#6 standard_deviation: Float = 0.0`
+        - `#7 variance: Float = 0.0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeAttributeStatistic.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/attribute_statistic.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAttributeStatistic.html)
+        """
+        selection = selection if self._selection is None else self.selection
+        node = new_node(*nodes.GeometryNodeAttributeStatistic("FLOAT", "CORNER", self, selection, attribute))
+        ret = typing.NamedTuple("AttributeStatistic", [("mean", Integer), ("median", Integer), ("sum", Integer), ("min", Integer), ("max", Integer), ("range", Integer), ("standard_deviation", Integer), ("variance", Integer)])
+        return ret(node.outputs[0].Integer, node.outputs[1].Integer, node.outputs[2].Integer, node.outputs[3].Integer, node.outputs[4].Integer, node.outputs[5].Integer, node.outputs[6].Integer, node.outputs[7].Integer)
+
+    def integer_statistic_on_curves(self, attribute=0, selection=True):
+        """The Attribute Statistic node evaluates a field on a geometry and outputs a statistic about the entire data set.
+        #### Path
+        - Attribute > Attribute Statistic Node
+        #### Outputs:
+        - `#0 mean: Float = 0.0`
+        - `#1 median: Float = 0.0`
+        - `#2 sum: Float = 0.0`
+        - `#3 min: Float = 0.0`
+        - `#4 max: Float = 0.0`
+        - `#5 range: Float = 0.0`
+        - `#6 standard_deviation: Float = 0.0`
+        - `#7 variance: Float = 0.0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeAttributeStatistic.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/attribute_statistic.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAttributeStatistic.html)
+        """
+        selection = selection if self._selection is None else self.selection
+        node = new_node(*nodes.GeometryNodeAttributeStatistic("FLOAT", "CURVE", self, selection, attribute))
+        ret = typing.NamedTuple("AttributeStatistic", [("mean", Integer), ("median", Integer), ("sum", Integer), ("min", Integer), ("max", Integer), ("range", Integer), ("standard_deviation", Integer), ("variance", Integer)])
+        return ret(node.outputs[0].Integer, node.outputs[1].Integer, node.outputs[2].Integer, node.outputs[3].Integer, node.outputs[4].Integer, node.outputs[5].Integer, node.outputs[6].Integer, node.outputs[7].Integer)
+
+    def integer_statistic_on_instances(self, attribute=0, selection=True):
+        """The Attribute Statistic node evaluates a field on a geometry and outputs a statistic about the entire data set.
+        #### Path
+        - Attribute > Attribute Statistic Node
+        #### Outputs:
+        - `#0 mean: Float = 0.0`
+        - `#1 median: Float = 0.0`
+        - `#2 sum: Float = 0.0`
+        - `#3 min: Float = 0.0`
+        - `#4 max: Float = 0.0`
+        - `#5 range: Float = 0.0`
+        - `#6 standard_deviation: Float = 0.0`
+        - `#7 variance: Float = 0.0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeAttributeStatistic.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/attribute_statistic.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAttributeStatistic.html)
+        """
+        selection = selection if self._selection is None else self.selection
+        node = new_node(*nodes.GeometryNodeAttributeStatistic("FLOAT", "INSTANCE", self, selection, attribute))
+        ret = typing.NamedTuple("AttributeStatistic", [("mean", Integer), ("median", Integer), ("sum", Integer), ("min", Integer), ("max", Integer), ("range", Integer), ("standard_deviation", Integer), ("variance", Integer)])
+        return ret(node.outputs[0].Integer, node.outputs[1].Integer, node.outputs[2].Integer, node.outputs[3].Integer, node.outputs[4].Integer, node.outputs[5].Integer, node.outputs[6].Integer, node.outputs[7].Integer)
 
     def vector_statistic_on_points(self, attribute=(0.0, 0.0, 0.0), selection=True):
         """The Attribute Statistic node evaluates a field on a geometry and outputs a statistic about the entire data set.
@@ -4983,6 +5125,75 @@ class Instances(Geometry):
         node = new_node(*nodes.GeometryNodeAttributeDomainSize("INSTANCES", self))
         ret = typing.NamedTuple("GeometryNodeAttributeDomainSize", [("instance_count", Integer)])
         return ret(node.outputs[5].Integer)
+
+    def sample_float_index(self, value_float=0.0, index=0, clamp=False):
+        """The Sample Index node retrieves values from a source geometry at a specific index.
+        #### Path
+        - Geometry > Sample > Sample Index Node
+        #### Outputs:
+        - `#0 value_float: Float = 0.0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSampleIndex.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/sample_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeSampleIndex.html)
+        """
+        node = new_node(*nodes.GeometryNodeSampleIndex("FLOAT", "INSTANCE", clamp, self, value_float=value_float, index=index))
+        return node.outputs[0].Float
+
+    def sample_integer_index(self, value_int=0, index=0, clamp=False):
+        """The Sample Index node retrieves values from a source geometry at a specific index.
+        #### Path
+        - Geometry > Sample > Sample Index Node
+        #### Outputs:
+        - `#1 value_int: Integer = 0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSampleIndex.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/sample_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeSampleIndex.html)
+        """
+        node = new_node(*nodes.GeometryNodeSampleIndex("INT", "INSTANCE", clamp, self, value_int == value_int, index=index))
+        return node.outputs[1].Integer
+
+    def sample_vector_index(self, value_vector=(0.0, 0.0, 0.0), index=0, clamp=False):
+        """The Sample Index node retrieves values from a source geometry at a specific index.
+        #### Path
+        - Geometry > Sample > Sample Index Node
+        #### Outputs:
+        - `#2 value_vector: Vector = (0.0, 0.0, 0.0)`
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSampleIndex.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/sample_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeSampleIndex.html)
+        """
+        node = new_node(*nodes.GeometryNodeSampleIndex("FLOAT_VECTOR", "INSTANCE", clamp, self, value_vector=value_vector, index=index))
+        return node.outputs[2].Vector
+
+    def sample_color_index(self, value_color=(0.0, 0.0, 0.0, 0.0), index=0, clamp=False):
+        """The Sample Index node retrieves values from a source geometry at a specific index.
+        #### Path
+        - Geometry > Sample > Sample Index Node
+        #### Outputs:
+        - `#3 value_color: Color = (0.0, 0.0, 0.0, 0.0)`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSampleIndex.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/sample_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeSampleIndex.html)
+        """
+        node = new_node(*nodes.GeometryNodeSampleIndex("FLOAT_COLOR", "INSTANCE", clamp, self, value_color=value_color, index=index))
+        return node.outputs[3].color
+
+    def sample_boolean_index(self, value_bool=False, index=0, clamp=False):
+        """The Sample Index node retrieves values from a source geometry at a specific index.
+        #### Path
+        - Geometry > Sample > Sample Index Node
+        #### Outputs:
+        - `#4 value_bool: Boolean = False`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSampleIndex.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/sample_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeSampleIndex.html)
+        """
+        node = new_node(*nodes.GeometryNodeSampleIndex("BOOLEAN", "INSTANCE", clamp, self, value_bool=value_bool, index=index))
+        return node.outputs[4].Boolean
 
     def separate(self, selection=True):
         """The Separate Geometry node produces two geometry outputs. Based on the Selection input, the input geometry is split between the two outputs.
