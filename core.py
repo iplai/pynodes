@@ -751,10 +751,9 @@ def tree(func: typing.Callable[Param, RT]) -> typing.Callable[Param, RT]:
     elif isinstance(outputs, Socket):
         outputs.func_ret_to_tree_output()
 
-    from .arrange import arrange
     Tree.tree.remove_orphan_input_node()
-    if len(Tree.tree.btree.nodes) < 200:
-        arrange(Tree.tree.btree)
+    from .addon import arrange_tree
+    arrange_tree(Tree.tree.btree, 180, 80, 0, 80)
 
     @functools.wraps(func)
     def wrapped_function(*args, **kwargs) -> RT:

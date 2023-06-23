@@ -20,7 +20,7 @@ def tulsi_couple(count: Integer = (5, 1, 8)):
 
         plane = MeshGrid(20, 20, 200, 200).mesh
 
-        plane[distance < 1].set_position(offset=-plane.nornal * (1 - distance).float_curve(points=[(0, 0), (0.05, 0.03), (0.5, 0.5, "auto_clamped"), (1, 0.5)]))
+        plane[distance < 1].set_position(offset=-plane.normal * (1 - distance).float_curve(points=[(0, 0), (0.05, 0.03), (0.5, 0.5, "auto_clamped"), (1, 0.5)]))
 
         plane.set_shade_smooth()
 

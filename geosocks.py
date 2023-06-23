@@ -5811,7 +5811,7 @@ def join(*items: "Geometry"):
     """
     if len(items) == 1 and isinstance(items[0], (tuple, list)):
         items = items[0]
-    items = list(reversed(items))
+    # items = list(reversed(items))
     node = new_node(*nodes.GeometryNodeJoinGeometry())
     for item in items:
         new_link(item.bsocket, node.bnode.inputs[0])

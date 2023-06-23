@@ -1,46 +1,9 @@
-import bpy, collections, itertools
-from bpy.types import Node, NodeSocket, Context, NodeTree, Panel, Operator
-from nodeitems_utils import node_categories_iter, NodeItemCustom
+import bpy, collections, itertools, json
+from bpy.types import Node, NodeFrame, NodeLink, NodeSocket, Context, NodeTree, Panel, Operator
 
 
-def get_nodes_from_category(category_name, context):
-    for category in node_categories_iter(context):
-        if category.name == category_name:
-            return sorted(category.items(context), key=lambda node: node.label)
-    raise RuntimeError(f"Unknown Category {category_name}")
-
-
-def get_first_enabled_output(node: Node):
-    for output in node.outputs:
-        if output.enabled:
-            return output
-    else:
-        return node.outputs[0]
-
-
-def is_visible_socket(socket: NodeSocket):
-    return not socket.hide and socket.enabled and socket.type != 'CUSTOM'
-
-
-def node_mid_pt(node: bpy.types.Node, axis):
-    if axis == 'x':
-        d = node.location.x + (node.dimensions.x / 2)
-    elif axis == 'y':
-        d = node.location.y - (node.dimensions.y / 2)
-    else:
-        d = 0
-    return d
-
-
-def abs_node_location(node: Node):
-    abs_location = node.location
-    if node.parent is None:
-        return abs_location
-    return abs_location + abs_node_location(node.parent)
-
-
-def get_active_tree(context: Context):
-    tree: bpy.types.NodeTree = context.space_data.node_tree
+def get_active_tree(context: Context) -> NodeTree | None:
+    tree = context.space_data.node_tree
     if tree is None:
         return
     if tree.nodes.active is not None:
@@ -51,113 +14,65 @@ def get_active_tree(context: Context):
 
 def get_group_output_node(tree: NodeTree):
     for node in tree.nodes:
-        if node.type == 'GROUP_OUTPUT' and node.is_active_output == True:
+        node: bpy.types.NodeGroupOutput
+        if node.bl_idname == 'NodeGroupOutput' and node.is_active_output == True:
             return node
 
 
-class values:
-    average_y = 0
-    x_last = 0
-    margin_x = 100
-    margin_y = 20
-    mat_name = ""
-
-
-class NA_PT_NodePanel(Panel):
-    bl_label = "Node Arrange"
+class PYNODES_PT_MAIN(Panel):
+    bl_label = "Pynodes"
     bl_space_type = "NODE_EDITOR"
     bl_region_type = "UI"
     bl_category = "Pynodes"
 
     def draw(self, context):
-        btree = get_active_tree(context)
-
-        if btree is None:
-            return
 
         layout = self.layout
+        layout.row().operator('node.pynodes_arrange')
 
         row = layout.row()
-        row.operator('node.arrange')
-        row.operator('node.arrange2')
-
-        row = layout.row()
-        row.label(text="Margin")
-        row.prop(context.scene, 'node_center', text="Center nodes")
-        row = layout.row()
+        row.label(text="Node Margin")
         row.prop(context.scene, 'nodemargin_x', text="X")
         row.prop(context.scene, 'nodemargin_y', text="Y")
 
-        # row = layout.row()
-
         row = layout.row()
-        row.label(text=btree.bl_idname)
+        row.label(text="Frame Margin")
+        row.prop(context.scene, 'framemargin_x', text="X")
+        row.prop(context.scene, 'framemargin_y', text="Y")
 
-        # row = layout.row()
-        # row.label(text=f"is_embedded_data: {btree.is_embedded_data}")
+        # get current active tree
+        btree = get_active_tree(context)
+        if btree is None:
+            return
 
-        row = layout.row()
         node = btree.nodes.active
         if node is not None and node.select:
-            row.label(text=node.bl_idname)
+            # layout.row().label(text=f"{node.bl_idname = }")
+            row = layout.row()
+            row.label(text="Node Info")
             row = layout.row()
             row.label(text="Location")
-            row = layout.row()
             row.prop(node, 'location', text="X", index=0)
             row.prop(node, 'location', text="Y", index=1)
             row = layout.row()
-            row.prop(node, 'width', text="Node width")
-            row = layout.row()
-            row.prop(node, 'dimensions', text="Node height", index=1)
+            row.label(text="Dimension")
+            row.prop(node, 'width', text="W")
+            row.prop(node, 'dimensions', text="H", index=1)
 
-        row = layout.row()
-        row.operator('pynodes.select_unlinked')
-        row.operator('outliner.orphans_purge_recursive')
+        layout.row().operator('outliner.orphans_purge_recursive')
 
 
-class NA_OT_NodeButton(Operator):
-    '''Arrange Connected Nodes/Arrange All Nodes'''
-    bl_idname = 'node.arrange'
-    bl_label = 'Arrange 1'
+class PYNODES_OT_SHOW_ARRANGE(Operator):
+    '''Test'''
+    bl_idname = 'node.pynodes_arrange'
+    bl_label = 'Arrange'
 
     def execute(self, context):
-        nodemargin(self, context)
-        btree: NodeTree = bpy.context.space_data.node_tree
-        btree.nodes.update()
-        bpy.ops.node.view_all()
-        return {'FINISHED'}
-
-    def invoke(self, context, value):
-        values.mat_name = bpy.context.space_data.node_tree
-        nodemargin(self, context)
+        arrange(self, context)
         return {'FINISHED'}
 
 
-class NA_OT_NodeButton2(Operator):
-    '''Arrange Connected Nodes/Arrange All Nodes'''
-    bl_idname = 'node.arrange2'
-    bl_label = 'Arrange 2'
-
-    def execute(self, context):
-        btree: NodeTree = bpy.context.space_data.node_tree
-        from pynodes import arrange
-        arrange.arrange(btree)
-        bpy.ops.node.view_all()
-        return {'FINISHED'}
-
-
-class NA_OT_NodeButtonOdd(Operator):
-    """Select Unlinked Nodes"""
-    bl_idname = 'pynodes.select_unlinked'
-    bl_label = 'Select Unlinked'
-
-    def execute(self, context):
-        values.mat_name = bpy.context.space_data.node_tree
-        nodes_iterate(context.space_data.node_tree, False)
-        return {'FINISHED'}
-
-
-class PurgeOrphanRecursive(Operator):
+class PYNODES_OT_PURGE(Operator):
     """Clear all orphaned data-blocks without any users from the file"""
     bl_idname = 'outliner.orphans_purge_recursive'
     bl_label = 'Purge Orphan'
@@ -167,293 +82,236 @@ class PurgeOrphanRecursive(Operator):
         return {'FINISHED'}
 
 
-def nodemargin(self, context: Context):
+class Column:
+    def __init__(self):
+        self.nodes: list[Node] = []
+        self.height = 0
 
-    values.margin_x = context.scene.nodemargin_x
-    values.margin_y = context.scene.nodemargin_y
-
-    btree: NodeTree = context.space_data.node_tree
-
-    # first arrange nodegroups
-    n_groups = []
-    for i in btree.nodes:
-        if i.type == 'GROUP':
-            n_groups.append(i)
-
-    while n_groups:
-        j = n_groups.pop(0)
-        nodes_iterate(j.node_tree)
-        for i in j.node_tree.nodes:
-            if i.type == 'GROUP':
-                n_groups.append(i)
-
-    nodes_iterate(btree)
-
-    # arrange nodes + this center nodes together
-    if context.scene.node_center:
-        nodes_center(btree)
+    @property
+    def frame_count(self):
+        return len([node for node in self.nodes if is_frame(node)])
 
 
-class NA_OT_ArrangeNodesOp(bpy.types.Operator):
-    bl_idname = 'node.arrange_nodetree'
-    bl_label = 'Nodes Private Op'
-
-    mat_name: bpy.props.StringProperty()
-    margin_x: bpy.props.IntProperty(default=120)
-    margin_y: bpy.props.IntProperty(default=120)
-
-    def nodemargin2(self, context):
-        mat = None
-        mat_found = bpy.data.materials.get(self.mat_name)
-        if self.mat_name and mat_found:
-            mat = mat_found
-            # print(mat)
-
-        if not mat:
-            return
-        else:
-            values.mat_name = self.mat_name
-            scn = context.scene
-            scn.nodemargin_x = self.margin_x
-            scn.nodemargin_y = self.margin_y
-            nodes_iterate(mat)
-            if scn.node_center:
-                nodes_center(mat)
-
-    def execute(self, context):
-        self.nodemargin2(context)
-        return {'FINISHED'}
+def is_frame(node: Node):
+    return node.bl_idname == 'NodeFrame'
 
 
-def outputnode_search(ntree):
-    outputnodes = []
-    for node in ntree.nodes:
-        if not node.outputs:
-            for input in node.inputs:
-                if input.is_linked:
-                    outputnodes.append(node)
-                    break
-
-    if not outputnodes:
-        print("No output node found")
-        return None
-    return outputnodes
+def is_linked_output(node: Node):
+    for output in node.outputs:
+        if output.is_linked:
+            return True
+    return False
 
 
-###############################################################
-def nodes_iterate(ntree, arrange=True):
+def is_linked_input(node: Node):
+    for input in node.inputs:
+        if input.is_linked:
+            return True
+    return False
 
-    nodeoutput = outputnode_search(ntree)
-    if nodeoutput is None:
-        # print ("nodeoutput is None")
-        return None
-    a = []
-    a.append([])
-    for i in nodeoutput:
-        a[0].append(i)
 
-    level = 0
-
-    while a[level]:
-        a.append([])
-
-        for node in a[level]:
-            inputlist = [i for i in node.inputs if i.is_linked]
-
-            if inputlist:
-
-                for input in inputlist:
-                    for nlinks in input.links:
-                        node1 = nlinks.from_node
-                        a[level + 1].append(node1)
-
-            else:
-                pass
-
-        level += 1
-
-    del a[level]
-    level -= 1
-
-    # remove duplicate nodes at the same level, first wins
-    for x, nodes in enumerate(a):
-        a[x] = list(collections.OrderedDict(zip(a[x], itertools.repeat(None))))
-
-    # remove duplicate nodes in all levels, last wins
-    top = level
-    for row1 in range(top, 1, -1):
-        for col1 in a[row1]:
-            for row2 in range(row1 - 1, 0, -1):
-                for col2 in a[row2]:
-                    if col1 == col2:
-                        a[row2].remove(col2)
-                        break
-
-    """
-    for x, i in enumerate(a):
-        print (x)
-        for j in i:
-            print (j)
-        #print()
-    """
-    """
-    # add node frames to nodelist
-    frames = []
-    print ("Frames:")
-    print ("level:", level)
-    print ("a:",a)
-    for row in range(level, 0, -1):
-
-        for i, node in enumerate(a[row]):
-            if node.parent:
-                print ("Frame found:", node.parent, node)
-                #if frame already added to the list ?
-                frame = node.parent
-                #remove node
-                del a[row][i]
-                if frame not in frames:
-                    frames.append(frame)
-                    # add frame to the same place than node was
-                    a[row].insert(i, frame)
-
-    pprint.pprint(a)
-    """
-    # return None
-    ########################################
-
-    if not arrange:
-        nodelist = [j for i in a for j in i]
-        nodes_odd(ntree, nodelist=nodelist)
-        return None
-
-    ########################################
-
-    levelmax = level + 1
-    level = 0
-    values.x_last = 0
-
-    while level < levelmax:
-
-        values.average_y = 0
-        nodes = [x for x in a[level]]
-        # print ("level, nodes:", level, nodes)
-        nodes_arrange(nodes, level)
-
-        level = level + 1
-
+def match_frame_node(node: Node | None, frame_child_nodes: list[Node]):
+    while node is not None:
+        if node in frame_child_nodes:
+            return node
+        node = node.parent
     return None
 
 
-###############################################################
-def nodes_odd(ntree, nodelist):
+def arrange(self, context: Context):
+    btree = get_active_tree(context)
 
-    nodes = ntree.nodes
-    for i in nodes:
-        i.select = False
+    margin_x, margin_y = context.scene.nodemargin_x, context.scene.nodemargin_y
+    frame_margin_x, frame_margin_y = context.scene.framemargin_x, context.scene.framemargin_y
 
-    a = [x for x in nodes if x not in nodelist]
-    # print ("odd nodes:",a)
-    for i in a:
-        i.select = True
+    arrange_tree(btree, margin_x, margin_y, frame_margin_x, frame_margin_y)
 
 
-def nodes_arrange(nodelist, level):
+def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=0, frame_margin_y=40):
 
-    parents = []
-    for node in nodelist:
-        parents.append(node.parent)
-        node.parent = None
-        bpy.context.space_data.node_tree.nodes.update()
+    frames_level: list[tuple(NodeFrame, int)] = []
+    for node in btree.nodes:
+        if is_frame(node):
+            frame: NodeFrame = node
+            level = 0
+            while frame.parent is not None:
+                level += 1
+                frame = frame.parent
+            frames_level.append((node, level))
+    frames_level.sort(key=lambda x: x[1], reverse=True)
 
-    # print ("nodes arrange def")
-    # node x positions
+    frame_child_nodes: dict[NodeFrame, list[Node]] = {}
+    for node in btree.nodes:
+        if node.parent is not None:
+            frame_child_nodes.setdefault(node.parent, []).append(node)
 
-    widthmax = max([x.dimensions.x for x in nodelist])
-    xpos = values.x_last - (widthmax + values.margin_x) if level != 0 else 0
-    # print ("nodelist, xpos", nodelist,xpos)
-    values.x_last = xpos
+    frame_all_nodes: dict[NodeFrame, list[Node]] = {}
+    for frame, _ in frames_level:
+        frame_all_nodes[frame] = []
+        for child_frame, nodes in frame_all_nodes.items():
+            if child_frame.parent == frame:
+                frame_all_nodes[frame].extend(nodes)
+        frame_all_nodes[frame].extend([node for node in frame_child_nodes[frame] if not is_frame(node)])
 
-    # node y positions
-    x = 0
-    y = 0
+    frame_input_nodes: dict[NodeFrame, list[Node]] = {}
+    frame_input_sockets: dict[NodeFrame, list[NodeSocket]] = {}
 
-    for node in nodelist:
+    def get_frame_input_sockets(input_node: Node, current_frame_nodes: list[Node]):
+        input_sockets: list[NodeSocket] = []
+        for input in input_node.inputs:
+            link: NodeLink
+            for link in input.links:
+                if link.from_node not in current_frame_nodes:
+                    if input not in input_sockets:
+                        input_sockets.append(input)
+        return input_sockets
 
-        if node.hide:
-            hidey = (node.dimensions.y / 2) - 8
-            y = y - hidey
+    for frame, level in frames_level:
+        input_nodes = []
+        for node in frame_child_nodes.get(frame, []):
+            if is_frame(node):
+                input_nodes.extend(frame_input_nodes.get(node, []))
+            else:
+                if is_linked_input(node):
+                    input_nodes.append(node)
+        input_sockets = []
+        input_nodes_valid = []
+        for node in input_nodes:
+            sockets = get_frame_input_sockets(node, frame_all_nodes.get(frame, []))
+            if sockets:
+                input_nodes_valid.append(node)
+            input_sockets.extend(sockets)
+        frame_input_sockets[frame] = input_sockets
+        frame_input_nodes[frame] = input_nodes_valid
+
+    frame_output_nodes: dict[NodeFrame, list[Node]] = {}
+
+    def linked_to_outer_frame(output_node: Node, current_frame_nodes: list[Node]):
+        for output in output_node.outputs:
+            link: NodeLink
+            for link in output.links:
+                if link.to_node not in current_frame_nodes:
+                    return True
+        return False
+
+    for frame, level in frames_level:
+        output_nodes = []
+        for node in frame_child_nodes.get(frame, []):
+            if is_frame(node):
+                output_nodes.extend(frame_output_nodes.get(node, []))
+            else:
+                if is_linked_output(node):
+                    output_nodes.append(node)
+
+        frame_output_nodes[frame] = [node for node in output_nodes if linked_to_outer_frame(node, frame_all_nodes.get(frame, []))]
+
+    root_child_nodes = [node for node in btree.nodes if node.parent == None]
+
+    def arrange_frame(frame: NodeFrame = None):
+
+        if frame is not None:
+            child_nodes = frame_child_nodes.get(frame, [])
+            output_nodes: list[Node] = []
+            for node in child_nodes:
+                if is_frame(node):
+                    child_frame = node
+                    if any(a in frame_output_nodes[frame] for a in frame_output_nodes[child_frame]) or not frame_output_nodes[child_frame]:
+                        output_nodes.append(node)
+                else:
+                    if node in frame_output_nodes[frame] or not is_linked_output(node):
+                        output_nodes.append(node)
         else:
-            hidey = 0
+            child_nodes = root_child_nodes
+            output_nodes = []
+            for node in child_nodes:
+                if is_frame(node):
+                    child_frame = node
+                    for frame_output_node in frame_output_nodes[child_frame]:
+                        if not is_linked_output(frame_output_node):
+                            output_nodes.append(child_frame)
+                            break
+                else:
+                    if not is_linked_output(node):
+                        output_nodes.append(node)
+        remain_nodes = [node for node in child_nodes if node not in output_nodes]
+        remain_nodes_col_index = {node: 1 for node in remain_nodes}
+        cols = [Column() for _ in range(len(remain_nodes) + 2)]
+        cols[0].nodes.extend(output_nodes)
 
-        node.location.y = y
-        y = y - values.margin_y - node.dimensions.y + hidey
+        index = 0
+        while True:
+            # print(frame.name if frame is not None else "Root", index, [node.name for node in cols[index].nodes])
+            if len(cols[index].nodes) == 0:
+                break
+            for node in cols[index].nodes:
+                if is_frame(node):
+                    input_sockets = frame_input_sockets[node]
+                    # print('\tInput Sockets', [input.name for input in input_sockets])
+                else:
+                    input_sockets = [input for input in node.inputs if input.is_linked]
+                for input in input_sockets:
+                    link: NodeLink
+                    for link in input.links:
+                        node_to_add = match_frame_node(link.from_node, remain_nodes)
+                        if node_to_add is not None:
+                            remain_nodes_col_index[node_to_add] = index + 1
+                            if node_to_add not in cols[index + 1].nodes:
+                                cols[index + 1].nodes.append(node_to_add)
+            index += 1
 
-        node.location.x = xpos  # if node.type != "FRAME" else xpos + 1200
+            for i, col in enumerate(cols):
+                if i == 0:
+                    continue
+                for node in col.nodes.copy():
+                    if i < remain_nodes_col_index[node]:
+                        col.nodes.remove(node)
 
-    y = y + values.margin_y
+        x = 0
+        for col in cols:
+            y = 0
+            max_w = 0
+            frame_margined = False
+            for node in col.nodes:
+                w, h = node.dimensions
+                if is_frame(node):
+                    w -= 30
+                    y -= frame_margin_y
+                    if not frame_margined:
+                        x -= frame_margin_x
+                        frame_margined = True
+                if w > max_w:
+                    max_w = w
+                if w > 140 and not is_frame(node):
+                    node.location = (x - (w - 140), y)
+                else:
+                    node.location = (x, y)
+                y -= h
+                y -= margin_y
+            col.height = -y
+            x -= max_w
+            x -= margin_x
 
-    center = (0 + y) / 2
-    values.average_y = center - values.average_y
+        max_col_height = max(col.height for col in cols)
+        for i, col in enumerate(cols):
+            for j, node in enumerate(col.nodes):
+                x, y = node.location
+                node.location = (x, y - (max_col_height - col.height) / 2)
 
-    # for node in nodelist:
+    for frame, _ in frames_level:
+        arrange_frame(frame)
 
-    # node.location.y -= values.average_y
-
-    for i, node in enumerate(nodelist):
-        node.parent = parents[i]
-
-
-def nodetree_get(mat):
-
-    return mat.node_tree.nodes
-
-
-def nodes_center(ntree):
-
-    bboxminx = []
-    bboxmaxx = []
-    bboxmaxy = []
-    bboxminy = []
-
-    for node in ntree.nodes:
-        if not node.parent:
-            bboxminx.append(node.location.x)
-            bboxmaxx.append(node.location.x + node.dimensions.x)
-            bboxmaxy.append(node.location.y)
-            bboxminy.append(node.location.y - node.dimensions.y)
-
-    # print ("bboxminy:",bboxminy)
-    bboxminx = min(bboxminx)
-    bboxmaxx = max(bboxmaxx)
-    bboxminy = min(bboxminy)
-    bboxmaxy = max(bboxmaxy)
-    center_x = (bboxminx + bboxmaxx) / 2
-    center_y = (bboxminy + bboxmaxy) / 2
-    '''
-    print ("minx:",bboxminx)
-    print ("maxx:",bboxmaxx)
-    print ("miny:",bboxminy)
-    print ("maxy:",bboxmaxy)
-
-    print ("bboxes:", bboxminx, bboxmaxx, bboxmaxy, bboxminy)
-    print ("center x:",center_x)
-    print ("center y:",center_y)
-    '''
-
-    for node in ntree.nodes:
-
-        if not node.parent:
-            node.location.x -= center_x
-            node.location.y += -center_y
+    arrange_frame()
 
 
 def register():
-    bpy.types.Scene.nodemargin_x = bpy.props.IntProperty(default=60, update=nodemargin)
-    bpy.types.Scene.nodemargin_y = bpy.props.IntProperty(default=20, update=nodemargin)
-    bpy.types.Scene.node_center = bpy.props.BoolProperty(default=False, update=nodemargin)
+    bpy.types.Scene.nodemargin_x = bpy.props.IntProperty(default=60, update=arrange)
+    bpy.types.Scene.nodemargin_y = bpy.props.IntProperty(default=20, update=arrange)
+    bpy.types.Scene.framemargin_x = bpy.props.IntProperty(default=0, update=arrange)
+    bpy.types.Scene.framemargin_y = bpy.props.IntProperty(default=0, update=arrange)
 
 
 def unregister():
     del bpy.types.Scene.nodemargin_x
     del bpy.types.Scene.nodemargin_y
-    del bpy.types.Scene.node_center
+    del bpy.types.Scene.framemargin_x
+    del bpy.types.Scene.framemargin_y

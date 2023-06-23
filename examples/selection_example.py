@@ -40,9 +40,13 @@ def selection_example(start: Integer = (0, -1, 10), span: Integer = (3, 0, 10)):
 
     with frame("Selection"):
 
-        line[line.index % 2]
+        with frame("Select every two points"):
 
-        # line[start:start + span]
+            line = line.Mesh[line.index % 2]
+
+        with frame("Select from start to span points"):
+
+            line = line.Mesh[start:start + span]
 
     points = line.set_position(offset=(1, 0, 0))
 
