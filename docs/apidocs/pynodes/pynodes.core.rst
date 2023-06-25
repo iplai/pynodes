@@ -376,6 +376,12 @@ API
       .. autodoc2-docstring:: pynodes.core.Tree.group_input_node
          :parser: myst
 
+   .. py:method:: remove_orphan_input_node()
+      :canonical: pynodes.core.Tree.remove_orphan_input_node
+
+      .. autodoc2-docstring:: pynodes.core.Tree.remove_orphan_input_node
+         :parser: myst
+
    .. py:property:: group_output_node
       :canonical: pynodes.core.Tree.group_output_node
 

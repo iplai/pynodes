@@ -13,7 +13,7 @@ sys.path.insert(0, path)
 project = 'Pynodes'
 copyright = '2023, 赛博念咒师'
 author = '赛博念咒师'
-release = '3.5.1.0'
+release = 'v0.0.3'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -27,9 +27,9 @@ extensions = [
 ]
 autodoc2_packages = [
     {
-        "path": "../../pynodes",
-        "exclude_files": ["arrange*", "dimensions.py", "auto_load.py", "utils.py"],
-        "exclude_dirs": ["__pycache__", "my_examples", "pynodes_builder"," osl"],
+        "path": "../pynodes",
+        "exclude_files": ["auto_load.py", "utils.py", "math.py"],
+        "exclude_dirs": [],
     },
 ]
 autodoc2_docstring_parser_regexes = [

@@ -4,7 +4,7 @@ bl_info = {
     "description": "",
     "blender": (3, 5, 1),
     "version": (0, 0, 3),
-    "location": "Node Editor > ToolBar > Pynodes",
+    "location": "Node Editor > SideBar > Pynodes",
     "warning": "",
     "doc_url": "https://github.com/iplai/pynodes",
     "tracker_url": "https://github.com/iplai/pynodes/issues",

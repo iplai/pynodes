@@ -52,18 +52,6 @@ Data
      - .. autodoc2-docstring:: pynodes.bl_info
           :parser: myst
           :summary:
-   * - :py:obj:`sin <pynodes.sin>`
-     - .. autodoc2-docstring:: pynodes.sin
-          :parser: myst
-          :summary:
-   * - :py:obj:`cos <pynodes.cos>`
-     - .. autodoc2-docstring:: pynodes.cos
-          :parser: myst
-          :summary:
-   * - :py:obj:`tan <pynodes.tan>`
-     - .. autodoc2-docstring:: pynodes.tan
-          :parser: myst
-          :summary:
 
 API
 ~~~
@@ -85,25 +73,4 @@ API
    :canonical: pynodes.unregister
 
    .. autodoc2-docstring:: pynodes.unregister
-      :parser: myst
-
-.. py:data:: sin
-   :canonical: pynodes.sin
-   :value: None
-
-   .. autodoc2-docstring:: pynodes.sin
-      :parser: myst
-
-.. py:data:: cos
-   :canonical: pynodes.cos
-   :value: None
-
-   .. autodoc2-docstring:: pynodes.cos
-      :parser: myst
-
-.. py:data:: tan
-   :canonical: pynodes.tan
-   :value: None
-
-   .. autodoc2-docstring:: pynodes.tan
       :parser: myst

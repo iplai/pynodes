@@ -49,7 +49,7 @@ class PYNODES_PT_MAIN(Panel):
 
 
 class PYNODES_OT_SHOW_ARRANGE(Operator):
-    '''Test'''
+    '''Arrange all nodes, deepest frame first, columns by columns from left to right'''
     bl_idname = 'node.pynodes_arrange'
     bl_label = 'Arrange'
 
