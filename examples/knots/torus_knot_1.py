@@ -1,9 +1,9 @@
 from pynodes import *
+from pynodes.math import *
 
 
 @tree
-def calculate_coord(p: Integer, q: Integer, ɸ: Float):
-    δ = SceneTime().seconds * 2
+def calculate_coord(p: Integer, q: Integer, ɸ: Float, δ: Float):
 
     with frame("r"):
         r = cos(q * ɸ + δ) + 2
@@ -36,7 +36,7 @@ def torus_knot(
 
     ɸ = circle.parameter.factor.map_range(0, 1, 0, tau)
 
-    position = calculate_coord(p, q, ɸ)
+    position = calculate_coord(p, q, ɸ, SceneTime().seconds * 2)
 
     circle.set_position(position=position)
 

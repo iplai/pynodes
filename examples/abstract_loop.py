@@ -1,6 +1,5 @@
 from pynodes import *
-
-sin, cos = Float.sin, Float.cos
+from pynodes.math import *
 
 
 @tree

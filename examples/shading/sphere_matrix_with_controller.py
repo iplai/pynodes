@@ -1,8 +1,14 @@
 from pynodes import *
 
+from pynodes.scene import *
+
+Tree({
+    O.empty_sphere: {},
+}).load()
+
 
 @tree
-def geometry_nodes(mesh: Mesh, controller: Object = "Empty Sphere"):
+def sphere_matrix(mesh: Mesh, controller: Object = "Empty Sphere"):
     cube = MeshCube((1.618, 1, 1), 13, 8, 8).mesh
     target = InputPoints(position=controller.location)
     with frame("Control Scale"):
@@ -27,16 +33,3 @@ def gradient():
         shader2 = principled(base_color="#18a161", roughness=0.1)
         shader = MixShader(shader1, shader2, factor)
     return shader
-
-
-from pynodes.scene import *
-
-Tree({
-    O.empty_sphere: {},
-    O.cube: {
-        Mod.geometry_nodes: {
-            "node_group": "geometry_nodes",
-            "controller": "Empty Sphere",
-        }
-    },
-}).load()

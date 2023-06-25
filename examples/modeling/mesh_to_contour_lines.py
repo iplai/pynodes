@@ -1,4 +1,5 @@
 from pynodes import *
+from pynodes.math import *
 
 
 @tree
@@ -12,9 +13,9 @@ def mesh_to_contour_lines(mesh: Mesh):
 
 
 @tree
-def geometry_nodes(object: Object = "dragon2"):
+def geometry_nodes(object: Object = "Monkey"):
 
-    mesh = object.geometry.Mesh.to_curve().to_mesh(profile=CurveCircle(0.2))
+    mesh = object.geometry.Mesh.to_curve().to_mesh(profile=CurveCircle(0.05))
 
     return mesh
 
@@ -22,7 +23,7 @@ def geometry_nodes(object: Object = "dragon2"):
 from pynodes.scene import *
 
 Tree({
-    O.mesh @ "dragon2": {
+    O.monkey @ "Monkey": {
         Mod.geometry_nodes: {
             "node_group": "mesh_to_contour_lines",
         },

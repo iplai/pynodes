@@ -11,7 +11,7 @@ class O(ObjType):
     plane = "bpy.ops.mesh.primitive_plane_add()"
     cube = "bpy.ops.mesh.primitive_cube_add()"
     ico_sphere = "bpy.ops.mesh.primitive_ico_sphere_add()"
-    monkey = enum.auto()
+    monkey = "bpy.ops.mesh.primitive_monkey_add()"
     circle = enum.auto()
     cone = enum.auto()
     nurbs_path = enum.auto()

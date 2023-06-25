@@ -1,6 +1,5 @@
 from pynodes import *
-
-sin, cos = Float.sin, Float.cos
+from pynodes.math import *
 
 
 @tree
@@ -44,15 +43,15 @@ def torus_knot(
 
         circle.switch(keep_normal, circle.Curve.set_normal("Z_UP"))
 
-    # with frame("Curve normal"):
-
-        # circle = circle.set_tilt(circle.parameter.factor * pi)
-
     with frame("Set position of circle curve points"):
 
         ɸ = circle.parameter.factor.map_range(0, 1, 0, tau)
 
         circle.set_position(position=calculate_coord(p, q, R, r, ɸ))
+
+    with frame("Curve normal"):
+
+        circle.Curve.set_tilt(circle.parameter.factor * pi)
 
     circle.store_named_attribute("factor", circle.parameter.factor)
 

@@ -1546,7 +1546,7 @@ class String(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/text/join_strings.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeStringJoin.html)
         """
-        items = list(reversed(strings)) + [self]
+        items = list(strings) + [self]
         node = new_node(*nodes.GeometryNodeStringJoin(delimiter))
         for item in items:
             if type(item) == str:

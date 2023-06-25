@@ -1,10 +1,9 @@
+# context.area: NODE_EDITOR
 """https://en.wikipedia.org/wiki/List_of_prime_knots"""
-"""
-
-"""
 
 
 from pynodes import *
+from pynodes.math import *
 
 
 @tree
@@ -95,7 +94,7 @@ def figure_8_knot_coord(t: Float):
 
 
 @tree
-def figure_8_knot(radius: Float = 0.2):
+def figure_8_knot(radius: Float = 0.4):
 
     with frame("Curve"):
 
@@ -197,7 +196,7 @@ def eight_knot_coord(t: Float):
 
 
 @tree
-def eight_knot(radius: Float = 0.2):
+def eight_knot(radius: Float = 0.4):
 
     with frame("Curve"):
 

@@ -53,7 +53,7 @@ class NodeWraper:
 
             for i, input in enumerate(inputs_all):
                 data, default_value = input
-                if isinstance(data, Socket) and Tree.tree._group_input_node is not None and data.node.bnode == Tree.tree.group_input_node.bnode:
+                if isinstance(data, Socket) and Tree.tree._group_input_node is not None and data.bsocket.node == Tree.tree.group_input_node.bnode:
                     if frame_input_node is None:
                         frame_input_node = Tree.tree.btree.nodes.new("NodeGroupInput")
                         frame_input_node.parent = frame
@@ -64,8 +64,14 @@ class NodeWraper:
                             index = j
                             break
                     else:
-                        index = -2
-                        # raise RuntimeError("Can't find output socket of NodeGroupInput")
+                        # index = -2
+                        raise RuntimeError("Can't find output socket of NodeGroupInput")
+
+                    # bnode = Tree.tree.group_input_node.bnode
+                    # index = 0
+                    # for j, output in enumerate(bnode.outputs):
+                    #     if output.name == data.bsocket.name:
+                    #         index = j
                     inputs_all[i] = Socket(frame_input_node.outputs[index]), default_value
         bnode = self.bnode
         for i, input in enumerate(inputs_all):
@@ -172,14 +178,11 @@ class Socket(SocketWraper):
 
     def __init__(self, bsocket: NodeSocket) -> None:
         super().__init__(bsocket)
-        self._node = None
         self._name = None
 
     @property
     def node(self):
-        if self._node is None:
-            self._node = NodeWraper(self.bsocket.node)
-        return self._node
+        return NodeWraper(self.bsocket.node)
 
     def __call__(self, name: str):
         self._name = name
@@ -243,7 +246,8 @@ class Socket(SocketWraper):
     def Input(cls, default=None, name=None, min=None, max=None, description=None, bl_idname=None):
         if name is None:
             name = cls.__name__
-        input = Tree.tree.new_input(cls.bl_idname if bl_idname is None else bl_idname, name)
+        input_type = cls.bl_idname if bl_idname is None else bl_idname
+        input = Tree.tree.new_input(input_type, name)
         if default != None:
             if input.bl_socket_idname == "NodeSocketMaterial":
                 if type(default) == str:
@@ -263,7 +267,13 @@ class Socket(SocketWraper):
             input.max_value = max
         if description is not None:
             input.description = description
-        socket = cls(Tree.tree.group_input_node.bnode.outputs[-2])
+        bnode = Tree.tree.group_input_node.bnode
+        bsocket = bnode.outputs[-2]
+        for output in reversed(bnode.outputs):
+            if output.name == name:
+                bsocket = output
+                break
+        socket = cls(bsocket)
         socket.name = name
         return socket
 
@@ -427,6 +437,8 @@ class Tree:
         bnode = self.btree.nodes.new(bl_idname)
         bnode.select = False
         bnode.parent = self.cur_frame
+        if bl_idname in ["ShaderNodeMath",]:
+            bnode.show_options = False
 
         node = NodeWraper(bnode)
         if properties is not None:
@@ -473,6 +485,7 @@ class Tree:
 class Group(NodeWraper):
     def __init__(self, bnode: Node) -> None:
         super().__init__(bnode)
+        bnode.show_options = False
 
     def __call__(self, **kwargs):
         inputs = []
@@ -753,7 +766,7 @@ def tree(func: typing.Callable[Param, RT]) -> typing.Callable[Param, RT]:
 
     Tree.tree.remove_orphan_input_node()
     from .addon import arrange_tree
-    arrange_tree(Tree.tree.btree, 180, 80, 0, 80)
+    arrange_tree(Tree.tree.btree, 180, 160, 10, 30)
 
     @functools.wraps(func)
     def wrapped_function(*args, **kwargs) -> RT:

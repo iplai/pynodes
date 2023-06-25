@@ -3,8 +3,8 @@ bl_info = {
     "author": "iplai",
     "description": "",
     "blender": (3, 5, 1),
-    "version": (0, 0, 1),
-    "location": "Node Editor > Properties > Trees",
+    "version": (0, 0, 3),
+    "location": "Node Editor > ToolBar > Pynodes",
     "warning": "",
     "doc_url": "https://github.com/iplai/pynodes",
     "tracker_url": "https://github.com/iplai/pynodes/issues",
@@ -27,11 +27,6 @@ from .core import tree, frame, reload
 from .datasocks import *
 from .geosocks import *
 
-sin = Float.sin
-cos = Float.cos
-tan = Float.tan
-
-from math import pi, tau, radians, degrees
 import mathutils
 
 from .colors import rgb

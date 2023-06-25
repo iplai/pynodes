@@ -26,7 +26,7 @@ def show_index_of_instances(instances: Instances, size: Float = 1, offset: Vecto
 
         with frame("Sample position"):
 
-            pos = instances.sample_vector_index(instances.position, instances.index)
+            pos = instances.sample_vector_at_index(instances.position, instances.index)
 
         numbers.set_position(offset=pos + offset)
 

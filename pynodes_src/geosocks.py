@@ -1487,7 +1487,7 @@ class Geometry(Socket):
         node = new_node(*nodes.GeometryNodeSampleIndex(data_type, domain, clamp, self, value_float, value_int, value_vector, value_color, value_bool, index))
         return node.outputs[0].Float, node.outputs[1].Integer, node.outputs[2].Vector, node.outputs[3].Color, node.outputs[4].Boolean
 
-    def sample_float_index(self, value_float=0.0, index=0, domain="POINT", clamp=False):
+    def sample_float_at_index(self, value_float=0.0, index=0, domain="POINT", clamp=False):
         """The Sample Index node retrieves values from a source geometry at a specific index.
         #### Path
         - Geometry > Sample > Sample Index Node
@@ -1503,7 +1503,7 @@ class Geometry(Socket):
         node = new_node(*nodes.GeometryNodeSampleIndex("FLOAT", domain, clamp, self, value_float=value_float, index=index))
         return node.outputs[0].Float
 
-    def sample_integer_index(self, value_int=0, index=0, domain="POINT", clamp=False):
+    def sample_integer_at_index(self, value_int=0, index=0, domain="POINT", clamp=False):
         """The Sample Index node retrieves values from a source geometry at a specific index.
         #### Path
         - Geometry > Sample > Sample Index Node
@@ -1519,7 +1519,7 @@ class Geometry(Socket):
         node = new_node(*nodes.GeometryNodeSampleIndex("INT", domain, clamp, self, value_int == value_int, index=index))
         return node.outputs[1].Integer
 
-    def sample_vector_index(self, value_vector=(0.0, 0.0, 0.0), index=0, domain="POINT", clamp=False):
+    def sample_vector_at_index(self, value_vector=(0.0, 0.0, 0.0), index=0, domain="POINT", clamp=False):
         """The Sample Index node retrieves values from a source geometry at a specific index.
         #### Path
         - Geometry > Sample > Sample Index Node
@@ -1534,7 +1534,7 @@ class Geometry(Socket):
         node = new_node(*nodes.GeometryNodeSampleIndex("FLOAT_VECTOR", domain, clamp, self, value_vector=value_vector, index=index))
         return node.outputs[2].Vector
 
-    def sample_color_index(self, value_color=(0.0, 0.0, 0.0, 0.0), index=0, domain="POINT", clamp=False):
+    def sample_color_at_index(self, value_color=(0.0, 0.0, 0.0, 0.0), index=0, domain="POINT", clamp=False):
         """The Sample Index node retrieves values from a source geometry at a specific index.
         #### Path
         - Geometry > Sample > Sample Index Node
@@ -1550,7 +1550,7 @@ class Geometry(Socket):
         node = new_node(*nodes.GeometryNodeSampleIndex("FLOAT_COLOR", domain, clamp, self, value_color=value_color, index=index))
         return node.outputs[3].color
 
-    def sample_boolean_index(self, value_bool=False, index=0, domain="POINT", clamp=False):
+    def sample_boolean_at_index(self, value_bool=False, index=0, domain="POINT", clamp=False):
         """The Sample Index node retrieves values from a source geometry at a specific index.
         #### Path
         - Geometry > Sample > Sample Index Node
@@ -2008,7 +2008,7 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/join_geometry.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeJoinGeometry.html)
         """
-        items = list(reversed(others)) + [self]
+        items = list(others) + [self]
         node = new_node(*nodes.GeometryNodeJoinGeometry())
         for item in items:
             new_link(item.bsocket, node.bnode.inputs[0])
@@ -2016,7 +2016,7 @@ class Geometry(Socket):
         return self
 
     def __add__(self, *others: "Geometry"):
-        items = list(reversed(others)) + [self]
+        items = list(others) + [self]
         node = new_node(*nodes.GeometryNodeJoinGeometry())
         for item in items:
             new_link(item.bsocket, node.bnode.inputs[0])
@@ -2033,7 +2033,7 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/geometry_to_instance.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeGeometryToInstance.html)
         """
-        items = list(reversed(others)) + [self]
+        items = list(others) + [self]
         node = new_node(*nodes.GeometryNodeGeometryToInstance())
         for item in items:
             self.tree.new_link(item.bsocket, node.bnode.inputs[0])
@@ -3807,6 +3807,82 @@ class Curve(Geometry):
         self.bsocket = node.outputs[0].bsocket
         return self
 
+    def set_spline_type_poly(self, selection=True):
+        """Sets the spline type for the splines in the curve component that are in the selection.
+        - In-Place Operation
+        #### Path
+        - Curve > Write > Set Spline Type Node
+        #### Properties
+        - `spline_type`: `POLY`, `CATMULL_ROM`, `BEZIER`, `NURBS`
+        #### Outputs:
+        - `#0 curve: Geometry = None`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveSplineType.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/write/set_spline_type.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCurveSplineType.html)
+        """
+        selection = selection if self._selection is None else self.selection
+        node = new_node(*nodes.GeometryNodeCurveSplineType("POLY", self, selection))
+        self.bsocket = node.outputs[0].bsocket
+        return self
+
+    def set_spline_type_catmull_rom(self, selection=True):
+        """Sets the spline type for the splines in the curve component that are in the selection.
+        - In-Place Operation
+        #### Path
+        - Curve > Write > Set Spline Type Node
+        #### Properties
+        - `spline_type`: `POLY`, `CATMULL_ROM`, `BEZIER`, `NURBS`
+        #### Outputs:
+        - `#0 curve: Geometry = None`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveSplineType.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/write/set_spline_type.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCurveSplineType.html)
+        """
+        selection = selection if self._selection is None else self.selection
+        node = new_node(*nodes.GeometryNodeCurveSplineType("CATMULL_ROM", self, selection))
+        self.bsocket = node.outputs[0].bsocket
+        return self
+
+    def set_spline_type_bezier(self, selection=True):
+        """Sets the spline type for the splines in the curve component that are in the selection.
+        - In-Place Operation
+        #### Path
+        - Curve > Write > Set Spline Type Node
+        #### Properties
+        - `spline_type`: `POLY`, `CATMULL_ROM`, `BEZIER`, `NURBS`
+        #### Outputs:
+        - `#0 curve: Geometry = None`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveSplineType.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/write/set_spline_type.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCurveSplineType.html)
+        """
+        selection = selection if self._selection is None else self.selection
+        node = new_node(*nodes.GeometryNodeCurveSplineType("BEZIER", self, selection))
+        self.bsocket = node.outputs[0].bsocket
+        return self
+
+    def set_spline_type_nurbs(self, selection=True):
+        """Sets the spline type for the splines in the curve component that are in the selection.
+        - In-Place Operation
+        #### Path
+        - Curve > Write > Set Spline Type Node
+        #### Properties
+        - `spline_type`: `POLY`, `CATMULL_ROM`, `BEZIER`, `NURBS`
+        #### Outputs:
+        - `#0 curve: Geometry = None`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveSplineType.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/write/set_spline_type.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCurveSplineType.html)
+        """
+        selection = selection if self._selection is None else self.selection
+        node = new_node(*nodes.GeometryNodeCurveSplineType("NURBS", self, selection))
+        self.bsocket = node.outputs[0].bsocket
+        return self
+
     def to_mesh(self, profile: "Curve" = None, fill_caps=False):
         """The Curve to Mesh node converts all splines of a curve to a mesh. Optionally, a profile curve can be provided to give the curve a custom shape.
         #### Path
@@ -4684,7 +4760,7 @@ class Mesh(Geometry):
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/operations/mesh_boolean.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeMeshBoolean.html)
         """
         node = new_node(*nodes.GeometryNodeMeshBoolean("UNION", None, None, self_intersection, hole_tolerant))
-        items = list(reversed(others)) + [self]
+        items = list(others) + [self]
         for item in items:
             new_link(item.bsocket, node.bnode.inputs[1])
         ret = typing.NamedTuple("GeometryNodeMeshBoolean", [("mesh", Mesh), ("intersecting_edges", Boolean)])
@@ -4703,7 +4779,7 @@ class Mesh(Geometry):
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/operations/mesh_boolean.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeMeshBoolean.html)
         """
         node = new_node(*nodes.GeometryNodeMeshBoolean("INTERSECT", None, None, self_intersection, hole_tolerant))
-        items = list(reversed(others)) + [self]
+        items = list(others) + [self]
         for item in items:
             new_link(item.bsocket, node.bnode.inputs[1])
         ret = typing.NamedTuple("GeometryNodeMeshBoolean", [("mesh", Mesh), ("intersecting_edges", Boolean)])
@@ -4722,7 +4798,7 @@ class Mesh(Geometry):
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/operations/mesh_boolean.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeMeshBoolean.html)
         """
         node = new_node(*nodes.GeometryNodeMeshBoolean("DIFFERENCE", self, None, self_intersection, hole_tolerant))
-        items = list(reversed(others))
+        items = list(others)
         for item in items:
             new_link(item.bsocket, node.bnode.inputs[1])
         ret = typing.NamedTuple("GeometryNodeMeshBoolean", [("mesh", Mesh), ("intersecting_edges", Boolean)])
@@ -5126,7 +5202,7 @@ class Instances(Geometry):
         ret = typing.NamedTuple("GeometryNodeAttributeDomainSize", [("instance_count", Integer)])
         return ret(node.outputs[5].Integer)
 
-    def sample_float_index(self, value_float=0.0, index=0, clamp=False):
+    def sample_float_at_index(self, value_float=0.0, index=0, clamp=False):
         """The Sample Index node retrieves values from a source geometry at a specific index.
         #### Path
         - Geometry > Sample > Sample Index Node
@@ -5140,7 +5216,7 @@ class Instances(Geometry):
         node = new_node(*nodes.GeometryNodeSampleIndex("FLOAT", "INSTANCE", clamp, self, value_float=value_float, index=index))
         return node.outputs[0].Float
 
-    def sample_integer_index(self, value_int=0, index=0, clamp=False):
+    def sample_integer_at_index(self, value_int=0, index=0, clamp=False):
         """The Sample Index node retrieves values from a source geometry at a specific index.
         #### Path
         - Geometry > Sample > Sample Index Node
@@ -5154,7 +5230,7 @@ class Instances(Geometry):
         node = new_node(*nodes.GeometryNodeSampleIndex("INT", "INSTANCE", clamp, self, value_int == value_int, index=index))
         return node.outputs[1].Integer
 
-    def sample_vector_index(self, value_vector=(0.0, 0.0, 0.0), index=0, clamp=False):
+    def sample_vector_at_index(self, value_vector=(0.0, 0.0, 0.0), index=0, clamp=False):
         """The Sample Index node retrieves values from a source geometry at a specific index.
         #### Path
         - Geometry > Sample > Sample Index Node
@@ -5167,7 +5243,7 @@ class Instances(Geometry):
         node = new_node(*nodes.GeometryNodeSampleIndex("FLOAT_VECTOR", "INSTANCE", clamp, self, value_vector=value_vector, index=index))
         return node.outputs[2].Vector
 
-    def sample_color_index(self, value_color=(0.0, 0.0, 0.0, 0.0), index=0, clamp=False):
+    def sample_color_at_index(self, value_color=(0.0, 0.0, 0.0, 0.0), index=0, clamp=False):
         """The Sample Index node retrieves values from a source geometry at a specific index.
         #### Path
         - Geometry > Sample > Sample Index Node
@@ -5181,7 +5257,7 @@ class Instances(Geometry):
         node = new_node(*nodes.GeometryNodeSampleIndex("FLOAT_COLOR", "INSTANCE", clamp, self, value_color=value_color, index=index))
         return node.outputs[3].color
 
-    def sample_boolean_index(self, value_bool=False, index=0, clamp=False):
+    def sample_boolean_at_index(self, value_bool=False, index=0, clamp=False):
         """The Sample Index node retrieves values from a source geometry at a specific index.
         #### Path
         - Geometry > Sample > Sample Index Node
@@ -5811,7 +5887,7 @@ def join(*items: "Geometry"):
     """
     if len(items) == 1 and isinstance(items[0], (tuple, list)):
         items = items[0]
-    # items = list(reversed(items))
+    items = list(items)
     node = new_node(*nodes.GeometryNodeJoinGeometry())
     for item in items:
         new_link(item.bsocket, node.bnode.inputs[0])
