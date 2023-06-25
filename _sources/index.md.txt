@@ -1,4 +1,4 @@
-# [Pynodes](https://iplai.github.com/pynodes/) for Blender support all kinds of tree nodes
+# [Pynodes](https://github.com.iplai/pynodes/) for Blender support all kinds of tree nodes
 
 Content
 
