@@ -53,6 +53,13 @@ API
 
    Bases: :py:obj:`pynodes.scene.ObjType`
 
+   .. py:attribute:: mesh
+      :canonical: pynodes.scene.O.mesh
+      :value: None
+
+      .. autodoc2-docstring:: pynodes.scene.O.mesh
+         :parser: myst
+
    .. py:attribute:: plane
       :canonical: pynodes.scene.O.plane
       :value: 'bpy.ops.mesh.primitive_plane_add()'
@@ -76,7 +83,7 @@ API
 
    .. py:attribute:: monkey
       :canonical: pynodes.scene.O.monkey
-      :value: None
+      :value: 'bpy.ops.mesh.primitive_monkey_add()'
 
       .. autodoc2-docstring:: pynodes.scene.O.monkey
          :parser: myst
@@ -100,6 +107,20 @@ API
       :value: None
 
       .. autodoc2-docstring:: pynodes.scene.O.nurbs_path
+         :parser: myst
+
+   .. py:attribute:: bezier_curve
+      :canonical: pynodes.scene.O.bezier_curve
+      :value: 'bpy.ops.curve.primitive_bezier_curve_add()'
+
+      .. autodoc2-docstring:: pynodes.scene.O.bezier_curve
+         :parser: myst
+
+   .. py:attribute:: empty_sphere
+      :canonical: pynodes.scene.O.empty_sphere
+      :value: "bpy.ops.object.empty_add(type='SPHERE')"
+
+      .. autodoc2-docstring:: pynodes.scene.O.empty_sphere
          :parser: myst
 
 .. py:class:: Mod
@@ -126,6 +147,20 @@ API
       :value: 'SUBSURF'
 
       .. autodoc2-docstring:: pynodes.scene.Mod.subdivision
+         :parser: myst
+
+   .. py:attribute:: decimate
+      :canonical: pynodes.scene.Mod.decimate
+      :value: 'DECIMATE'
+
+      .. autodoc2-docstring:: pynodes.scene.Mod.decimate
+         :parser: myst
+
+   .. py:attribute:: smooth
+      :canonical: pynodes.scene.Mod.smooth
+      :value: 'SMOOTH'
+
+      .. autodoc2-docstring:: pynodes.scene.Mod.smooth
          :parser: myst
 
 .. py:class:: Mat

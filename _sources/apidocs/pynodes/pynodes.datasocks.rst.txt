@@ -69,8 +69,8 @@ Functions
      - .. autodoc2-docstring:: pynodes.datasocks.InputImage
           :parser: myst
           :summary:
-   * - :py:obj:`InputInt <pynodes.datasocks.InputInt>`
-     - .. autodoc2-docstring:: pynodes.datasocks.InputInt
+   * - :py:obj:`InputInteger <pynodes.datasocks.InputInteger>`
+     - .. autodoc2-docstring:: pynodes.datasocks.InputInteger
           :parser: myst
           :summary:
    * - :py:obj:`InputMaterial <pynodes.datasocks.InputMaterial>`
@@ -177,6 +177,14 @@ Functions
      - .. autodoc2-docstring:: pynodes.datasocks.WaveTexture
           :parser: myst
           :summary:
+   * - :py:obj:`WaveTextureBands <pynodes.datasocks.WaveTextureBands>`
+     - .. autodoc2-docstring:: pynodes.datasocks.WaveTextureBands
+          :parser: myst
+          :summary:
+   * - :py:obj:`WaveTextureRings <pynodes.datasocks.WaveTextureRings>`
+     - .. autodoc2-docstring:: pynodes.datasocks.WaveTextureRings
+          :parser: myst
+          :summary:
    * - :py:obj:`WhiteNoiseTexture <pynodes.datasocks.WhiteNoiseTexture>`
      - .. autodoc2-docstring:: pynodes.datasocks.WhiteNoiseTexture
           :parser: myst
@@ -251,6 +259,10 @@ Functions
           :summary:
    * - :py:obj:`InputPosition <pynodes.datasocks.InputPosition>`
      - .. autodoc2-docstring:: pynodes.datasocks.InputPosition
+          :parser: myst
+          :summary:
+   * - :py:obj:`InputIndex <pynodes.datasocks.InputIndex>`
+     - .. autodoc2-docstring:: pynodes.datasocks.InputIndex
           :parser: myst
           :summary:
    * - :py:obj:`SceneTime <pynodes.datasocks.SceneTime>`
@@ -389,10 +401,16 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Float.mix
          :parser: myst
 
-   .. py:method:: to_color(color_start=(0.0, 0.0, 0.0, 1.0), color_end=(1.0, 1.0, 1.0, 1.0))
-      :canonical: pynodes.datasocks.Float.to_color
+   .. py:method:: color_ramp_uniform(*colors)
+      :canonical: pynodes.datasocks.Float.color_ramp_uniform
 
-      .. autodoc2-docstring:: pynodes.datasocks.Float.to_color
+      .. autodoc2-docstring:: pynodes.datasocks.Float.color_ramp_uniform
+         :parser: myst
+
+   .. py:method:: color_ramp_with_position(*colors: tuple)
+      :canonical: pynodes.datasocks.Float.color_ramp_with_position
+
+      .. autodoc2-docstring:: pynodes.datasocks.Float.color_ramp_with_position
          :parser: myst
 
    .. py:method:: to_normal(invert=False, strength=1.0, distance=1.0, normal=(0.0, 0.0, 0.0))
@@ -413,7 +431,7 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Float.clamp
          :parser: myst
 
-   .. py:method:: float_curve(factor=1.0, points: list[tuple[float, float]] = None)
+   .. py:method:: float_curve(factor=1.0, points: list[tuple[float, float, str]] = None)
       :canonical: pynodes.datasocks.Float.float_curve
 
       .. autodoc2-docstring:: pynodes.datasocks.Float.float_curve
@@ -500,6 +518,9 @@ API
 
    .. py:method:: __eq__(other)
       :canonical: pynodes.datasocks.Float.__eq__
+
+   .. py:method:: __ne__(other)
+      :canonical: pynodes.datasocks.Float.__ne__
 
    .. py:method:: __ge__(other)
       :canonical: pynodes.datasocks.Float.__ge__
@@ -853,6 +874,12 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Float.degrees
          :parser: myst
 
+   .. py:method:: to_euler(axis=(0.0, 0.0, 1.0), space='OBJECT')
+      :canonical: pynodes.datasocks.Float.to_euler
+
+      .. autodoc2-docstring:: pynodes.datasocks.Float.to_euler
+         :parser: myst
+
 .. py:class:: Angle(bsocket: bpy.types.NodeSocket)
    :canonical: pynodes.datasocks.Angle
 
@@ -1019,6 +1046,12 @@ API
       :canonical: pynodes.datasocks.Vector.__rsub__
 
       .. autodoc2-docstring:: pynodes.datasocks.Vector.__rsub__
+         :parser: myst
+
+   .. py:method:: __neg__()
+      :canonical: pynodes.datasocks.Vector.__neg__
+
+      .. autodoc2-docstring:: pynodes.datasocks.Vector.__neg__
          :parser: myst
 
    .. py:method:: __mul__(other)
@@ -1567,10 +1600,10 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Shader.light_path
          :parser: myst
 
-   .. py:property:: ShaderNodeObjectInfo
-      :canonical: pynodes.datasocks.Shader.ShaderNodeObjectInfo
+   .. py:property:: object_info
+      :canonical: pynodes.datasocks.Shader.object_info
 
-      .. autodoc2-docstring:: pynodes.datasocks.Shader.ShaderNodeObjectInfo
+      .. autodoc2-docstring:: pynodes.datasocks.Shader.object_info
          :parser: myst
 
    .. py:property:: particle_info
@@ -1928,10 +1961,10 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.InputImage
       :parser: myst
 
-.. py:function:: InputInt(integer=0)
-   :canonical: pynodes.datasocks.InputInt
+.. py:function:: InputInteger(integer=0)
+   :canonical: pynodes.datasocks.InputInteger
 
-   .. autodoc2-docstring:: pynodes.datasocks.InputInt
+   .. autodoc2-docstring:: pynodes.datasocks.InputInteger
       :parser: myst
 
 .. py:function:: InputMaterial(material=None)
@@ -2042,13 +2075,13 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.BrickTexture
       :parser: myst
 
-.. py:function:: CheckerTexture(color_mapping=None, texture_mapping=None, vector: pynodes.datasocks.Vector = None, color1=(0.8, 0.8, 0.8, 1.0), color2=(0.2, 0.2, 0.2, 1.0), scale=5.0)
+.. py:function:: CheckerTexture(vector: pynodes.datasocks.Vector = None, color1=(0.8, 0.8, 0.8, 1.0), color2=(0.2, 0.2, 0.2, 1.0), scale=5.0)
    :canonical: pynodes.datasocks.CheckerTexture
 
    .. autodoc2-docstring:: pynodes.datasocks.CheckerTexture
       :parser: myst
 
-.. py:function:: GradientTexture(gradient_type='LINEAR', color_mapping=None, texture_mapping=None, vector: pynodes.datasocks.Vector = None)
+.. py:function:: GradientTexture(gradient_type='LINEAR', vector: pynodes.datasocks.Vector = None)
    :canonical: pynodes.datasocks.GradientTexture
 
    .. autodoc2-docstring:: pynodes.datasocks.GradientTexture
@@ -2084,10 +2117,22 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.VoronoiTexture
       :parser: myst
 
-.. py:function:: WaveTexture(bands_direction='X', rings_direction='X', wave_profile='SIN', wave_type='BANDS', color_mapping=None, texture_mapping=None, vector: pynodes.datasocks.Vector = None, scale=5.0, distortion=0.0, detail=2.0, detail_scale=1.0, detail_roughness=0.5, phase_offset=0.0)
+.. py:function:: WaveTexture(wave_type='BANDS', bands_direction='X', rings_direction='X', wave_profile='SIN', vector: pynodes.datasocks.Vector = None, scale=5.0, distortion=0.0, detail=2.0, detail_scale=1.0, detail_roughness=0.5, phase_offset=0.0)
    :canonical: pynodes.datasocks.WaveTexture
 
    .. autodoc2-docstring:: pynodes.datasocks.WaveTexture
+      :parser: myst
+
+.. py:function:: WaveTextureBands(bands_direction='X', wave_profile='SIN', vector: pynodes.datasocks.Vector = None, scale=5.0, distortion=0.0, detail=2.0, detail_scale=1.0, detail_roughness=0.5, phase_offset=0.0)
+   :canonical: pynodes.datasocks.WaveTextureBands
+
+   .. autodoc2-docstring:: pynodes.datasocks.WaveTextureBands
+      :parser: myst
+
+.. py:function:: WaveTextureRings(rings_direction='X', wave_profile='SIN', vector: pynodes.datasocks.Vector = None, scale=5.0, distortion=0.0, detail=2.0, detail_scale=1.0, detail_roughness=0.5, phase_offset=0.0)
+   :canonical: pynodes.datasocks.WaveTextureRings
+
+   .. autodoc2-docstring:: pynodes.datasocks.WaveTextureRings
       :parser: myst
 
 .. py:function:: WhiteNoiseTexture(noise_dimensions='3D', vector: pynodes.datasocks.Vector = None, w=0.0)
@@ -2202,6 +2247,12 @@ API
    :canonical: pynodes.datasocks.InputPosition
 
    .. autodoc2-docstring:: pynodes.datasocks.InputPosition
+      :parser: myst
+
+.. py:function:: InputIndex()
+   :canonical: pynodes.datasocks.InputIndex
+
+   .. autodoc2-docstring:: pynodes.datasocks.InputIndex
       :parser: myst
 
 .. py:function:: SceneTime()

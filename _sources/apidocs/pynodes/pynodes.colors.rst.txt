@@ -37,6 +37,10 @@ Functions
      - .. autodoc2-docstring:: pynodes.colors.rgba
           :parser: myst
           :summary:
+   * - :py:obj:`color_tuple <pynodes.colors.color_tuple>`
+     - .. autodoc2-docstring:: pynodes.colors.color_tuple
+          :parser: myst
+          :summary:
 
 Data
 ~~~~
@@ -275,7 +279,7 @@ API
    .. autodoc2-docstring:: pynodes.colors.hex_color_to_rgb
       :parser: myst
 
-.. py:function:: hex_color_to_rgba(hex_color: str, alpha=1.0)
+.. py:function:: hex_color_to_rgba(hex_color: str)
    :canonical: pynodes.colors.hex_color_to_rgba
 
    .. autodoc2-docstring:: pynodes.colors.hex_color_to_rgba
@@ -682,4 +686,10 @@ API
    :canonical: pynodes.colors.rgba
 
    .. autodoc2-docstring:: pynodes.colors.rgba
+      :parser: myst
+
+.. py:function:: color_tuple(color: float | str | tuple[float, float, float] | tuple[float, float, float, float])
+   :canonical: pynodes.colors.color_tuple
+
+   .. autodoc2-docstring:: pynodes.colors.color_tuple
       :parser: myst

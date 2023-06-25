@@ -121,12 +121,16 @@ Functions
      - .. autodoc2-docstring:: pynodes.geosocks.MeshLine
           :parser: myst
           :summary:
+   * - :py:obj:`MeshLineEndPoints <pynodes.geosocks.MeshLineEndPoints>`
+     - .. autodoc2-docstring:: pynodes.geosocks.MeshLineEndPoints
+          :parser: myst
+          :summary:
    * - :py:obj:`MeshUVSphere <pynodes.geosocks.MeshUVSphere>`
      - .. autodoc2-docstring:: pynodes.geosocks.MeshUVSphere
           :parser: myst
           :summary:
-   * - :py:obj:`PointsNode <pynodes.geosocks.PointsNode>`
-     - .. autodoc2-docstring:: pynodes.geosocks.PointsNode
+   * - :py:obj:`InputPoints <pynodes.geosocks.InputPoints>`
+     - .. autodoc2-docstring:: pynodes.geosocks.InputPoints
           :parser: myst
           :summary:
    * - :py:obj:`VolumeCube <pynodes.geosocks.VolumeCube>`
@@ -135,6 +139,10 @@ Functions
           :summary:
    * - :py:obj:`join <pynodes.geosocks.join>`
      - .. autodoc2-docstring:: pynodes.geosocks.join
+          :parser: myst
+          :summary:
+   * - :py:obj:`SplineParameter <pynodes.geosocks.SplineParameter>`
+     - .. autodoc2-docstring:: pynodes.geosocks.SplineParameter
           :parser: myst
           :summary:
 
@@ -199,6 +207,42 @@ API
       :canonical: pynodes.geosocks.Geometry.float_statistic_on_instances
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.float_statistic_on_instances
+         :parser: myst
+
+   .. py:method:: integer_statistic_on_points(attribute=0, selection=True)
+      :canonical: pynodes.geosocks.Geometry.integer_statistic_on_points
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.integer_statistic_on_points
+         :parser: myst
+
+   .. py:method:: integer_statistic_on_edges(attribute=0, selection=True)
+      :canonical: pynodes.geosocks.Geometry.integer_statistic_on_edges
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.integer_statistic_on_edges
+         :parser: myst
+
+   .. py:method:: integer_statistic_on_faces(attribute=0, selection=True)
+      :canonical: pynodes.geosocks.Geometry.integer_statistic_on_faces
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.integer_statistic_on_faces
+         :parser: myst
+
+   .. py:method:: integer_statistic_on_corners(attribute=0, selection=True)
+      :canonical: pynodes.geosocks.Geometry.integer_statistic_on_corners
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.integer_statistic_on_corners
+         :parser: myst
+
+   .. py:method:: integer_statistic_on_curves(attribute=0, selection=True)
+      :canonical: pynodes.geosocks.Geometry.integer_statistic_on_curves
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.integer_statistic_on_curves
+         :parser: myst
+
+   .. py:method:: integer_statistic_on_instances(attribute=0, selection=True)
+      :canonical: pynodes.geosocks.Geometry.integer_statistic_on_instances
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.integer_statistic_on_instances
          :parser: myst
 
    .. py:method:: vector_statistic_on_points(attribute=(0.0, 0.0, 0.0), selection=True)
@@ -522,10 +566,10 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.named_attribute_integer
          :parser: myst
 
-   .. py:property:: nornal
-      :canonical: pynodes.geosocks.Geometry.nornal
+   .. py:property:: normal
+      :canonical: pynodes.geosocks.Geometry.normal
 
-      .. autodoc2-docstring:: pynodes.geosocks.Geometry.nornal
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.normal
          :parser: myst
 
    .. py:property:: position
@@ -594,34 +638,34 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_index
          :parser: myst
 
-   .. py:method:: sample_float_index(value_float=0.0, index=0, domain='POINT', clamp=False)
-      :canonical: pynodes.geosocks.Geometry.sample_float_index
+   .. py:method:: sample_float_at_index(value_float=0.0, index=0, domain='POINT', clamp=False)
+      :canonical: pynodes.geosocks.Geometry.sample_float_at_index
 
-      .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_float_index
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_float_at_index
          :parser: myst
 
-   .. py:method:: sample_integer_index(value_int=0, index=0, domain='POINT', clamp=False)
-      :canonical: pynodes.geosocks.Geometry.sample_integer_index
+   .. py:method:: sample_integer_at_index(value_int=0, index=0, domain='POINT', clamp=False)
+      :canonical: pynodes.geosocks.Geometry.sample_integer_at_index
 
-      .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_integer_index
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_integer_at_index
          :parser: myst
 
-   .. py:method:: sample_vector_index(value_vector=(0.0, 0.0, 0.0), index=0, domain='POINT', clamp=False)
-      :canonical: pynodes.geosocks.Geometry.sample_vector_index
+   .. py:method:: sample_vector_at_index(value_vector=(0.0, 0.0, 0.0), index=0, domain='POINT', clamp=False)
+      :canonical: pynodes.geosocks.Geometry.sample_vector_at_index
 
-      .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_vector_index
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_vector_at_index
          :parser: myst
 
-   .. py:method:: sample_color_index(value_color=(0.0, 0.0, 0.0, 0.0), index=0, domain='POINT', clamp=False)
-      :canonical: pynodes.geosocks.Geometry.sample_color_index
+   .. py:method:: sample_color_at_index(value_color=(0.0, 0.0, 0.0, 0.0), index=0, domain='POINT', clamp=False)
+      :canonical: pynodes.geosocks.Geometry.sample_color_at_index
 
-      .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_color_index
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_color_at_index
          :parser: myst
 
-   .. py:method:: sample_boolean_index(value_bool=False, index=0, domain='POINT', clamp=False)
-      :canonical: pynodes.geosocks.Geometry.sample_boolean_index
+   .. py:method:: sample_boolean_at_index(value_bool=False, index=0, domain='POINT', clamp=False)
+      :canonical: pynodes.geosocks.Geometry.sample_boolean_at_index
 
-      .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_boolean_index
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_boolean_at_index
          :parser: myst
 
    .. py:method:: sample_nearest(sample_position: pynodes.datasocks.Vector = None, domain='POINT')
@@ -646,6 +690,36 @@ API
       :canonical: pynodes.geosocks.Geometry.delete
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.delete
+         :parser: myst
+
+   .. py:method:: delete_points(mode='ALL', selection=True)
+      :canonical: pynodes.geosocks.Geometry.delete_points
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.delete_points
+         :parser: myst
+
+   .. py:method:: delete_edges(mode='ALL', selection=True)
+      :canonical: pynodes.geosocks.Geometry.delete_edges
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.delete_edges
+         :parser: myst
+
+   .. py:method:: delete_faces(mode='ALL', selection=True)
+      :canonical: pynodes.geosocks.Geometry.delete_faces
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.delete_faces
+         :parser: myst
+
+   .. py:method:: delete_curves(mode='ALL', selection=True)
+      :canonical: pynodes.geosocks.Geometry.delete_curves
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.delete_curves
+         :parser: myst
+
+   .. py:method:: delete_instances(mode='ALL', selection=True)
+      :canonical: pynodes.geosocks.Geometry.delete_instances
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.delete_instances
          :parser: myst
 
    .. py:method:: duplicate_elements(amount=1, domain='POINT', selection=True)
@@ -756,7 +830,7 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.join_to_instances
          :parser: myst
 
-   .. py:method:: on_points(points=None, pick_instance=False, instance_index: pynodes.datasocks.Integer = None, rotation=(0.0, 0.0, 0.0), scale=(1.0, 1.0, 1.0), selection=True)
+   .. py:method:: on_points(points: pynodes.geosocks.Points = None, pick_instance=False, instance_index: pynodes.datasocks.Integer = None, rotation=(0.0, 0.0, 0.0), scale=(1.0, 1.0, 1.0), selection=True)
       :canonical: pynodes.geosocks.Geometry.on_points
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.on_points
@@ -1326,6 +1400,12 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_boolean_on_instances
          :parser: myst
 
+   .. py:method:: realize_instances(legacy_behavior=False)
+      :canonical: pynodes.geosocks.Geometry.realize_instances
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.realize_instances
+         :parser: myst
+
 .. py:class:: Curve(bsocket: bpy.types.NodeSocket)
    :canonical: pynodes.geosocks.Curve
 
@@ -1484,7 +1564,31 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Curve.set_spline_type
          :parser: myst
 
-   .. py:method:: to_mesh(profile_curve=None, fill_caps=False)
+   .. py:method:: set_spline_type_poly(selection=True)
+      :canonical: pynodes.geosocks.Curve.set_spline_type_poly
+
+      .. autodoc2-docstring:: pynodes.geosocks.Curve.set_spline_type_poly
+         :parser: myst
+
+   .. py:method:: set_spline_type_catmull_rom(selection=True)
+      :canonical: pynodes.geosocks.Curve.set_spline_type_catmull_rom
+
+      .. autodoc2-docstring:: pynodes.geosocks.Curve.set_spline_type_catmull_rom
+         :parser: myst
+
+   .. py:method:: set_spline_type_bezier(selection=True)
+      :canonical: pynodes.geosocks.Curve.set_spline_type_bezier
+
+      .. autodoc2-docstring:: pynodes.geosocks.Curve.set_spline_type_bezier
+         :parser: myst
+
+   .. py:method:: set_spline_type_nurbs(selection=True)
+      :canonical: pynodes.geosocks.Curve.set_spline_type_nurbs
+
+      .. autodoc2-docstring:: pynodes.geosocks.Curve.set_spline_type_nurbs
+         :parser: myst
+
+   .. py:method:: to_mesh(profile: pynodes.geosocks.Curve = None, fill_caps=False)
       :canonical: pynodes.geosocks.Curve.to_mesh
 
       .. autodoc2-docstring:: pynodes.geosocks.Curve.to_mesh
@@ -2000,6 +2104,36 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Instances.domain_size
          :parser: myst
 
+   .. py:method:: sample_float_at_index(value_float=0.0, index=0, clamp=False)
+      :canonical: pynodes.geosocks.Instances.sample_float_at_index
+
+      .. autodoc2-docstring:: pynodes.geosocks.Instances.sample_float_at_index
+         :parser: myst
+
+   .. py:method:: sample_integer_at_index(value_int=0, index=0, clamp=False)
+      :canonical: pynodes.geosocks.Instances.sample_integer_at_index
+
+      .. autodoc2-docstring:: pynodes.geosocks.Instances.sample_integer_at_index
+         :parser: myst
+
+   .. py:method:: sample_vector_at_index(value_vector=(0.0, 0.0, 0.0), index=0, clamp=False)
+      :canonical: pynodes.geosocks.Instances.sample_vector_at_index
+
+      .. autodoc2-docstring:: pynodes.geosocks.Instances.sample_vector_at_index
+         :parser: myst
+
+   .. py:method:: sample_color_at_index(value_color=(0.0, 0.0, 0.0, 0.0), index=0, clamp=False)
+      :canonical: pynodes.geosocks.Instances.sample_color_at_index
+
+      .. autodoc2-docstring:: pynodes.geosocks.Instances.sample_color_at_index
+         :parser: myst
+
+   .. py:method:: sample_boolean_at_index(value_bool=False, index=0, clamp=False)
+      :canonical: pynodes.geosocks.Instances.sample_boolean_at_index
+
+      .. autodoc2-docstring:: pynodes.geosocks.Instances.sample_boolean_at_index
+         :parser: myst
+
    .. py:method:: separate(selection=True)
       :canonical: pynodes.geosocks.Instances.separate
 
@@ -2197,10 +2331,16 @@ API
    .. autodoc2-docstring:: pynodes.geosocks.MeshCircle
       :parser: myst
 
-.. py:function:: MeshLine(count_mode='TOTAL', mode='OFFSET', count=10, resolution=1.0, start_location=(0.0, 0.0, 0.0), offset=(0.0, 0.0, 1.0))
+.. py:function:: MeshLine(start_location=(0.0, 0.0, 0.0), offset=(0.0, 0.0, 1.0), count=10)
    :canonical: pynodes.geosocks.MeshLine
 
    .. autodoc2-docstring:: pynodes.geosocks.MeshLine
+      :parser: myst
+
+.. py:function:: MeshLineEndPoints(start_location=(0.0, 0.0, 0.0), end_location=(0.0, 0.0, 1.0), count_mode='TOTAL', count=10, resolution=1.0)
+   :canonical: pynodes.geosocks.MeshLineEndPoints
+
+   .. autodoc2-docstring:: pynodes.geosocks.MeshLineEndPoints
       :parser: myst
 
 .. py:function:: MeshUVSphere(segments=32, rings=16, radius=1.0)
@@ -2209,10 +2349,10 @@ API
    .. autodoc2-docstring:: pynodes.geosocks.MeshUVSphere
       :parser: myst
 
-.. py:function:: PointsNode(count=1, position=(0.0, 0.0, 0.0), radius=0.1)
-   :canonical: pynodes.geosocks.PointsNode
+.. py:function:: InputPoints(count=1, position=(0.0, 0.0, 0.0), radius=0.1)
+   :canonical: pynodes.geosocks.InputPoints
 
-   .. autodoc2-docstring:: pynodes.geosocks.PointsNode
+   .. autodoc2-docstring:: pynodes.geosocks.InputPoints
       :parser: myst
 
 .. py:function:: VolumeCube(density=1.0, background=0.0, min=(-1.0, -1.0, -1.0), max=(1.0, 1.0, 1.0), resolution_x=32, resolution_y=32, resolution_z=32)
@@ -2225,4 +2365,10 @@ API
    :canonical: pynodes.geosocks.join
 
    .. autodoc2-docstring:: pynodes.geosocks.join
+      :parser: myst
+
+.. py:function:: SplineParameter()
+   :canonical: pynodes.geosocks.SplineParameter
+
+   .. autodoc2-docstring:: pynodes.geosocks.SplineParameter
       :parser: myst
