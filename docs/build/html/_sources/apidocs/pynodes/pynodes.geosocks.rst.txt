@@ -1426,6 +1426,12 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.realize_instances
          :parser: myst
 
+   .. py:method:: index_of_nearest(position=None, group_id=0)
+      :canonical: pynodes.geosocks.Geometry.index_of_nearest
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.index_of_nearest
+         :parser: myst
+
 .. py:class:: Curve(bsocket: bpy.types.NodeSocket)
    :canonical: pynodes.geosocks.Curve
 

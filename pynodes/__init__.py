@@ -3,7 +3,7 @@ bl_info = {
     "author": "iplai",
     "description": "",
     "blender": (3, 5, 1),
-    "version": (0, 0, 4),
+    "version": (0, 1, 0),
     "location": "Node Editor > SideBar > Pynodes",
     "warning": "",
     "doc_url": "https://github.com/iplai/pynodes",
@@ -23,7 +23,7 @@ def unregister():
     auto_load.unregister()
 
 
-from .core import tree, frame, reload
+from .core import tree, frame, simulate, reload
 from .datasocks import *
 from .geosocks import *
 

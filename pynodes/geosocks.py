@@ -3362,6 +3362,23 @@ class Geometry(Socket):
         self.bsocket = node.outputs[0].bsocket
         return self
 
+    def index_of_nearest(self, position=None, group_id=0):
+        """The *Index of Nearest* node is a way to find other close elements in the same geometry. If needed you can use Group ID to determine the group of neighbors to be analyzed together.This is an alternative to the [Sample Nearest Node](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/sample_nearest.html) node. The main difference is that this node does not require a geometry input, because the geometry from the [field context](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/fields.html#field-context) is used.
+        - New in Blender 3.6.0
+        #### Path
+        - Geometry > Sample
+        #### Outputs:
+        - `#0 index: Integer = 0`
+        - `#1 has_neighbor: Boolean = False`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeIndexOfNearest.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/index_of_nearest.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeIndexOfNearest.html)
+        """
+        node = new_node(*nodes.GeometryNodeIndexOfNearest(position, group_id))
+        ret = typing.NamedTuple("IndexOfNearest", [("index", Integer), ("has_neighbor", Boolean)])
+        return ret(node.outputs[0].Integer, node.outputs[1].Boolean)
+
 
 class Curve(Geometry):
     """A Curve data socket"""

@@ -481,6 +481,24 @@ class Tree:
         yield frame
         frame = self.frames.pop()
 
+    @contextlib.contextmanager
+    def simulate(self, *input_sockets: Socket):
+        input_bnode: bpy.types.GeometryNodeSimulationInput = self.new_node(SimulationInput.bl_idname).bnode
+        output_bnode: bpy.types.GeometryNodeSimulationOutput = self.new_node(SimulationOutput.bl_idname).bnode
+        input_bnode.pair_with_output(output_bnode)
+        state_items = output_bnode.state_items
+        state_items.remove(output_bnode.active_item)
+        input_node = SimulationInput(input_bnode)
+        output_node = SimulationOutput(output_bnode)
+        for i, socket in enumerate(input_sockets):
+            state_items.new(socket.bsocket.type, socket.bsocket.name)
+            self.new_link(socket.bsocket, input_bnode.inputs[i])
+            self.new_link(input_bnode.outputs[i + 1], output_bnode.inputs[i])
+            socket.bsocket = input_bnode.outputs[i + 1]
+        yield input_node, output_node
+        for i, socket in enumerate(input_sockets):
+            socket.bsocket = output_bnode.outputs[i]
+
 
 class Group(NodeWraper):
     def __init__(self, bnode: Node) -> None:
@@ -509,6 +527,21 @@ class Group(NodeWraper):
 
 class Frame(NodeWraper):
     bl_idname = "NodeFrame"
+
+
+class SimulationInput(NodeWraper):
+    bl_idname = "GeometryNodeSimulationInput"
+
+    @property
+    def delta_time(self):
+        return self.outputs[0].Float
+
+
+class SimulationOutput(NodeWraper):
+    bl_idname = "GeometryNodeSimulationOutput"
+
+    def link_from(self, socket: Socket, index=0):
+        Tree.tree.new_link(socket.bsocket, self.bnode.inputs[index])
 
 
 class Script(NodeWraper):
@@ -786,6 +819,10 @@ def tree(func: typing.Callable[Param, RT]) -> typing.Callable[Param, RT]:
 
 def frame(label="Layout"):
     return Tree.tree.frame(label)
+
+
+def simulate(*input_sockets: Socket):
+    return Tree.tree.simulate(*input_sockets)
 
 
 def reload():

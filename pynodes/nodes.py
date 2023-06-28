@@ -3989,3 +3989,17 @@ def GeometryNodeInputSceneTime():
     params_all = []
     inputs_all = []
     return "GeometryNodeInputSceneTime", params_all, inputs_all
+
+
+def GeometryNodeIndexOfNearest(position=None, group_id=0):
+    """
+    #### Inputs:
+    - `#0 position: Vector = None`
+    - `#1 group_id: Integer = 0`
+    #### Outputs:
+    - `#0 index: Integer = 0`
+    - `#1 has_neighbor: Boolean = False`
+    """
+    params_all = []
+    inputs_all = [(position, None), (group_id, 0)]
+    return "GeometryNodeIndexOfNearest", params_all, inputs_all

@@ -4724,6 +4724,30 @@
 </section>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.geosocks.Geometry.index_of_nearest">
+<span class="sig-name descname"><span class="pre">index_of_nearest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.Geometry.index_of_nearest" title="Permalink to this definition">#</a></dt>
+<dd><p>The <em>Index of Nearest</em> node is a way to find other close elements in the same geometry. If needed you can use Group ID to determine the group of neighbors to be analyzed together.This is an alternative to the <a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/sample_nearest.html">Sample Nearest Node</a> node. The main difference is that this node does not require a geometry input, because the geometry from the <a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/fields.html#field-context">field context</a> is used.</p>
+<ul class="simple">
+<li><p>New in Blender 3.6.0</p></li>
+</ul>
+<section id="path">
+<h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Geometry &gt; Sample</p></li>
+</ul>
+</section>
+<section id="outputs">
+<h4>Outputs:<a class="headerlink" href="#outputs" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">index:</span> <span class="pre">Integer</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#1</span> <span class="pre">has_neighbor:</span> <span class="pre">Boolean</span> <span class="pre">=</span> <span class="pre">False</span></code></p></li>
+</ul>
+<p><img alt="" src="https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeIndexOfNearest.webp" /></p>
+<p><a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/index_of_nearest.html">[Manual]</a> <a class="reference external" href="https://docs.blender.org/api/current/bpy.types.GeometryNodeIndexOfNearest.html">[API]</a></p>
+</section>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -8486,6 +8510,7 @@
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.evaluate_boolean_on_curves"><code class="docutils literal notranslate"><span class="pre">Geometry.evaluate_boolean_on_curves()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.evaluate_boolean_on_instances"><code class="docutils literal notranslate"><span class="pre">Geometry.evaluate_boolean_on_instances()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.realize_instances"><code class="docutils literal notranslate"><span class="pre">Geometry.realize_instances()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.geosocks.Geometry.index_of_nearest"><code class="docutils literal notranslate"><span class="pre">Geometry.index_of_nearest()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#pynodes.geosocks.Curve"><code class="docutils literal notranslate"><span class="pre">Curve</span></code></a><ul>

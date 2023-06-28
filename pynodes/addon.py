@@ -35,7 +35,7 @@ class PYNODES_PT_MAIN(Panel):
             node = context.active_node
             if node is not None and node.select:
                 Node = node.bl_idname
-                # layout.row().label(text=f"{Node = }")
+                layout.row().label(text=f"{Node = }")
                 row = layout.row()
                 row.label(text="Location")
                 row.prop(node, 'location', text="X", index=0)
@@ -325,6 +325,9 @@ def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, f
                 if w > col.width:
                     col.width = w
                 if y_index > 0:
+                    if col.nodes[y_index - 1].bl_idname == "GeometryNodeSimulationOutput":
+                        y -= 22
+                        col.height += 22
                     if previsous_is_frame and current_is_frame:
                         col.height += frame_margin_y
                         y -= frame_margin_y
@@ -354,58 +357,6 @@ def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, f
             if current_has_frame:
                 x += 30
             previsous_has_frame = current_has_frame
-
-        # x = 0
-        # for x_index, col in enumerate(cols):
-        #     y = 0
-        #     for y_index, node in enumerate(col.nodes):
-        #         current_is_frame = is_frame(node)
-        #         w, h = node.dimensions
-        #         if w > col.width:
-        #             col.width = w
-        #         if not current_is_frame and w > 140:
-        #             node.location = (x + 140 - w, y)
-        #         else:
-        #             node.location = (x, y)
-        #         y -= h
-        #         col.height += h
-        #         if current_is_frame:
-        #             if y_index == 0:
-        #                 col.height -= 30
-        #             if y_index == len(col.nodes) - 1:
-        #                 col.height -= 30
-        #         if y_index == len(col.nodes) - 1:
-        #             break
-        #         next_is_frame = is_frame(col.nodes[y_index + 1])
-        #         if current_is_frame:
-        #             if y_index == 0:
-        #                 col.height -= 30
-        #             if next_is_frame:
-        #                 y -= frame_margin_y
-        #                 col.height += frame_margin_y
-        #             else:
-        #                 y -= frame_margin_y - 30
-        #                 col.height += frame_margin_y - 30
-        #         else:
-        #             if next_is_frame:
-        #                 y -= frame_margin_y + 30
-        #                 col.height += frame_margin_y + 30
-        #             else:
-        #                 y -= margin_y
-        #                 col.height += margin_y
-        #     if x_index == len(cols) - 1:
-        #         break
-        #     x -= col.width
-        #     if col.has_frame:
-        #         if cols[x_index + 1].has_frame:
-        #             x -= frame_margin_x
-        #         else:
-        #             x -= -30 + frame_margin_x
-        #     else:
-        #         if cols[x_index + 1].has_frame:
-        #             x -= 30 + frame_margin_x
-        #         else:
-        #             x -= margin_x
         '''
         for i, col in enumerate(cols):
             for j, node in enumerate(col.nodes):
@@ -445,17 +396,15 @@ def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, f
         for i, col in enumerate(cols):
             if i == 0:
                 continue
-            if col.offset != 0:
+            if (col.height + col.offset) > (cols[i - 1].height + cols[i - 1].offset) * diff_shreshold_factor:
                 continue
-            if cols[i - 1].offset != 0 and col.height <= cols[i - 1].height:
+            if cols[i - 1].offset != 0 and (col.height + col.offset) <= (cols[i - 1].height + cols[i - 1].offset) / diff_shreshold_factor:
                 col.offset = cols[i - 1].offset
             if col.height < cols[i - 1].height * diff_shreshold_factor:
                 col.offset += (cols[i - 1].height - col.height) / 2
             if col.offset == 0:
                 continue
             for j, node in enumerate(col.nodes):
-                # if j == 0 and node.bl_idname.startswith("GeometryNode"):
-                #     break
                 x, y = node.location
                 node.location = (x, y - col.offset)
 

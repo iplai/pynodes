@@ -1057,6 +1057,10 @@ Functions
      - .. autodoc2-docstring:: pynodes.nodes.GeometryNodeInputSceneTime
           :parser: myst
           :summary:
+   * - :py:obj:`GeometryNodeIndexOfNearest <pynodes.nodes.GeometryNodeIndexOfNearest>`
+     - .. autodoc2-docstring:: pynodes.nodes.GeometryNodeIndexOfNearest
+          :parser: myst
+          :summary:
 
 API
 ~~~
@@ -2619,4 +2623,10 @@ API
    :canonical: pynodes.nodes.GeometryNodeInputSceneTime
 
    .. autodoc2-docstring:: pynodes.nodes.GeometryNodeInputSceneTime
+      :parser: myst
+
+.. py:function:: GeometryNodeIndexOfNearest(position=None, group_id=0)
+   :canonical: pynodes.nodes.GeometryNodeIndexOfNearest
+
+   .. autodoc2-docstring:: pynodes.nodes.GeometryNodeIndexOfNearest
       :parser: myst

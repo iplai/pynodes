@@ -15,7 +15,7 @@ Before using **`pynodes`**, you must first know:
 
 ```{admonition} Basic Concepts
 :class: important
-Nodes are created by a series of chain calls in a python function decrorated by `@tree` with represents a node group in blender.
+Nodes are created by a series of chain calls in a python function decrorated by `@tree` which represents a node group in blender.
 - Operations on nodes are based on the output port(data socket), not on the node itself.
 - A decorated `Python` function (`@tree`) corresponds to a tree of nodes. Calling the function means creating a group node in the current node tree.
 - Data in a data flow has strict type checking, what methods are available for the data socket, and what is provided by its type.
