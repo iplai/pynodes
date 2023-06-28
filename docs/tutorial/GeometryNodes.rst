@@ -294,7 +294,8 @@ Pythagoras Tree
                 x = (a * v1.x + b * v2.x + c * v3.x) / l
                 y = (a * v1.y + b * v2.y + c * v3.y) / l
 
-            return CombineXYZ(x, y)("Center"), r("Radius")
+            return CombineXYZ(x, y)("Center"), r("Radius") # Rename the ouput socket
+            # return CombineXYZ(x, y), r # this is also OK
 
 
         @tree
