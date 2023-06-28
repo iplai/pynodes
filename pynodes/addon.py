@@ -48,14 +48,13 @@ class PYNODES_PT_MAIN(Panel):
         layout.row().operator('outliner.orphans_purge_recursive')
 
 
-class PYNODES_OT_SHOW_ARRANGE(Operator):
+class PYNODES_OT_ARRANGE(Operator):
     '''Arrange all nodes, deepest frame first, columns by columns from left to right'''
     bl_idname = 'node.pynodes_arrange'
     bl_label = 'Arrange'
 
     def execute(self, context):
         arrange(self, context)
-        bpy.ops.node.view_all()
         return {'FINISHED'}
 
     def invoke(self, context, value):
@@ -130,7 +129,8 @@ def match_frame_node(node: Node | None, frame_child_nodes: list[Node]):
 
 def arrange(self, context: Context):
 
-    btree = get_active_tree(context)
+    # btree = get_active_tree(context)
+    btree = context.space_data.edit_tree
 
     if btree is None:
         return
@@ -303,15 +303,18 @@ def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, f
 
         # Arrange the location of nodes in columns
         x = 0
+        frame_padding = [30, 30]
+        if bpy.app.version >= (3, 6, 0):
+            frame_padding = [30, 40]
         current_has_frame = previsous_has_frame = False
         for x_index, col in enumerate(cols):
             current_has_frame = col.has_frame
             if x_index == 0:
                 if current_has_frame and frame is not None:
-                    x -= 30
+                    x -= frame_padding[0]
             else:
                 if current_has_frame:
-                    x -= frame_margin_x + 30
+                    x -= frame_margin_x + frame_padding[0]
                 elif previsous_has_frame:
                     x -= frame_margin_x
                 else:
@@ -332,17 +335,17 @@ def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, f
                         col.height += frame_margin_y
                         y -= frame_margin_y
                     elif previsous_is_frame and not current_is_frame:
-                        col.height += frame_margin_y - 30
-                        y -= frame_margin_y - 30
+                        col.height += frame_margin_y - frame_padding[1] * 2
+                        y -= frame_margin_y - frame_padding[1] * 2
                     elif not previsous_is_frame and current_is_frame:
-                        col.height += frame_margin_y + 30
-                        y -= frame_margin_y + 30
+                        col.height += frame_margin_y + frame_padding[1]
+                        y -= frame_margin_y + frame_padding[1]
                     else:
                         col.height += margin_y
                         y -= margin_y
                 # TODO
                 if y_index == 0 and current_is_frame:
-                    col.height -= 60
+                    col.height -= 2 * frame_padding[1]
                 if current_is_frame:
                     node.location = (x, y)
                 else:
@@ -355,7 +358,7 @@ def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, f
                 previsous_is_frame = current_is_frame
             x -= col.width
             if current_has_frame:
-                x += 30
+                x += frame_padding[0]
             previsous_has_frame = current_has_frame
         '''
         for i, col in enumerate(cols):

@@ -19,8 +19,8 @@ Classes
 
    * - :py:obj:`PYNODES_PT_MAIN <pynodes.addon.PYNODES_PT_MAIN>`
      -
-   * - :py:obj:`PYNODES_OT_SHOW_ARRANGE <pynodes.addon.PYNODES_OT_SHOW_ARRANGE>`
-     - .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_SHOW_ARRANGE
+   * - :py:obj:`PYNODES_OT_ARRANGE <pynodes.addon.PYNODES_OT_ARRANGE>`
+     - .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_ARRANGE
           :parser: myst
           :summary:
    * - :py:obj:`PYNODES_OT_PURGE <pynodes.addon.PYNODES_OT_PURGE>`
@@ -115,33 +115,33 @@ API
    .. py:method:: draw(context)
       :canonical: pynodes.addon.PYNODES_PT_MAIN.draw
 
-.. py:class:: PYNODES_OT_SHOW_ARRANGE
-   :canonical: pynodes.addon.PYNODES_OT_SHOW_ARRANGE
+.. py:class:: PYNODES_OT_ARRANGE
+   :canonical: pynodes.addon.PYNODES_OT_ARRANGE
 
    Bases: :py:obj:`bpy.types.Operator`
 
-   .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_SHOW_ARRANGE
+   .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_ARRANGE
       :parser: myst
 
    .. py:attribute:: bl_idname
-      :canonical: pynodes.addon.PYNODES_OT_SHOW_ARRANGE.bl_idname
+      :canonical: pynodes.addon.PYNODES_OT_ARRANGE.bl_idname
       :value: 'node.pynodes_arrange'
 
-      .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_SHOW_ARRANGE.bl_idname
+      .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_ARRANGE.bl_idname
          :parser: myst
 
    .. py:attribute:: bl_label
-      :canonical: pynodes.addon.PYNODES_OT_SHOW_ARRANGE.bl_label
+      :canonical: pynodes.addon.PYNODES_OT_ARRANGE.bl_label
       :value: 'Arrange'
 
-      .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_SHOW_ARRANGE.bl_label
+      .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_ARRANGE.bl_label
          :parser: myst
 
    .. py:method:: execute(context)
-      :canonical: pynodes.addon.PYNODES_OT_SHOW_ARRANGE.execute
+      :canonical: pynodes.addon.PYNODES_OT_ARRANGE.execute
 
    .. py:method:: invoke(context, value)
-      :canonical: pynodes.addon.PYNODES_OT_SHOW_ARRANGE.invoke
+      :canonical: pynodes.addon.PYNODES_OT_ARRANGE.invoke
 
 .. py:class:: PYNODES_OT_PURGE
    :canonical: pynodes.addon.PYNODES_OT_PURGE

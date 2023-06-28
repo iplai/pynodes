@@ -67,6 +67,7 @@ class Geometry(Socket):
             self._selection = socket * self._selection
         else:
             self._selection = socket
+        self._selection.name = "Selection"
         return self
 
     @property
