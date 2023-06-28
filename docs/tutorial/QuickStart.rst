@@ -19,6 +19,11 @@ Install Addon
 
     .. thumbnail:: /_static/images/Snipaste_2023-06-29_00-58-39.png
 
+When the addon installed, enable it. (check the box of ``Node: PyNodes``).
+Then the module ``pynodes`` is in your python path of blender,
+and the UI will appear in the Sidebar of Node Editor of Blender.
+The nodes in node editor can be arranged in real time with the parameters in UI.
+
 Setup VSCode
 ==============
 
@@ -205,6 +210,7 @@ Version with material
 ----------------------
 
 Not only geometry nodes, material nodes are also supported.
+Modify the third function, and add a material function. 
 
 .. admonition:: Version with material
     :class: pynodes
