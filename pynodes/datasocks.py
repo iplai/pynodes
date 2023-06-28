@@ -1109,6 +1109,7 @@ class Vector(Socket):
         """
         return self.math("SCALE", scale=scale).vector
 
+    @property
     def normalize(self):
         """The result of normalizing A. The result vector points to the same direction as A and has a length of 1. If A is (0, 0, 0), the result is (0, 0, 0) as well.
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/vector/vector_math.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeVectorMath.html)
@@ -1817,7 +1818,7 @@ class Shader(Socket):
         self._volume_info = None
 
     @staticmethod
-    def attribute(attribute_type='GEOMETRY', name=''):
+    def attribute(name='', attribute_type='GEOMETRY'):
         """The Attribute node allows you to retrieve attributes attached to an object or mesh.
         #### Path
         - Input > Attribute Node
@@ -3155,14 +3156,14 @@ def NoiseTexture(noise_dimensions='3D', vector: Vector = None, w=0.0, scale=5.0,
     return ret(node.outputs[0].Float, node.outputs[1].Color)
 
 
-def VoronoiTexture(voronoi_dimensions='3D', distance='EUCLIDEAN', feature='F1', color_mapping=None, texture_mapping=None, vector: Vector = None, w=0.0, scale=5.0, smoothness=1.0, exponent=0.5, randomness=1.0):
+def VoronoiTexture(voronoi_dimensions='3D', feature='F1', distance='EUCLIDEAN', color_mapping=None, texture_mapping=None, vector: Vector = None, w=0.0, scale=5.0, smoothness=1.0, exponent=0.5, randomness=1.0):
     """The Voronoi Texture node evaluates a Worley Noise at the input texture coordinates.
     #### Path
     - Texture > Voronoi Texture Node
     #### Properties:
-    - `distance`: `EUCLIDEAN`, `MANHATTAN`, `CHEBYCHEV`, `MINKOWSKI`
-    - `feature`: `F1`, `F2`, `SMOOTH_F1`, `DISTANCE_TO_EDGE`, `N_SPHERE_RADIUS`
     - `voronoi_dimensions`: `3D`, `1D`, `2D`, `4D`
+    - `feature`: `F1`, `F2`, `SMOOTH_F1`, `DISTANCE_TO_EDGE`, `N_SPHERE_RADIUS`
+    - `distance`: `EUCLIDEAN`, `MANHATTAN`, `CHEBYCHEV`, `MINKOWSKI`
     #### Outputs:
     - `#0 distance: Float = 0.0`
     - `#1 color: Color = (0.0, 0.0, 0.0, 0.0)`

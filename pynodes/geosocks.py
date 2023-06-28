@@ -1,9 +1,22 @@
+"""
+```{important}
+[Geometry nodes](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/index.html) in `blender`
+```
+Geometry nodes can modify different types of geometry:
+
+- [Meshes](https://docs.blender.org/manual/en/latest/modeling/meshes/introduction.html)
+- [Curves](https://docs.blender.org/manual/en/latest/modeling/curves/introduction.html)
+- [Point Clouds](https://docs.blender.org/manual/en/latest/modeling/point_cloud.html)
+- [Volumes](https://docs.blender.org/manual/en/latest/modeling/volumes/introduction.html)
+- [Instances](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/instances.html)
+"""
 import bpy, typing, math
 from .core import Socket, new_node, new_link
 from . import nodes
 
 
 class Geometry(Socket):
+    """Represents a green ouput socket of a node, the base class of all geometry data socket"""
     bl_idname = "NodeSocketGeometry"
 
     def __init__(self, bsocket: bpy.types.NodeSocket) -> None:
@@ -3351,6 +3364,8 @@ class Geometry(Socket):
 
 
 class Curve(Geometry):
+    """A Curve data socket"""
+
     def __init__(self, bsocket: bpy.types.NodeSocket) -> None:
         super().__init__(bsocket)
         self._parameter = None
@@ -4197,6 +4212,7 @@ class Curve(Geometry):
 
 
 class Mesh(Geometry):
+    """A mesh data socket"""
 
     @property
     def domain_size(self):
@@ -5103,6 +5119,7 @@ class Mesh(Geometry):
 
 
 class Points(Geometry):
+    """A points cloud data socket"""
 
     @property
     def domain_size(self):
@@ -5185,6 +5202,7 @@ class Points(Geometry):
 
 
 class Instances(Geometry):
+    """A instances data socket"""
 
     @property
     def domain_size(self):
@@ -5412,6 +5430,7 @@ class Instances(Geometry):
 
 
 class Volume(Geometry):
+    """A volume data socket"""
 
     def distribute_points_random(self, density=1.0, seed=0):
         """The Distribute Points in Volume node creates points inside of volume grids. The node has two basic modes of operation: distributing points randomly, or in a regular grid. Both methods operate on all of the float grids in the volume.

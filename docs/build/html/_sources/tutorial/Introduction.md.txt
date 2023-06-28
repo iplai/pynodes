@@ -1,22 +1,28 @@
 # Introduction
-```{admonition} 关于模块的名字
-虽然本模块脱胎自[`geonodes`](https://github.com/al1brn/geonodes)，但实现逻辑和使用方法已完全不同。
+```{admonition} About the name of the module
+Although this module is derived from[`geonodes`](https://github.com/al1brn/geonodes), But the implementation logic and usage are completely different.
 
-`geonodes`仅支持几何节点，而`pynodes`几乎支持blender所有的节点树，包括几何节点和材质节点。
+For `geonodes`, only geometry nodes are supported, while `pynodes` supports almost all of blender's node trees, including geometry nodes and material nodes.
 ```
 
-```{admonition} 先备条件
+```{admonition} Prerequisities
 :class: tip
-在使用 **`pynodes`** 前，你必须先了解：
-- `Blender` 节点编辑器的使用
-- `Python` 语言
-- 如何在 `blender` 中执行 `Python` 脚本
+Before using **`pynodes`**, you must first know:
+- How to use `Blender` Node editor
+- `Python` language
+- How to run `Python` script in `Blender`
 ```
 
-```{admonition} 基本理念
+```{admonition} Basic Concepts
 :class: important
-- 对几何节点的操作是基于输出端口的，而非节点本身
-- 一个`Python`函数对应一个节点树，调用`Python`函数，就是在当前的节点树中，创建一个组节点。
-- 数据流中的数据有严格的类型检查，数据有哪些方法，由它的类型提供。
-- 良好的IDE支持，比如在`VSCODE`中，所有暴露的方法都有内置文档说明，包括涉及的节点图片，可选枚举参数，以及官方文档链接。
+Nodes are created by a series of chain calls in a python function decrorated by `@tree` with represents a node group in blender.
+- Operations on nodes are based on the output port(data socket), not on the node itself.
+- A decorated `Python` function (`@tree`) corresponds to a tree of nodes. Calling the function means creating a group node in the current node tree.
+- Data in a data flow has strict type checking, what methods are available for the data socket, and what is provided by its type.
+- Good IDE support，e.g. [`VS Code`](https://code.visualstudio.com/)，All exposed methods have built-in documentation, including images of the nodes involved, optional enumeration parameters, and links to official documentation.
+```
+
+```{toctree}
+:maxdepth: 4
+GeometryNodes
 ```

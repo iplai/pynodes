@@ -18,17 +18,29 @@ Classes
    :align: left
 
    * - :py:obj:`Geometry <pynodes.geosocks.Geometry>`
-     -
+     - .. autodoc2-docstring:: pynodes.geosocks.Geometry
+          :parser: myst
+          :summary:
    * - :py:obj:`Curve <pynodes.geosocks.Curve>`
-     -
+     - .. autodoc2-docstring:: pynodes.geosocks.Curve
+          :parser: myst
+          :summary:
    * - :py:obj:`Mesh <pynodes.geosocks.Mesh>`
-     -
+     - .. autodoc2-docstring:: pynodes.geosocks.Mesh
+          :parser: myst
+          :summary:
    * - :py:obj:`Points <pynodes.geosocks.Points>`
-     -
+     - .. autodoc2-docstring:: pynodes.geosocks.Points
+          :parser: myst
+          :summary:
    * - :py:obj:`Instances <pynodes.geosocks.Instances>`
-     -
+     - .. autodoc2-docstring:: pynodes.geosocks.Instances
+          :parser: myst
+          :summary:
    * - :py:obj:`Volume <pynodes.geosocks.Volume>`
-     -
+     - .. autodoc2-docstring:: pynodes.geosocks.Volume
+          :parser: myst
+          :summary:
 
 Functions
 ~~~~~~~~~
@@ -153,6 +165,14 @@ API
    :canonical: pynodes.geosocks.Geometry
 
    Bases: :py:obj:`pynodes.core.Socket`
+
+   .. autodoc2-docstring:: pynodes.geosocks.Geometry
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.geosocks.Geometry.__init__
+      :parser: myst
 
    .. py:attribute:: bl_idname
       :canonical: pynodes.geosocks.Geometry.bl_idname
@@ -1411,6 +1431,14 @@ API
 
    Bases: :py:obj:`pynodes.geosocks.Geometry`
 
+   .. autodoc2-docstring:: pynodes.geosocks.Curve
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.geosocks.Curve.__init__
+      :parser: myst
+
    .. py:property:: domain_size
       :canonical: pynodes.geosocks.Curve.domain_size
 
@@ -1715,6 +1743,14 @@ API
    :canonical: pynodes.geosocks.Mesh
 
    Bases: :py:obj:`pynodes.geosocks.Geometry`
+
+   .. autodoc2-docstring:: pynodes.geosocks.Mesh
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.geosocks.Mesh.__init__
+      :parser: myst
 
    .. py:property:: domain_size
       :canonical: pynodes.geosocks.Mesh.domain_size
@@ -2063,6 +2099,14 @@ API
 
    Bases: :py:obj:`pynodes.geosocks.Geometry`
 
+   .. autodoc2-docstring:: pynodes.geosocks.Points
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.geosocks.Points.__init__
+      :parser: myst
+
    .. py:property:: domain_size
       :canonical: pynodes.geosocks.Points.domain_size
 
@@ -2097,6 +2141,14 @@ API
    :canonical: pynodes.geosocks.Instances
 
    Bases: :py:obj:`pynodes.geosocks.Geometry`
+
+   .. autodoc2-docstring:: pynodes.geosocks.Instances
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.geosocks.Instances.__init__
+      :parser: myst
 
    .. py:property:: domain_size
       :canonical: pynodes.geosocks.Instances.domain_size
@@ -2192,6 +2244,14 @@ API
    :canonical: pynodes.geosocks.Volume
 
    Bases: :py:obj:`pynodes.geosocks.Geometry`
+
+   .. autodoc2-docstring:: pynodes.geosocks.Volume
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.geosocks.Volume.__init__
+      :parser: myst
 
    .. py:method:: distribute_points_random(density=1.0, seed=0)
       :canonical: pynodes.geosocks.Volume.distribute_points_random

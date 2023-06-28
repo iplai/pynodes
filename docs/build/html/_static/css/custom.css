@@ -11,3 +11,57 @@ code.literal {
 h2 {
     font-size: 1.3em;
 }
+
+.pynodes {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.pynodes p.admonition-title {
+    font-weight: 600;
+    font-size: 0.925rem;
+    margin: 0;
+}
+
+.pynodes .highlight-python {
+    margin: 0;
+}
+
+.pynodes .highlight {
+    border-radius: 0;
+}
+
+.pynodes .highlight pre {
+    font-size: 15px;
+}
+
+.manim-video {
+    width: 100%;
+    padding: 8px 0;
+    outline: 0;
+}
+
+.pynodes .manim-video {
+    padding: 0;
+}
+
+.pynodes img {
+    margin-bottom: 0;
+}
+
+.pynodes p:last-child {
+    margin-top: 0;
+    padding-left: 0.5rem;
+    padding-bottom: 0.15rem;
+    font-size: 15px;
+}
+
+.pynodes .copybtn {
+    margin-right: 6px;
+    font-size: 18px;
+}
+
+.pynodes .copybtn:hover {
+    cursor: pointer;
+}

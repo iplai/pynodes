@@ -3,3 +3,4 @@ sphinx-autodoc2
 furo
 myst-parser
 phinx-copybutton
+sphinxcontrib-images

@@ -303,63 +303,117 @@ def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, f
 
         # Arrange the location of nodes in columns
         x = 0
+        current_has_frame = previsous_has_frame = False
         for x_index, col in enumerate(cols):
+            current_has_frame = col.has_frame
+            if x_index == 0:
+                if current_has_frame and frame is not None:
+                    x -= 30
+            else:
+                if current_has_frame:
+                    x -= frame_margin_x + 30
+                elif previsous_has_frame:
+                    x -= frame_margin_x
+                else:
+                    x -= margin_x
+
             y = 0
+            current_is_frame = previsous_is_frame = False
             for y_index, node in enumerate(col.nodes):
                 current_is_frame = is_frame(node)
                 w, h = node.dimensions
                 if w > col.width:
                     col.width = w
-                if not current_is_frame and w > 140:
-                    node.location = (x + 140 - w, y)
-                else:
+                if y_index > 0:
+                    if previsous_is_frame and current_is_frame:
+                        col.height += frame_margin_y
+                        y -= frame_margin_y
+                    elif previsous_is_frame and not current_is_frame:
+                        col.height += frame_margin_y - 30
+                        y -= frame_margin_y - 30
+                    elif not previsous_is_frame and current_is_frame:
+                        col.height += frame_margin_y + 30
+                        y -= frame_margin_y + 30
+                    else:
+                        col.height += margin_y
+                        y -= margin_y
+                # TODO
+                if y_index == 0 and current_is_frame:
+                    col.height -= 60
+                if current_is_frame:
                     node.location = (x, y)
+                else:
+                    if w > 140:
+                        node.location = (x + 140 - w, y)
+                    else:
+                        node.location = (x, y)
                 y -= h
                 col.height += h
-                if current_is_frame:
-                    if y_index == 0:
-                        col.height -= 30
-                    if y_index == len(col.nodes) - 1:
-                        col.height -= 30
-                if y_index == len(col.nodes) - 1:
-                    break
-                next_is_frame = is_frame(col.nodes[y_index + 1])
-                if current_is_frame:
-                    if y_index == 0:
-                        col.height -= 30
-                    if next_is_frame:
-                        y -= frame_margin_y
-                        col.height += frame_margin_y
-                    else:
-                        y -= frame_margin_y - 30
-                        col.height += frame_margin_y - 30
-                else:
-                    if next_is_frame:
-                        y -= frame_margin_y + 30
-                        col.height += frame_margin_y + 30
-                    else:
-                        y -= margin_y
-                        col.height += margin_y
-            if x_index == len(cols) - 1:
-                break
+                previsous_is_frame = current_is_frame
             x -= col.width
-            if col.has_frame:
-                if cols[x_index + 1].has_frame:
-                    x -= frame_margin_x
-                else:
-                    x -= -30 + frame_margin_x
-            else:
-                if cols[x_index + 1].has_frame:
-                    x -= 30 + frame_margin_x
-                else:
-                    x -= margin_x
+            if current_has_frame:
+                x += 30
+            previsous_has_frame = current_has_frame
 
-        # for i, col in enumerate(cols):
-        #     for j, node in enumerate(col.nodes):
-        #         if j == 0:
-        #             node.label = f"{col.width:3.0f} {col.height:3.0f}"
+        # x = 0
+        # for x_index, col in enumerate(cols):
+        #     y = 0
+        #     for y_index, node in enumerate(col.nodes):
+        #         current_is_frame = is_frame(node)
+        #         w, h = node.dimensions
+        #         if w > col.width:
+        #             col.width = w
+        #         if not current_is_frame and w > 140:
+        #             node.location = (x + 140 - w, y)
         #         else:
-        #             node.label = f"{node.dimensions[0]:3.0f} {node.dimensions[1]:3.0f}"
+        #             node.location = (x, y)
+        #         y -= h
+        #         col.height += h
+        #         if current_is_frame:
+        #             if y_index == 0:
+        #                 col.height -= 30
+        #             if y_index == len(col.nodes) - 1:
+        #                 col.height -= 30
+        #         if y_index == len(col.nodes) - 1:
+        #             break
+        #         next_is_frame = is_frame(col.nodes[y_index + 1])
+        #         if current_is_frame:
+        #             if y_index == 0:
+        #                 col.height -= 30
+        #             if next_is_frame:
+        #                 y -= frame_margin_y
+        #                 col.height += frame_margin_y
+        #             else:
+        #                 y -= frame_margin_y - 30
+        #                 col.height += frame_margin_y - 30
+        #         else:
+        #             if next_is_frame:
+        #                 y -= frame_margin_y + 30
+        #                 col.height += frame_margin_y + 30
+        #             else:
+        #                 y -= margin_y
+        #                 col.height += margin_y
+        #     if x_index == len(cols) - 1:
+        #         break
+        #     x -= col.width
+        #     if col.has_frame:
+        #         if cols[x_index + 1].has_frame:
+        #             x -= frame_margin_x
+        #         else:
+        #             x -= -30 + frame_margin_x
+        #     else:
+        #         if cols[x_index + 1].has_frame:
+        #             x -= 30 + frame_margin_x
+        #         else:
+        #             x -= margin_x
+        '''
+        for i, col in enumerate(cols):
+            for j, node in enumerate(col.nodes):
+                if j == 0:
+                    node.label = f"{col.width:3.0f} {col.height:3.0f}"
+                else:
+                    node.label = f"{node.dimensions[0]:3.0f} {node.dimensions[1]:3.0f}"
+        '''
 
         # Arrange the location to the center of columns
         if not column_center:
@@ -375,15 +429,15 @@ def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, f
         for i, col in reversed(list(enumerate(cols))):
             if i == len(cols) - 1:
                 continue
-            if col.height < cols[i + 1].height:
+            if col.height < cols[i + 1].height / diff_shreshold_factor:
                 col.offset = cols[i + 1].offset
             if col.height < cols[i + 1].height * diff_shreshold_factor:
                 col.offset += (cols[i + 1].height - col.height) / 2
             if col.offset == 0:
                 continue
             for j, node in enumerate(col.nodes):
-                if j == 0 and node.bl_idname.startswith("GeometryNode"):
-                    break
+                # if j == 0 and node.bl_idname.startswith("GeometryNode"):
+                #     break
                 x, y = node.location
                 node.location = (x, y - col.offset)
 

@@ -84,7 +84,12 @@ class Tree:
 
             for k, v in val.items():
                 if isinstance(k, str):
-                    obj.__setattr__(k, v)
+                    if isinstance(v, list):
+                        for frame, value in v:
+                            obj.__setattr__(k, value)
+                            obj.keyframe_insert(data_path=k, frame=frame)
+                    else:
+                        obj.__setattr__(k, v)
                     continue
                 if isinstance(k, Mod):
                     self.parse_modifier(Key(k, k.name.title().replace("_", " ")), v, obj)

@@ -1126,7 +1126,7 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Vector.scale
          :parser: myst
 
-   .. py:method:: normalize()
+   .. py:property:: normalize
       :canonical: pynodes.datasocks.Vector.normalize
 
       .. autodoc2-docstring:: pynodes.datasocks.Vector.normalize
@@ -1548,7 +1548,7 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Shader.bl_idname
          :parser: myst
 
-   .. py:method:: attribute(attribute_type='GEOMETRY', name='')
+   .. py:method:: attribute(name='', attribute_type='GEOMETRY')
       :canonical: pynodes.datasocks.Shader.attribute
       :staticmethod:
 
@@ -2111,7 +2111,7 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.NoiseTexture
       :parser: myst
 
-.. py:function:: VoronoiTexture(voronoi_dimensions='3D', distance='EUCLIDEAN', feature='F1', color_mapping=None, texture_mapping=None, vector: pynodes.datasocks.Vector = None, w=0.0, scale=5.0, smoothness=1.0, exponent=0.5, randomness=1.0)
+.. py:function:: VoronoiTexture(voronoi_dimensions='3D', feature='F1', distance='EUCLIDEAN', color_mapping=None, texture_mapping=None, vector: pynodes.datasocks.Vector = None, w=0.0, scale=5.0, smoothness=1.0, exponent=0.5, randomness=1.0)
    :canonical: pynodes.datasocks.VoronoiTexture
 
    .. autodoc2-docstring:: pynodes.datasocks.VoronoiTexture
