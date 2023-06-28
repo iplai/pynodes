@@ -14,7 +14,7 @@ my_examples
 .Python
 # build/
 develop-eggs/
-dist/
+# dist/
 downloads/
 eggs/
 .eggs/
