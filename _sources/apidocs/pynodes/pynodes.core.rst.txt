@@ -41,6 +41,14 @@ Classes
      - .. autodoc2-docstring:: pynodes.core.Frame
           :parser: myst
           :summary:
+   * - :py:obj:`SimulationInput <pynodes.core.SimulationInput>`
+     - .. autodoc2-docstring:: pynodes.core.SimulationInput
+          :parser: myst
+          :summary:
+   * - :py:obj:`SimulationOutput <pynodes.core.SimulationOutput>`
+     - .. autodoc2-docstring:: pynodes.core.SimulationOutput
+          :parser: myst
+          :summary:
    * - :py:obj:`Script <pynodes.core.Script>`
      - .. autodoc2-docstring:: pynodes.core.Script
           :parser: myst
@@ -83,6 +91,10 @@ Functions
           :summary:
    * - :py:obj:`frame <pynodes.core.frame>`
      - .. autodoc2-docstring:: pynodes.core.frame
+          :parser: myst
+          :summary:
+   * - :py:obj:`simulate <pynodes.core.simulate>`
+     - .. autodoc2-docstring:: pynodes.core.simulate
           :parser: myst
           :summary:
    * - :py:obj:`reload <pynodes.core.reload>`
@@ -442,6 +454,12 @@ API
       .. autodoc2-docstring:: pynodes.core.Tree.frame
          :parser: myst
 
+   .. py:method:: simulate(*input_sockets: pynodes.core.Socket)
+      :canonical: pynodes.core.Tree.simulate
+
+      .. autodoc2-docstring:: pynodes.core.Tree.simulate
+         :parser: myst
+
 .. py:class:: Group(bnode: bpy.types.Node)
    :canonical: pynodes.core.Group
 
@@ -491,6 +509,58 @@ API
       :value: 'NodeFrame'
 
       .. autodoc2-docstring:: pynodes.core.Frame.bl_idname
+         :parser: myst
+
+.. py:class:: SimulationInput(bnode: bpy.types.Node)
+   :canonical: pynodes.core.SimulationInput
+
+   Bases: :py:obj:`pynodes.core.NodeWraper`
+
+   .. autodoc2-docstring:: pynodes.core.SimulationInput
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.core.SimulationInput.__init__
+      :parser: myst
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.core.SimulationInput.bl_idname
+      :value: 'GeometryNodeSimulationInput'
+
+      .. autodoc2-docstring:: pynodes.core.SimulationInput.bl_idname
+         :parser: myst
+
+   .. py:property:: delta_time
+      :canonical: pynodes.core.SimulationInput.delta_time
+
+      .. autodoc2-docstring:: pynodes.core.SimulationInput.delta_time
+         :parser: myst
+
+.. py:class:: SimulationOutput(bnode: bpy.types.Node)
+   :canonical: pynodes.core.SimulationOutput
+
+   Bases: :py:obj:`pynodes.core.NodeWraper`
+
+   .. autodoc2-docstring:: pynodes.core.SimulationOutput
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.core.SimulationOutput.__init__
+      :parser: myst
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.core.SimulationOutput.bl_idname
+      :value: 'GeometryNodeSimulationOutput'
+
+      .. autodoc2-docstring:: pynodes.core.SimulationOutput.bl_idname
+         :parser: myst
+
+   .. py:method:: link_from(socket: pynodes.core.Socket, index=0)
+      :canonical: pynodes.core.SimulationOutput.link_from
+
+      .. autodoc2-docstring:: pynodes.core.SimulationOutput.link_from
          :parser: myst
 
 .. py:class:: Script(bnode: bpy.types.Node)
@@ -609,6 +679,12 @@ API
    :canonical: pynodes.core.frame
 
    .. autodoc2-docstring:: pynodes.core.frame
+      :parser: myst
+
+.. py:function:: simulate(*input_sockets: pynodes.core.Socket)
+   :canonical: pynodes.core.simulate
+
+   .. autodoc2-docstring:: pynodes.core.simulate
       :parser: myst
 
 .. py:function:: reload()

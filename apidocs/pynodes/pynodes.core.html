@@ -248,6 +248,12 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pynodes.core.Frame" title="pynodes.core.Frame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Frame</span></code></a></p></td>
 <td></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.core.SimulationInput" title="pynodes.core.SimulationInput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SimulationInput</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.core.SimulationOutput" title="pynodes.core.SimulationOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SimulationOutput</span></code></a></p></td>
+<td></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.core.Script" title="pynodes.core.Script"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Script</span></code></a></p></td>
 <td></td>
 </tr>
@@ -284,7 +290,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pynodes.core.frame" title="pynodes.core.frame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">frame</span></code></a></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.core.reload" title="pynodes.core.reload"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reload</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.core.simulate" title="pynodes.core.simulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simulate</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.core.reload" title="pynodes.core.reload"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reload</span></code></a></p></td>
 <td></td>
 </tr>
 </tbody>
@@ -569,6 +578,11 @@
 <span class="sig-name descname"><span class="pre">frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Layout'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.Tree.frame" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.core.Tree.simulate">
+<span class="sig-name descname"><span class="pre">simulate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">input_sockets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.Socket" title="pynodes.core.Socket"><span class="pre">pynodes.core.Socket</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.Tree.simulate" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -601,6 +615,40 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pynodes.core.Frame.bl_idname">
 <span class="sig-name descname"><span class="pre">bl_idname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NodeFrame'</span></em><a class="headerlink" href="#pynodes.core.Frame.bl_idname" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pynodes.core.SimulationInput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.core.</span></span><span class="sig-name descname"><span class="pre">SimulationInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bnode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bpy.types.Node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.SimulationInput" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pynodes.core.NodeWraper" title="pynodes.core.NodeWraper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pynodes.core.NodeWraper</span></code></a></p>
+<p class="rubric">Initialization</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.core.SimulationInput.bl_idname">
+<span class="sig-name descname"><span class="pre">bl_idname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GeometryNodeSimulationInput'</span></em><a class="headerlink" href="#pynodes.core.SimulationInput.bl_idname" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.core.SimulationInput.delta_time">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delta_time</span></span><a class="headerlink" href="#pynodes.core.SimulationInput.delta_time" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pynodes.core.SimulationOutput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.core.</span></span><span class="sig-name descname"><span class="pre">SimulationOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bnode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bpy.types.Node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.SimulationOutput" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pynodes.core.NodeWraper" title="pynodes.core.NodeWraper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pynodes.core.NodeWraper</span></code></a></p>
+<p class="rubric">Initialization</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.core.SimulationOutput.bl_idname">
+<span class="sig-name descname"><span class="pre">bl_idname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GeometryNodeSimulationOutput'</span></em><a class="headerlink" href="#pynodes.core.SimulationOutput.bl_idname" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.core.SimulationOutput.link_from">
+<span class="sig-name descname"><span class="pre">link_from</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.Socket" title="pynodes.core.Socket"><span class="pre">pynodes.core.Socket</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.SimulationOutput.link_from" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -747,6 +795,11 @@
 <dd></dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="pynodes.core.simulate">
+<span class="sig-prename descclassname"><span class="pre">pynodes.core.</span></span><span class="sig-name descname"><span class="pre">simulate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">input_sockets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.Socket" title="pynodes.core.Socket"><span class="pre">pynodes.core.Socket</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.simulate" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="pynodes.core.reload">
 <span class="sig-prename descclassname"><span class="pre">pynodes.core.</span></span><span class="sig-name descname"><span class="pre">reload</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.reload" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
@@ -880,6 +933,7 @@
 <li><a class="reference internal" href="#pynodes.core.Tree.new_input"><code class="docutils literal notranslate"><span class="pre">Tree.new_input()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.Tree.new_output"><code class="docutils literal notranslate"><span class="pre">Tree.new_output()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.Tree.frame"><code class="docutils literal notranslate"><span class="pre">Tree.frame()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.Tree.simulate"><code class="docutils literal notranslate"><span class="pre">Tree.simulate()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#pynodes.core.Group"><code class="docutils literal notranslate"><span class="pre">Group</span></code></a><ul>
@@ -890,6 +944,16 @@
 </li>
 <li><a class="reference internal" href="#pynodes.core.Frame"><code class="docutils literal notranslate"><span class="pre">Frame</span></code></a><ul>
 <li><a class="reference internal" href="#pynodes.core.Frame.bl_idname"><code class="docutils literal notranslate"><span class="pre">Frame.bl_idname</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pynodes.core.SimulationInput"><code class="docutils literal notranslate"><span class="pre">SimulationInput</span></code></a><ul>
+<li><a class="reference internal" href="#pynodes.core.SimulationInput.bl_idname"><code class="docutils literal notranslate"><span class="pre">SimulationInput.bl_idname</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.SimulationInput.delta_time"><code class="docutils literal notranslate"><span class="pre">SimulationInput.delta_time</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pynodes.core.SimulationOutput"><code class="docutils literal notranslate"><span class="pre">SimulationOutput</span></code></a><ul>
+<li><a class="reference internal" href="#pynodes.core.SimulationOutput.bl_idname"><code class="docutils literal notranslate"><span class="pre">SimulationOutput.bl_idname</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.SimulationOutput.link_from"><code class="docutils literal notranslate"><span class="pre">SimulationOutput.link_from()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#pynodes.core.Script"><code class="docutils literal notranslate"><span class="pre">Script</span></code></a><ul>
@@ -912,6 +976,7 @@
 <li><a class="reference internal" href="#pynodes.core.dispath_tree"><code class="docutils literal notranslate"><span class="pre">dispath_tree()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.tree"><code class="docutils literal notranslate"><span class="pre">tree()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.frame"><code class="docutils literal notranslate"><span class="pre">frame()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.simulate"><code class="docutils literal notranslate"><span class="pre">simulate()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.reload"><code class="docutils literal notranslate"><span class="pre">reload()</span></code></a></li>
 </ul>
 </li>
