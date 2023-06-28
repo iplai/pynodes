@@ -3,13 +3,14 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Quick Start" href="QuickStart.html" /><link rel="prev" title="Pynodes for Blender support all kinds of tree nodes" href="../index.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Geometry Nodes" href="GeometryNodes.html" /><link rel="prev" title="Pynodes for Blender support all kinds of tree nodes" href="../index.html" />
 
     <link rel="shortcut icon" href="../_static/favicon-light.png"/><!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
         <title>Introduction - Pynodes v0.0.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-images\LightBox2\lightbox2\dist\css\lightbox.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     
@@ -160,10 +161,13 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Introduction</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Introduction</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="GeometryNodes.html">Geometry Nodes</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="QuickStart.html">Quick Start</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../apidocs/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../apidocs/pynodes/pynodes.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of pynodes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../apidocs/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../apidocs/pynodes/pynodes.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of pynodes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../apidocs/pynodes/pynodes.addon.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.addon</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../apidocs/pynodes/pynodes.colors.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.colors</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../apidocs/pynodes/pynodes.core.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.core</span></code></a></li>
@@ -219,27 +223,42 @@
         <article role="main">
           <section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
-<div class="admonition- admonition">
-<p class="admonition-title">关于模块的名字</p>
-<p>虽然本模块脱胎自<a class="reference external" href="https://github.com/al1brn/geonodes"><code class="docutils literal notranslate"><span class="pre">geonodes</span></code></a>，但实现逻辑和使用方法已完全不同。</p>
-<p><code class="docutils literal notranslate"><span class="pre">geonodes</span></code>仅支持几何节点，而<code class="docutils literal notranslate"><span class="pre">pynodes</span></code>几乎支持blender所有的节点树，包括几何节点和材质节点。</p>
+<div class="admonition-about-the-name-of-the-module admonition">
+<p class="admonition-title">About the name of the module</p>
+<p>Although this module is derived from<a class="reference external" href="https://github.com/al1brn/geonodes"><code class="docutils literal notranslate"><span class="pre">geonodes</span></code></a>, But the implementation logic and usage are completely different.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">geonodes</span></code>, only geometry nodes are supported, while <code class="docutils literal notranslate"><span class="pre">pynodes</span></code> supports almost all of blender’s node trees, including geometry nodes and material nodes.</p>
 </div>
 <div class="tip admonition">
-<p class="admonition-title">先备条件</p>
-<p>在使用 <strong><code class="docutils literal notranslate"><span class="pre">pynodes</span></code></strong> 前，你必须先了解：</p>
+<p class="admonition-title">Prerequisities</p>
+<p>Before using <strong><code class="docutils literal notranslate"><span class="pre">pynodes</span></code></strong>, you must first know:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Blender</span></code> 节点编辑器的使用</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Python</span></code> 语言</p></li>
-<li><p>如何在 <code class="docutils literal notranslate"><span class="pre">blender</span></code> 中执行 <code class="docutils literal notranslate"><span class="pre">Python</span></code> 脚本</p></li>
+<li><p>How to use <code class="docutils literal notranslate"><span class="pre">Blender</span></code> Node editor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Python</span></code> language</p></li>
+<li><p>How to run <code class="docutils literal notranslate"><span class="pre">Python</span></code> script in <code class="docutils literal notranslate"><span class="pre">Blender</span></code></p></li>
 </ul>
 </div>
 <div class="important admonition">
-<p class="admonition-title">基本理念</p>
+<p class="admonition-title">Basic Concepts</p>
+<p>Nodes are created by a series of chain calls in a python function decrorated by <code class="docutils literal notranslate"><span class="pre">&#64;tree</span></code> with represents a node group in blender.</p>
 <ul class="simple">
-<li><p>对几何节点的操作是基于输出端口的，而非节点本身</p></li>
-<li><p>一个<code class="docutils literal notranslate"><span class="pre">Python</span></code>函数对应一个节点树，调用<code class="docutils literal notranslate"><span class="pre">Python</span></code>函数，就是在当前的节点树中，创建一个组节点。</p></li>
-<li><p>数据流中的数据有严格的类型检查，数据有哪些方法，由它的类型提供。</p></li>
-<li><p>良好的IDE支持，比如在<code class="docutils literal notranslate"><span class="pre">VSCODE</span></code>中，所有暴露的方法都有内置文档说明，包括涉及的节点图片，可选枚举参数，以及官方文档链接。</p></li>
+<li><p>Operations on nodes are based on the output port(data socket), not on the node itself.</p></li>
+<li><p>A decorated <code class="docutils literal notranslate"><span class="pre">Python</span></code> function (<code class="docutils literal notranslate"><span class="pre">&#64;tree</span></code>) corresponds to a tree of nodes. Calling the function means creating a group node in the current node tree.</p></li>
+<li><p>Data in a data flow has strict type checking, what methods are available for the data socket, and what is provided by its type.</p></li>
+<li><p>Good IDE support，e.g. <a class="reference external" href="https://code.visualstudio.com/"><code class="docutils literal notranslate"><span class="pre">VS</span> <span class="pre">Code</span></code></a>，All exposed methods have built-in documentation, including images of the nodes involved, optional enumeration parameters, and links to official documentation.</p></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GeometryNodes.html">Geometry Nodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="GeometryNodes.html#atom-links">Atom Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GeometryNodes.html#clone-to-mesh-faces">Clone to Mesh Faces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GeometryNodes.html#mesh-surface-to-maze">Mesh Surface to Maze</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GeometryNodes.html#flying-dust">Flying Dust</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GeometryNodes.html#sierpinski-triangle-3d">Sierpinski Triangle 3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GeometryNodes.html#menger-sponge">Menger Sponge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GeometryNodes.html#pythagoras-tree">Pythagoras Tree</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
@@ -249,12 +268,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="QuickStart.html">
+          <a class="next-page" href="GeometryNodes.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Quick Start</div>
+                <div class="title">Geometry Nodes</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -306,5 +325,7 @@
     <script src="../_static/scripts/furo.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinxcontrib-images\LightBox2\lightbox2\dist\js\lightbox-plus-jquery.min.js"></script>
+    <script src="../_static/sphinxcontrib-images\LightBox2\lightbox2-customize\jquery-noconflict.js"></script>
     </body>
 </html>
