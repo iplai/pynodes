@@ -199,7 +199,7 @@
         </a>
         <div class="content-icon-container">
           <div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/iplai/pynodes/edit/main/docs/tutorial/QuickStart.md" title="Edit this page">
+  <a class="muted-link" href="https://github.com/iplai/pynodes/edit/main/docs/tutorial/QuickStart.rst" title="Edit this page">
     <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
@@ -221,184 +221,283 @@
           </label>
         </div>
         <article role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="quick-start">
+          <section id="quick-start">
 <h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this heading">#</a></h1>
-<div class="important admonition">
-<p class="admonition-title">目标</p>
-<p>制作一个参数化环形扭结</p>
+<section id="install-addon">
+<h2>Install Addon<a class="headerlink" href="#install-addon" title="Permalink to this heading">#</a></h2>
+<div class="pynodes admonition">
+<p class="admonition-title">Download the latest released zip file from <a class="reference external" href="https://github.com/iplai/pynodes">github</a></p>
+<a class=""
+               data-lightbox="group-786efc02-1fa9-444c-ac1d-e17d705a91ac"
+               href="../_images/Snipaste_2023-06-29_00-55-031.png"
+               title=""
+               data-title=""
+               
+               ><img src="../_images/Snipaste_2023-06-29_00-55-031.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><a class=""
+               data-lightbox="group-980c973f-81b2-48d3-b718-b3580fd2c957"
+               href="../_images/Snipaste_2023-06-29_00-55-451.png"
+               title=""
+               data-title=""
+               
+               ><img src="../_images/Snipaste_2023-06-29_00-55-451.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
+<div class="pynodes admonition">
+<p class="admonition-title">Install the addon in blender</p>
+<a class=""
+               data-lightbox="group-7a8b1dd7-a6b8-492b-8f09-e1bf29777111"
+               href="../_images/Snipaste_2023-06-29_00-57-591.png"
+               title=""
+               data-title=""
+               
+               ><img src="../_images/Snipaste_2023-06-29_00-57-591.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><a class=""
+               data-lightbox="group-65b7bfb5-6431-4bfd-8b46-fa1a92e4740e"
+               href="../_images/Snipaste_2023-06-29_00-58-391.png"
+               title=""
+               data-title=""
+               
+               ><img src="../_images/Snipaste_2023-06-29_00-58-391.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a></div>
+</section>
+<section id="setup-vscode">
+<h2>Setup VSCode<a class="headerlink" href="#setup-vscode" title="Permalink to this heading">#</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is recommanded to use vscode to write python scripts for blender. Here are tutorials to setup vscode for blender python.</p>
 </div>
-<section id="id1">
-<h2>获取公式<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<p>一个<code class="docutils literal notranslate"><span class="pre">(p,q)-Torus</span> <span class="pre">Knot</span></code>是通过将一根弦绕圆环p次，在连接其两端之前转q圈得到的，其中p和q互质。</p>
-<p>从维基百科获取<code class="docutils literal notranslate"><span class="pre">Torus</span> <span class="pre">Knot</span></code>计算公式：</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{array}{l}
-r=\cos (q \phi)+2,\ 其中\ 0&lt;\phi&lt;2 \pi\\
+<embed>
+    <iframe width="809" height="500" src="https://www.youtube.com/embed/YUytEtaVrrc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</embed><embed>
+    <iframe width="809" height="500" src="https://www.youtube.com/embed/_0srGXAzBZE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</embed><embed>
+    <iframe width="809" height="500" src="https://www.youtube.com/embed/zP0s1i9EXeM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</embed></section>
+<section id="a-quick-example">
+<h2>A Quick Example<a class="headerlink" href="#a-quick-example" title="Permalink to this heading">#</a></h2>
+<div class="important admonition">
+<p class="admonition-title">Target</p>
+<p>Make a parametric Torus Knot</p>
+</div>
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/TorusKnot3D.png/220px-TorusKnot3D.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/TorusKnot3D.png/220px-TorusKnot3D.png" class="align-right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/TorusKnot3D.png/220px-TorusKnot3D.png" style="width: 220px; height: 220px;" /></a>
+<p>The (p,q)-torus knot winds q times around a circle in the interior of the torus, and p times around its axis of rotational symmetry. If p and q are not relatively prime, then we have a torus link with more than one component.</p>
+<section id="parametric-equation">
+<h3>Parametric Equation<a class="headerlink" href="#parametric-equation" title="Permalink to this heading">#</a></h3>
+<p>The (p,q)-torus knot can be given by the parametrization:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{l}
+r=\cos (q \phi)+2,\ \ 0&lt;\phi&lt;2 \pi\\
 x=r \cos (p \phi) \\
 y=r \sin (p \phi) \\
 z=-\sin (q \phi)
-\end{array}
-\)</span></p>
+\end{array}\end{split}\]</div>
+</div>
 </section>
-<section id="id2">
-<h2>第一个节点树<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
-<p>定义一个节点树，对应上面的公式：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pynodes</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">sin</span><span class="p">,</span> <span class="n">cos</span> <span class="o">=</span> <span class="n">Float</span><span class="o">.</span><span class="n">sin</span><span class="p">,</span> <span class="n">Float</span><span class="o">.</span><span class="n">cos</span>
+<section id="the-first-node-tree">
+<h3>The First Node Tree<a class="headerlink" href="#the-first-node-tree" title="Permalink to this heading">#</a></h3>
+<p>Define a node tree corresponding the parametric equation above:</p>
+<div class="pynodes admonition">
+<p class="admonition-title">Torus Knot Coord</p>
+<a class=""
+               data-lightbox="group-19f8adfd-76cb-49c2-91e9-bf7ac3033535"
+               href="../_images/Snipaste_2023-06-29_01-48-131.png"
+               title=""
+               data-title=""
+               
+               ><img src="../_images/Snipaste_2023-06-29_01-48-131.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pynodes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pynodes.math</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="nd">@tree</span>
-<span class="k">def</span> <span class="nf">计算坐标</span><span class="p">(</span><span class="n">Φ</span><span class="p">:</span> <span class="n">Float</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">Integer</span><span class="p">):</span>
-    <span class="c1"># 被装饰器装饰的函数名，会被当成节点树的名字</span>
+<span class="k">def</span> <span class="nf">torus_knot_coord</span><span class="p">(</span><span class="n">Φ</span><span class="p">:</span> <span class="n">Float</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">Integer</span><span class="p">):</span>
+    <span class="c1"># The name of the function decorated by the decorator is treated as the name of the node tree</span>
+
     <span class="n">r</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">q</span> <span class="o">*</span> <span class="n">Φ</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span>
+
     <span class="n">x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">Φ</span><span class="p">)</span>
+
     <span class="n">y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">Φ</span><span class="p">)</span>
+
     <span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">q</span> <span class="o">*</span> <span class="n">Φ</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">x</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">),</span> <span class="n">z</span><span class="p">(</span><span class="s2">&quot;z&quot;</span><span class="p">)</span>
-    <span class="c1"># 如果不需要修改组输出的名字，函数返回可以直接写成：</span>
-    <span class="c1"># return x, y, z</span>
+
+    <span class="k">return</span> <span class="n">CombineXYZ</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>在<code class="docutils literal notranslate"><span class="pre">vscode</span></code>中，将鼠标放在函数名上，会有类型提示：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">function</span><span class="p">)</span> <span class="k">def</span> <span class="nf">计算坐标</span><span class="p">(</span>
-    <span class="n">Φ</span><span class="p">:</span> <span class="n">Float</span><span class="p">,</span>
-    <span class="n">p</span><span class="p">:</span> <span class="n">Integer</span><span class="p">,</span>
-    <span class="n">q</span><span class="p">:</span> <span class="n">Integer</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Float</span><span class="p">,</span> <span class="n">Float</span><span class="p">,</span> <span class="n">Float</span><span class="p">]</span>
-</pre></div>
 </div>
-<div class="warning admonition">
-<p class="admonition-title">注意</p>
-<p>函数签名中的类型提示不可省略，对于一般的python程序而言，类型提示是可有可无的，就像注释一样，不影响程序运行。但在<code class="docutils literal notranslate"><span class="pre">pynodes</span></code>中，程序依靠类型提示工作。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The tree name will be converted from underscore to camel case.
+Which means <code class="docutils literal notranslate"><span class="pre">torus_knot_coord</span></code> is converted to <code class="docutils literal notranslate"><span class="pre">Torus</span> <span class="pre">Knot</span> <span class="pre">Coord</span></code>.
+If the decorated function has <code class="docutils literal notranslate"><span class="pre">__docstring__</span></code>, then use it instead.
+More details see: <a class="reference internal" href="../apidocs/pynodes/pynodes.core.html#pynodes.core.tree" title="pynodes.core.tree"><code class="xref py py-class docutils literal notranslate"><span class="pre">pynodes.core.tree</span></code></a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Type hinting in function signatures cannot be omitted. For normal python programs, type hints are dispensable, just like comments, and do not affect program execution. But in <code class="docutils literal notranslate"><span class="pre">pynodes</span></code>, the program relies on type hinting to work.</p>
 </div>
 </section>
-<section id="id3">
-<h2>由坐标生成曲线<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@tree</span>
-<span class="k">def</span> <span class="nf">环形扭结</span><span class="p">(</span>
+<section id="the-second-node-tree">
+<h3>The Second Node Tree<a class="headerlink" href="#the-second-node-tree" title="Permalink to this heading">#</a></h3>
+<p>Make a curve circle, set the position of the curve by calling the function above.</p>
+<div class="pynodes admonition">
+<p class="admonition-title">Torus Knot Curve</p>
+<a class=""
+               data-lightbox="group-bf5ff629-34d0-4c8f-8cdd-1ce8de29e8ad"
+               href="../_images/Snipaste_2023-06-29_02-35-231.png"
+               title=""
+               data-title=""
+               
+               ><img src="../_images/Snipaste_2023-06-29_02-35-231.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@tree</span>
+<span class="k">def</span> <span class="nf">torus_knot_curve</span><span class="p">(</span>
     <span class="n">p</span><span class="p">:</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
     <span class="n">q</span><span class="p">:</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="n">e</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;结束&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="c1"># 修剪结束百分比</span>
-    <span class="n">n</span><span class="p">:</span> <span class="n">Integer</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;采样&quot;</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span> <span class="c1"># 总端点数</span>
+    <span class="c1"># End factor for trim curve (name, default, min, max)</span>
+    <span class="n">e</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;End&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="c1"># The larger the value, the smoother the curve (name, default))</span>
+    <span class="n">n</span><span class="p">:</span> <span class="n">Integer</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Sample&quot;</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
 <span class="p">):</span>
-    <span class="c1"># 创建一个基本圆形曲线节点，把输出端口的几何数据复制给`curve`</span>
+    <span class="c1"># Create a primitive curve circle node and assign the geometry of the output socket to `curve`</span>
     <span class="n">curve</span> <span class="o">=</span> <span class="n">CurveCircle</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
-    <span class="c1"># 把上面定义的节点树当做函数来调用</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">计算坐标</span><span class="p">(</span><span class="n">curve</span><span class="o">.</span><span class="n">param_factor</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">gn</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
-    <span class="c1"># 用获取的坐标来给曲线设置位置，然后创建一个修剪节点，按比例修剪曲线</span>
-    <span class="n">curve</span> <span class="o">=</span> <span class="n">curve</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span><span class="o">.</span><span class="n">trim_factor</span><span class="p">(</span><span class="n">end</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
-    <span class="c1"># 创建一个frame</span>
-    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;处理首尾相接的问题&quot;</span><span class="p">):</span>
-        <span class="c1"># with语句作用域内创建的所有节点都会在这个frame内</span>
+
+    <span class="c1"># Call the node tree defined above as a function</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">torus_knot_coord</span><span class="p">(</span><span class="n">curve</span><span class="o">.</span><span class="n">parameter</span><span class="o">.</span><span class="n">factor</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+
+    <span class="c1"># Use the obtained coordinates to set the position of the curve,</span>
+    <span class="c1"># and then create a trim curve node to trim the curve by the end factor.</span>
+    <span class="n">curve</span> <span class="o">=</span> <span class="n">curve</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="n">pos</span><span class="p">)</span><span class="o">.</span><span class="n">trim_factor</span><span class="p">(</span><span class="n">end</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
+
+    <span class="c1"># Create a frame, pass in the label of the frame.</span>
+    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Deal with the connection of endpoints problem&quot;</span><span class="p">):</span>
+        <span class="c1"># All nodes created in the scope of the with statement will embeded in this frame</span>
         <span class="n">curve</span> <span class="o">=</span> <span class="n">curve</span><span class="o">.</span><span class="n">to_mesh</span><span class="p">()</span><span class="o">.</span><span class="n">merge_by_distance</span><span class="p">()</span><span class="o">.</span><span class="n">to_curve</span><span class="p">()</span>
-        <span class="c1"># 上面的操作实际上是让曲线首尾的法线对齐，这样在后面生成网格面时，不会断开</span>
+        <span class="c1"># The above operation is actually to align the normal lines</span>
+        <span class="c1"># at the beginning and end of the curve, so that when the mesh</span>
+        <span class="c1"># surface is generated later, it will not break</span>
+
     <span class="k">return</span> <span class="n">curve</span>
 </pre></div>
 </div>
-<div class="admonition- admonition">
-<p class="admonition-title">参数默认值</p>
-<p>被装饰器装饰后，函数的参数代表组输入，可以为组输入设置默认值，默认情况下，组输入的名字是参数名，也可以设置为一个元组，元组内的元素分别代表：名字、默认值、最小值和最大值</p>
 </div>
-<div class="warning admonition">
-<p class="admonition-title">注意</p>
-<p>被装饰器<code class="docutils literal notranslate"><span class="pre">pynodes.tree</span></code>装饰的函数，无论是在定义时，还是调用时，传给它的参数并不会<strong>真的</strong>在函数体内部执行，这一点对于python初学者来说，可能很困惑，不过你只需要知道，在装饰器的具体实现中，用了一套偷梁换柱的方法。</p>
+<div class="note admonition">
+<p class="admonition-title">Default value of parameter</p>
+<p>After being decorated by the decorator, the parameters of the function represent the group input. You can set a default value for the group input. By default, the name of the group input is the parameter name, or you can set it to a tuple, in which the elements represent: name, default, minimum, and maximum</p>
+</div>
+<div class="seealso admonition">
+<p class="admonition-title">About implementation logic</p>
+<p>The function decorated by the decorator <a class="reference internal" href="../apidocs/pynodes/pynodes.core.html#pynodes.core.tree" title="pynodes.core.tree"><code class="xref py py-class docutils literal notranslate"><span class="pre">pynodes.core.tree</span></code></a>, whether it is defined, or called, the parameters passed to it will not really be executed inside the function body, this point for python beginners, may be very confusing, but you only need to know that in the specific implementation of the decorator, with a set of methods(steal the beams and pillars and replace them rotten timber-perpetrate a fraud).</p>
 </div>
 </section>
-<section id="id4">
-<h2>由曲线生成网格面<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@tree</span>
-<span class="k">def</span> <span class="nf">geometry_nodes</span><span class="p">(</span> <span class="c1"># `snake_case`的函数名`geometry_nodes`，会被转化成&quot;Geometry Nodes&quot;作为节点树的名字</span>
+<section id="the-third-node-tree">
+<h3>The Third Node Tree<a class="headerlink" href="#the-third-node-tree" title="Permalink to this heading">#</a></h3>
+<p>Then sweep the curve to mesh with a profile curve.</p>
+<div class="pynodes admonition">
+<p class="admonition-title">Torus Knot Mesh</p>
+<a class=""
+               data-lightbox="group-ecd0f801-d9df-4f38-bd79-3888b59ea617"
+               href="../_images/Snipaste_2023-06-29_02-53-311.png"
+               title=""
+               data-title=""
+               
+               ><img src="../_images/Snipaste_2023-06-29_02-53-311.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@tree</span>
+<span class="k">def</span> <span class="nf">torus_knot_mesh</span><span class="p">(</span>
     <span class="n">p</span><span class="p">:</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
     <span class="n">q</span><span class="p">:</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span>
-    <span class="n">e</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;结束&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="c1"># 修剪结束百分比</span>
-    <span class="n">n</span><span class="p">:</span> <span class="n">Integer</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;采样&quot;</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span> <span class="c1"># 总端点数</span>
-    <span class="n">r</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Profile Radius&quot;</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span> <span class="c1"># 用来扫描的样板圆的半径</span>
+    <span class="n">e</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;End&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">n</span><span class="p">:</span> <span class="n">Integer</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Sample&quot;</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
+    <span class="c1"># The radius of the profile curve circle</span>
+    <span class="n">r</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Profile Radius&quot;</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
 <span class="p">):</span>
-    <span class="c1"># 调用节点树函数</span>
-    <span class="n">curve</span> <span class="o">=</span> <span class="n">环形扭结</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-    <span class="c1"># 创建节点，将曲线转化成网格面</span>
+    <span class="c1"># Call the node tree defined above</span>
+    <span class="n">curve</span> <span class="o">=</span> <span class="n">torus_knot_curve</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+    <span class="c1"># Sweep the curve to mesh with a profile curve</span>
     <span class="n">mesh</span> <span class="o">=</span> <span class="n">curve</span><span class="o">.</span><span class="n">to_mesh</span><span class="p">(</span><span class="n">CurveCircle</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="n">r</span><span class="p">))</span>
+
     <span class="k">return</span> <span class="n">mesh</span>
-    <span class="c1"># 以下可选，设置平滑和材质</span>
-    <span class="c1"># return mesh.set_shade_smooth().set_material(&quot;Material&quot;)</span>
 </pre></div>
 </div>
-<div class="tip admonition">
-<p class="admonition-title">提示</p>
-<p>从以上的例子可以看出，节点的创建可以由一套链式调用实现，至于有哪些方法可以调用，取决于端口的数据类型，严格类型检查的好处是，可以让IDE自动提示当前对象有哪些方法。</p>
 </div>
-<p>到此，几何节点树创建完成，后面只需要在Blender中给一个对象添加几何节点修改器，节点树设置成Geometry Nodes，便能得到一个环形扭结！</p>
-<p><img alt="Torus Knot" src="../_images/torus_knot.png" /></p>
-<p>另外<code class="docutils literal notranslate"><span class="pre">pynodes</span></code>也能进行场景管理。</p>
-</section>
-<section id="id5">
-<h2>场景管理（可选）<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pynodes.scene</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">scene</span> <span class="o">=</span> <span class="n">Tree</span><span class="p">({</span>
-    <span class="n">O</span><span class="o">.</span><span class="n">cube</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
-        <span class="n">Mod</span><span class="o">.</span><span class="n">geometry_nodes</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;node_group&quot;</span><span class="p">:</span> <span class="s2">&quot;Geometry Nodes&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;结束&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mi">230</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)],</span> <span class="c1"># 第1帧和第230帧设置关键帧</span>
-        <span class="p">},</span>
-    <span class="p">},</span>
-<span class="p">})</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-</pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As you can see from the above example, the creation of a node can be achieved by a set of chain calls, which methods can be called depending on the data type of the port, and the advantage of strict type checking is that you can let the IDE automatically indicate which methods the current object has.</p>
 </div>
+<p>At this point, the Geometry node tree is created, and then you just need to add the geometry node modifier to an object in Blender, set the node tree to <code class="docutils literal notranslate"><span class="pre">Torus</span> <span class="pre">Knot</span> <span class="pre">Mesh</span></code>, and you will get the result effect!</p>
 </section>
-<section id="id6">
-<h2>完整代码<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pynodes</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="nd">@tree</span>
-<span class="k">def</span> <span class="nf">calculate_coord</span><span class="p">(</span><span class="n">p</span><span class="p">:</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">ɸ</span><span class="p">:</span> <span class="n">Float</span><span class="p">):</span>
-    <span class="n">δ</span> <span class="o">=</span> <span class="n">SceneTime</span><span class="p">()</span><span class="o">.</span><span class="n">seconds</span> <span class="o">*</span> <span class="mi">2</span>
-
-    <span class="n">r</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">q</span> <span class="o">*</span> <span class="n">ɸ</span> <span class="o">+</span> <span class="n">δ</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">ɸ</span> <span class="o">+</span> <span class="n">δ</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">ɸ</span> <span class="o">+</span> <span class="n">δ</span><span class="p">)</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">q</span> <span class="o">*</span> <span class="n">ɸ</span> <span class="o">+</span> <span class="n">δ</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">CombineXYZ</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
-
-
-<span class="nd">@tree</span>
-<span class="k">def</span> <span class="nf">merge_curve</span><span class="p">(</span><span class="n">curve</span><span class="p">:</span> <span class="n">Curve</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">curve</span><span class="o">.</span><span class="n">to_mesh</span><span class="p">()</span><span class="o">.</span><span class="n">merge_by_distance</span><span class="p">()</span><span class="o">.</span><span class="n">to_curve</span><span class="p">()</span>
-
-
-<span class="nd">@tree</span>
-<span class="k">def</span> <span class="nf">torus_knot</span><span class="p">(</span>
-    <span class="n">resolution</span><span class="p">:</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>
+<section id="version-with-material">
+<h3>Version with material<a class="headerlink" href="#version-with-material" title="Permalink to this heading">#</a></h3>
+<p>Not only geometry nodes, material nodes are also supported.</p>
+<div class="pynodes admonition">
+<p class="admonition-title">Version with material</p>
+<a class=""
+               data-lightbox="group-b4119c28-aa0f-42bb-80f3-f1e31cd627b4"
+               href="../_images/Snipaste_2023-06-29_03-20-591.png"
+               title=""
+               data-title=""
+               
+               ><img src="../_images/Snipaste_2023-06-29_03-20-591.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@tree</span>
+<span class="k">def</span> <span class="nf">torus_knot_mesh</span><span class="p">(</span>
     <span class="n">p</span><span class="p">:</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="n">q</span><span class="p">:</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
-    <span class="n">radius</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">q</span><span class="p">:</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span>
+    <span class="n">e</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;End&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">n</span><span class="p">:</span> <span class="n">Integer</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Sample&quot;</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
+    <span class="c1"># The radius of the profile curve circle</span>
+    <span class="n">r</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Profile Radius&quot;</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
 <span class="p">):</span>
-    <span class="n">circle</span> <span class="o">=</span> <span class="n">CurveCircle</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="n">resolution</span><span class="p">)</span>
+    <span class="c1"># Call the node tree defined above</span>
+    <span class="n">curve</span> <span class="o">=</span> <span class="n">torus_knot_curve</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 
-    <span class="n">ɸ</span> <span class="o">=</span> <span class="n">circle</span><span class="o">.</span><span class="n">parameter</span><span class="o">.</span><span class="n">factor</span><span class="o">.</span><span class="n">map_range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span>
+    <span class="c1"># Store the parameter factor of the curve for shading</span>
+    <span class="n">curve</span><span class="o">.</span><span class="n">store_named_attribute</span><span class="p">(</span><span class="s2">&quot;factor&quot;</span><span class="p">,</span> <span class="n">curve</span><span class="o">.</span><span class="n">parameter</span><span class="o">.</span><span class="n">factor</span><span class="p">)</span>
 
-    <span class="n">position</span> <span class="o">=</span> <span class="n">calculate_coord</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">ɸ</span><span class="p">)</span>
+    <span class="c1"># Sweep the curve to mesh with a profile curve</span>
+    <span class="n">mesh</span> <span class="o">=</span> <span class="n">curve</span><span class="o">.</span><span class="n">to_mesh</span><span class="p">(</span><span class="n">CurveCircle</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="n">r</span><span class="p">))</span>
+    <span class="c1"># return mesh</span>
 
-    <span class="n">circle</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="n">position</span><span class="p">)</span>
-
-    <span class="n">circle</span><span class="o">.</span><span class="n">store_named_attribute</span><span class="p">(</span><span class="s2">&quot;factor&quot;</span><span class="p">,</span> <span class="n">circle</span><span class="o">.</span><span class="n">parameter</span><span class="o">.</span><span class="n">factor</span><span class="p">)</span>
-
-    <span class="n">circle</span> <span class="o">=</span> <span class="n">merge_curve</span><span class="p">(</span><span class="n">circle</span><span class="p">)</span>
-
-    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Make curve to mesh&quot;</span><span class="p">):</span>
-
-        <span class="n">mesh</span> <span class="o">=</span> <span class="n">circle</span><span class="o">.</span><span class="n">to_mesh</span><span class="p">(</span><span class="n">profile_curve</span><span class="o">=</span><span class="n">CurveCircle</span><span class="p">(</span><span class="n">radius</span><span class="p">))</span>
-
-        <span class="n">mesh</span><span class="o">.</span><span class="n">set_material</span><span class="p">(</span><span class="s2">&quot;Torus Knot&quot;</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">mesh</span>
+    <span class="c1"># Optional: set the shade smooth and set the material</span>
+    <span class="k">return</span> <span class="n">mesh</span><span class="o">.</span><span class="n">set_shade_smooth</span><span class="p">()</span><span class="o">.</span><span class="n">set_material</span><span class="p">(</span><span class="s2">&quot;Torus Knot&quot;</span><span class="p">)</span>
 
 
 <span class="nd">@tree</span>
 <span class="k">def</span> <span class="nf">torus_knot</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;@Material&quot;&quot;&quot;</span>
+
+    <span class="n">shader</span> <span class="o">=</span> <span class="n">BSDF</span><span class="o">.</span><span class="n">Principled</span><span class="p">()</span>
 
     <span class="n">factor</span> <span class="o">=</span> <span class="n">Shader</span><span class="o">.</span><span class="n">attribute</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;factor&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fac</span>
 
@@ -406,21 +505,39 @@ z=-\sin (q \phi)
 
     <span class="n">color</span> <span class="o">=</span> <span class="n">color</span><span class="o">.</span><span class="n">mix</span><span class="p">(</span><span class="s2">&quot;#117f0f&quot;</span><span class="p">)</span>
 
-    <span class="n">shader</span> <span class="o">=</span> <span class="n">BSDF</span><span class="o">.</span><span class="n">Principled</span><span class="p">(</span><span class="s2">&quot;MULTI_GGX&quot;</span><span class="p">,</span> <span class="n">base_color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">shader</span><span class="p">[</span><span class="s1">&#39;Base Color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span>
 
     <span class="k">return</span> <span class="n">shader</span>
-
-<span class="kn">from</span> <span class="nn">pynodes.scene</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When the <code class="docutils literal notranslate"><span class="pre">__docstring__</span></code> starts with <code class="docutils literal notranslate"><span class="pre">&#64;Material</span></code> (case insensitive),
+then the tree represents a material node tree. More details see: <a class="reference internal" href="../apidocs/pynodes/pynodes.core.html#pynodes.core.tree" title="pynodes.core.tree"><code class="xref py py-class docutils literal notranslate"><span class="pre">pynodes.core.tree</span></code></a></p>
+</div>
+</section>
+<section id="scene-management">
+<h3>Scene Management<a class="headerlink" href="#scene-management" title="Permalink to this heading">#</a></h3>
+<p>Besides, Scene management is also possible with <code class="docutils literal notranslate"><span class="pre">pynodes</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pynodes.scene</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">scene</span> <span class="o">=</span> <span class="n">Tree</span><span class="p">({</span>
     <span class="n">O</span><span class="o">.</span><span class="n">cube</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
         <span class="n">Mod</span><span class="o">.</span><span class="n">geometry_nodes</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;node_group&quot;</span><span class="p">:</span> <span class="s2">&quot;Torus Knot&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;node_group&quot;</span><span class="p">:</span> <span class="s2">&quot;Torus Knot Mesh&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;End&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mi">230</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)],</span> <span class="c1"># Set keyframe for frame 1 and frame 230</span>
         <span class="p">},</span>
     <span class="p">},</span>
 <span class="p">})</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 </pre></div>
 </div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The submodule <a class="reference internal" href="../apidocs/pynodes/pynodes.scene.html#module-pynodes.scene" title="pynodes.scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">pynodes.scene</span></code></a> is still under construction, very limited features are available at the moment.</p>
+</div>
+</section>
 </section>
 </section>
 
@@ -487,12 +604,17 @@ z=-\sin (q \phi)
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Quick Start</a><ul>
-<li><a class="reference internal" href="#id1">获取公式</a></li>
-<li><a class="reference internal" href="#id2">第一个节点树</a></li>
-<li><a class="reference internal" href="#id3">由坐标生成曲线</a></li>
-<li><a class="reference internal" href="#id4">由曲线生成网格面</a></li>
-<li><a class="reference internal" href="#id5">场景管理（可选）</a></li>
-<li><a class="reference internal" href="#id6">完整代码</a></li>
+<li><a class="reference internal" href="#install-addon">Install Addon</a></li>
+<li><a class="reference internal" href="#setup-vscode">Setup VSCode</a></li>
+<li><a class="reference internal" href="#a-quick-example">A Quick Example</a><ul>
+<li><a class="reference internal" href="#parametric-equation">Parametric Equation</a></li>
+<li><a class="reference internal" href="#the-first-node-tree">The First Node Tree</a></li>
+<li><a class="reference internal" href="#the-second-node-tree">The Second Node Tree</a></li>
+<li><a class="reference internal" href="#the-third-node-tree">The Third Node Tree</a></li>
+<li><a class="reference internal" href="#version-with-material">Version with material</a></li>
+<li><a class="reference internal" href="#scene-management">Scene Management</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
