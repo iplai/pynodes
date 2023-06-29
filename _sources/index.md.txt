@@ -4,7 +4,7 @@ Content
 
 ```{toctree}
 :maxdepth: 4
-tutorial/Introduction
 tutorial/QuickStart
+tutorial/Introduction
 apidocs/index
 ```
