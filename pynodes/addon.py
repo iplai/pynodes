@@ -23,7 +23,9 @@ class PYNODES_PT_MAIN(Panel):
         row.prop(context.scene, 'framemargin_x', text="X")
         row.prop(context.scene, 'framemargin_y', text="Y")
 
-        layout.row().prop(context.scene, 'nodecenter', text="Column Center")
+        row = layout.row()
+        row.prop(context.scene, 'node_center', text="Column Center")
+        row.prop(context.scene, 'selected_frame', text="Selected Frame")
 
         # get current active tree
         btree = get_active_tree(context)
@@ -137,12 +139,13 @@ def arrange(self, context: Context):
 
     margin_x, margin_y = context.scene.nodemargin_x, context.scene.nodemargin_y
     frame_margin_x, frame_margin_y = context.scene.framemargin_x, context.scene.framemargin_y
-    column_center = context.scene.nodecenter
+    column_center = context.scene.node_center
+    selected_frame = context.scene.selected_frame
 
-    arrange_tree(btree, margin_x, margin_y, frame_margin_x, frame_margin_y, column_center)
+    arrange_tree(btree, margin_x, margin_y, frame_margin_x, frame_margin_y, column_center, selected_frame)
 
 
-def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, frame_margin_y=10, column_center=True):
+def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, frame_margin_y=10, column_center=True, only_selected_frame=False):
     # A list to record all frames and their level
     frames_level: list[tuple(NodeFrame, int)] = []
     for node in btree.nodes:
@@ -411,11 +414,20 @@ def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, f
                 x, y = node.location
                 node.location = (x, y - col.offset)
 
-    # Arrange all frames, deepest first
-    for frame, _ in frames_level:
-        arrange_frame(frame)
-    # Arrange root tree
-    arrange_frame()
+    if only_selected_frame:
+        has_frame_selected = False
+        for frame, _ in frames_level:
+            if frame.select == True:
+                has_frame_selected = True
+                arrange_frame(frame)
+        if not has_frame_selected:
+            arrange_frame()
+    else:
+        # Arrange all frames, deepest first
+        for frame, _ in frames_level:
+            arrange_frame(frame)
+        # Arrange root tree
+        arrange_frame()
 
 
 def register():
@@ -423,7 +435,8 @@ def register():
     bpy.types.Scene.nodemargin_y = bpy.props.IntProperty(default=20, update=arrange)
     bpy.types.Scene.framemargin_x = bpy.props.IntProperty(default=10, update=arrange)
     bpy.types.Scene.framemargin_y = bpy.props.IntProperty(default=10, update=arrange)
-    bpy.types.Scene.nodecenter = bpy.props.BoolProperty(default=True, update=arrange)
+    bpy.types.Scene.node_center = bpy.props.BoolProperty(default=True, update=arrange)
+    bpy.types.Scene.selected_frame = bpy.props.BoolProperty(default=False)
 
 
 def unregister():
@@ -431,4 +444,5 @@ def unregister():
     del bpy.types.Scene.nodemargin_y
     del bpy.types.Scene.framemargin_x
     del bpy.types.Scene.framemargin_y
-    del bpy.types.Scene.nodecenter
+    del bpy.types.Scene.node_center
+    del bpy.types.Scene.selected_frame
