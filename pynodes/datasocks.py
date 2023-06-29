@@ -687,6 +687,30 @@ class Angle(Float):
     bl_idname = "NodeSocketFloatAngle"
 
 
+class Distance(Float):
+    bl_idname = "NodeSocketFloatDistance"
+
+
+class Factor(Float):
+    bl_idname = "NodeSocketFloatFactor"
+
+
+class Percentage(Float):
+    bl_idname = "NodeSocketFloatPercentage"
+
+
+class FloatTime(Float):
+    bl_idname = "NodeSocketFloatTime"
+
+
+class FloatTimeAbsolute(Float):
+    bl_idname = "NodeSocketFloatTimeAbsolute"
+
+
+class Unsigned(Float):
+    bl_idname = "NodeSocketFloatUnsigned"
+
+
 class Vector(Socket):
     bl_idname = "NodeSocketVector"
 
@@ -1302,6 +1326,30 @@ class Vector(Socket):
         return node.outputs[0].Vector
 
 
+class VectorAcceleration(Vector):
+    bl_idname = "NodeSocketVectorAcceleration"
+
+
+class VectorDirection(Vector):
+    bl_idname = "NodeSocketVectorDirection"
+
+
+class VectorEuler(Vector):
+    bl_idname = "NodeSocketVectorEuler"
+
+
+class VectorTranslation(Vector):
+    bl_idname = "NodeSocketVectorTranslation"
+
+
+class VectorVelocity(Vector):
+    bl_idname = "NodeSocketVectorVelocity"
+
+
+class VectorXYZ(Vector):
+    bl_idname = "NodeSocketVectorXYZ"
+
+
 class Integer(Float):
     bl_idname = "NodeSocketInt"
 
@@ -1336,6 +1384,18 @@ class Integer(Float):
         """
         node = new_node(*nodes.GeometryNodeSwitch("INT", switch=switch, false_001=self, true_001=true))
         return node.outputs[1].Integer
+
+
+class IntFactor(Integer):
+    bl_idname = "NodeSocketIntFactor"
+
+
+class IntPercentage(Integer):
+    bl_idname = "NodeSocketIntPercentage"
+
+
+class IntUnsigned(Integer):
+    bl_idname = "NodeSocketIntUnsigned"
 
 
 class Boolean(Socket):
