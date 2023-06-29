@@ -73,6 +73,9 @@ html_static_path = ['_static']
 html_css_files = [
     'css/custom.css',
 ]
+html_js_files = [
+    'js/my_script.js',
+]
 
 html_theme = 'furo'
 html_theme_options = {
@@ -82,7 +85,7 @@ html_theme_options = {
     "source_repository": "https://github.com/iplai/pynodes",
     "source_branch": "main",
     "source_directory": "docs/",
-    "navigation_with_keys": True,
+    # "navigation_with_keys": True,
     "footer_icons": [
         {
             "name": "GitHub",
@@ -97,6 +100,11 @@ html_theme_options = {
     ],
 }
 html_favicon = "_static/favicon-light.png"
+
+images_config = {
+    "default_group": "default",
+    "download": False
+}
 
 from urllib.parse import quote
 

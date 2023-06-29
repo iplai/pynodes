@@ -6,6 +6,7 @@
 
 #### *Programmatical nodes for blender including geometry nodes, shader nodes, compositor nodes, light nodes, world nodes etc.*
 
+Pynodes is ia a module as well as an addon for blender to create all kinds of nodes in node editor with python sciprts.
 Decorate a python function to represent a blender node group for any kind of tree in blender node editor.
 
 ## Documentation
