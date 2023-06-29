@@ -31,23 +31,14 @@ Setup VSCode
 
     It is recommanded to use vscode to write python scripts for blender. Here are tutorials to setup vscode for blender python.
 
+5 Steps to setup VSCode for Blender Python by CG Python (on `Windows <https://www.youtube.com/watch?v=YUytEtaVrrc>`_ `Mac <https://www.youtube.com/watch?v=_0srGXAzBZE>`_ `Linux <https://www.youtube.com/watch?v=zP0s1i9EXeM>`_)
+
 .. raw:: html
 
     <embed>
         <iframe width="809" height="500" src="https://www.youtube.com/embed/YUytEtaVrrc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </embed>
 
-.. raw:: html
-
-    <embed>
-        <iframe width="809" height="500" src="https://www.youtube.com/embed/_0srGXAzBZE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </embed>
-
-.. raw:: html
-
-    <embed>
-        <iframe width="809" height="500" src="https://www.youtube.com/embed/zP0s1i9EXeM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </embed>
 
 A Quick Example
 ================
@@ -57,10 +48,13 @@ A Quick Example
 
     Make a parametric Torus Knot
 
-.. image:: https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/TorusKnot3D.png/220px-TorusKnot3D.png
+.. thumbnail:: https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/TorusKnot3D.png/220px-TorusKnot3D.png
    :align: right
    :height: 220
    :width: 220
+   :download: false
+
+   A (3,7)-3D torus knot.
 
 The (p,q)-torus knot winds q times around a circle in the interior of the torus, and p times around its axis of rotational symmetry. If p and q are not relatively prime, then we have a torus link with more than one component.
 
@@ -114,10 +108,78 @@ Define a node tree corresponding the parametric equation above:
     If the decorated function has ``__docstring__``, then use it instead.
     More details see: :class:`pynodes.core.tree`
 
-.. warning::
+.. important::
 
     Type hinting in function signatures cannot be omitted. For normal python programs, type hints are dispensable, just like comments, and do not affect program execution. But in ``pynodes``, the program relies on type hinting to work.
 
+    All valid types are subclasses of :class:`pynodes.core.Socket`.
+
+Available Socket Types
+------------------------
+
++----------------------------+---------------------------------------+-----------------------------------------------+
+| Module                     | Base Type                             | Sub Type                                      |
++============================+=======================================+===============================================+
+| :class:`pynodes.datasocks` | :class:`pynodes.datasocks.Float`      | :class:`pynodes.datasocks.Angle`              |
+|                            |                                       +-----------------------------------------------+
+|                            |                                       | :class:`pynodes.datasocks.Distance`           |
+|                            |                                       +-----------------------------------------------+
+|                            |                                       | :class:`pynodes.datasocks.Factor`             |
+|                            |                                       +-----------------------------------------------+
+|                            |                                       | :class:`pynodes.datasocks.Percentage`         |
+|                            |                                       +-----------------------------------------------+
+|                            |                                       | :class:`pynodes.datasocks.FloatTime`          |
+|                            |                                       +-----------------------------------------------+
+|                            |                                       | :class:`pynodes.datasocks.FloatTimeAbsolute`  |
+|                            |                                       +-----------------------------------------------+
+|                            |                                       | :class:`pynodes.datasocks.Unsigned`           |
+|                            +---------------------------------------+-----------------------------------------------+
+|                            | :class:`pynodes.datasocks.Vector`     | :class:`pynodes.datasocks.VectorAcceleration` |
+|                            |                                       +-----------------------------------------------+
+|                            |                                       | :class:`pynodes.datasocks.VectorDirection`    |
+|                            |                                       +-----------------------------------------------+
+|                            |                                       | :class:`pynodes.datasocks.VectorEuler`        |
+|                            |                                       +-----------------------------------------------+
+|                            |                                       | :class:`pynodes.datasocks.VectorTranslation`  |
+|                            |                                       +-----------------------------------------------+
+|                            |                                       | :class:`pynodes.datasocks.VectorVelocity`     |
+|                            |                                       +-----------------------------------------------+
+|                            |                                       | :class:`pynodes.datasocks.VectorXYZ`          |
+|                            +---------------------------------------+-----------------------------------------------+
+|                            | :class:`pynodes.datasocks.Integer`    | :class:`pynodes.datasocks.IntFactor`          |
+|                            |                                       +-----------------------------------------------+
+|                            |                                       | :class:`pynodes.datasocks.IntPercentage`      |
+|                            |                                       +-----------------------------------------------+
+|                            |                                       | :class:`pynodes.datasocks.IntUnsigned`        |
+|                            +---------------------------------------+-----------------------------------------------+
+|                            | :class:`pynodes.datasocks.Boolean`    |                                               |
+|                            +---------------------------------------+-----------------------------------------------+
+|                            | :class:`pynodes.datasocks.String`     |                                               |
+|                            +---------------------------------------+-----------------------------------------------+
+|                            | :class:`pynodes.datasocks.Color`      |                                               |
+|                            +---------------------------------------+-----------------------------------------------+
+|                            | :class:`pynodes.datasocks.Shader`     |                                               |
+|                            +---------------------------------------+-----------------------------------------------+
+|                            | :class:`pynodes.datasocks.Object`     |                                               |
+|                            +---------------------------------------+-----------------------------------------------+
+|                            | :class:`pynodes.datasocks.Collection` |                                               |
+|                            +---------------------------------------+-----------------------------------------------+
+|                            | :class:`pynodes.datasocks.Texture`    |                                               |
+|                            +---------------------------------------+-----------------------------------------------+
+|                            | :class:`pynodes.datasocks.Material`   |                                               |
+|                            +---------------------------------------+-----------------------------------------------+
+|                            | :class:`pynodes.datasocks.Image`      |                                               |
++----------------------------+---------------------------------------+-----------------------------------------------+
+| :class:`pynodes.geosocks`  | :class:`pynodes.geosocks.Geometry`    | :class:`pynodes.geosocks.Curve`               |
+|                            |                                       +-----------------------------------------------+
+|                            |                                       | :class:`pynodes.geosocks.Mesh`                |
+|                            |                                       +-----------------------------------------------+
+|                            |                                       | :class:`pynodes.geosocks.Points`              |
+|                            |                                       +-----------------------------------------------+
+|                            |                                       | :class:`pynodes.geosocks.Instances`           |
+|                            |                                       +-----------------------------------------------+
+|                            |                                       | :class:`pynodes.geosocks.Volume`              |
++----------------------------+---------------------------------------+-----------------------------------------------+
 
 The Second Node Tree
 ---------------------
