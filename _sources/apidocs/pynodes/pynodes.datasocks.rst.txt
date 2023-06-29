@@ -18,63 +18,119 @@ Classes
    :align: left
 
    * - :py:obj:`Float <pynodes.datasocks.Float>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.Float
+          :parser: myst
+          :summary:
    * - :py:obj:`Angle <pynodes.datasocks.Angle>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.Angle
+          :parser: myst
+          :summary:
    * - :py:obj:`Distance <pynodes.datasocks.Distance>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.Distance
+          :parser: myst
+          :summary:
    * - :py:obj:`Factor <pynodes.datasocks.Factor>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.Factor
+          :parser: myst
+          :summary:
    * - :py:obj:`Percentage <pynodes.datasocks.Percentage>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.Percentage
+          :parser: myst
+          :summary:
    * - :py:obj:`FloatTime <pynodes.datasocks.FloatTime>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.FloatTime
+          :parser: myst
+          :summary:
    * - :py:obj:`FloatTimeAbsolute <pynodes.datasocks.FloatTimeAbsolute>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.FloatTimeAbsolute
+          :parser: myst
+          :summary:
    * - :py:obj:`Unsigned <pynodes.datasocks.Unsigned>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.Unsigned
+          :parser: myst
+          :summary:
    * - :py:obj:`Vector <pynodes.datasocks.Vector>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.Vector
+          :parser: myst
+          :summary:
    * - :py:obj:`VectorAcceleration <pynodes.datasocks.VectorAcceleration>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.VectorAcceleration
+          :parser: myst
+          :summary:
    * - :py:obj:`VectorDirection <pynodes.datasocks.VectorDirection>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.VectorDirection
+          :parser: myst
+          :summary:
    * - :py:obj:`VectorEuler <pynodes.datasocks.VectorEuler>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.VectorEuler
+          :parser: myst
+          :summary:
    * - :py:obj:`VectorTranslation <pynodes.datasocks.VectorTranslation>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.VectorTranslation
+          :parser: myst
+          :summary:
    * - :py:obj:`VectorVelocity <pynodes.datasocks.VectorVelocity>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.VectorVelocity
+          :parser: myst
+          :summary:
    * - :py:obj:`VectorXYZ <pynodes.datasocks.VectorXYZ>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.VectorXYZ
+          :parser: myst
+          :summary:
    * - :py:obj:`Integer <pynodes.datasocks.Integer>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.Integer
+          :parser: myst
+          :summary:
    * - :py:obj:`IntFactor <pynodes.datasocks.IntFactor>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.IntFactor
+          :parser: myst
+          :summary:
    * - :py:obj:`IntPercentage <pynodes.datasocks.IntPercentage>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.IntPercentage
+          :parser: myst
+          :summary:
    * - :py:obj:`IntUnsigned <pynodes.datasocks.IntUnsigned>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.IntUnsigned
+          :parser: myst
+          :summary:
    * - :py:obj:`Boolean <pynodes.datasocks.Boolean>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.Boolean
+          :parser: myst
+          :summary:
    * - :py:obj:`String <pynodes.datasocks.String>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.String
+          :parser: myst
+          :summary:
    * - :py:obj:`Color <pynodes.datasocks.Color>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.Color
+          :parser: myst
+          :summary:
    * - :py:obj:`Shader <pynodes.datasocks.Shader>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.Shader
+          :parser: myst
+          :summary:
    * - :py:obj:`BSDF <pynodes.datasocks.BSDF>`
      -
    * - :py:obj:`Object <pynodes.datasocks.Object>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.Object
+          :parser: myst
+          :summary:
    * - :py:obj:`Collection <pynodes.datasocks.Collection>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.Collection
+          :parser: myst
+          :summary:
    * - :py:obj:`Texture <pynodes.datasocks.Texture>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.Texture
+          :parser: myst
+          :summary:
    * - :py:obj:`Material <pynodes.datasocks.Material>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.Material
+          :parser: myst
+          :summary:
    * - :py:obj:`Image <pynodes.datasocks.Image>`
-     -
+     - .. autodoc2-docstring:: pynodes.datasocks.Image
+          :parser: myst
+          :summary:
 
 Functions
 ~~~~~~~~~
@@ -411,6 +467,14 @@ API
    :canonical: pynodes.datasocks.Float
 
    Bases: :py:obj:`pynodes.core.Socket`
+
+   .. autodoc2-docstring:: pynodes.datasocks.Float
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.Float.__init__
+      :parser: myst
 
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.Float.bl_idname
@@ -915,6 +979,14 @@ API
 
    Bases: :py:obj:`pynodes.datasocks.Float`
 
+   .. autodoc2-docstring:: pynodes.datasocks.Angle
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.Angle.__init__
+      :parser: myst
+
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.Angle.bl_idname
       :value: 'NodeSocketFloatAngle'
@@ -926,6 +998,14 @@ API
    :canonical: pynodes.datasocks.Distance
 
    Bases: :py:obj:`pynodes.datasocks.Float`
+
+   .. autodoc2-docstring:: pynodes.datasocks.Distance
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.Distance.__init__
+      :parser: myst
 
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.Distance.bl_idname
@@ -939,6 +1019,14 @@ API
 
    Bases: :py:obj:`pynodes.datasocks.Float`
 
+   .. autodoc2-docstring:: pynodes.datasocks.Factor
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.Factor.__init__
+      :parser: myst
+
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.Factor.bl_idname
       :value: 'NodeSocketFloatFactor'
@@ -950,6 +1038,14 @@ API
    :canonical: pynodes.datasocks.Percentage
 
    Bases: :py:obj:`pynodes.datasocks.Float`
+
+   .. autodoc2-docstring:: pynodes.datasocks.Percentage
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.Percentage.__init__
+      :parser: myst
 
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.Percentage.bl_idname
@@ -963,6 +1059,14 @@ API
 
    Bases: :py:obj:`pynodes.datasocks.Float`
 
+   .. autodoc2-docstring:: pynodes.datasocks.FloatTime
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.FloatTime.__init__
+      :parser: myst
+
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.FloatTime.bl_idname
       :value: 'NodeSocketFloatTime'
@@ -974,6 +1078,14 @@ API
    :canonical: pynodes.datasocks.FloatTimeAbsolute
 
    Bases: :py:obj:`pynodes.datasocks.Float`
+
+   .. autodoc2-docstring:: pynodes.datasocks.FloatTimeAbsolute
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.FloatTimeAbsolute.__init__
+      :parser: myst
 
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.FloatTimeAbsolute.bl_idname
@@ -987,6 +1099,14 @@ API
 
    Bases: :py:obj:`pynodes.datasocks.Float`
 
+   .. autodoc2-docstring:: pynodes.datasocks.Unsigned
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.Unsigned.__init__
+      :parser: myst
+
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.Unsigned.bl_idname
       :value: 'NodeSocketFloatUnsigned'
@@ -998,6 +1118,14 @@ API
    :canonical: pynodes.datasocks.Vector
 
    Bases: :py:obj:`pynodes.core.Socket`
+
+   .. autodoc2-docstring:: pynodes.datasocks.Vector
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.Vector.__init__
+      :parser: myst
 
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.Vector.bl_idname
@@ -1353,6 +1481,14 @@ API
 
    Bases: :py:obj:`pynodes.datasocks.Vector`
 
+   .. autodoc2-docstring:: pynodes.datasocks.VectorAcceleration
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.VectorAcceleration.__init__
+      :parser: myst
+
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.VectorAcceleration.bl_idname
       :value: 'NodeSocketVectorAcceleration'
@@ -1364,6 +1500,14 @@ API
    :canonical: pynodes.datasocks.VectorDirection
 
    Bases: :py:obj:`pynodes.datasocks.Vector`
+
+   .. autodoc2-docstring:: pynodes.datasocks.VectorDirection
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.VectorDirection.__init__
+      :parser: myst
 
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.VectorDirection.bl_idname
@@ -1377,6 +1521,14 @@ API
 
    Bases: :py:obj:`pynodes.datasocks.Vector`
 
+   .. autodoc2-docstring:: pynodes.datasocks.VectorEuler
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.VectorEuler.__init__
+      :parser: myst
+
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.VectorEuler.bl_idname
       :value: 'NodeSocketVectorEuler'
@@ -1388,6 +1540,14 @@ API
    :canonical: pynodes.datasocks.VectorTranslation
 
    Bases: :py:obj:`pynodes.datasocks.Vector`
+
+   .. autodoc2-docstring:: pynodes.datasocks.VectorTranslation
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.VectorTranslation.__init__
+      :parser: myst
 
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.VectorTranslation.bl_idname
@@ -1401,6 +1561,14 @@ API
 
    Bases: :py:obj:`pynodes.datasocks.Vector`
 
+   .. autodoc2-docstring:: pynodes.datasocks.VectorVelocity
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.VectorVelocity.__init__
+      :parser: myst
+
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.VectorVelocity.bl_idname
       :value: 'NodeSocketVectorVelocity'
@@ -1413,6 +1581,14 @@ API
 
    Bases: :py:obj:`pynodes.datasocks.Vector`
 
+   .. autodoc2-docstring:: pynodes.datasocks.VectorXYZ
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.VectorXYZ.__init__
+      :parser: myst
+
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.VectorXYZ.bl_idname
       :value: 'NodeSocketVectorXYZ'
@@ -1424,6 +1600,14 @@ API
    :canonical: pynodes.datasocks.Integer
 
    Bases: :py:obj:`pynodes.datasocks.Float`
+
+   .. autodoc2-docstring:: pynodes.datasocks.Integer
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.Integer.__init__
+      :parser: myst
 
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.Integer.bl_idname
@@ -1461,6 +1645,14 @@ API
 
    Bases: :py:obj:`pynodes.datasocks.Integer`
 
+   .. autodoc2-docstring:: pynodes.datasocks.IntFactor
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.IntFactor.__init__
+      :parser: myst
+
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.IntFactor.bl_idname
       :value: 'NodeSocketIntFactor'
@@ -1472,6 +1664,14 @@ API
    :canonical: pynodes.datasocks.IntPercentage
 
    Bases: :py:obj:`pynodes.datasocks.Integer`
+
+   .. autodoc2-docstring:: pynodes.datasocks.IntPercentage
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.IntPercentage.__init__
+      :parser: myst
 
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.IntPercentage.bl_idname
@@ -1485,6 +1685,14 @@ API
 
    Bases: :py:obj:`pynodes.datasocks.Integer`
 
+   .. autodoc2-docstring:: pynodes.datasocks.IntUnsigned
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.IntUnsigned.__init__
+      :parser: myst
+
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.IntUnsigned.bl_idname
       :value: 'NodeSocketIntUnsigned'
@@ -1496,6 +1704,14 @@ API
    :canonical: pynodes.datasocks.Boolean
 
    Bases: :py:obj:`pynodes.core.Socket`
+
+   .. autodoc2-docstring:: pynodes.datasocks.Boolean
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.Boolean.__init__
+      :parser: myst
 
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.Boolean.bl_idname
@@ -1631,6 +1847,14 @@ API
 
    Bases: :py:obj:`pynodes.core.Socket`
 
+   .. autodoc2-docstring:: pynodes.datasocks.String
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.String.__init__
+      :parser: myst
+
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.String.bl_idname
       :value: 'NodeSocketString'
@@ -1684,6 +1908,14 @@ API
    :canonical: pynodes.datasocks.Color
 
    Bases: :py:obj:`pynodes.datasocks.Vector`
+
+   .. autodoc2-docstring:: pynodes.datasocks.Color
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.Color.__init__
+      :parser: myst
 
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.Color.bl_idname
@@ -1750,6 +1982,14 @@ API
    :canonical: pynodes.datasocks.Shader
 
    Bases: :py:obj:`pynodes.core.Socket`
+
+   .. autodoc2-docstring:: pynodes.datasocks.Shader
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.Shader.__init__
+      :parser: myst
 
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.Shader.bl_idname
@@ -2050,6 +2290,14 @@ API
 
    Bases: :py:obj:`pynodes.core.Socket`
 
+   .. autodoc2-docstring:: pynodes.datasocks.Object
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.Object.__init__
+      :parser: myst
+
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.Object.bl_idname
       :value: 'NodeSocketObject'
@@ -2092,6 +2340,14 @@ API
 
    Bases: :py:obj:`pynodes.core.Socket`
 
+   .. autodoc2-docstring:: pynodes.datasocks.Collection
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.Collection.__init__
+      :parser: myst
+
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.Collection.bl_idname
       :value: 'NodeSocketCollection'
@@ -2104,6 +2360,14 @@ API
 
    Bases: :py:obj:`pynodes.core.Socket`
 
+   .. autodoc2-docstring:: pynodes.datasocks.Texture
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.Texture.__init__
+      :parser: myst
+
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.Texture.bl_idname
       :value: 'NodeSocketTexture'
@@ -2115,6 +2379,14 @@ API
    :canonical: pynodes.datasocks.Material
 
    Bases: :py:obj:`pynodes.core.Socket`
+
+   .. autodoc2-docstring:: pynodes.datasocks.Material
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.Material.__init__
+      :parser: myst
 
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.Material.bl_idname
@@ -2139,6 +2411,14 @@ API
    :canonical: pynodes.datasocks.Image
 
    Bases: :py:obj:`pynodes.core.Socket`
+
+   .. autodoc2-docstring:: pynodes.datasocks.Image
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.datasocks.Image.__init__
+      :parser: myst
 
    .. py:attribute:: bl_idname
       :canonical: pynodes.datasocks.Image.bl_idname
