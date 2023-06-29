@@ -21,9 +21,39 @@ Classes
      -
    * - :py:obj:`Angle <pynodes.datasocks.Angle>`
      -
+   * - :py:obj:`Distance <pynodes.datasocks.Distance>`
+     -
+   * - :py:obj:`Factor <pynodes.datasocks.Factor>`
+     -
+   * - :py:obj:`Percentage <pynodes.datasocks.Percentage>`
+     -
+   * - :py:obj:`FloatTime <pynodes.datasocks.FloatTime>`
+     -
+   * - :py:obj:`FloatTimeAbsolute <pynodes.datasocks.FloatTimeAbsolute>`
+     -
+   * - :py:obj:`Unsigned <pynodes.datasocks.Unsigned>`
+     -
    * - :py:obj:`Vector <pynodes.datasocks.Vector>`
      -
+   * - :py:obj:`VectorAcceleration <pynodes.datasocks.VectorAcceleration>`
+     -
+   * - :py:obj:`VectorDirection <pynodes.datasocks.VectorDirection>`
+     -
+   * - :py:obj:`VectorEuler <pynodes.datasocks.VectorEuler>`
+     -
+   * - :py:obj:`VectorTranslation <pynodes.datasocks.VectorTranslation>`
+     -
+   * - :py:obj:`VectorVelocity <pynodes.datasocks.VectorVelocity>`
+     -
+   * - :py:obj:`VectorXYZ <pynodes.datasocks.VectorXYZ>`
+     -
    * - :py:obj:`Integer <pynodes.datasocks.Integer>`
+     -
+   * - :py:obj:`IntFactor <pynodes.datasocks.IntFactor>`
+     -
+   * - :py:obj:`IntPercentage <pynodes.datasocks.IntPercentage>`
+     -
+   * - :py:obj:`IntUnsigned <pynodes.datasocks.IntUnsigned>`
      -
    * - :py:obj:`Boolean <pynodes.datasocks.Boolean>`
      -
@@ -892,6 +922,78 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Angle.bl_idname
          :parser: myst
 
+.. py:class:: Distance(bsocket: bpy.types.NodeSocket)
+   :canonical: pynodes.datasocks.Distance
+
+   Bases: :py:obj:`pynodes.datasocks.Float`
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.datasocks.Distance.bl_idname
+      :value: 'NodeSocketFloatDistance'
+
+      .. autodoc2-docstring:: pynodes.datasocks.Distance.bl_idname
+         :parser: myst
+
+.. py:class:: Factor(bsocket: bpy.types.NodeSocket)
+   :canonical: pynodes.datasocks.Factor
+
+   Bases: :py:obj:`pynodes.datasocks.Float`
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.datasocks.Factor.bl_idname
+      :value: 'NodeSocketFloatFactor'
+
+      .. autodoc2-docstring:: pynodes.datasocks.Factor.bl_idname
+         :parser: myst
+
+.. py:class:: Percentage(bsocket: bpy.types.NodeSocket)
+   :canonical: pynodes.datasocks.Percentage
+
+   Bases: :py:obj:`pynodes.datasocks.Float`
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.datasocks.Percentage.bl_idname
+      :value: 'NodeSocketFloatPercentage'
+
+      .. autodoc2-docstring:: pynodes.datasocks.Percentage.bl_idname
+         :parser: myst
+
+.. py:class:: FloatTime(bsocket: bpy.types.NodeSocket)
+   :canonical: pynodes.datasocks.FloatTime
+
+   Bases: :py:obj:`pynodes.datasocks.Float`
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.datasocks.FloatTime.bl_idname
+      :value: 'NodeSocketFloatTime'
+
+      .. autodoc2-docstring:: pynodes.datasocks.FloatTime.bl_idname
+         :parser: myst
+
+.. py:class:: FloatTimeAbsolute(bsocket: bpy.types.NodeSocket)
+   :canonical: pynodes.datasocks.FloatTimeAbsolute
+
+   Bases: :py:obj:`pynodes.datasocks.Float`
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.datasocks.FloatTimeAbsolute.bl_idname
+      :value: 'NodeSocketFloatTimeAbsolute'
+
+      .. autodoc2-docstring:: pynodes.datasocks.FloatTimeAbsolute.bl_idname
+         :parser: myst
+
+.. py:class:: Unsigned(bsocket: bpy.types.NodeSocket)
+   :canonical: pynodes.datasocks.Unsigned
+
+   Bases: :py:obj:`pynodes.datasocks.Float`
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.datasocks.Unsigned.bl_idname
+      :value: 'NodeSocketFloatUnsigned'
+
+      .. autodoc2-docstring:: pynodes.datasocks.Unsigned.bl_idname
+         :parser: myst
+
 .. py:class:: Vector(bsocket: bpy.types.NodeSocket)
    :canonical: pynodes.datasocks.Vector
 
@@ -1246,6 +1348,78 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Vector.mapping
          :parser: myst
 
+.. py:class:: VectorAcceleration(bsocket: bpy.types.NodeSocket)
+   :canonical: pynodes.datasocks.VectorAcceleration
+
+   Bases: :py:obj:`pynodes.datasocks.Vector`
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.datasocks.VectorAcceleration.bl_idname
+      :value: 'NodeSocketVectorAcceleration'
+
+      .. autodoc2-docstring:: pynodes.datasocks.VectorAcceleration.bl_idname
+         :parser: myst
+
+.. py:class:: VectorDirection(bsocket: bpy.types.NodeSocket)
+   :canonical: pynodes.datasocks.VectorDirection
+
+   Bases: :py:obj:`pynodes.datasocks.Vector`
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.datasocks.VectorDirection.bl_idname
+      :value: 'NodeSocketVectorDirection'
+
+      .. autodoc2-docstring:: pynodes.datasocks.VectorDirection.bl_idname
+         :parser: myst
+
+.. py:class:: VectorEuler(bsocket: bpy.types.NodeSocket)
+   :canonical: pynodes.datasocks.VectorEuler
+
+   Bases: :py:obj:`pynodes.datasocks.Vector`
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.datasocks.VectorEuler.bl_idname
+      :value: 'NodeSocketVectorEuler'
+
+      .. autodoc2-docstring:: pynodes.datasocks.VectorEuler.bl_idname
+         :parser: myst
+
+.. py:class:: VectorTranslation(bsocket: bpy.types.NodeSocket)
+   :canonical: pynodes.datasocks.VectorTranslation
+
+   Bases: :py:obj:`pynodes.datasocks.Vector`
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.datasocks.VectorTranslation.bl_idname
+      :value: 'NodeSocketVectorTranslation'
+
+      .. autodoc2-docstring:: pynodes.datasocks.VectorTranslation.bl_idname
+         :parser: myst
+
+.. py:class:: VectorVelocity(bsocket: bpy.types.NodeSocket)
+   :canonical: pynodes.datasocks.VectorVelocity
+
+   Bases: :py:obj:`pynodes.datasocks.Vector`
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.datasocks.VectorVelocity.bl_idname
+      :value: 'NodeSocketVectorVelocity'
+
+      .. autodoc2-docstring:: pynodes.datasocks.VectorVelocity.bl_idname
+         :parser: myst
+
+.. py:class:: VectorXYZ(bsocket: bpy.types.NodeSocket)
+   :canonical: pynodes.datasocks.VectorXYZ
+
+   Bases: :py:obj:`pynodes.datasocks.Vector`
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.datasocks.VectorXYZ.bl_idname
+      :value: 'NodeSocketVectorXYZ'
+
+      .. autodoc2-docstring:: pynodes.datasocks.VectorXYZ.bl_idname
+         :parser: myst
+
 .. py:class:: Integer(bsocket: bpy.types.NodeSocket)
    :canonical: pynodes.datasocks.Integer
 
@@ -1280,6 +1454,42 @@ API
       :canonical: pynodes.datasocks.Integer.switch
 
       .. autodoc2-docstring:: pynodes.datasocks.Integer.switch
+         :parser: myst
+
+.. py:class:: IntFactor(bsocket: bpy.types.NodeSocket)
+   :canonical: pynodes.datasocks.IntFactor
+
+   Bases: :py:obj:`pynodes.datasocks.Integer`
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.datasocks.IntFactor.bl_idname
+      :value: 'NodeSocketIntFactor'
+
+      .. autodoc2-docstring:: pynodes.datasocks.IntFactor.bl_idname
+         :parser: myst
+
+.. py:class:: IntPercentage(bsocket: bpy.types.NodeSocket)
+   :canonical: pynodes.datasocks.IntPercentage
+
+   Bases: :py:obj:`pynodes.datasocks.Integer`
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.datasocks.IntPercentage.bl_idname
+      :value: 'NodeSocketIntPercentage'
+
+      .. autodoc2-docstring:: pynodes.datasocks.IntPercentage.bl_idname
+         :parser: myst
+
+.. py:class:: IntUnsigned(bsocket: bpy.types.NodeSocket)
+   :canonical: pynodes.datasocks.IntUnsigned
+
+   Bases: :py:obj:`pynodes.datasocks.Integer`
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.datasocks.IntUnsigned.bl_idname
+      :value: 'NodeSocketIntUnsigned'
+
+      .. autodoc2-docstring:: pynodes.datasocks.IntUnsigned.bl_idname
          :parser: myst
 
 .. py:class:: Boolean(bsocket: bpy.types.NodeSocket)
