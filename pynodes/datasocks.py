@@ -6,6 +6,7 @@ from . import nodes
 
 
 class Float(Socket):
+    """Floating-point number socket of a node, float in [-inf, inf], default 0.0"""
     bl_idname = "NodeSocketFloat"
 
     def switch(self, switch=False, true_float=True):
@@ -684,34 +685,42 @@ class Float(Socket):
 
 
 class Angle(Float):
+    """Floating-point number socket of a node, float in [-inf, inf], default 0.0"""
     bl_idname = "NodeSocketFloatAngle"
 
 
 class Distance(Float):
+    """Floating-point number socket of a node, float in [-inf, inf], default 0.0"""
     bl_idname = "NodeSocketFloatDistance"
 
 
 class Factor(Float):
+    """Floating-point number socket of a node, float in [0, 1], default 0.0"""
     bl_idname = "NodeSocketFloatFactor"
 
 
 class Percentage(Float):
+    """Floating-point number socket of a node, float in [-inf, inf], default 0.0"""
     bl_idname = "NodeSocketFloatPercentage"
 
 
 class FloatTime(Float):
+    """Floating-point number socket of a node, float in [-inf, inf], default 0.0"""
     bl_idname = "NodeSocketFloatTime"
 
 
 class FloatTimeAbsolute(Float):
+    """Floating-point number socket of a node, float in [-inf, inf], default 0.0"""
     bl_idname = "NodeSocketFloatTimeAbsolute"
 
 
 class Unsigned(Float):
+    """Floating-point number socket of a node, float in [0, inf], default 0.0"""
     bl_idname = "NodeSocketFloatUnsigned"
 
 
 class Vector(Socket):
+    """3D vector socket of a node, float array of 3 items in [-inf, inf], default (0.0, 0.0, 0.0)"""
     bl_idname = "NodeSocketVector"
 
     def __init__(self, bsocket: bpy.types.NodeSocket) -> None:
@@ -1327,30 +1336,37 @@ class Vector(Socket):
 
 
 class VectorAcceleration(Vector):
+    """3D vector socket of a node, mathutils.Vector of 3 items in [-inf, inf], default (0.0, 0.0, 0.0)"""
     bl_idname = "NodeSocketVectorAcceleration"
 
 
 class VectorDirection(Vector):
+    """3D vector socket of a node, mathutils.Vector of 3 items in [-inf, inf], default (0.0, 0.0, 1.0)"""
     bl_idname = "NodeSocketVectorDirection"
 
 
 class VectorEuler(Vector):
+    """3D vector socket of a node, mathutils.Euler rotation of 3 items in [-inf, inf], default (0.0, 0.0, 0.0)"""
     bl_idname = "NodeSocketVectorEuler"
 
 
 class VectorTranslation(Vector):
+    """3D vector socket of a node, mathutils.Vector of 3 items in [-inf, inf], default (0.0, 0.0, 0.0)"""
     bl_idname = "NodeSocketVectorTranslation"
 
 
 class VectorVelocity(Vector):
+    """3D vector socket of a node, mathutils.Vector of 3 items in [-inf, inf], default (0.0, 0.0, 0.0)"""
     bl_idname = "NodeSocketVectorVelocity"
 
 
 class VectorXYZ(Vector):
+    """3D vector socket of a node, mathutils.Vector of 3 items in [-inf, inf], default (0.0, 0.0, 0.0)"""
     bl_idname = "NodeSocketVectorXYZ"
 
 
 class Integer(Float):
+    """Integer number socket of a node, int in [-inf, inf], default 0"""
     bl_idname = "NodeSocketInt"
 
     def __eq__(self, other):
@@ -1387,18 +1403,22 @@ class Integer(Float):
 
 
 class IntFactor(Integer):
+    """Integer factor socket of a node, int in [0, inf], default 1"""
     bl_idname = "NodeSocketIntFactor"
 
 
 class IntPercentage(Integer):
+    """Integer number socket of a node, int in [0, inf], default 100"""
     bl_idname = "NodeSocketIntPercentage"
 
 
 class IntUnsigned(Integer):
+    """Integer number socket of a node, int in [0, inf], default 0"""
     bl_idname = "NodeSocketIntUnsigned"
 
 
 class Boolean(Socket):
+    """Boolean value socket of a node, default False"""
     bl_idname = "NodeSocketBool"
 
     @classmethod
@@ -1594,6 +1614,7 @@ class Boolean(Socket):
 
 
 class String(Socket):
+    """String socket of a node"""
     bl_idname = "NodeSocketString"
 
     def join(self, *strings: str, delimiter=""):
@@ -1727,6 +1748,7 @@ class String(Socket):
 
 
 class Color(Vector):
+    """RGBA color socket of a node, float array of 4 items in [0, inf], default (0.0, 0.0, 0.0, 0.0)"""
     bl_idname = "NodeSocketColor"
 
     def mix(self, b_color=(0.5, 0.5, 0.5, 1.0), blend_type="MIX", clamp_factor=True, clamp_result=False, factor_float=0.5):
@@ -1866,6 +1888,7 @@ class Color(Vector):
 
 
 class Shader(Socket):
+    """Shader socket of a node"""
     bl_idname = "NodeSocketShader"
 
     def __init__(self, bsocket: NodeSocket) -> None:
@@ -2615,6 +2638,7 @@ class BSDF(Shader):
 
 
 class Object(Socket):
+    """Object socket of a node"""
     bl_idname = "NodeSocketObject"
 
     def __init__(self, bsocket: bpy.types.NodeSocket):
@@ -2667,14 +2691,17 @@ class Object(Socket):
 
 
 class Collection(Socket):
+    """Collection socket of a node"""
     bl_idname = "NodeSocketCollection"
 
 
 class Texture(Socket):
+    """Texture socket of a node"""
     bl_idname = "NodeSocketTexture"
 
 
 class Material(Socket):
+    """Material socket of a node"""
     bl_idname = "NodeSocketMaterial"
 
     def __init__(self, bsocket: bpy.types.NodeSocket) -> None:
@@ -2714,6 +2741,7 @@ class Material(Socket):
 
 
 class Image(Socket):
+    """Image socket of a node"""
     bl_idname = "NodeSocketImage"
 
 
