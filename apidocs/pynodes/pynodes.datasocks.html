@@ -163,7 +163,7 @@
   <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
 </ul>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick Start</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../gallery/index.html">Gallery</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Gallery</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../gallery/geometry_nodes/arrow_modeling.html">Arrow modeling</a></li>
@@ -173,6 +173,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../gallery/geometry_nodes/geometry_morph.html">Mesh Transition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../gallery/geometry_nodes/mesh_faces_to_maze.html">Mesh Surface to Maze</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../gallery/geometry_nodes/mobius_band.html">Möbius Band</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/geometry_nodes/n_th_bezier.html">N-th Bézier</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../gallery/geometry_nodes/polar_coord_illustrating.html">Polar Coordinate Illustrating</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../gallery/geometry_nodes/small_demos.html">Small Demos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../gallery/geometry_nodes/text_examples.html">Text Examples</a></li>
@@ -181,6 +182,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../socket_types.html">Available Socket Types</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current has-children"><a class="reference internal" href="pynodes.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes</span></code></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of pynodes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="pynodes.addon.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.addon</span></code></a></li>
@@ -450,7 +453,7 @@
 <td><p>The Combine Color Node combines an image from its composite color channels. The node can combine multiple Color Models depending on the Mode property.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.datasocks.MixFloat" title="pynodes.datasocks.MixFloat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MixFloat</span></code></a></p></td>
-<td><p>The Mix Node mixes images by working on the individual and corresponding pixels of the two input images. Called “Mix Color” in the shader, geometry, and texture context.</p></td>
+<td><p>The Mix Node mixes values, colors and vectors inputs using a factor to control the amount of interpolation. The Color mode has additional blending modes.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pynodes.datasocks.MixVector" title="pynodes.datasocks.MixVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MixVector</span></code></a></p></td>
 <td><p>The Mix Node mixes images by working on the individual and corresponding pixels of the two input images. Called “Mix Color” in the shader, geometry, and texture context.</p></td>
@@ -621,7 +624,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="pynodes.datasocks.Float.mix">
 <span class="sig-name descname"><span class="pre">mix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor_float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clamp_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.datasocks.Float.mix" title="Permalink to this definition">#</a></dt>
-<dd><p>The Mix Node mixes images by working on the individual and corresponding pixels of the two input images. Called “Mix Color” in the shader, geometry, and texture context.</p>
+<dd><p>The Mix Node mixes values, colors and vectors inputs using a factor to control the amount of interpolation. The Color mode has additional blending modes.</p>
 <section id="path">
 <h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
@@ -1770,7 +1773,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="pynodes.datasocks.Vector.mix">
 <span class="sig-name descname"><span class="pre">mix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b_vector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor_float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor_vector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.5,</span> <span class="pre">0.5,</span> <span class="pre">0.5)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'UNIFORM'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clamp_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.datasocks.Vector.mix" title="Permalink to this definition">#</a></dt>
-<dd><p>The Mix Node mixes images by working on the individual and corresponding pixels of the two input images. Called “Mix Color” in the shader, geometry, and texture context.</p>
+<dd><p>The Mix Node mixes values, colors and vectors inputs using a factor to control the amount of interpolation. The Color mode has additional blending modes.</p>
 <section id="path">
 <h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
@@ -3312,7 +3315,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="pynodes.datasocks.Color.mix">
 <span class="sig-name descname"><span class="pre">mix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.5,</span> <span class="pre">0.5,</span> <span class="pre">0.5,</span> <span class="pre">1.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blend_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MIX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clamp_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clamp_result</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor_float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.datasocks.Color.mix" title="Permalink to this definition">#</a></dt>
-<dd><p>The Mix Node mixes images by working on the individual and corresponding pixels of the two input images. Called “Mix Color” in the shader, geometry, and texture context.</p>
+<dd><p>The Mix Node mixes values, colors and vectors inputs using a factor to control the amount of interpolation. The Color mode has additional blending modes.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">blend_type</span></code>: <code class="docutils literal notranslate"><span class="pre">MIX</span></code>, <code class="docutils literal notranslate"><span class="pre">DARKEN</span></code>, <code class="docutils literal notranslate"><span class="pre">MULTIPLY</span></code>, <code class="docutils literal notranslate"><span class="pre">BURN</span></code>, <code class="docutils literal notranslate"><span class="pre">LIGHTEN</span></code>, <code class="docutils literal notranslate"><span class="pre">SCREEN</span></code>, <code class="docutils literal notranslate"><span class="pre">DODGE</span></code>, <code class="docutils literal notranslate"><span class="pre">ADD</span></code>, <code class="docutils literal notranslate"><span class="pre">OVERLAY</span></code>, <code class="docutils literal notranslate"><span class="pre">SOFT_LIGHT</span></code>, <code class="docutils literal notranslate"><span class="pre">LINEAR_LIGHT</span></code>, <code class="docutils literal notranslate"><span class="pre">DIFFERENCE</span></code>, <code class="docutils literal notranslate"><span class="pre">EXCLUSION</span></code>, <code class="docutils literal notranslate"><span class="pre">SUBTRACT</span></code>, <code class="docutils literal notranslate"><span class="pre">DIVIDE</span></code>, <code class="docutils literal notranslate"><span class="pre">HUE</span></code>, <code class="docutils literal notranslate"><span class="pre">SATURATION</span></code>, <code class="docutils literal notranslate"><span class="pre">COLOR</span></code>, <code class="docutils literal notranslate"><span class="pre">VALUE</span></code></p></li>
 </ul>
@@ -5483,7 +5486,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="pynodes.datasocks.MixFloat">
 <span class="sig-prename descclassname"><span class="pre">pynodes.datasocks.</span></span><span class="sig-name descname"><span class="pre">MixFloat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factor_float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clamp_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.datasocks.MixFloat" title="Permalink to this definition">#</a></dt>
-<dd><p>The Mix Node mixes images by working on the individual and corresponding pixels of the two input images. Called “Mix Color” in the shader, geometry, and texture context.</p>
+<dd><p>The Mix Node mixes values, colors and vectors inputs using a factor to control the amount of interpolation. The Color mode has additional blending modes.</p>
 <section id="path">
 <h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
 <ul class="simple">

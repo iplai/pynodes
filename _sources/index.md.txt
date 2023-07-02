@@ -24,14 +24,13 @@ For [`geonodes`](https://github.com/al1brn/geonodes), only geometry nodes are su
 - How to run `Python` script in `Blender`
 ```
 
-```{admonition} Basic Concepts
-:class: important
+#### Bacis Concepts
+
 Nodes are created by a series of chain calls in a python function decrorated by {class}`pynodes.core.tree` which represents a node group in blender.
 - Operations on nodes are based on the output port(data socket), not on the node itself.
 - A decorated `Python` function (`@tree`) corresponds to a tree of nodes. Calling the function means creating a group node in the current node tree.
 - Data in a data flow has strict type checking, what methods are available for the data socket, and what is provided by its type.
-- Good IDE support，e.g. [`VS Code`](https://code.visualstudio.com/)，All exposed methods have built-in documentation, including images of the nodes involved, optional enumeration parameters, and links to official documentation.
-```
+- Good IDE support，e.g. [`VS Code`](https://code.visualstudio.com/). All exposed methods have built-in documentation, including images of the nodes involved, optional enumeration parameters, and links to official documentation.
 
 ---
 
@@ -43,9 +42,13 @@ self
 ```
 
 ```{toctree}
-:maxdepth: 4
+:maxdepth: 2
 quick_start
 gallery/index
 socket_types
+```
+
+```{toctree}
+:maxdepth: 4
 apidocs/index
 ```
