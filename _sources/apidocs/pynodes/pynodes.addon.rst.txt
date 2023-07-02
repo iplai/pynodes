@@ -143,6 +143,10 @@ API
    .. py:method:: invoke(context, value)
       :canonical: pynodes.addon.PYNODES_OT_ARRANGE.invoke
 
+   .. py:method:: poll(context: bpy.types.Context)
+      :canonical: pynodes.addon.PYNODES_OT_ARRANGE.poll
+      :classmethod:
+
 .. py:class:: PYNODES_OT_PURGE
    :canonical: pynodes.addon.PYNODES_OT_PURGE
 
@@ -221,7 +225,7 @@ API
    .. autodoc2-docstring:: pynodes.addon.arrange
       :parser: myst
 
-.. py:function:: arrange_tree(btree: bpy.types.NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, frame_margin_y=10, column_center=True, only_selected_frame=False)
+.. py:function:: arrange_tree(btree: bpy.types.NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, frame_margin_y=10, node_center1=True, node_center2=True, only_selected_frame=False)
    :canonical: pynodes.addon.arrange_tree
 
    .. autodoc2-docstring:: pynodes.addon.arrange_tree
