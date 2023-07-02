@@ -24,7 +24,7 @@ class Float(Socket):
         return node.outputs[0].Float
 
     def mix(self, factor_float=0.5, b_float=0.0, clamp_factor=True):
-        """The Mix Node mixes images by working on the individual and corresponding pixels of the two input images. Called “Mix Color” in the shader, geometry, and texture context.
+        """The Mix Node mixes values, colors and vectors inputs using a factor to control the amount of interpolation. The Color mode has additional blending modes.
         #### Path
         - Utilities > Math > Mix Node
         #### Outputs:
@@ -804,7 +804,7 @@ class Vector(Socket):
         return node.outputs[3].Vector
 
     def mix(self, b_vector=(0.0, 0.0, 0.0), factor_float=0.5, factor_vector=(0.5, 0.5, 0.5), factor_mode="UNIFORM", clamp_factor=True):
-        """The Mix Node mixes images by working on the individual and corresponding pixels of the two input images. Called “Mix Color” in the shader, geometry, and texture context.
+        """The Mix Node mixes values, colors and vectors inputs using a factor to control the amount of interpolation. The Color mode has additional blending modes.
         #### Path
         - Utilities > Vector > Mix Node
         #### Outputs:
@@ -1752,7 +1752,7 @@ class Color(Vector):
     bl_idname = "NodeSocketColor"
 
     def mix(self, b_color=(0.5, 0.5, 0.5, 1.0), blend_type="MIX", clamp_factor=True, clamp_result=False, factor_float=0.5):
-        """The Mix Node mixes images by working on the individual and corresponding pixels of the two input images. Called “Mix Color” in the shader, geometry, and texture context.
+        """The Mix Node mixes values, colors and vectors inputs using a factor to control the amount of interpolation. The Color mode has additional blending modes.
         - `blend_type`: `MIX`, `DARKEN`, `MULTIPLY`, `BURN`, `LIGHTEN`, `SCREEN`, `DODGE`, `ADD`, `OVERLAY`, `SOFT_LIGHT`, `LINEAR_LIGHT`, `DIFFERENCE`, `EXCLUSION`, `SUBTRACT`, `DIVIDE`, `HUE`, `SATURATION`, `COLOR`, `VALUE`
         #### Path
         - Utilities > Color > Mix Node
@@ -3384,7 +3384,7 @@ def CombineColor(red=0.0, green=0.0, blue=0.0, alpha=1.0, mode='RGB'):
 
 
 def MixFloat(factor_float=0.5, a_float=0.0, b_float=0.0, clamp_factor=True):
-    """The Mix Node mixes images by working on the individual and corresponding pixels of the two input images. Called “Mix Color” in the shader, geometry, and texture context.
+    """The Mix Node mixes values, colors and vectors inputs using a factor to control the amount of interpolation. The Color mode has additional blending modes.
     #### Path
     - Utilities > Math > Mix Node
     #### Outputs:

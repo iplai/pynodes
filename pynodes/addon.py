@@ -29,6 +29,8 @@ class PYNODES_PT_MAIN(Panel):
         row.prop(context.scene, 'node_center2', text="Right to Left")
         row = layout.row()
         row.prop(context.scene, 'only_selected_frame', text="Only Arrange Selected Frame")
+        row = layout.row()
+        row.prop(context.scene, 'reverse_single_link_sequence', text="Reverse Single Link Height Sequence")
 
         # get current active tree
         btree = get_active_tree(context)
@@ -147,11 +149,12 @@ def arrange(self, context: Context):
     node_center1 = context.scene.node_center1
     node_center2 = context.scene.node_center2
     only_selected_frame = context.scene.only_selected_frame
+    reverse_single_link_sequence = context.scene.reverse_single_link_sequence
 
-    arrange_tree(btree, margin_x, margin_y, frame_margin_x, frame_margin_y, node_center1, node_center2, only_selected_frame)
+    arrange_tree(btree, margin_x, margin_y, frame_margin_x, frame_margin_y, node_center1, node_center2, only_selected_frame, reverse_single_link_sequence)
 
 
-def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, frame_margin_y=10, node_center1=True, node_center2=True, only_selected_frame=False):
+def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, frame_margin_y=10, node_center1=True, node_center2=True, only_selected_frame=False, reverse_single_link_sequence=False):
     # A list to record all frames and their level
     frames_level: list[tuple(NodeFrame, int)] = []
     for node in btree.nodes:
@@ -337,9 +340,6 @@ def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, f
                 if w > col.width:
                     col.width = w
                 if y_index > 0:
-                    if col.nodes[y_index - 1].bl_idname == "GeometryNodeSimulationOutput":
-                        y -= 22
-                        col.height += 22
                     if previsous_is_frame and current_is_frame:
                         col.height += frame_margin_y
                         y -= frame_margin_y
@@ -370,6 +370,7 @@ def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, f
                 x += frame_padding[0]
             previsous_has_frame = current_has_frame
         '''
+        # Code for debug
         for i, col in enumerate(cols):
             for j, node in enumerate(col.nodes):
                 if j == 0:
@@ -392,10 +393,12 @@ def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, f
                     continue
                 current_height = col.height + col.offset
                 pre_height = cols[i + 1].height + cols[i + 1].offset
-                if current_height > pre_height * diff_shreshold_factor:
+                if cols[i + 1].offset > 0 and cols[i + 1].offset + cols[i + 1].height / 2 - col.height / 2 < cols[i + 1].height * (1 - diff_shreshold_factor):
                     continue
-                # col.offset + col.height / 2 + offset_y = cols[i - 1].offset + cols[i - 1].height / 2
-                offset_y = cols[i + 1].offset + cols[i + 1].height / 2 - (col.offset + col.height / 2)
+                if cols[i + 1].offset == 0 and current_height > pre_height * diff_shreshold_factor:
+                    continue
+                # col.offset + col.height / 2 + offset_y = cols[i + 1].offset + cols[i + 1].height / 2
+                offset_y = cols[i + 1].offset + cols[i + 1].height / 2 - col.height / 2
                 if offset_y < 0:
                     continue
                 else:
@@ -423,6 +426,30 @@ def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, f
                     x, y = node.location
                     node.location = (x, y - offset_y)
 
+        # If for every column, there is only one node, then staggering in height.
+        offset_y = 20 + margin_y
+        if margin_x <= 0 and all(len(col.nodes) <= 1 for col in cols):
+            for i, col in enumerate(cols):
+                for node in col.nodes:
+                    x, y = node.location
+                    if not reverse_single_link_sequence:
+                        node.location = (x, -i * offset_y)
+                    else:
+                        node.location = (x, -(len(cols) - i) * offset_y)
+        elif margin_x <= 0:
+            for i, col in reversed(list(enumerate(cols))):
+                if i == len(cols) - 1:
+                    continue
+                if len(cols[i + 1].nodes) == 1 and not is_frame(cols[i + 1].nodes[0])\
+                        and len(col.nodes) == 1 and not is_frame(col.nodes[0]):
+                    for node in col.nodes:
+                        x = node.location.x
+                        y = cols[i + 1].nodes[0].location.y
+                        if not reverse_single_link_sequence:
+                            node.location = (x, y - offset_y)
+                        else:
+                            node.location = (x, y + offset_y)
+
     if only_selected_frame:
         has_frame_selected = False
         for frame, _ in frames_level:
@@ -447,6 +474,7 @@ def register():
     bpy.types.Scene.node_center1 = bpy.props.BoolProperty(default=True, update=arrange)
     bpy.types.Scene.node_center2 = bpy.props.BoolProperty(default=True, update=arrange)
     bpy.types.Scene.only_selected_frame = bpy.props.BoolProperty(default=False)
+    bpy.types.Scene.reverse_single_link_sequence = bpy.props.BoolProperty(default=False, update=arrange)
 
 
 def unregister():
@@ -457,3 +485,4 @@ def unregister():
     del bpy.types.Scene.node_center1
     del bpy.types.Scene.node_center2
     del bpy.types.Scene.only_selected_frame
+    del bpy.types.Scene.reverse_single_link_sequence

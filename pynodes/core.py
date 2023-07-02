@@ -192,7 +192,7 @@ class Socket(SocketWraper):
         self.node[key] = value
 
     @property
-    def name(self):
+    def name(self) -> str:
         if self._name is not None:
             return self._name
         base_class_names = [self.__class__.__name__]
@@ -283,9 +283,59 @@ class Socket(SocketWraper):
         return Float(self.bsocket)
 
     @property
+    def Angle(self):
+        from .datasocks import Angle
+        return Angle(self.bsocket)
+
+    @property
+    def Distance(self):
+        from .datasocks import Distance
+        return Distance(self.bsocket)
+
+    @property
+    def Factor(self):
+        from .datasocks import Factor
+        return Factor(self.bsocket)
+
+    @property
+    def Percentage(self):
+        from .datasocks import Percentage
+        return Percentage(self.bsocket)
+
+    @property
+    def FloatTime(self):
+        from .datasocks import FloatTime
+        return FloatTime(self.bsocket)
+
+    @property
+    def FloatTimeAbsolute(self):
+        from .datasocks import FloatTimeAbsolute
+        return FloatTimeAbsolute(self.bsocket)
+
+    @property
+    def Unsigned(self):
+        from .datasocks import Unsigned
+        return Unsigned(self.bsocket)
+
+    @property
     def Integer(self):
         from .datasocks import Integer
         return Integer(self.bsocket)
+
+    @property
+    def IntFactor(self):
+        from .datasocks import IntFactor
+        return IntFactor(self.bsocket)
+
+    @property
+    def IntPercentage(self):
+        from .datasocks import IntPercentage
+        return IntPercentage(self.bsocket)
+
+    @property
+    def IntUnsigned(self):
+        from .datasocks import IntUnsigned
+        return IntUnsigned(self.bsocket)
 
     @property
     def Boolean(self):
@@ -296,6 +346,36 @@ class Socket(SocketWraper):
     def Vector(self):
         from .datasocks import Vector
         return Vector(self.bsocket)
+
+    @property
+    def VectorAcceleration(self):
+        from .datasocks import VectorAcceleration
+        return VectorAcceleration(self.bsocket)
+
+    @property
+    def VectorDirection(self):
+        from .datasocks import VectorDirection
+        return VectorDirection(self.bsocket)
+
+    @property
+    def VectorEuler(self):
+        from .datasocks import VectorEuler
+        return VectorEuler(self.bsocket)
+
+    @property
+    def VectorTranslation(self):
+        from .datasocks import VectorTranslation
+        return VectorTranslation(self.bsocket)
+
+    @property
+    def VectorVelocity(self):
+        from .datasocks import VectorVelocity
+        return VectorVelocity(self.bsocket)
+
+    @property
+    def VectorXYZ(self):
+        from .datasocks import VectorXYZ
+        return VectorXYZ(self.bsocket)
 
     @property
     def Color(self):
@@ -491,11 +571,11 @@ class Tree:
         input_node = SimulationInput(input_bnode)
         output_node = SimulationOutput(output_bnode)
         for i, socket in enumerate(input_sockets):
-            state_items.new(socket.bsocket.type, socket.bsocket.name)
+            state_items.new(socket.bsocket.type, socket._name or socket.bsocket.name)
             self.new_link(socket.bsocket, input_bnode.inputs[i])
             self.new_link(input_bnode.outputs[i + 1], output_bnode.inputs[i])
             socket.bsocket = input_bnode.outputs[i + 1]
-        yield input_node, output_node
+        yield SimulationZone(input_node, output_node)
         for i, socket in enumerate(input_sockets):
             socket.bsocket = output_bnode.outputs[i]
 
@@ -542,6 +622,24 @@ class SimulationOutput(NodeWraper):
 
     def link_from(self, socket: Socket, index=0):
         Tree.tree.new_link(socket.bsocket, self.bnode.inputs[index])
+
+
+class SimulationZone:
+    def __init__(self, input_node: SimulationInput, output_node: SimulationOutput):
+        self.input_node = input_node
+        self.output_node = output_node
+
+    def to_ouput(self, socket: Socket, index=0):
+        self.output_node.link_from(socket, index)
+
+    def to_ouputs(self, *sockets: Socket):
+        for i, socket in enumerate(sockets):
+            if socket is not None:
+                self.output_node.link_from(socket, i)
+
+    @property
+    def delta_time(self):
+        return self.input_node.delta_time
 
 
 class Script(NodeWraper):
