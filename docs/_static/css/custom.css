@@ -3,9 +3,35 @@ strong {
     color: crimson;
 }
 
+cite {
+    font-weight: 500;
+    font-style: italic;
+}
+
+a.reference.internal {
+    font-weight: 600;
+}
+
+a.current.reference.internal {
+    font-style: italic;
+}
+
+a.reference.external {
+    font-weight: 500;
+    font-style: italic;
+}
+
+.admonition {
+    font-size: medium;
+}
+
 code.literal {
-    border: 1px solid #dddddd;
+    font-size: 100%;
     color: #e83e8c;
+}
+
+td code.literal {
+    font-size: smaller;
 }
 
 h2 {

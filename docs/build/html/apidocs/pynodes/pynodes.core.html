@@ -163,7 +163,7 @@
   <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
 </ul>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick Start</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../gallery/index.html">Gallery</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Gallery</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../gallery/geometry_nodes/arrow_modeling.html">Arrow modeling</a></li>
@@ -173,6 +173,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../gallery/geometry_nodes/geometry_morph.html">Mesh Transition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../gallery/geometry_nodes/mesh_faces_to_maze.html">Mesh Surface to Maze</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../gallery/geometry_nodes/mobius_band.html">Möbius Band</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/geometry_nodes/n_th_bezier.html">N-th Bézier</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../gallery/geometry_nodes/polar_coord_illustrating.html">Polar Coordinate Illustrating</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../gallery/geometry_nodes/small_demos.html">Small Demos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../gallery/geometry_nodes/text_examples.html">Text Examples</a></li>
@@ -181,6 +182,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../socket_types.html">Available Socket Types</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current has-children"><a class="reference internal" href="pynodes.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes</span></code></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of pynodes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="pynodes.addon.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.addon</span></code></a></li>
@@ -269,7 +272,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pynodes.core.SimulationOutput" title="pynodes.core.SimulationOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SimulationOutput</span></code></a></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.core.Script" title="pynodes.core.Script"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Script</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.core.SimulationZone" title="pynodes.core.SimulationZone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SimulationZone</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.core.Script" title="pynodes.core.Script"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Script</span></code></a></p></td>
 <td></td>
 </tr>
 </tbody>
@@ -407,7 +413,7 @@
 
 <dl class="py property">
 <dt class="sig sig-object py" id="pynodes.core.Socket.name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#pynodes.core.Socket.name" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#pynodes.core.Socket.name" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -436,8 +442,58 @@
 <dd></dd></dl>
 
 <dl class="py property">
+<dt class="sig sig-object py" id="pynodes.core.Socket.Angle">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Angle</span></span><a class="headerlink" href="#pynodes.core.Socket.Angle" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.core.Socket.Distance">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Distance</span></span><a class="headerlink" href="#pynodes.core.Socket.Distance" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.core.Socket.Factor">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Factor</span></span><a class="headerlink" href="#pynodes.core.Socket.Factor" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.core.Socket.Percentage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Percentage</span></span><a class="headerlink" href="#pynodes.core.Socket.Percentage" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.core.Socket.FloatTime">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FloatTime</span></span><a class="headerlink" href="#pynodes.core.Socket.FloatTime" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.core.Socket.FloatTimeAbsolute">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FloatTimeAbsolute</span></span><a class="headerlink" href="#pynodes.core.Socket.FloatTimeAbsolute" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.core.Socket.Unsigned">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Unsigned</span></span><a class="headerlink" href="#pynodes.core.Socket.Unsigned" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
 <dt class="sig sig-object py" id="pynodes.core.Socket.Integer">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Integer</span></span><a class="headerlink" href="#pynodes.core.Socket.Integer" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.core.Socket.IntFactor">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IntFactor</span></span><a class="headerlink" href="#pynodes.core.Socket.IntFactor" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.core.Socket.IntPercentage">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IntPercentage</span></span><a class="headerlink" href="#pynodes.core.Socket.IntPercentage" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.core.Socket.IntUnsigned">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IntUnsigned</span></span><a class="headerlink" href="#pynodes.core.Socket.IntUnsigned" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -448,6 +504,36 @@
 <dl class="py property">
 <dt class="sig sig-object py" id="pynodes.core.Socket.Vector">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Vector</span></span><a class="headerlink" href="#pynodes.core.Socket.Vector" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.core.Socket.VectorAcceleration">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">VectorAcceleration</span></span><a class="headerlink" href="#pynodes.core.Socket.VectorAcceleration" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.core.Socket.VectorDirection">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">VectorDirection</span></span><a class="headerlink" href="#pynodes.core.Socket.VectorDirection" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.core.Socket.VectorEuler">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">VectorEuler</span></span><a class="headerlink" href="#pynodes.core.Socket.VectorEuler" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.core.Socket.VectorTranslation">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">VectorTranslation</span></span><a class="headerlink" href="#pynodes.core.Socket.VectorTranslation" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.core.Socket.VectorVelocity">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">VectorVelocity</span></span><a class="headerlink" href="#pynodes.core.Socket.VectorVelocity" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.core.Socket.VectorXYZ">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">VectorXYZ</span></span><a class="headerlink" href="#pynodes.core.Socket.VectorXYZ" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -664,6 +750,27 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="pynodes.core.SimulationOutput.link_from">
 <span class="sig-name descname"><span class="pre">link_from</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.Socket" title="pynodes.core.Socket"><span class="pre">pynodes.core.Socket</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.SimulationOutput.link_from" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pynodes.core.SimulationZone">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.core.</span></span><span class="sig-name descname"><span class="pre">SimulationZone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.SimulationInput" title="pynodes.core.SimulationInput"><span class="pre">pynodes.core.SimulationInput</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.SimulationOutput" title="pynodes.core.SimulationOutput"><span class="pre">pynodes.core.SimulationOutput</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.SimulationZone" title="Permalink to this definition">#</a></dt>
+<dd><p class="rubric">Initialization</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.core.SimulationZone.to_ouput">
+<span class="sig-name descname"><span class="pre">to_ouput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.Socket" title="pynodes.core.Socket"><span class="pre">pynodes.core.Socket</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.SimulationZone.to_ouput" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.core.SimulationZone.to_ouputs">
+<span class="sig-name descname"><span class="pre">to_ouputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">sockets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.Socket" title="pynodes.core.Socket"><span class="pre">pynodes.core.Socket</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.SimulationZone.to_ouputs" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.core.SimulationZone.delta_time">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delta_time</span></span><a class="headerlink" href="#pynodes.core.SimulationZone.delta_time" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -915,9 +1022,25 @@
 <li><a class="reference internal" href="#pynodes.core.Socket.linked_to_group_output"><code class="docutils literal notranslate"><span class="pre">Socket.linked_to_group_output</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.Socket.Input"><code class="docutils literal notranslate"><span class="pre">Socket.Input()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.Socket.Float"><code class="docutils literal notranslate"><span class="pre">Socket.Float</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.Socket.Angle"><code class="docutils literal notranslate"><span class="pre">Socket.Angle</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.Socket.Distance"><code class="docutils literal notranslate"><span class="pre">Socket.Distance</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.Socket.Factor"><code class="docutils literal notranslate"><span class="pre">Socket.Factor</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.Socket.Percentage"><code class="docutils literal notranslate"><span class="pre">Socket.Percentage</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.Socket.FloatTime"><code class="docutils literal notranslate"><span class="pre">Socket.FloatTime</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.Socket.FloatTimeAbsolute"><code class="docutils literal notranslate"><span class="pre">Socket.FloatTimeAbsolute</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.Socket.Unsigned"><code class="docutils literal notranslate"><span class="pre">Socket.Unsigned</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.Socket.Integer"><code class="docutils literal notranslate"><span class="pre">Socket.Integer</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.Socket.IntFactor"><code class="docutils literal notranslate"><span class="pre">Socket.IntFactor</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.Socket.IntPercentage"><code class="docutils literal notranslate"><span class="pre">Socket.IntPercentage</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.Socket.IntUnsigned"><code class="docutils literal notranslate"><span class="pre">Socket.IntUnsigned</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.Socket.Boolean"><code class="docutils literal notranslate"><span class="pre">Socket.Boolean</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.Socket.Vector"><code class="docutils literal notranslate"><span class="pre">Socket.Vector</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.Socket.VectorAcceleration"><code class="docutils literal notranslate"><span class="pre">Socket.VectorAcceleration</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.Socket.VectorDirection"><code class="docutils literal notranslate"><span class="pre">Socket.VectorDirection</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.Socket.VectorEuler"><code class="docutils literal notranslate"><span class="pre">Socket.VectorEuler</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.Socket.VectorTranslation"><code class="docutils literal notranslate"><span class="pre">Socket.VectorTranslation</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.Socket.VectorVelocity"><code class="docutils literal notranslate"><span class="pre">Socket.VectorVelocity</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.Socket.VectorXYZ"><code class="docutils literal notranslate"><span class="pre">Socket.VectorXYZ</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.Socket.Color"><code class="docutils literal notranslate"><span class="pre">Socket.Color</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.Socket.Geometry"><code class="docutils literal notranslate"><span class="pre">Socket.Geometry</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.Socket.Mesh"><code class="docutils literal notranslate"><span class="pre">Socket.Mesh</span></code></a></li>
@@ -969,6 +1092,12 @@
 <li><a class="reference internal" href="#pynodes.core.SimulationOutput"><code class="docutils literal notranslate"><span class="pre">SimulationOutput</span></code></a><ul>
 <li><a class="reference internal" href="#pynodes.core.SimulationOutput.bl_idname"><code class="docutils literal notranslate"><span class="pre">SimulationOutput.bl_idname</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.SimulationOutput.link_from"><code class="docutils literal notranslate"><span class="pre">SimulationOutput.link_from()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pynodes.core.SimulationZone"><code class="docutils literal notranslate"><span class="pre">SimulationZone</span></code></a><ul>
+<li><a class="reference internal" href="#pynodes.core.SimulationZone.to_ouput"><code class="docutils literal notranslate"><span class="pre">SimulationZone.to_ouput()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.SimulationZone.to_ouputs"><code class="docutils literal notranslate"><span class="pre">SimulationZone.to_ouputs()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.SimulationZone.delta_time"><code class="docutils literal notranslate"><span class="pre">SimulationZone.delta_time</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#pynodes.core.Script"><code class="docutils literal notranslate"><span class="pre">Script</span></code></a><ul>

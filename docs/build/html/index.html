@@ -173,6 +173,7 @@
 <li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/geometry_morph.html">Mesh Transition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/mesh_faces_to_maze.html">Mesh Surface to Maze</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/mobius_band.html">Möbius Band</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/n_th_bezier.html">N-th Bézier</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/polar_coord_illustrating.html">Polar Coordinate Illustrating</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/small_demos.html">Small Demos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/text_examples.html">Text Examples</a></li>
@@ -181,6 +182,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="socket_types.html">Available Socket Types</a></li>
+</ul>
+<ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="apidocs/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="apidocs/pynodes/pynodes.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes</span></code></a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of pynodes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/pynodes/pynodes.addon.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes.addon</span></code></a></li>
@@ -258,16 +261,16 @@
 <li><p>How to run <code class="docutils literal notranslate"><span class="pre">Python</span></code> script in <code class="docutils literal notranslate"><span class="pre">Blender</span></code></p></li>
 </ul>
 </div>
-<div class="important admonition">
-<p class="admonition-title">Basic Concepts</p>
+</section>
+<section id="bacis-concepts">
+<h2>Bacis Concepts<a class="headerlink" href="#bacis-concepts" title="Permalink to this heading">#</a></h2>
 <p>Nodes are created by a series of chain calls in a python function decrorated by <a class="reference internal" href="apidocs/pynodes/pynodes.core.html#pynodes.core.tree" title="pynodes.core.tree"><code class="xref py py-class docutils literal notranslate"><span class="pre">pynodes.core.tree</span></code></a> which represents a node group in blender.</p>
 <ul class="simple">
 <li><p>Operations on nodes are based on the output port(data socket), not on the node itself.</p></li>
 <li><p>A decorated <code class="docutils literal notranslate"><span class="pre">Python</span></code> function (<code class="docutils literal notranslate"><span class="pre">&#64;tree</span></code>) corresponds to a tree of nodes. Calling the function means creating a group node in the current node tree.</p></li>
 <li><p>Data in a data flow has strict type checking, what methods are available for the data socket, and what is provided by its type.</p></li>
-<li><p>Good IDE support，e.g. <a class="reference external" href="https://code.visualstudio.com/"><code class="docutils literal notranslate"><span class="pre">VS</span> <span class="pre">Code</span></code></a>，All exposed methods have built-in documentation, including images of the nodes involved, optional enumeration parameters, and links to official documentation.</p></li>
+<li><p>Good IDE support，e.g. <a class="reference external" href="https://code.visualstudio.com/"><code class="docutils literal notranslate"><span class="pre">VS</span> <span class="pre">Code</span></code></a>. All exposed methods have built-in documentation, including images of the nodes involved, optional enumeration parameters, and links to official documentation.</p></li>
 </ul>
-</div>
 </section>
 <hr class="docutils" />
 <section id="content">
@@ -279,56 +282,30 @@
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="quick_start.html#install-addon">Install Addon</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quick_start.html#setup-vscode">Setup VSCode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick_start.html#a-quick-example">A Quick Example</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="quick_start.html#parametric-equation">Parametric Equation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quick_start.html#the-first-node-tree">The First Node Tree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quick_start.html#the-second-node-tree">The Second Node Tree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quick_start.html#the-third-node-tree">The Third Node Tree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quick_start.html#version-with-material">Version with material</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quick_start.html#scene-management">Scene Management</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#a-quick-example">A Quick Example</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gallery/index.html">Gallery</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/arrow_modeling.html">Arrow modeling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/atom_links.html">Atom Links</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/clone_to_mesh_faces.html">Clone to Mesh Faces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/fractals_geometry.html">Fractals Geometry</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gallery/geometry_nodes/fractals_geometry.html#sierpinski-triangle-3d">Sierpinski Triangle 3D</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gallery/geometry_nodes/fractals_geometry.html#menger-sponge">Menger Sponge</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gallery/geometry_nodes/fractals_geometry.html#pythagoras-tree">Pythagoras Tree</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/fractals_geometry.html">Fractals Geometry</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/geometry_morph.html">Mesh Transition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/mesh_faces_to_maze.html">Mesh Surface to Maze</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/mobius_band.html">Möbius Band</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/polar_coord_illustrating.html">Polar Coordinate Illustrating</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gallery/geometry_nodes/polar_coord_illustrating.html#concentric-circles">Concentric Circles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gallery/geometry_nodes/polar_coord_illustrating.html#axis-slices">Axis Slices</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gallery/geometry_nodes/polar_coord_illustrating.html#angle-spiral">Angle Spiral</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gallery/geometry_nodes/polar_coord_illustrating.html#text-of-polar-coord">Text of Polar Coord</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gallery/geometry_nodes/polar_coord_illustrating.html#line-from-origin-to-dot">Line from origin to dot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gallery/geometry_nodes/polar_coord_illustrating.html#dot-with-coord-text">Dot with Coord Text</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gallery/geometry_nodes/polar_coord_illustrating.html#materials">Materials</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gallery/geometry_nodes/polar_coord_illustrating.html#the-result-illustration">The Result Illustration</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/small_demos.html">Small Demos</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gallery/geometry_nodes/small_demos.html#flying-dust">Flying Dust</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gallery/geometry_nodes/small_demos.html#link-vertices">Link Vertices</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gallery/geometry_nodes/small_demos.html#recursive-subdivide">Recursive Subdivide</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/text_examples.html">Text Examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gallery/geometry_nodes/text_examples.html#text-volume-mesh">Text Volume Mesh</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/n_th_bezier.html">N-th Bézier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/polar_coord_illustrating.html">Polar Coordinate Illustrating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/small_demos.html">Small Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/text_examples.html">Text Examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gallery/geometry_nodes/water_wave.html">Water Wave</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gallery/shader_nodes/torus_knot.html">Torus Knot</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="socket_types.html">Available Socket Types</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="apidocs/index.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="apidocs/pynodes/pynodes.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pynodes</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="apidocs/pynodes/pynodes.html#submodules">Submodules</a><ul>
@@ -411,6 +388,7 @@
 <li><a class="reference internal" href="#">Home</a><ul>
 <li><a class="reference internal" href="#about-the-birth-of-this-module">About the birth of this module</a></li>
 <li><a class="reference internal" href="#prerequisities">Prerequisities</a></li>
+<li><a class="reference internal" href="#bacis-concepts">Bacis Concepts</a></li>
 <li><a class="reference internal" href="#content">Content</a><ul>
 </ul>
 </li>

@@ -49,6 +49,10 @@ Classes
      - .. autodoc2-docstring:: pynodes.core.SimulationOutput
           :parser: myst
           :summary:
+   * - :py:obj:`SimulationZone <pynodes.core.SimulationZone>`
+     - .. autodoc2-docstring:: pynodes.core.SimulationZone
+          :parser: myst
+          :summary:
    * - :py:obj:`Script <pynodes.core.Script>`
      - .. autodoc2-docstring:: pynodes.core.Script
           :parser: myst
@@ -226,6 +230,7 @@ API
 
    .. py:property:: name
       :canonical: pynodes.core.Socket.name
+      :type: str
 
       .. autodoc2-docstring:: pynodes.core.Socket.name
          :parser: myst
@@ -261,10 +266,70 @@ API
       .. autodoc2-docstring:: pynodes.core.Socket.Float
          :parser: myst
 
+   .. py:property:: Angle
+      :canonical: pynodes.core.Socket.Angle
+
+      .. autodoc2-docstring:: pynodes.core.Socket.Angle
+         :parser: myst
+
+   .. py:property:: Distance
+      :canonical: pynodes.core.Socket.Distance
+
+      .. autodoc2-docstring:: pynodes.core.Socket.Distance
+         :parser: myst
+
+   .. py:property:: Factor
+      :canonical: pynodes.core.Socket.Factor
+
+      .. autodoc2-docstring:: pynodes.core.Socket.Factor
+         :parser: myst
+
+   .. py:property:: Percentage
+      :canonical: pynodes.core.Socket.Percentage
+
+      .. autodoc2-docstring:: pynodes.core.Socket.Percentage
+         :parser: myst
+
+   .. py:property:: FloatTime
+      :canonical: pynodes.core.Socket.FloatTime
+
+      .. autodoc2-docstring:: pynodes.core.Socket.FloatTime
+         :parser: myst
+
+   .. py:property:: FloatTimeAbsolute
+      :canonical: pynodes.core.Socket.FloatTimeAbsolute
+
+      .. autodoc2-docstring:: pynodes.core.Socket.FloatTimeAbsolute
+         :parser: myst
+
+   .. py:property:: Unsigned
+      :canonical: pynodes.core.Socket.Unsigned
+
+      .. autodoc2-docstring:: pynodes.core.Socket.Unsigned
+         :parser: myst
+
    .. py:property:: Integer
       :canonical: pynodes.core.Socket.Integer
 
       .. autodoc2-docstring:: pynodes.core.Socket.Integer
+         :parser: myst
+
+   .. py:property:: IntFactor
+      :canonical: pynodes.core.Socket.IntFactor
+
+      .. autodoc2-docstring:: pynodes.core.Socket.IntFactor
+         :parser: myst
+
+   .. py:property:: IntPercentage
+      :canonical: pynodes.core.Socket.IntPercentage
+
+      .. autodoc2-docstring:: pynodes.core.Socket.IntPercentage
+         :parser: myst
+
+   .. py:property:: IntUnsigned
+      :canonical: pynodes.core.Socket.IntUnsigned
+
+      .. autodoc2-docstring:: pynodes.core.Socket.IntUnsigned
          :parser: myst
 
    .. py:property:: Boolean
@@ -277,6 +342,42 @@ API
       :canonical: pynodes.core.Socket.Vector
 
       .. autodoc2-docstring:: pynodes.core.Socket.Vector
+         :parser: myst
+
+   .. py:property:: VectorAcceleration
+      :canonical: pynodes.core.Socket.VectorAcceleration
+
+      .. autodoc2-docstring:: pynodes.core.Socket.VectorAcceleration
+         :parser: myst
+
+   .. py:property:: VectorDirection
+      :canonical: pynodes.core.Socket.VectorDirection
+
+      .. autodoc2-docstring:: pynodes.core.Socket.VectorDirection
+         :parser: myst
+
+   .. py:property:: VectorEuler
+      :canonical: pynodes.core.Socket.VectorEuler
+
+      .. autodoc2-docstring:: pynodes.core.Socket.VectorEuler
+         :parser: myst
+
+   .. py:property:: VectorTranslation
+      :canonical: pynodes.core.Socket.VectorTranslation
+
+      .. autodoc2-docstring:: pynodes.core.Socket.VectorTranslation
+         :parser: myst
+
+   .. py:property:: VectorVelocity
+      :canonical: pynodes.core.Socket.VectorVelocity
+
+      .. autodoc2-docstring:: pynodes.core.Socket.VectorVelocity
+         :parser: myst
+
+   .. py:property:: VectorXYZ
+      :canonical: pynodes.core.Socket.VectorXYZ
+
+      .. autodoc2-docstring:: pynodes.core.Socket.VectorXYZ
          :parser: myst
 
    .. py:property:: Color
@@ -561,6 +662,35 @@ API
       :canonical: pynodes.core.SimulationOutput.link_from
 
       .. autodoc2-docstring:: pynodes.core.SimulationOutput.link_from
+         :parser: myst
+
+.. py:class:: SimulationZone(input_node: pynodes.core.SimulationInput, output_node: pynodes.core.SimulationOutput)
+   :canonical: pynodes.core.SimulationZone
+
+   .. autodoc2-docstring:: pynodes.core.SimulationZone
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.core.SimulationZone.__init__
+      :parser: myst
+
+   .. py:method:: to_ouput(socket: pynodes.core.Socket, index=0)
+      :canonical: pynodes.core.SimulationZone.to_ouput
+
+      .. autodoc2-docstring:: pynodes.core.SimulationZone.to_ouput
+         :parser: myst
+
+   .. py:method:: to_ouputs(*sockets: pynodes.core.Socket)
+      :canonical: pynodes.core.SimulationZone.to_ouputs
+
+      .. autodoc2-docstring:: pynodes.core.SimulationZone.to_ouputs
+         :parser: myst
+
+   .. py:property:: delta_time
+      :canonical: pynodes.core.SimulationZone.delta_time
+
+      .. autodoc2-docstring:: pynodes.core.SimulationZone.delta_time
          :parser: myst
 
 .. py:class:: Script(bnode: bpy.types.Node)

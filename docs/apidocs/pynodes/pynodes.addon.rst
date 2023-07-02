@@ -225,7 +225,7 @@ API
    .. autodoc2-docstring:: pynodes.addon.arrange
       :parser: myst
 
-.. py:function:: arrange_tree(btree: bpy.types.NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, frame_margin_y=10, node_center1=True, node_center2=True, only_selected_frame=False)
+.. py:function:: arrange_tree(btree: bpy.types.NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, frame_margin_y=10, node_center1=True, node_center2=True, only_selected_frame=False, reverse_single_link_sequence=False)
    :canonical: pynodes.addon.arrange_tree
 
    .. autodoc2-docstring:: pynodes.addon.arrange_tree
