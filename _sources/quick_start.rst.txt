@@ -28,6 +28,8 @@ Then the module ``pynodes`` is in your python path of blender,
 and the UI will appear in the Sidebar of Node Editor of Blender.
 The nodes in node editor can be arranged in real time with the parameters in UI.
 
+.. thumbnail:: https://i.ibb.co/pbW146k/image.gif
+
 Setup VSCode
 ==============
 
