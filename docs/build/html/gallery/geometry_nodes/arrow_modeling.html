@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Mesh Surface to Maze" href="mesh_faces_to_maze.html" /><link rel="prev" title="Fractals Geometry" href="fractals_geometry.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Atom Links" href="atom_links.html" /><link rel="prev" title="Gallery" href="../index.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon-light.png"/><!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
-        <title>Mesh Transition - Pynodes v0.1.0 documentation</title>
+        <title>Arrow modeling - Pynodes v0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -166,11 +166,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick Start</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Gallery</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Gallery</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="arrow_modeling.html">Arrow modeling</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Arrow modeling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="atom_links.html">Atom Links</a></li>
 <li class="toctree-l2"><a class="reference internal" href="clone_to_mesh_faces.html">Clone to Mesh Faces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fractals_geometry.html">Fractals Geometry</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Mesh Transition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_morph.html">Mesh Transition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mesh_faces_to_maze.html">Mesh Surface to Maze</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mobius_band.html">Möbius Band</a></li>
 <li class="toctree-l2"><a class="reference internal" href="polar_coord_illustrating.html">Polar Coordinate Illustrating</a></li>
@@ -214,7 +214,7 @@
         </a>
         <div class="content-icon-container">
           <div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/iplai/pynodes/edit/main/docs/gallery/geometry_nodes/geometry_morph.rst" title="Edit this page">
+  <a class="muted-link" href="https://github.com/iplai/pynodes/edit/main/docs/gallery/geometry_nodes/arrow_modeling.rst" title="Edit this page">
     <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
@@ -236,17 +236,32 @@
           </label>
         </div>
         <article role="main">
-          <section id="mesh-transition">
-<h1>Mesh Transition<a class="headerlink" href="#mesh-transition" title="Permalink to this heading">#</a></h1>
+          <section id="arrow-modeling">
+<h1>Arrow modeling<a class="headerlink" href="#arrow-modeling" title="Permalink to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This example is derived from the <a class="reference external" href="https://github.com/al1brn/geonodes/blob/main/docs/arrow.md">example</a> from <code class="docutils literal notranslate"><span class="pre">geonodes</span></code>, you can compare <code class="docutils literal notranslate"><span class="pre">pynodes</span></code> with <code class="docutils literal notranslate"><span class="pre">geonodes</span></code> in this example.</p>
+</div>
 <div class="pynodes admonition">
-<p class="admonition-title">Mesh Transition</p>
+<p class="admonition-title">arrow_coord</p>
 <a class=""
                data-lightbox="group-default"
-               href="../../_images/Snipaste_2023-06-29_07-37-501.png"
+               href="https://i.ibb.co/BcTyWQz/Arrow-comp.png"
                title=""
                data-title=""
                
-               ><img src="../../_images/Snipaste_2023-06-29_07-37-501.png"
+               ><img src="https://i.ibb.co/BcTyWQz/Arrow-comp.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><a class=""
+               data-lightbox="group-default"
+               href="https://i.ibb.co/q10sgLs/image.png"
+               title=""
+               data-title=""
+               
+               ><img src="https://i.ibb.co/q10sgLs/image.png"
                      class=""
                      width="100%"
                      height="auto"
@@ -255,54 +270,154 @@
 <span class="kn">from</span> <span class="nn">pynodes.math</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="nd">@tree</span>
-<span class="k">def</span> <span class="nf">mesh_transition</span><span class="p">(</span><span class="n">mesh1</span><span class="p">:</span> <span class="n">Mesh</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">:</span> <span class="n">Mesh</span><span class="p">,</span> <span class="n">factor</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">smooth</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">arrow_coord</span><span class="p">(</span>
+    <span class="n">l</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Length&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="n">r</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Radius&quot;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">),</span>
+    <span class="n">s</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Head size&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.001</span><span class="p">),</span>
+    <span class="n">α</span><span class="p">:</span> <span class="n">Angle</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Angle&quot;</span><span class="p">,</span> <span class="n">radians</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span> <span class="n">radians</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">radians</span><span class="p">(</span><span class="mf">89.999</span><span class="p">)),</span>
+    <span class="n">k</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Recess&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">),</span>
+<span class="p">):</span>
+    <span class="n">rh</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">s</span>
 
-    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Old Position&quot;</span><span class="p">):</span>
+    <span class="n">tg</span> <span class="o">=</span> <span class="n">tan</span><span class="p">(</span><span class="n">α</span><span class="p">)</span>
 
-        <span class="n">old_pos</span> <span class="o">=</span> <span class="n">mesh1</span><span class="o">.</span><span class="n">capture_vector_on_points</span><span class="p">(</span><span class="n">mesh1</span><span class="o">.</span><span class="n">position</span><span class="p">)</span>
+    <span class="n">hh</span> <span class="o">=</span> <span class="n">rh</span> <span class="o">/</span> <span class="n">tg</span>
+    <span class="n">z0</span> <span class="o">=</span> <span class="n">l</span> <span class="o">-</span> <span class="n">hh</span>
 
-    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;New Position&quot;</span><span class="p">):</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">r</span> <span class="o">/</span> <span class="n">tg</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 
-        <span class="n">new_pos</span> <span class="o">=</span> <span class="n">mesh2</span><span class="o">.</span><span class="n">sample_vector_at_index</span><span class="p">(</span><span class="n">mesh2</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="n">mesh2</span><span class="o">.</span><span class="n">sample_nearest</span><span class="p">())</span>
+    <span class="n">z1</span> <span class="o">=</span> <span class="n">z0</span> <span class="o">+</span> <span class="n">d</span>
+    <span class="n">z2</span> <span class="o">=</span> <span class="n">z0</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="n">h</span> <span class="o">*</span> <span class="n">s</span>
 
-    <span class="n">mesh1</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">old_pos</span><span class="o">.</span><span class="n">mix</span><span class="p">(</span><span class="n">new_pos</span><span class="p">,</span> <span class="n">factor</span><span class="p">))</span>
-
-    <span class="k">return</span> <span class="n">mesh1</span><span class="o">.</span><span class="n">set_shade_smooth</span><span class="p">(</span><span class="n">shade_smooth</span><span class="o">=</span><span class="n">smooth</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">factor</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">z1</span><span class="p">,</span> <span class="n">z2</span>
 </pre></div>
 </div>
 </div>
 <div class="pynodes admonition">
-<p class="admonition-title">Mesh Transition Test</p>
+<p class="admonition-title">coord_correction</p>
 <a class=""
                data-lightbox="group-default"
-               href="../../_images/Snipaste_2023-06-29_07-39-061.png"
+               href="https://i.ibb.co/gv4793z/image.png"
                title=""
                data-title=""
                
-               ><img src="../../_images/Snipaste_2023-06-29_07-39-061.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/>
-                </a><a class=""
-               data-lightbox="group-default"
-               href="../../_images/Snipaste_2023-06-29_07-40-061.gif"
-               title=""
-               data-title=""
-               
-               ><img src="../../_images/Snipaste_2023-06-29_07-40-061.gif"
+               ><img src="https://i.ibb.co/gv4793z/image.png"
                      class=""
                      width="100%"
                      height="auto"
                      alt=""/>
                 </a><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@tree</span>
-<span class="k">def</span> <span class="nf">mesh_transition_test</span><span class="p">(</span><span class="n">factor</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
+<span class="k">def</span> <span class="nf">coord_correction</span><span class="p">(</span><span class="n">vertices</span><span class="p">:</span> <span class="n">Integer</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">)):</span>
 
-    <span class="n">mesh1</span> <span class="o">=</span> <span class="n">MeshCube</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">subdivision_surface</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">cos</span><span class="p">(</span><span class="n">pi</span> <span class="o">/</span> <span class="n">vertices</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
 
-    <span class="n">mesh2</span> <span class="o">=</span> <span class="n">MeshIcoSphere</span><span class="p">(</span><span class="n">subdivisions</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mesh</span>
+    <span class="n">position</span> <span class="o">=</span> <span class="n">InputPosition</span><span class="p">()</span>
 
-    <span class="k">return</span> <span class="n">mesh_transition</span><span class="p">(</span><span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">,</span> <span class="n">factor</span><span class="p">)</span>
+    <span class="n">corrected_pos</span> <span class="o">=</span> <span class="n">position</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">corrected_pos</span>
+</pre></div>
+</div>
+</div>
+<div class="pynodes admonition">
+<p class="admonition-title">arrow_modeling</p>
+<a class=""
+               data-lightbox="group-default"
+               href="https://i.ibb.co/Q9k7jC0/image.png"
+               title=""
+               data-title=""
+               
+               ><img src="https://i.ibb.co/Q9k7jC0/image.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@tree</span>
+<span class="k">def</span> <span class="nf">arrow_modeling</span><span class="p">(</span> <span class="c1"># name(Optional), default, min(Optional), max(Optional)</span>
+    <span class="n">l</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Length&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="n">r</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Radius&quot;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">),</span>
+    <span class="n">s</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Head size&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.001</span><span class="p">),</span>
+    <span class="n">α</span><span class="p">:</span> <span class="n">Angle</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Angle&quot;</span><span class="p">,</span> <span class="n">radians</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span> <span class="n">radians</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">radians</span><span class="p">(</span><span class="mf">89.999</span><span class="p">)),</span>
+    <span class="n">k</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Recess&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">),</span>
+    <span class="n">vertices</span><span class="p">:</span> <span class="n">Integer</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="n">target</span><span class="p">:</span> <span class="n">Object</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">):</span>
+    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;The start circle from bottom&quot;</span><span class="p">):</span>
+
+        <span class="n">arrow</span> <span class="o">=</span> <span class="n">MeshCircle</span><span class="p">(</span><span class="n">vertices</span><span class="o">=</span><span class="n">vertices</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">fill_type</span><span class="o">=</span><span class="s1">&#39;NGON&#39;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Calculate z1 and z2&quot;</span><span class="p">):</span>
+
+        <span class="n">z1</span><span class="p">,</span> <span class="n">z2</span> <span class="o">=</span> <span class="n">arrow_coord</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">α</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Extrude the arrow shaft&quot;</span><span class="p">):</span>
+
+        <span class="n">arrow</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">sides</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">extrude_edges</span><span class="p">(</span><span class="n">offset_scale</span><span class="o">=</span><span class="n">z1</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Set the material of the arrow shaft&quot;</span><span class="p">):</span>
+
+        <span class="n">arrow</span><span class="o">.</span><span class="n">set_material</span><span class="p">(</span><span class="s2">&quot;Arrow Shaft&quot;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Correct the position of the arrow head&quot;</span><span class="p">):</span>
+
+        <span class="n">corrected_pos</span> <span class="o">=</span> <span class="n">coord_correction</span><span class="p">(</span><span class="n">vertices</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Extrude the arrow inner part of the arrow head&quot;</span><span class="p">):</span>
+
+        <span class="n">arrow</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">sides</span> <span class="o">=</span> <span class="n">arrow</span><span class="p">[</span><span class="n">top</span><span class="p">]</span><span class="o">.</span><span class="n">extrude_edges</span><span class="p">(</span><span class="n">offset</span><span class="o">=</span><span class="n">corrected_pos</span> <span class="o">-</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">z2</span><span class="p">),</span> <span class="n">offset_scale</span><span class="o">=</span><span class="n">s</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Set the material of the arrow head&quot;</span><span class="p">):</span>
+
+        <span class="n">arrow</span><span class="p">[</span><span class="n">sides</span><span class="p">]</span><span class="o">.</span><span class="n">set_material</span><span class="p">(</span><span class="s2">&quot;Arrow Head&quot;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Extrude the outer part of the arrow head&quot;</span><span class="p">):</span>
+
+        <span class="n">arrow</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">sides</span> <span class="o">=</span> <span class="n">arrow</span><span class="p">[</span><span class="n">top</span><span class="p">]</span><span class="o">.</span><span class="n">extrude_edges</span><span class="p">(</span><span class="n">offset</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span> <span class="o">-</span> <span class="n">corrected_pos</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;The location the arrow should point to&quot;</span><span class="p">):</span>
+
+        <span class="n">loc</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">object_info</span><span class="p">(</span><span class="s2">&quot;RELATIVE&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">location</span>
+
+    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Rotate the arrow to the location of the target object&quot;</span><span class="p">):</span>
+
+        <span class="n">rot_track</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">align_euler_to_vector</span><span class="p">(</span><span class="s2">&quot;Z&quot;</span><span class="p">)</span>
+
+        <span class="n">arrow</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="n">rot_track</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">arrow</span>
+</pre></div>
+</div>
+</div>
+<div class="pynodes admonition">
+<p class="admonition-title">Arrow materials</p>
+<a class=""
+               data-lightbox="group-default"
+               href="https://i.ibb.co/GdndKM6/image.png"
+               title=""
+               data-title=""
+               
+               ><img src="https://i.ibb.co/GdndKM6/image.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@tree</span>
+<span class="k">def</span> <span class="nf">arrow_head</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;@material&quot;&quot;&quot;</span>
+
+    <span class="n">shader</span> <span class="o">=</span> <span class="n">BSDF</span><span class="o">.</span><span class="n">Principled</span><span class="p">(</span><span class="n">base_color</span><span class="o">=</span><span class="s2">&quot;#3ac463&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">shader</span>
+
+
+<span class="nd">@tree</span>
+<span class="k">def</span> <span class="nf">arrow_shaft</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;@material&quot;&quot;&quot;</span>
+
+    <span class="n">shader</span> <span class="o">=</span> <span class="n">BSDF</span><span class="o">.</span><span class="n">Principled</span><span class="p">(</span><span class="n">base_color</span><span class="o">=</span><span class="s2">&quot;#2c6397&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">shader</span>
 </pre></div>
 </div>
 </div>
@@ -313,23 +428,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="mesh_faces_to_maze.html">
+          <a class="next-page" href="atom_links.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Mesh Surface to Maze</div>
+                <div class="title">Atom Links</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="fractals_geometry.html">
+          <a class="prev-page" href="../index.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Fractals Geometry</div>
+                <div class="title">Gallery</div>
                 
               </div>
             </a>

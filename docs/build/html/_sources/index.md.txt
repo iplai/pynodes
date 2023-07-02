@@ -5,7 +5,7 @@
 [![Python 3.10 +](https://img.shields.io/badge/python-3.10_+-blue.svg)](https://www.python.org/downloads/release/python-310/)
 [![Blender](https://img.shields.io/badge/Blender-_3.5.1~3.6.0_-blue)](http://www.blender.org)
 
-*[Pynodes](https://github.com/iplai/pynodes/) is ia a module as well as an addon for blender to create all kinds of nodes in node editor with python sciprts.*
+*[Pynodes](https://github.com/iplai/pynodes/) is a module as well as an addon for blender to create all kinds of nodes in node editor with python sciprts.*
 
 ---
 

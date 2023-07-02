@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Mesh Surface to Maze" href="mesh_faces_to_maze.html" /><link rel="prev" title="Fractals Geometry" href="fractals_geometry.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Polar Coordinate Illustrating" href="polar_coord_illustrating.html" /><link rel="prev" title="Mesh Surface to Maze" href="mesh_faces_to_maze.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon-light.png"/><!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
-        <title>Mesh Transition - Pynodes v0.1.0 documentation</title>
+        <title>Möbius Band - Pynodes v0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -170,9 +170,9 @@
 <li class="toctree-l2"><a class="reference internal" href="atom_links.html">Atom Links</a></li>
 <li class="toctree-l2"><a class="reference internal" href="clone_to_mesh_faces.html">Clone to Mesh Faces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fractals_geometry.html">Fractals Geometry</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Mesh Transition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_morph.html">Mesh Transition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mesh_faces_to_maze.html">Mesh Surface to Maze</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mobius_band.html">Möbius Band</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Möbius Band</a></li>
 <li class="toctree-l2"><a class="reference internal" href="polar_coord_illustrating.html">Polar Coordinate Illustrating</a></li>
 <li class="toctree-l2"><a class="reference internal" href="small_demos.html">Small Demos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="text_examples.html">Text Examples</a></li>
@@ -214,7 +214,7 @@
         </a>
         <div class="content-icon-container">
           <div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/iplai/pynodes/edit/main/docs/gallery/geometry_nodes/geometry_morph.rst" title="Edit this page">
+  <a class="muted-link" href="https://github.com/iplai/pynodes/edit/main/docs/gallery/geometry_nodes/mobius_band.rst" title="Edit this page">
     <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
@@ -236,73 +236,116 @@
           </label>
         </div>
         <article role="main">
-          <section id="mesh-transition">
-<h1>Mesh Transition<a class="headerlink" href="#mesh-transition" title="Permalink to this heading">#</a></h1>
-<div class="pynodes admonition">
-<p class="admonition-title">Mesh Transition</p>
-<a class=""
-               data-lightbox="group-default"
-               href="../../_images/Snipaste_2023-06-29_07-37-501.png"
-               title=""
-               data-title=""
-               
-               ><img src="../../_images/Snipaste_2023-06-29_07-37-501.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/>
-                </a><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pynodes</span> <span class="kn">import</span> <span class="o">*</span>
+          <section id="mobius-band">
+<h1>Möbius Band<a class="headerlink" href="#mobius-band" title="Permalink to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At first, import namespace</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pynodes</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">pynodes.math</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="nd">@tree</span>
-<span class="k">def</span> <span class="nf">mesh_transition</span><span class="p">(</span><span class="n">mesh1</span><span class="p">:</span> <span class="n">Mesh</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">:</span> <span class="n">Mesh</span><span class="p">,</span> <span class="n">factor</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">smooth</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
-
-    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Old Position&quot;</span><span class="p">):</span>
-
-        <span class="n">old_pos</span> <span class="o">=</span> <span class="n">mesh1</span><span class="o">.</span><span class="n">capture_vector_on_points</span><span class="p">(</span><span class="n">mesh1</span><span class="o">.</span><span class="n">position</span><span class="p">)</span>
-
-    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;New Position&quot;</span><span class="p">):</span>
-
-        <span class="n">new_pos</span> <span class="o">=</span> <span class="n">mesh2</span><span class="o">.</span><span class="n">sample_vector_at_index</span><span class="p">(</span><span class="n">mesh2</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="n">mesh2</span><span class="o">.</span><span class="n">sample_nearest</span><span class="p">())</span>
-
-    <span class="n">mesh1</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">old_pos</span><span class="o">.</span><span class="n">mix</span><span class="p">(</span><span class="n">new_pos</span><span class="p">,</span> <span class="n">factor</span><span class="p">))</span>
-
-    <span class="k">return</span> <span class="n">mesh1</span><span class="o">.</span><span class="n">set_shade_smooth</span><span class="p">(</span><span class="n">shade_smooth</span><span class="o">=</span><span class="n">smooth</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">factor</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="pynodes admonition">
-<p class="admonition-title">Mesh Transition Test</p>
+<p class="admonition-title">extrude_faces</p>
 <a class=""
                data-lightbox="group-default"
-               href="../../_images/Snipaste_2023-06-29_07-39-061.png"
+               href="https://i.ibb.co/rMq2GmK/image.png"
                title=""
                data-title=""
                
-               ><img src="../../_images/Snipaste_2023-06-29_07-39-061.png"
+               ><img src="https://i.ibb.co/rMq2GmK/image.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@tree</span>
+<span class="k">def</span> <span class="nf">extrude_faces</span><span class="p">(</span><span class="n">mesh</span><span class="p">:</span> <span class="n">Mesh</span><span class="p">,</span> <span class="n">distance</span><span class="p">:</span> <span class="n">Distance</span><span class="p">):</span>
+
+    <span class="n">mesh</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">side</span> <span class="o">=</span> <span class="n">mesh</span><span class="p">[</span><span class="n">mesh</span><span class="o">.</span><span class="n">index</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">extrude_faces</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Scale Extruded Top Faces&quot;</span><span class="p">):</span>
+
+        <span class="n">t</span> <span class="o">=</span> <span class="n">SceneTime</span><span class="p">()</span><span class="o">.</span><span class="n">seconds</span>
+
+        <span class="n">scale</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">map_range</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span>
+
+        <span class="n">mesh</span> <span class="o">=</span> <span class="n">mesh</span><span class="p">[</span><span class="n">top</span><span class="p">]</span><span class="o">.</span><span class="n">scale_elements</span><span class="p">(</span><span class="n">scale</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">mesh</span>
+</pre></div>
+</div>
+</div>
+<div class="pynodes admonition">
+<p class="admonition-title">curve_to_mesh</p>
+<a class=""
+               data-lightbox="group-default"
+               href="https://i.ibb.co/253SHkh/image.png"
+               title=""
+               data-title=""
+               
+               ><img src="https://i.ibb.co/253SHkh/image.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@tree</span>
+<span class="k">def</span> <span class="nf">curve_to_mesh</span><span class="p">(</span><span class="n">curve</span><span class="p">:</span> <span class="n">Curve</span><span class="p">):</span>
+
+    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Profile&quot;</span><span class="p">):</span>
+
+        <span class="n">profile</span> <span class="o">=</span> <span class="n">CurveCircle</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+        <span class="n">profile</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+
+    <span class="n">mesh</span> <span class="o">=</span> <span class="n">curve</span><span class="o">.</span><span class="n">to_mesh</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span><span class="o">.</span><span class="n">merge_by_distance</span><span class="p">(</span><span class="mf">0.03</span><span class="p">)</span><span class="o">.</span><span class="n">set_shade_smooth</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">mesh</span>
+</pre></div>
+</div>
+</div>
+<div class="pynodes admonition">
+<p class="admonition-title">möbius_band</p>
+<a class=""
+               data-lightbox="group-default"
+               href="https://i.ibb.co/W09mpf3/image.gif"
+               title=""
+               data-title=""
+               
+               ><img src="https://i.ibb.co/W09mpf3/image.gif"
                      class=""
                      width="100%"
                      height="auto"
                      alt=""/>
                 </a><a class=""
                data-lightbox="group-default"
-               href="../../_images/Snipaste_2023-06-29_07-40-061.gif"
+               href="https://i.ibb.co/YPs66Zz/image.png"
                title=""
                data-title=""
                
-               ><img src="../../_images/Snipaste_2023-06-29_07-40-061.gif"
+               ><img src="https://i.ibb.co/YPs66Zz/image.png"
                      class=""
                      width="100%"
                      height="auto"
                      alt=""/>
                 </a><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@tree</span>
-<span class="k">def</span> <span class="nf">mesh_transition_test</span><span class="p">(</span><span class="n">factor</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
+<span class="k">def</span> <span class="nf">möbius_band</span><span class="p">(</span><span class="n">resolution</span><span class="p">:</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="n">factor</span><span class="p">:</span> <span class="n">Factor</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">extrude_amount</span><span class="p">:</span> <span class="n">Distance</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
 
-    <span class="n">mesh1</span> <span class="o">=</span> <span class="n">MeshCube</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">subdivision_surface</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">curve</span> <span class="o">=</span> <span class="n">CurveCircle</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="n">resolution</span><span class="p">)</span><span class="o">.</span><span class="n">trim_factor</span><span class="p">(</span><span class="n">end</span><span class="o">=</span><span class="n">factor</span><span class="p">)</span>
 
-    <span class="n">mesh2</span> <span class="o">=</span> <span class="n">MeshIcoSphere</span><span class="p">(</span><span class="n">subdivisions</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mesh</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">SceneTime</span><span class="p">()</span><span class="o">.</span><span class="n">seconds</span>
 
-    <span class="k">return</span> <span class="n">mesh_transition</span><span class="p">(</span><span class="n">mesh1</span><span class="p">,</span> <span class="n">mesh2</span><span class="p">,</span> <span class="n">factor</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Set Curve Tilt&quot;</span><span class="p">):</span>
+
+        <span class="n">curve</span><span class="o">.</span><span class="n">set_tilt</span><span class="p">(</span><span class="n">curve</span><span class="o">.</span><span class="n">parameter</span><span class="o">.</span><span class="n">factor</span> <span class="o">*</span> <span class="n">factor</span> <span class="o">*</span> <span class="n">tau</span> <span class="o">+</span> <span class="n">t</span><span class="p">)</span>
+
+    <span class="n">sweeped_mesh</span> <span class="o">=</span> <span class="n">curve_to_mesh</span><span class="p">(</span><span class="n">curve</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Extrude faces of one side&quot;</span><span class="p">):</span>
+
+        <span class="n">extruded_mesh</span> <span class="o">=</span> <span class="n">extrude_faces</span><span class="p">(</span><span class="n">sweeped_mesh</span><span class="p">,</span> <span class="n">extrude_amount</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">join</span><span class="p">(</span><span class="n">sweeped_mesh</span><span class="o">.</span><span class="n">switch</span><span class="p">(</span><span class="n">extrude_amount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sweeped_mesh</span> <span class="o">+</span> <span class="n">extruded_mesh</span><span class="p">),</span> <span class="n">curve</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -313,23 +356,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="mesh_faces_to_maze.html">
+          <a class="next-page" href="polar_coord_illustrating.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Mesh Surface to Maze</div>
+                <div class="title">Polar Coordinate Illustrating</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="fractals_geometry.html">
+          <a class="prev-page" href="mesh_faces_to_maze.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Fractals Geometry</div>
+                <div class="title">Mesh Surface to Maze</div>
                 
               </div>
             </a>

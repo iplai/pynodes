@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Water Wave" href="water_wave.html" /><link rel="prev" title="Mesh Surface to Maze" href="mesh_faces_to_maze.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Water Wave" href="water_wave.html" /><link rel="prev" title="Möbius Band" href="mobius_band.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon-light.png"/><!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
         <title>Small Demos - Pynodes v0.1.0 documentation</title>
@@ -171,6 +171,7 @@
 <li class="toctree-l2"><a class="reference internal" href="fractals_geometry.html">Fractals Geometry</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometry_morph.html">Mesh Transition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mesh_faces_to_maze.html">Mesh Surface to Maze</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mobius_band.html">Möbius Band</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Small Demos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="water_wave.html">Water Wave</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../shader_nodes/torus_knot.html">Torus Knot</a></li>
@@ -288,6 +289,53 @@
 </div>
 </div>
 </section>
+<section id="link-vertices">
+<h2>Link Vertices<a class="headerlink" href="#link-vertices" title="Permalink to this heading">#</a></h2>
+<div class="pynodes admonition">
+<p class="admonition-title">Link Vertices</p>
+<a class=""
+               data-lightbox="group-default"
+               href="https://i.ibb.co/Pz1TJZ9/image.gif"
+               title=""
+               data-title=""
+               
+               ><img src="https://i.ibb.co/Pz1TJZ9/image.gif"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><a class=""
+               data-lightbox="group-default"
+               href="https://i.ibb.co/3fdspnJ/image.png"
+               title=""
+               data-title=""
+               
+               ><img src="https://i.ibb.co/3fdspnJ/image.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">link_vertices</span><span class="p">(</span><span class="n">trim_end</span><span class="p">:</span> <span class="n">Factor</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
+
+    <span class="n">points</span> <span class="o">=</span> <span class="n">MeshIcoSphere</span><span class="p">(</span><span class="n">subdivisions</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">distribute_points_on_faces</span><span class="p">()</span><span class="o">.</span><span class="n">points</span>
+
+    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Point Count&quot;</span><span class="p">):</span>
+
+        <span class="n">count</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">float_statistic_on_points</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">max</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="n">line</span> <span class="o">=</span> <span class="n">CurveLine</span><span class="p">()</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Set vertex position of line&quot;</span><span class="p">):</span>
+
+        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">sample_vector_at_index</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="n">points</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+
+    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">trim_factor</span><span class="p">(</span><span class="n">trim_end</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">line</span> <span class="o">+</span> <span class="n">points</span>
+</pre></div>
+</div>
+</div>
+</section>
 </section>
 
         </article>
@@ -304,14 +352,14 @@
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="mesh_faces_to_maze.html">
+          <a class="prev-page" href="mobius_band.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Mesh Surface to Maze</div>
+                <div class="title">Möbius Band</div>
                 
               </div>
             </a>
@@ -354,6 +402,7 @@
             <ul>
 <li><a class="reference internal" href="#">Small Demos</a><ul>
 <li><a class="reference internal" href="#flying-dust">Flying Dust</a></li>
+<li><a class="reference internal" href="#link-vertices">Link Vertices</a></li>
 </ul>
 </li>
 </ul>

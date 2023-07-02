@@ -23,16 +23,16 @@ class PYNODES_PT_MAIN(Panel):
         row.prop(context.scene, 'framemargin_x', text="X")
         row.prop(context.scene, 'framemargin_y', text="Y")
 
+        layout.row().label(text="Center Each Column Vertically:")
         row = layout.row()
-        row.prop(context.scene, 'node_center', text="Column Center")
-        row.prop(context.scene, 'selected_frame', text="Selected Frame")
+        row.prop(context.scene, 'node_center1', text="Left to Right")
+        row.prop(context.scene, 'node_center2', text="Right to Left")
+        row = layout.row()
+        row.prop(context.scene, 'only_selected_frame', text="Only Arrange Selected Frame")
 
         # get current active tree
         btree = get_active_tree(context)
         if btree is not None:
-            Tree = btree.name
-            # layout.row().label(text=f"{Tree = }")
-
             # node = btree.nodes.active
             node = context.active_node
             if node is not None and node.select:
@@ -62,6 +62,11 @@ class PYNODES_OT_ARRANGE(Operator):
     def invoke(self, context, value):
         arrange(self, context)
         return {'FINISHED'}
+
+    @classmethod
+    def poll(cls, context: Context):
+        space = context.space_data
+        return space and (space.type == 'NODE_EDITOR') and space.edit_tree and not space.edit_tree.library
 
 
 class PYNODES_OT_PURGE(Operator):
@@ -139,13 +144,14 @@ def arrange(self, context: Context):
 
     margin_x, margin_y = context.scene.nodemargin_x, context.scene.nodemargin_y
     frame_margin_x, frame_margin_y = context.scene.framemargin_x, context.scene.framemargin_y
-    column_center = context.scene.node_center
-    selected_frame = context.scene.selected_frame
+    node_center1 = context.scene.node_center1
+    node_center2 = context.scene.node_center2
+    only_selected_frame = context.scene.only_selected_frame
 
-    arrange_tree(btree, margin_x, margin_y, frame_margin_x, frame_margin_y, column_center, selected_frame)
+    arrange_tree(btree, margin_x, margin_y, frame_margin_x, frame_margin_y, node_center1, node_center2, only_selected_frame)
 
 
-def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, frame_margin_y=10, column_center=True, only_selected_frame=False):
+def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, frame_margin_y=10, node_center1=True, node_center2=True, only_selected_frame=False):
     # A list to record all frames and their level
     frames_level: list[tuple(NodeFrame, int)] = []
     for node in btree.nodes:
@@ -284,7 +290,7 @@ def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, f
                     link: NodeLink
                     for link in reversed(input.links):
                         node_to_add = match_frame_node(link.from_node, remain_nodes)
-                        if node_to_add is not None:
+                        if node_to_add is not None and node_to_add != node:
                             remain_nodes_col_index[node_to_add] = index + 1
                             if node_to_add not in cols[index + 1].nodes:
                                 cols[index + 1].nodes.append(node_to_add)
@@ -338,8 +344,8 @@ def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, f
                         col.height += frame_margin_y
                         y -= frame_margin_y
                     elif previsous_is_frame and not current_is_frame:
-                        col.height += frame_margin_y - frame_padding[1] * 2
-                        y -= frame_margin_y - frame_padding[1] * 2
+                        col.height += frame_margin_y - frame_padding[1]
+                        y -= frame_margin_y - frame_padding[1]
                     elif not previsous_is_frame and current_is_frame:
                         col.height += frame_margin_y + frame_padding[1]
                         y -= frame_margin_y + frame_padding[1]
@@ -372,10 +378,7 @@ def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, f
                     node.label = f"{node.dimensions[0]:3.0f} {node.dimensions[1]:3.0f}"
         '''
 
-        # Arrange the location to the center of columns
-        if not column_center:
-            return
-
+        # If a child node is too tall, then don't aligin center
         for node in child_nodes:
             if not is_frame(node) and node.dimensions[1] >= 500:
                 return
@@ -383,36 +386,42 @@ def arrange_tree(btree: NodeTree, margin_x=60, margin_y=20, frame_margin_x=10, f
         diff_shreshold_factor = 0.66
 
         # Center from left columns to right columns
-        for i, col in reversed(list(enumerate(cols))):
-            if i == len(cols) - 1:
-                continue
-            if col.height < cols[i + 1].height / diff_shreshold_factor:
-                col.offset = cols[i + 1].offset
-            if col.height < cols[i + 1].height * diff_shreshold_factor:
-                col.offset += (cols[i + 1].height - col.height) / 2
-            if col.offset == 0:
-                continue
-            for j, node in enumerate(col.nodes):
-                # if j == 0 and node.bl_idname.startswith("GeometryNode"):
-                #     break
-                x, y = node.location
-                node.location = (x, y - col.offset)
+        if node_center1:
+            for i, col in reversed(list(enumerate(cols))):
+                if i == len(cols) - 1:
+                    continue
+                current_height = col.height + col.offset
+                pre_height = cols[i + 1].height + cols[i + 1].offset
+                if current_height > pre_height * diff_shreshold_factor:
+                    continue
+                # col.offset + col.height / 2 + offset_y = cols[i - 1].offset + cols[i - 1].height / 2
+                offset_y = cols[i + 1].offset + cols[i + 1].height / 2 - (col.offset + col.height / 2)
+                if offset_y < 0:
+                    continue
+                else:
+                    col.offset += offset_y
+                for j, node in enumerate(col.nodes):
+                    x, y = node.location
+                    node.location = (x, y - offset_y)
 
         # Center from right columns to left columns
-        for i, col in enumerate(cols):
-            if i == 0:
-                continue
-            if (col.height + col.offset) > (cols[i - 1].height + cols[i - 1].offset) * diff_shreshold_factor:
-                continue
-            if cols[i - 1].offset != 0 and (col.height + col.offset) <= (cols[i - 1].height + cols[i - 1].offset) / diff_shreshold_factor:
-                col.offset = cols[i - 1].offset
-            if col.height < cols[i - 1].height * diff_shreshold_factor:
-                col.offset += (cols[i - 1].height - col.height) / 2
-            if col.offset == 0:
-                continue
-            for j, node in enumerate(col.nodes):
-                x, y = node.location
-                node.location = (x, y - col.offset)
+        if node_center2:
+            for i, col in enumerate(cols):
+                if i == 0:
+                    continue
+                current_height = col.height + col.offset
+                pre_height = cols[i - 1].height + cols[i - 1].offset
+                if current_height > pre_height * diff_shreshold_factor:
+                    continue
+                # col.offset + col.height / 2 + offset_y = cols[i - 1].offset + cols[i - 1].height / 2
+                offset_y = cols[i - 1].offset + cols[i - 1].height / 2 - (col.offset + col.height / 2)
+                if offset_y < 0:
+                    continue
+                else:
+                    col.offset += offset_y
+                for j, node in enumerate(col.nodes):
+                    x, y = node.location
+                    node.location = (x, y - offset_y)
 
     if only_selected_frame:
         has_frame_selected = False
@@ -435,8 +444,9 @@ def register():
     bpy.types.Scene.nodemargin_y = bpy.props.IntProperty(default=20, update=arrange)
     bpy.types.Scene.framemargin_x = bpy.props.IntProperty(default=10, update=arrange)
     bpy.types.Scene.framemargin_y = bpy.props.IntProperty(default=10, update=arrange)
-    bpy.types.Scene.node_center = bpy.props.BoolProperty(default=True, update=arrange)
-    bpy.types.Scene.selected_frame = bpy.props.BoolProperty(default=False)
+    bpy.types.Scene.node_center1 = bpy.props.BoolProperty(default=True, update=arrange)
+    bpy.types.Scene.node_center2 = bpy.props.BoolProperty(default=True, update=arrange)
+    bpy.types.Scene.only_selected_frame = bpy.props.BoolProperty(default=False)
 
 
 def unregister():
@@ -444,5 +454,6 @@ def unregister():
     del bpy.types.Scene.nodemargin_y
     del bpy.types.Scene.framemargin_x
     del bpy.types.Scene.framemargin_y
-    del bpy.types.Scene.node_center
-    del bpy.types.Scene.selected_frame
+    del bpy.types.Scene.node_center1
+    del bpy.types.Scene.node_center2
+    del bpy.types.Scene.only_selected_frame

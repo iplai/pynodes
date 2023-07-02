@@ -67,3 +67,52 @@ Link Vertices
             line = line.trim_factor(trim_end)
 
             return line + points
+
+
+Recursive Subdivide
+---------------------
+
+.. admonition:: random_subdivide_iterate
+    :class: pynodes
+
+    .. thumbnail:: https://i.ibb.co/XD9zjrX/image.png
+        
+    .. code:: python
+
+        @tree
+        def random_subdivide_iterate(mesh: Mesh, p: Float = ("Probability", 0.5, 0, 1), seed: Integer = 0):
+
+            mesh1, mesh2 = mesh.separate_faces(RandomBoolean(p, 0, seed))
+
+            mesh1 = mesh1.subdivide_mesh()
+
+            new_seed = (seed + 1).to_integer()
+
+            return mesh1.join(mesh2), p, new_seed("Seed")
+
+
+.. admonition:: random_subdivide
+    :class: pynodes
+
+    .. thumbnail:: https://i.ibb.co/2gSLrr7/image.png
+
+    .. thumbnail:: https://i.ibb.co/BBH7dCp/image.png
+        
+    .. code:: python
+
+        @tree
+        def random_subdivide(p: Float = ("Probability", 0.5, 0, 1), seed: Integer = 0):
+
+            mesh = MeshGrid(1, 1, 12, 12).mesh
+
+            mesh, p, seed = random_subdivide_iterate(mesh, p, seed)
+
+            mesh.node.label = f"Subdivide 1"
+
+            for i in range(3):
+
+                mesh, p, seed = random_subdivide_iterate(mesh, p, seed)
+
+                mesh.node.label = f"Subdivide {i+2}"
+
+            return mesh.split_edges()
