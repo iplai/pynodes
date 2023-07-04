@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="OSL Shader" href="shader_nodes/osl_shader.html" /><link rel="prev" title="Water Wave" href="geometry_nodes/water_wave.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Simulate Particles" href="simulation_nodes/simulate_particles.html" /><link rel="prev" title="World Shader" href="shader_nodes/world_shader.html" />
 
     <link rel="shortcut icon" href="../_static/favicon-light.png"/><!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
-        <title>Shader Nodes - Pynodes v0.1.0 documentation</title>
+        <title>Simulation Nodes - Pynodes v0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -190,13 +190,13 @@
 <li class="toctree-l3"><a class="reference internal" href="geometry_nodes/water_wave.html">Water Wave</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Shader Nodes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Shader Nodes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="shader_nodes.html">Shader Nodes</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Shader Nodes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="shader_nodes/osl_shader.html">OSL Shader</a></li>
 <li class="toctree-l3"><a class="reference internal" href="shader_nodes/toon_shader.html">Toon Shader</a></li>
 <li class="toctree-l3"><a class="reference internal" href="shader_nodes/world_shader.html">World Shader</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="simulation_nodes.html">Simulation Nodes</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Simulation Nodes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Simulation Nodes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Simulation Nodes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="simulation_nodes/simulate_particles.html">Simulate Particles</a></li>
 </ul>
 </li>
@@ -240,7 +240,7 @@
         </a>
         <div class="content-icon-container">
           <div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/iplai/pynodes/edit/main/docs/gallery/shader_nodes.rst" title="Edit this page">
+  <a class="muted-link" href="https://github.com/iplai/pynodes/edit/main/docs/gallery/simulation_nodes.rst" title="Edit this page">
     <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
@@ -262,40 +262,15 @@
           </label>
         </div>
         <article role="main">
-          <section id="shader-nodes">
-<h1>Shader Nodes<a class="headerlink" href="#shader-nodes" title="Permalink to this heading">#</a></h1>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>The difference between material tree and shader tree:</p>
-<ul class="simple">
-<li><p>The marks of the decorated function in docstring are different: <code class="docutils literal notranslate"><span class="pre">&#64;material</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;shader</span></code> respectively.</p></li>
-<li><p>A shader tree can be embeded in another shader tree or material tree, but material tree cannot.</p></li>
-<li><p>A material tree can be assigned to an object.</p></li>
-</ul>
+          <section id="simulation-nodes">
+<h1>Simulation Nodes<a class="headerlink" href="#simulation-nodes" title="Permalink to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>New in blender 3.6.0</p>
 </div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="shader_nodes/osl_shader.html">OSL Shader</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="shader_nodes/osl_shader.html#color-setting">Color Setting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shader_nodes/osl_shader.html#render-engine">Render Engine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shader_nodes/osl_shader.html#osl-support">OSL Support</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shader_nodes/osl_shader.html#load-ols-files">Load ols files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shader_nodes/osl_shader.html#define-shaders">Define Shaders</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="shader_nodes/toon_shader.html">Toon Shader</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="shader_nodes/toon_shader.html#color-setting">Color Setting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shader_nodes/toon_shader.html#inner-faces-shader">inner_faces_shader</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shader_nodes/toon_shader.html#inner-faces-shader-with-hole">inner_faces_shader_with_hole</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shader_nodes/toon_shader.html#ramped-diffuse-color">ramped_diffuse_color</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shader_nodes/toon_shader.html#enable-color-decorator">Enable Color Decorator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shader_nodes/toon_shader.html#grandient-color">grandient_color</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shader_nodes/toon_shader.html#material-toon">Material: toon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shader_nodes/toon_shader.html#material-toon-gradient">Material: toon_gradient</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shader_nodes/toon_shader.html#material-toon-inner">Material: toon_inner</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="shader_nodes/world_shader.html">World Shader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulation_nodes/simulate_particles.html">Simulate Particles</a></li>
 </ul>
 </div>
 </section>
@@ -305,23 +280,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="shader_nodes/osl_shader.html">
+          <a class="next-page" href="simulation_nodes/simulate_particles.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">OSL Shader</div>
+                <div class="title">Simulate Particles</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="geometry_nodes/water_wave.html">
+          <a class="prev-page" href="shader_nodes/world_shader.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Water Wave</div>
+                <div class="title">World Shader</div>
                 
               </div>
             </a>
