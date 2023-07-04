@@ -37,7 +37,7 @@ class Float(Socket):
         node = new_node(*nodes.ShaderNodeMix(data_type='FLOAT', clamp_factor=clamp_factor, factor_float=factor_float, a_float=self, b_float=b_float))
         return node.outputs[0].Float
 
-    def color_ramp_uniform(self, *colors):
+    def color_ramp(self, start_color=(0.0, 0.0, 0.0, 1.0), end_color=(1.0, 1.0, 1.0, 1.0), interpolation=None):
         """The Color Ramp Node is used for mapping values to colors with the use of a gradient.
 
         item of colors: hex string or float or tuple
@@ -55,6 +55,36 @@ class Float(Socket):
         node = new_node(*nodes.ShaderNodeValToRGB(None, self))
         bnode: bpy.types.ShaderNodeValToRGB = node.bnode
         color_ramp = bnode.color_ramp
+        if interpolation is not None:
+            color_ramp.interpolation = interpolation
+        element = color_ramp.elements[0]
+        element.color = color_tuple(start_color)
+        element = color_ramp.elements[1]
+        element.color = color_tuple(end_color)
+        return node.outputs[0].Color
+
+    def color_ramp_uniform(self, *colors, interpolation=None):
+        """The Color Ramp Node is used for mapping values to colors with the use of a gradient.
+
+        item of colors: hex string or float or tuple
+        #### Path
+        - Utilities > Color > Color Ramp Node
+        #### Outputs:
+        - `#0 color: Color = (0.0, 0.0, 0.0, 0.0)`
+        - `#1 alpha: Float = 0.0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/compositing_node-types_CompositorNodeValToRGB.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/color/color_ramp.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeValToRGB.html)
+        """
+        from .colors import color_tuple
+        node = new_node(*nodes.ShaderNodeValToRGB(None, self))
+        bnode: bpy.types.ShaderNodeValToRGB = node.bnode
+        color_ramp = bnode.color_ramp
+        if interpolation is not None:
+            color_ramp.interpolation = interpolation
+        if len(colors) > 0 and isinstance(colors[0], list):
+            colors = colors[0]
         count = len(colors)
         for _ in range(count - 2):
             color_ramp.elements.new(0)
@@ -64,7 +94,7 @@ class Float(Socket):
             element.color = color_tuple(color)
         return node.outputs[0].Color
 
-    def color_ramp_with_position(self, *colors: tuple):
+    def color_ramp_with_position(self, *colors: tuple, interpolation=None):
         """The Color Ramp Node is used for mapping values to colors with the use of a gradient.
 
         colors: `[(position, color), ...]` position from 0 to 1, color: hex string or float or tuple
@@ -82,6 +112,10 @@ class Float(Socket):
         node = new_node(*nodes.ShaderNodeValToRGB(None, self))
         bnode: bpy.types.ShaderNodeValToRGB = node.bnode
         color_ramp = bnode.color_ramp
+        if interpolation is not None:
+            color_ramp.interpolation = interpolation
+        if len(colors) > 0 and isinstance(colors[0], list):
+            colors = colors[0]
         count = len(colors)
         for _ in range(count - 2):
             color_ramp.elements.new(0)
@@ -2166,28 +2200,6 @@ class Shader(Socket):
         return node.outputs[0].Vector
 
     @staticmethod
-    def texture_coord(object=None, from_instancer=False):
-        """The Texture Coordinate node is commonly used for the coordinates of textures, typically used as inputs for the Vector input for texture nodes.
-        #### Path
-        - Input > Texture Coordinate Node
-        #### Outputs:
-        - `#0 generated: Vector = (0.0, 0.0, 0.0)`
-        - `#1 normal: Vector = (0.0, 0.0, 0.0)`
-        - `#2 uv: Vector = (0.0, 0.0, 0.0)`
-        - `#3 object: Vector = (0.0, 0.0, 0.0)`
-        - `#4 camera: Vector = (0.0, 0.0, 0.0)`
-        - `#5 window: Vector = (0.0, 0.0, 0.0)`
-        - `#6 reflection: Vector = (0.0, 0.0, 0.0)`
-
-        ![](https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexCoord.webp)
-
-        [[Manual]](https://docs.blender.org/manual/en/latest/render/shader_nodes/input/texture_coordinate.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexCoord.html)
-        """
-        node = new_node(*nodes.ShaderNodeTexCoord(from_instancer, object))
-        ret = typing.NamedTuple("ShaderNodeTexCoord", [("generated", Vector), ("normal", Vector), ("uv", Vector), ("object", Vector), ("camera", Vector), ("window", Vector), ("reflection", Vector)])
-        return ret(node.outputs[0].Vector, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Vector, node.outputs[4].Vector, node.outputs[5].Vector, node.outputs[6].Vector)
-
-    @staticmethod
     def uv_map(from_instancer=False, uv_map=''):
         """The UV Map node is used to retrieve specific UV maps. Unlike the Texture Coordinate Node which only provides the active UV map, this node can retrieve any UV map belonging to the object using the material.
         #### Path
@@ -3705,7 +3717,7 @@ def AmbientOcclusion(inside=False, only_local=False, samples=16, color=(1.0, 1.0
     return ret(node.outputs[0].Color, node.outputs[1].Float)
 
 
-def EnvironmentTexture(interpolation='Linear', projection='EQUIRECTANGULAR', color_mapping=None, image=None, image_user=None, texture_mapping=None, vector=(0.0, 0.0, 0.0)):
+def EnvironmentTexture(image=None, interpolation='Linear', projection='EQUIRECTANGULAR', vector=(0.0, 0.0, 0.0)):
     """The Node Environmental Texture is used to light your scene using an environment map image file as a texture.
     #### Path
     - Texture > Environment Texture Node
@@ -3719,7 +3731,9 @@ def EnvironmentTexture(interpolation='Linear', projection='EQUIRECTANGULAR', col
 
     [[Manual]](https://docs.blender.org/manual/en/latest/render/shader_nodes/textures/environment.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexEnvironment.html)
     """
-    node = new_node(*nodes.ShaderNodeTexEnvironment(interpolation, projection, color_mapping, image, image_user, texture_mapping, vector))
+    if isinstance(image, str):
+        image = bpy.data.images[image]
+    node = new_node(*nodes.ShaderNodeTexEnvironment(interpolation, projection, None, image, None, None, vector))
     ret = typing.NamedTuple("ShaderNodeTexEnvironment", [("color", Color)])
     return ret(node.outputs[0].Color)
 

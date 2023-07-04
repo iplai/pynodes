@@ -1,0 +1,8 @@
+shader simple_material(
+    color diffuse_color = color(0.6, 0.8, 0.6),
+    float noise_factor = 0.6,
+    output closure color BSDF = diffuse(N))
+{
+    color material_color = diffuse_color * mix(1.0, noise(P * 10.0), noise_factor);
+    BSDF = material_color * diffuse(N);
+}

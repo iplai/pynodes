@@ -1,0 +1,7 @@
+shader foo(
+    point Vector = P,
+    float Scale = 10,
+    output color Color = 0)
+{
+    Color = noise(Vector * Scale);
+}

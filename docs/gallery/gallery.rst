@@ -23,5 +23,5 @@ Enjoy this taste of *Pynodes*!
 .. toctree::
    :glob:
 
-   geometry_nodes/*
-   shader_nodes/*
+   geometry_nodes
+   shader_nodes

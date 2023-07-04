@@ -1,0 +1,8 @@
+shader foo(
+    float Radius = 1,
+    output color Color = 0)
+{
+    if (distance(P, 0) < radius) {
+        Color = 1;
+    }
+}

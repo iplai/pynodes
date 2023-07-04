@@ -20,8 +20,16 @@ Enjoy this taste of *Pynodes*!
 
    For geometry nodes, the full API documentation reference :class:`pynodes.geosocks`.
 
+Geometry Nodes
+=================
 .. toctree::
    :glob:
 
    geometry_nodes/*
+
+Shader Nodes
+=================
+.. toctree::
+   :glob:
+
    shader_nodes/*

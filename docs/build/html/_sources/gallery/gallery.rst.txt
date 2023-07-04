@@ -1,0 +1,27 @@
+###############
+Gallery
+###############
+
+This gallery contains a collection of best practice code snippets
+together with their corresponding video/image output, illustrating
+different functionalities all across the library.
+These are all under the MIT license, so feel free to copy & paste them to your projects.
+Enjoy this taste of *Pynodes*!
+
+.. tip::
+
+   Start coding with this line:
+
+   .. code:: python
+
+        from pynodes import *
+
+.. important::
+
+   For geometry nodes, the full API documentation reference :class:`pynodes.geosocks`.
+
+.. toctree::
+   :glob:
+
+   geometry_nodes
+   shader_nodes

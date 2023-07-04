@@ -127,6 +127,7 @@ def rgba(r=0, g=0, b=0, a=1.0):
 
 
 def color_tuple(color: float | str | tuple[float, float, float] | tuple[float, float, float, float]):
+    """Turns common color representations into a tuple with length 4"""
     a = 1
     if isinstance(color, str):
         return hex_color_to_rgba(color)

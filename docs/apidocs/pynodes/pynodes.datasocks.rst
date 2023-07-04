@@ -495,13 +495,19 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Float.mix
          :parser: myst
 
-   .. py:method:: color_ramp_uniform(*colors)
+   .. py:method:: color_ramp(start_color=(0.0, 0.0, 0.0, 1.0), end_color=(1.0, 1.0, 1.0, 1.0), interpolation=None)
+      :canonical: pynodes.datasocks.Float.color_ramp
+
+      .. autodoc2-docstring:: pynodes.datasocks.Float.color_ramp
+         :parser: myst
+
+   .. py:method:: color_ramp_uniform(*colors, interpolation=None)
       :canonical: pynodes.datasocks.Float.color_ramp_uniform
 
       .. autodoc2-docstring:: pynodes.datasocks.Float.color_ramp_uniform
          :parser: myst
 
-   .. py:method:: color_ramp_with_position(*colors: tuple)
+   .. py:method:: color_ramp_with_position(*colors: tuple, interpolation=None)
       :canonical: pynodes.datasocks.Float.color_ramp_with_position
 
       .. autodoc2-docstring:: pynodes.datasocks.Float.color_ramp_with_position
@@ -2082,13 +2088,6 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Shader.tangent_uv_map
          :parser: myst
 
-   .. py:method:: texture_coord(object=None, from_instancer=False)
-      :canonical: pynodes.datasocks.Shader.texture_coord
-      :staticmethod:
-
-      .. autodoc2-docstring:: pynodes.datasocks.Shader.texture_coord
-         :parser: myst
-
    .. py:method:: uv_map(from_instancer=False, uv_map='')
       :canonical: pynodes.datasocks.Shader.uv_map
       :staticmethod:
@@ -2757,7 +2756,7 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.AmbientOcclusion
       :parser: myst
 
-.. py:function:: EnvironmentTexture(interpolation='Linear', projection='EQUIRECTANGULAR', color_mapping=None, image=None, image_user=None, texture_mapping=None, vector=(0.0, 0.0, 0.0))
+.. py:function:: EnvironmentTexture(image=None, interpolation='Linear', projection='EQUIRECTANGULAR', vector=(0.0, 0.0, 0.0))
    :canonical: pynodes.datasocks.EnvironmentTexture
 
    .. autodoc2-docstring:: pynodes.datasocks.EnvironmentTexture

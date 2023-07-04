@@ -44,7 +44,15 @@ self
 ```{toctree}
 :maxdepth: 2
 quick_start
-gallery/index
+```
+
+```{toctree}
+:maxdepth: 3
+gallery/gallery
+```
+
+```{toctree}
+:maxdepth: 2
 socket_types
 ```
 

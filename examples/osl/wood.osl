@@ -1,0 +1,17 @@
+surface wood (
+    /* Simple params with constant initializers */
+    float Kd = 0.5,
+    color woodcolor = color (.7, .5, .3),
+    string texturename = "wood.tx",
+    /* Computed from an earlier parameter */
+    color ringcolor = 0.25 * woodcolor,
+    /* Fixed-length array */
+    color paintcolors[3] = { color(0,.25,0.7), color(1,1,1), color(0.75,0.5,0.2) },
+    /* variable-length array */
+    int pattern[] = { 2, 4, 2, 1 },
+/* output parameter */
+output color Cunlit = 0
+)
+{
+ 
+}
