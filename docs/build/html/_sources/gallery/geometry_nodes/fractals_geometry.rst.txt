@@ -161,3 +161,48 @@ Pythagoras Tree
             iterate_n(v1, v2, angle.switch(animate, sin(SceneTime().seconds).map_range(-1, 1, 0, pi / 4)), sphere, curves, 6)
 
             return join(*curves)
+
+
+Quadratic Koch 3D
+------------------------
+
+.. admonition:: quadratic_koch_3d
+    :class: pynodes
+
+    .. thumbnail:: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/KochCube_Animation_Gray.gif/300px-KochCube_Animation_Gray.gif
+        :width: 300
+
+    .. thumbnail:: https://i.ibb.co/B6M5Msn/image.png
+        
+    .. code:: python
+                
+        from pynodes import *
+
+
+        @tree
+        def iterate(points: Points, instance: Instances):
+
+            normal = points.capture_vector_on_faces(points.normal)
+
+            points = points.Mesh.to_points("FACES")
+
+            return instance.on_points(points, rotation=normal.align_euler_to_vector("Z"), scale=1 / 3)
+
+
+        @tree
+        def quadratic_koch_3d():
+
+            mesh = MeshGrid(3, 3, 4, 4).mesh
+
+            base_mesh = mesh[4].extrude_faces().mesh
+
+            iterated_mesh = iterate(base_mesh, base_mesh)
+            iterated_mesh.node.label = "Iterate 1"
+
+            iterated_mesh = iterate(iterated_mesh, base_mesh)
+            iterated_mesh.node.label = "Iterate 2"
+
+            iterated_mesh = iterate(iterated_mesh, base_mesh)
+            iterated_mesh.node.label = "Iterate 3"
+
+            return iterated_mesh

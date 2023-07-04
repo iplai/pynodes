@@ -1,9 +1,15 @@
 Arrow modeling
 ===============
 
+About
+-----------
+
 .. note::
 
     This example is derived from the `example <https://github.com/al1brn/geonodes/blob/main/docs/arrow.md>`_ from ``geonodes``, you can compare ``pynodes`` with ``geonodes`` in this example. 
+
+Calculate coordinate of arrow
+--------------------------------
 
 .. admonition:: arrow_coord
     :class: pynodes
@@ -40,6 +46,9 @@ Arrow modeling
 
             return z1, z2
 
+coordinate Correction
+--------------------------
+
 .. admonition:: coord_correction
     :class: pynodes
 
@@ -58,6 +67,8 @@ Arrow modeling
 
             return corrected_pos
 
+Arrow Modeling
+------------------
 
 .. admonition:: arrow_modeling
     :class: pynodes
@@ -119,6 +130,9 @@ Arrow modeling
                 arrow.transform(rotation=rot_track)
 
             return arrow
+
+Arrow Materials
+-------------------
 
 .. admonition:: Arrow materials
     :class: pynodes

@@ -1,6 +1,9 @@
 Möbius Band
 ========================
 
+Möbius Band with Extruded Face
+---------------------------------
+
 .. note::
 
     At first, import namespace
@@ -79,3 +82,50 @@ Möbius Band
                 extruded_mesh = extrude_faces(sweeped_mesh, extrude_amount)
 
             return join(sweeped_mesh.switch(extrude_amount > 0, sweeped_mesh + extruded_mesh), curve)
+
+Möbius Band with Vertex Balls
+---------------------------------
+
+.. admonition:: Möbius Band with Vertex Balls
+    :class: pynodes
+
+    .. thumbnail:: https://i.ibb.co/DMrvrff/image.gif
+
+    .. thumbnail:: https://i.ibb.co/3mh5nH6/image.png
+
+    .. code:: python
+
+        @tree
+        def möbius_band(resolution: Integer = 64, tilt: Float = (tau, 0)):
+
+            curve = CurveCircle(3, resolution)
+
+            with frame("Curve Tilt"):
+
+                t = SceneTime().seconds
+
+                curve = curve.set_tilt(curve.parameter.factor.map_range(0, 1, 0, tilt) + t).trim_factor()
+
+            with frame("Curve to Mesh"):
+
+                with frame("Profile"):
+
+                    line = Rectangle(3, 0.05)
+
+                    circle = CurveCircle(1.5, 3).subdivide(3)
+
+                profile = circle
+
+                mesh = curve.to_mesh(profile).merge_by_distance(0.15).set_shade_smooth(False).set_material("#51be51")
+
+            return mesh
+
+
+        @tree
+        def abstract_loop(radius: Float = 0.35):
+
+            points = möbius_band(resolution=32).to_points("FACES")
+
+            mesh = MeshUVSphere(radius=radius).mesh.Instances.on_points(points).set_material("#e7539d")
+
+            return mesh

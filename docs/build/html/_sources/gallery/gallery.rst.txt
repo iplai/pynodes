@@ -22,6 +22,8 @@ Enjoy this taste of *Pynodes*!
 
 .. toctree::
    :glob:
+   :maxdepth: 2
 
    geometry_nodes
    shader_nodes
+   simulation_nodes

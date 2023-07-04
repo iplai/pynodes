@@ -12,6 +12,6 @@ Shader Nodes
     - A material tree can be assigned to an object.
 
 .. toctree::
-   :glob:
+    :glob:
 
-   shader_nodes/*
+    shader_nodes/*
