@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Clone to Mesh Faces" href="clone_to_mesh_faces.html" /><link rel="prev" title="Arrow modeling" href="arrow_modeling.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Torus Knot" href="torus_knot.html" /><link rel="prev" title="Text Examples" href="text_examples.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon-light.png"/><!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
-        <title>Atom Links - Pynodes v0.1.0 documentation</title>
+        <title>Tiling Paterns - Pynodes v0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -137,7 +137,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -170,7 +170,7 @@
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../gallery.html">Gallery</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Gallery</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../geometry_nodes.html">Geometry Nodes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Geometry Nodes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="arrow_modeling.html">Arrow modeling</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Atom Links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atom_links.html">Atom Links</a></li>
 <li class="toctree-l3"><a class="reference internal" href="clone_to_mesh_faces.html">Clone to Mesh Faces</a></li>
 <li class="toctree-l3"><a class="reference internal" href="fractals_geometry.html">Fractals Geometry</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geometry_morph.html">Mesh Transition</a></li>
@@ -180,7 +180,7 @@
 <li class="toctree-l3"><a class="reference internal" href="polar_coord_illustrating.html">Polar Coordinate Illustrating</a></li>
 <li class="toctree-l3"><a class="reference internal" href="small_demos.html">Small Demos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="text_examples.html">Text Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tiling_paterns.html">Tiling Paterns</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Tiling Paterns</a></li>
 <li class="toctree-l3"><a class="reference internal" href="torus_knot.html">Torus Knot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="water_wave.html">Water Wave</a></li>
 </ul>
@@ -231,7 +231,7 @@
         </a>
         <div class="content-icon-container">
           <div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/iplai/pynodes/edit/main/docs/gallery/geometry_nodes/atom_links.rst" title="Edit this page">
+  <a class="muted-link" href="https://github.com/iplai/pynodes/edit/main/docs/gallery/geometry_nodes/tiling_paterns.rst" title="Edit this page">
     <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
@@ -247,74 +247,110 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section id="atom-links">
-<h1>Atom Links<a class="headerlink" href="#atom-links" title="Permalink to this heading">#</a></h1>
+          <section id="tiling-paterns">
+<h1>Tiling Paterns<a class="headerlink" href="#tiling-paterns" title="Permalink to this heading">#</a></h1>
+<section id="truchet-tiling">
+<h2>Truchet Tiling<a class="headerlink" href="#truchet-tiling" title="Permalink to this heading">#</a></h2>
+<p>In information visualization and graphic design, <a class="reference external" href="https://en.wikipedia.org/wiki/Truchet_tiles">Truchet tiles</a> are square tiles decorated with patterns that are not rotationally symmetric. When placed in a square tiling of the plane, they can form varied patterns, and the orientation of each tile can be used to visualize information associated with the tile’s position within the tiling.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><figure class="align-default">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Truchet_base_tiling.svg/250px-Truchet_base_tiling.svg.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Truchet_base_tiling.svg/250px-Truchet_base_tiling.svg.png" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Truchet_base_tiling.svg/250px-Truchet_base_tiling.svg.png" style="width: 220px; height: 220px;" /></a>
+</figure>
+<p>The tile originally studied by Truchet is split along the diagonal into two triangles of contrasting colors. The tile has four possible orientations.</p>
+</td>
+<td><figure class="align-default">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Truchet_tiling.svg/250px-Truchet_tiling.svg.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Truchet_tiling.svg/250px-Truchet_tiling.svg.png" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Truchet_tiling.svg/250px-Truchet_tiling.svg.png" style="width: 220px; height: 220px;" /></a>
+</figure>
+<p>A second common form of the Truchet tiles, due to Smith (1987), decorates each tile with two quarter-circles connecting the midpoints of adjacent sides. Each such tile has two possible orientations.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h2>
 <div class="pynodes admonition">
-<p class="admonition-title">sweep_mesh_edges</p>
+<p class="admonition-title">Base Tile</p>
 <a class=""
                data-lightbox="group-default"
-               href="../../_images/Snipaste_2023-06-28_04-06-451.png"
+               href="https://i.ibb.co/PttmSpC/image.png"
                title=""
                data-title=""
                
-               ><img src="../../_images/Snipaste_2023-06-28_04-06-451.png"
+               ><img src="https://i.ibb.co/PttmSpC/image.png"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pynodes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pynodes.math</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="nd">@tree</span>
+<span class="k">def</span> <span class="nf">create_tile</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Tile&quot;&quot;&quot;</span>
+
+    <span class="n">curve</span> <span class="o">=</span> <span class="n">CurveCircle</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="n">curve</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+    <span class="n">curve</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+    <span class="n">curve</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+    <span class="n">curve</span><span class="o">.</span><span class="n">transform</span><span class="p">((</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+    <span class="n">arc</span> <span class="o">=</span> <span class="n">CurveArc</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">sweep_angle</span><span class="o">=</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">0.51</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">((</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+    <span class="n">arc2</span> <span class="o">=</span> <span class="n">arc</span><span class="o">.</span><span class="n">Curve</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pi</span><span class="p">))</span>
+
+    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Select Tile to Output&quot;</span><span class="p">):</span>
+
+        <span class="n">tile</span> <span class="o">=</span> <span class="n">curve</span><span class="o">.</span><span class="n">fill_curve</span><span class="p">()</span>
+
+        <span class="n">tile</span> <span class="o">=</span> <span class="n">arc</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">arc2</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">tile</span>
+</pre></div>
+</div>
+</div>
+<div class="pynodes admonition">
+<p class="admonition-title">Truchet Tiling</p>
+<a class=""
+               data-lightbox="group-default"
+               href="https://i.ibb.co/ZhJDSCN/image.png"
+               title=""
+               data-title=""
+               
+               ><img src="https://i.ibb.co/ZhJDSCN/image.png"
                      class=""
                      width="100%"
                      height="auto"
                      alt=""/>
                 </a><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@tree</span>
-<span class="k">def</span> <span class="nf">sweep_mesh_edges</span><span class="p">(</span><span class="n">mesh</span><span class="p">:</span> <span class="n">Mesh</span><span class="p">,</span> <span class="n">profile</span><span class="p">:</span> <span class="n">Curve</span><span class="p">,</span> <span class="n">trim_radius</span><span class="p">:</span> <span class="n">Float</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">truchet_tiling</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">angle_offset</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="n">seed</span><span class="p">:</span> <span class="n">Integer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
 
-    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Mesh to Curve&quot;</span><span class="p">):</span>
+    <span class="n">tile</span> <span class="o">=</span> <span class="n">create_tile</span><span class="p">()</span>
 
-        <span class="n">curve</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">to_curve</span><span class="p">()</span><span class="o">.</span><span class="n">trim_length</span><span class="p">(</span><span class="n">trim_radius</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span><span class="o">.</span><span class="n">trim_length</span><span class="p">(</span><span class="n">trim_radius</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">MeshGrid</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">mesh</span>
 
-    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Curve to Mesh&quot;</span><span class="p">):</span>
+    <span class="n">angle</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">RandomInteger</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
 
-        <span class="n">mesh</span> <span class="o">=</span> <span class="n">curve</span><span class="o">.</span><span class="n">to_mesh</span><span class="p">(</span><span class="n">profile</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">tiles</span> <span class="o">=</span> <span class="n">tile</span><span class="o">.</span><span class="n">on_points</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">angle</span> <span class="o">+</span> <span class="n">angle_offset</span><span class="p">))</span>
 
-    <span class="k">return</span> <span class="n">mesh</span><span class="o">.</span><span class="n">set_shade_smooth</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tiles</span>
 </pre></div>
 </div>
 </div>
-<div class="pynodes admonition">
-<p class="admonition-title">link_mesh_atoms</p>
-<a class=""
-               data-lightbox="group-default"
-               href="../../_images/Snipaste_2023-06-28_03-41-021.png"
-               title=""
-               data-title=""
-               
-               ><img src="../../_images/Snipaste_2023-06-28_03-41-021.png"
-                     class=""
-                     width="100%"
-                     height="auto"
-                     alt=""/>
-                </a><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@tree</span>                                     <span class="c1"># default, min, max</span>
-<span class="k">def</span> <span class="nf">link_mesh_atoms</span><span class="p">(</span><span class="n">mesh</span><span class="p">:</span> <span class="n">Mesh</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="n">Float</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)):</span>
-
-    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Input Mesh&quot;</span><span class="p">):</span>
-        <span class="c1"># comment this line to get the mesh from Group Input</span>
-        <span class="n">mesh</span> <span class="o">=</span> <span class="n">MeshIcoSphere</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mesh</span>
-
-    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Get sweeped mesh edges&quot;</span><span class="p">):</span>
-        <span class="c1"># call the function defined above</span>
-        <span class="n">edges</span> <span class="o">=</span> <span class="n">sweep_mesh_edges</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">CurveCircle</span><span class="p">(</span><span class="n">radius</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="n">radius</span><span class="p">)</span>
-
-    <span class="k">with</span> <span class="n">frame</span><span class="p">(</span><span class="s2">&quot;Atom spheres&quot;</span><span class="p">):</span>
-
-        <span class="n">spheres</span> <span class="o">=</span> <span class="n">MeshIcoSphere</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">subdivisions</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">on_points</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">to_points</span><span class="p">())</span>
-
-    <span class="k">return</span> <span class="n">edges</span> <span class="o">+</span> <span class="n">spheres</span>
-</pre></div>
-</div>
-</div>
+</section>
 </section>
 
         </article>
@@ -322,23 +358,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="clone_to_mesh_faces.html">
+          <a class="next-page" href="torus_knot.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Clone to Mesh Faces</div>
+                <div class="title">Torus Knot</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="arrow_modeling.html">
+          <a class="prev-page" href="text_examples.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Arrow modeling</div>
+                <div class="title">Text Examples</div>
                 
               </div>
             </a>
@@ -367,8 +403,28 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Tiling Paterns</a><ul>
+<li><a class="reference internal" href="#truchet-tiling">Truchet Tiling</a></li>
+<li><a class="reference internal" href="#implementation">Implementation</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
