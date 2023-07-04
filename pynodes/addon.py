@@ -168,6 +168,18 @@ def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, f
     # Sort frames by level, deepest first
     frames_level.sort(key=lambda x: x[1], reverse=True)
 
+    frames_level_dict: dict[NodeFrame, int] = {}
+    for frame, level in frames_level:
+        frames_level_dict[frame] = level
+
+    # A dict to record all frames and the deepest level it contains
+    frames_deepest_level: dict[NodeFrame, int] = {}
+    for frame, level in frames_level:
+        if frame not in frames_deepest_level:
+            frames_deepest_level[frame] = level
+        if frame.parent is not None:
+            frames_deepest_level[frame.parent] = max(frames_deepest_level[frame], frames_deepest_level.setdefault(frame.parent, 0))
+
     # A dict to record all direct child nodes in each frame including both frames and nodes
     frame_child_nodes: dict[NodeFrame, list[Node]] = {}
     for node in btree.nodes:
@@ -315,18 +327,18 @@ def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, f
 
         # Arrange the location of nodes in columns
         x = 0
-        frame_padding = [30, 30]
+        frame_padding_x, frame_padding_y = 30, 30
         if bpy.app.version >= (3, 6, 0):
-            frame_padding = [30, 40]
+            frame_padding_x, frame_padding_y = 30, 40
         current_has_frame = previsous_has_frame = False
         for x_index, col in enumerate(cols):
             current_has_frame = col.has_frame
             if x_index == 0:
                 if current_has_frame and frame is not None:
-                    x -= frame_padding[0]
+                    x -= frame_padding_x
             else:
                 if current_has_frame:
-                    x -= frame_margin_x + frame_padding[0]
+                    x -= frame_margin_x + frame_padding_x
                 elif previsous_has_frame:
                     x -= frame_margin_x
                 else:
@@ -344,17 +356,19 @@ def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, f
                         col.height += frame_margin_y
                         y -= frame_margin_y
                     elif previsous_is_frame and not current_is_frame:
-                        col.height += frame_margin_y - frame_padding[1]
-                        y -= frame_margin_y - frame_padding[1]
+                        level_diff = frames_deepest_level[col.nodes[y_index - 1]] - frames_level_dict[col.nodes[y_index - 1]]
+                        col.height += frame_margin_y + frame_padding_y * level_diff
+                        y -= frame_margin_y - frame_padding_y * (level_diff + 1)
                     elif not previsous_is_frame and current_is_frame:
-                        col.height += frame_margin_y + frame_padding[1]
-                        y -= frame_margin_y + frame_padding[1]
+                        level_diff = frames_deepest_level[node] - frames_level_dict[node]
+                        col.height += frame_margin_y + frame_padding_y * level_diff
+                        y -= frame_margin_y + frame_padding_y * (level_diff + 1)
                     else:
                         col.height += margin_y
                         y -= margin_y
                 # TODO
                 if y_index == 0 and current_is_frame:
-                    col.height -= 2 * frame_padding[1]
+                    col.height -= 2 * frame_padding_y
                 if current_is_frame:
                     node.location = (x, y)
                 else:
@@ -367,7 +381,7 @@ def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, f
                 previsous_is_frame = current_is_frame
             x -= col.width
             if current_has_frame:
-                x += frame_padding[0]
+                x += frame_padding_x
             previsous_has_frame = current_has_frame
         '''
         # Code for debug
