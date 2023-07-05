@@ -47,12 +47,12 @@ Nodes are created by a series of chain calls in a python function decrorated byÂ
 
 - Install the addon in blender
 
-    ![](https://iplai.github.io/pynodes/_images/Snipaste_2023-06-29_00-57-591.png)
-    ![](https://iplai.github.io/pynodes/_images/Snipaste_2023-06-29_00-58-391.png)
+    ![](docs/_static/images/Snipaste_2023-06-29_00-57-591.png)
+    ![](docs/_static/images/Snipaste_2023-06-29_00-58-391.png)
 
 When the addon installed, enable it. (check the box of `Node: PyNodes`). Then the module `pynodes` is in your python path of blender, and the UI will appear in the Sidebar of Node Editor of Blender. The nodes in node editor can be arranged in real time with the parameters in UI.
 
-![](https://iplai.github.io/pynodes/_images/node_arrange.gif)
+![](docs/_static/images/node_arrange.gif)
 
 ## Setup VSCode
 
@@ -85,7 +85,8 @@ $$
 
 Define a node tree corresponding the parametric equation above:
 
-![](https://iplai.github.io/pynodes/_images/Snipaste_2023-06-29_01-48-131.png)
+![](docs/_static/images/Snipaste_2023-06-29_01-48-131.png)
+
 ```python
 from pynodes import *
 from pynodes.math import *
@@ -117,7 +118,7 @@ See [Available Socket Types](https://iplai.github.io/pynodes/socket_types.html)
 
 Make a curve circle, set the position of the curve by calling the function above.
 
-![](https://iplai.github.io/pynodes/_images/Snipaste_2023-06-29_02-35-231.png)
+![](docs/_static/images/Snipaste_2023-06-29_02-35-231.png)
 
 ```python
 @tree
@@ -162,7 +163,7 @@ The function decorated by the decoratorÂ [`pynodes.core.tree`](https://iplai.git
 
 Then sweep the curve to mesh with a profile curve.
 
-![](https://iplai.github.io/pynodes/_images/Snipaste_2023-06-29_02-53-311.png)
+![](docs/_static/images/Snipaste_2023-06-29_02-53-311.png)
 
 ```python
 @tree
@@ -190,8 +191,8 @@ At this point, the Geometry node tree is created, and then you just need to add 
 ### Version with material
 
 Not only geometry nodes, material nodes are also supported. Modify the third function, and add a material function.
-
-![](https://iplai.github.io/pynodes/_images/Snipaste_2023-06-29_03-20-591.png)
+=
+![](docs/_static/images/Snipaste_2023-06-29_03-20-591.png)
 
 ```python
 @tree
