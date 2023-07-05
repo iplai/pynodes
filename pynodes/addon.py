@@ -3,7 +3,7 @@ from bpy.types import Node, NodeFrame, NodeLink, NodeSocket, Context, NodeTree, 
 
 
 class PYNODES_PT_MAIN(Panel):
-    bl_label = "Pynodes"
+    bl_label = "Arrange Nodes"
     bl_space_type = "NODE_EDITOR"
     bl_region_type = "UI"
     bl_category = "Pynodes"
@@ -11,30 +11,38 @@ class PYNODES_PT_MAIN(Panel):
     def draw(self, context):
 
         layout = self.layout
-        layout.row().operator('node.pynodes_arrange')
+        btree: NodeTree = context.space_data.edit_tree
 
-        row = layout.row()
-        row.label(text="Node Margin")
-        row.prop(context.scene, 'nodemargin_x', text="X")
-        row.prop(context.scene, 'nodemargin_y', text="Y")
-
-        row = layout.row()
-        row.label(text="Frame Margin")
-        row.prop(context.scene, 'framemargin_x', text="X")
-        row.prop(context.scene, 'framemargin_y', text="Y")
-
-        layout.row().label(text="Center Each Column Vertically:")
-        row = layout.row()
-        row.prop(context.scene, 'node_center1', text="Left to Right")
-        row.prop(context.scene, 'node_center2', text="Right to Left")
-        row = layout.row()
-        row.prop(context.scene, 'only_selected_frame', text="Only Arrange Selected Frame")
-        row = layout.row()
-        row.prop(context.scene, 'reverse_single_link_sequence', text="Reverse Single Link Height Sequence")
-
-        # get current active tree
-        btree = get_active_tree(context)
         if btree is not None:
+
+            col = layout.column(align=True)
+            split = col.split(factor=7 / (7 + len(btree.name)), align=True)
+            split.operator('node.pynodes_arrange', icon="PREFERENCES")
+            box = split.box()
+            box.scale_y = 0.5
+            box.label(text=btree.name, icon="NODETREE")
+
+            layout.label(text="Node Margin:", icon="SEQ_STRIP_DUPLICATE")
+            row = layout.row(align=True)
+            row.prop(context.scene, 'nodemargin_x', text="X")
+            row.prop(context.scene, 'nodemargin_y', text="Y")
+
+            layout.label(text="Frame Margin:", icon="SEQ_STRIP_META")
+            row = layout.row(align=True)
+            row.prop(context.scene, 'framemargin_x', text="X")
+            row.prop(context.scene, 'framemargin_y', text="Y")
+
+            layout.label(text="Columns Center Order:")
+            row = layout.row(align=True)
+            row.prop(context.scene, 'node_center1', text="L → R", toggle=True)
+            row.prop(context.scene, 'node_center2', text="L ← R", toggle=True)
+
+            layout.label(text="Options:")
+            col = layout.column(align=True)
+            col.prop(context.scene, 'only_selected_frame', text="Only Selected Frame", toggle=True)
+            col.prop(context.scene, 'reverse_single_link_sequence', text="Reverse Single Sequence", toggle=True)
+
+            layout.separator()
             # node = btree.nodes.active
             node = context.active_node
             if node is not None and node.select:
@@ -49,7 +57,18 @@ class PYNODES_PT_MAIN(Panel):
                 row.prop(node, 'width', text="W")
                 row.prop(node, 'dimensions', text="H", index=1)
 
-        layout.row().operator('outliner.orphans_purge_recursive')
+        # layout.row().operator('outliner.orphans_purge_recursive', icon="CANCEL")
+
+
+# class PYNODES_PT_UTILS(Panel):
+#     bl_label = "Utils"
+#     bl_space_type = "NODE_EDITOR"
+#     bl_region_type = "UI"
+#     bl_category = "Pynodes"
+
+#     def draw(self, context):
+#         layout = self.layout
+#         layout.row().operator('outliner.orphans_purge_recursive', icon="CANCEL")
 
 
 class PYNODES_OT_ARRANGE(Operator):
@@ -65,7 +84,7 @@ class PYNODES_OT_ARRANGE(Operator):
         arrange(self, context)
         return {'FINISHED'}
 
-    @classmethod
+    @ classmethod
     def poll(cls, context: Context):
         space = context.space_data
         return space and (space.type == 'NODE_EDITOR') and space.edit_tree and not space.edit_tree.library
@@ -91,7 +110,7 @@ class Column:
         self.offset = 0
         self.has_frame = False
 
-    @property
+    @ property
     def height_with_offset(self):
         return self.height + self.offset
 
@@ -485,10 +504,10 @@ def register():
     bpy.types.Scene.nodemargin_y = bpy.props.IntProperty(default=20, update=arrange)
     bpy.types.Scene.framemargin_x = bpy.props.IntProperty(default=10, update=arrange)
     bpy.types.Scene.framemargin_y = bpy.props.IntProperty(default=10, update=arrange)
-    bpy.types.Scene.node_center1 = bpy.props.BoolProperty(default=True, update=arrange)
-    bpy.types.Scene.node_center2 = bpy.props.BoolProperty(default=True, update=arrange)
-    bpy.types.Scene.only_selected_frame = bpy.props.BoolProperty(default=False)
-    bpy.types.Scene.reverse_single_link_sequence = bpy.props.BoolProperty(default=False, update=arrange)
+    bpy.types.Scene.node_center1 = bpy.props.BoolProperty(default=True, description="Center each column from left to right", update=arrange)
+    bpy.types.Scene.node_center2 = bpy.props.BoolProperty(default=True, description="Center each column from right to left", update=arrange)
+    bpy.types.Scene.only_selected_frame = bpy.props.BoolProperty(default=False, description="Only arrange selected frame, if no frame selected, arrange the root tree", update=arrange)
+    bpy.types.Scene.reverse_single_link_sequence = bpy.props.BoolProperty(default=False, description="Reverse single link staggered sequence", update=arrange)
 
 
 def unregister():

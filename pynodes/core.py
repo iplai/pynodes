@@ -856,6 +856,8 @@ def tree(func: typing.Callable[Param, RT]) -> typing.Callable[Param, RT]:
     args: list[Socket] = []
     from .datasocks import Vector, Color
     for param in sig.parameters.values():
+        if not issubclass(param.annotation, Socket):
+            continue
         sig_param_default = param.default
         input_params = {"name": convert_param_name(param.name)}
         if isinstance(sig_param_default, tuple):
