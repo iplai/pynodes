@@ -86,7 +86,7 @@ API
 
    .. py:attribute:: bl_label
       :canonical: pynodes.addon.PYNODES_PT_MAIN.bl_label
-      :value: 'Pynodes'
+      :value: 'Arrange Nodes'
 
       .. autodoc2-docstring:: pynodes.addon.PYNODES_PT_MAIN.bl_label
          :parser: myst
