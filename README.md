@@ -191,7 +191,7 @@ At this point, the Geometry node tree is created, and then you just need to add 
 ### Version with material
 
 Not only geometry nodes, material nodes are also supported. Modify the third function, and add a material function.
-=
+
 ![](docs/_static/images/Snipaste_2023-06-29_03-20-591.png)
 
 ```python
