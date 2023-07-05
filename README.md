@@ -52,7 +52,7 @@ Nodes are created by a series of chain calls in a python function decrorated byÂ
 
 When the addon installed, enable it. (check the box of `Node: PyNodes`). Then the module `pynodes` is in your python path of blender, and the UI will appear in the Sidebar of Node Editor of Blender. The nodes in node editor can be arranged in real time with the parameters in UI.
 
-![](https://i.ibb.co/pbW146k/image.gif)
+![](https://iplai.github.io/pynodes/_images/node_arrange.gif)
 
 ## Setup VSCode
 
@@ -72,14 +72,14 @@ The (p,q)-torus knot winds q times around a circle in the interior of the torus,
 
 The (p,q)-torus knot can be given by the parametrization:
 
-$
-    \begin{array}{l}
-    r=\cos (q \phi)+2,\ \ 0<\phi<2 \pi\\
-    x=r \cos (p \phi) \\
-    y=r \sin (p \phi) \\
-    z=-\sin (q \phi)
-    \end{array}
-$
+$$
+\begin{array}{l}
+r=\cos (q \phi)+2,\ \ 0<\phi<2 \pi\\
+x=r \cos (p \phi) \\
+y=r \sin (p \phi) \\
+z=-\sin (q \phi)
+\end{array}
+$$
 
 ### The First Node Tree
 

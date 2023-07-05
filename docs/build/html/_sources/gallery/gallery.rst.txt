@@ -16,10 +16,6 @@ Enjoy this taste of *Pynodes*!
 
         from pynodes import *
 
-.. important::
-
-   For geometry nodes, the full API documentation reference :class:`pynodes.geosocks`.
-
 .. toctree::
    :glob:
    :maxdepth: 2

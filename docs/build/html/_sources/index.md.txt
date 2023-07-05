@@ -47,7 +47,7 @@ quick_start
 ```
 
 ```{toctree}
-:maxdepth: 3
+:maxdepth: 2
 gallery/gallery
 ```
 
