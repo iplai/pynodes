@@ -74,6 +74,13 @@ API
       .. autodoc2-docstring:: pynodes.scene.O.cube
          :parser: myst
 
+   .. py:attribute:: torus
+      :canonical: pynodes.scene.O.torus
+      :value: 'bpy.ops.mesh.primitive_torus_add()'
+
+      .. autodoc2-docstring:: pynodes.scene.O.torus
+         :parser: myst
+
    .. py:attribute:: ico_sphere
       :canonical: pynodes.scene.O.ico_sphere
       :value: 'bpy.ops.mesh.primitive_ico_sphere_add()'

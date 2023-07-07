@@ -46,18 +46,32 @@ class PYNODES_PT_MAIN(Panel):
             # node = btree.nodes.active
             node = context.active_node
             if node is not None and node.select:
-                Node = node.bl_idname
-                layout.row().label(text=f"{Node = }")
-                row = layout.row()
-                row.label(text="Location")
+                col = layout.column(align=True)
+                if node.bl_idname == "NodeFrame":
+                    split = col.split(factor=0.33, align=True)
+                    box = split.box()
+                    box.scale_y = 0.5
+                    box.label(text=f"{node.bl_label}", icon="NODE")
+                    split.prop(node, "label", text="")
+                else:
+                    box = col.box()
+                    box.scale_y = 0.5
+                    box.label(text=f"{node.bl_label}", icon="NODE")
+                row = col.row(align=True)
+                box = row.box()
+                box.scale_y = 0.5
+                box.label(text="Location", icon="ORIENTATION_VIEW")
                 row.prop(node, 'location', text="X", index=0)
                 row.prop(node, 'location', text="Y", index=1)
-                row = layout.row()
-                row.label(text="Dimension")
+                row = col.row(align=True)
+                box = row.box()
+                box.scale_y = 0.5
+                box.label(text="Dimension", icon="OBJECT_HIDDEN")
                 row.prop(node, 'width', text="W")
                 row.prop(node, 'dimensions', text="H", index=1)
 
-        # layout.row().operator('outliner.orphans_purge_recursive', icon="CANCEL")
+        layout.separator()
+        layout.row().operator('outliner.orphans_purge_recursive', icon="CANCEL")
 
 
 # class PYNODES_PT_UTILS(Panel):
@@ -347,7 +361,7 @@ def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, f
         # Arrange the location of nodes in columns
         x = 0
         frame_padding_x, frame_padding_y = 30, 30
-        if bpy.app.version >= (3, 6, 0):
+        if bpy.app.version == (3, 6, 0):
             frame_padding_x, frame_padding_y = 30, 40
         current_has_frame = previsous_has_frame = False
         for x_index, col in enumerate(cols):

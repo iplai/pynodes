@@ -2,11 +2,11 @@
 
 [![LICENSE](https://img.shields.io/github/license/iplai/pynodes)](LICENSE)
 [![Python 3.10 +](https://img.shields.io/badge/python-3.10_+-blue.svg)](https://www.python.org/downloads/release/python-310/)
-[![Blender](https://img.shields.io/badge/Blender-_3.5.1~3.6.0_-blue)](http://www.blender.org)
+[![Blender](https://img.shields.io/badge/Blender-_3.5.1~4.0.0_-blue)](http://www.blender.org)
 
 #### *Programmatical nodes for blender including geometry nodes, shader nodes, compositor nodes, light nodes, world nodes etc.*
 
-Pynodes is ia a module as well as an addon for blender to create all kinds of nodes in node editor with python sciprts.
+Pynodes is ia a module as well as an addon for blender to create all kinds of nodes in node editor with python scripts.
 Decorate a python function to represent a blender node group for any kind of tree in blender node editor.
 
 ## Documentation
