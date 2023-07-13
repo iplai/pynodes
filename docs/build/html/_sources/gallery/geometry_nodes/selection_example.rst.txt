@@ -4,9 +4,9 @@ Selection Example
 .. admonition:: Selection Example
     :class: pynodes
 
-    .. thumbnail:: https://i.ibb.co/tpjpHT7/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.tuy4to2ropc.webp
 
-    .. thumbnail:: https://i.ibb.co/WtwQPg0/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.fegtswnjoso.webp
         
     .. code:: python
 

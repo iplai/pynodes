@@ -7,9 +7,9 @@ Text Volume Mesh
 .. admonition:: Text Volume Mesh
     :class: pynodes
 
-    .. thumbnail:: https://i.ibb.co/mDyQTFf/image.gif
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.43ih4llcu7e0.gif
 
-    .. thumbnail:: https://i.ibb.co/CBx7w8g/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.42t64zw495a0.webp
         
     .. code:: python
 

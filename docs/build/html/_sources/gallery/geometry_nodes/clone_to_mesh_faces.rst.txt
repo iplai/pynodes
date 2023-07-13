@@ -4,7 +4,7 @@ Clone to Mesh Faces
 .. admonition:: clone_cones_to_mesh_faces
     :class: pynodes
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-28_05-05-50.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.5dqm67qax240.webp
         
     .. code:: python
 

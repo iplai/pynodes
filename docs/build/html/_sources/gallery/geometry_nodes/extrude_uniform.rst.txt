@@ -6,9 +6,9 @@ The is an util node group for modeling.
 .. admonition:: Extrude Uniform
     :class: pynodes
 
-    .. thumbnail:: https://i.ibb.co/82M9JfM/image.gif
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.54su2uzjjy40.gif
 
-    .. thumbnail:: https://i.ibb.co/G5GXV9t/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.4yodhizg8fk0.webp
         
     .. code:: python
 

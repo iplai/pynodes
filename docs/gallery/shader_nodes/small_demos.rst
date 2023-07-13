@@ -7,9 +7,9 @@ Voronoi Example
 .. admonition:: Voronoi Example
     :class: pynodes
 
-    .. thumbnail:: https://i.ibb.co/HNXV4Qj/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.6nr9tiou2pc0.webp
 
-    .. thumbnail:: https://i.ibb.co/T0YMYmZ/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.29oxtlso4hc0.webp
         
     .. code:: python
 
@@ -43,9 +43,9 @@ Random Color
 .. admonition:: Random Color
     :class: pynodes
 
-    .. thumbnail:: https://i.ibb.co/SXhWy0x/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.4onss38a0pe0.webp
 
-    .. thumbnail:: https://i.ibb.co/g6jZzhN/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.6jh9whvmy2s0.webp
         
     .. code:: python
                 

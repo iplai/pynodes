@@ -7,9 +7,9 @@ Sierpinski Triangle 3D
 .. admonition:: Sierpinski Triangle
     :class: pynodes
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-28_06-26-04.gif
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.4t0ul02nucq0.gif
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-28_07-00-50.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.j8bew49fe80.webp
         
     .. code:: python
 
@@ -37,9 +37,9 @@ Menger Sponge
 .. admonition:: Menger Sponge
     :class: pynodes
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-28_07-10-04.gif
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.5ufmqhuu6a8.gif
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-28_07-24-22.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.5h6dv60fau40.webp
         
     .. code:: python
 
@@ -69,13 +69,13 @@ Pythagoras Tree
 .. admonition:: pythagoras_tree
     :class: pynodes
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-28_07-49-04.gif
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.mtzsele774w.gif
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-28_07-44-52.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.6bm6vm7koqk0.webp
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-28_07-52-48.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.78clwb76o440.webp
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-28_07-54-20.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.758r438t6n80.webp
         
     .. code:: python
 
@@ -169,10 +169,10 @@ Quadratic Koch 3D
 .. admonition:: quadratic_koch_3d
     :class: pynodes
 
-    .. thumbnail:: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/KochCube_Animation_Gray.gif/300px-KochCube_Animation_Gray.gif
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.ff96oedbxdc.gif
         :width: 300
 
-    .. thumbnail:: https://i.ibb.co/B6M5Msn/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.1ohcn3m8l8hs.webp
         
     .. code:: python
                 

@@ -6,9 +6,9 @@ This is an util node group.
 .. admonition:: show_index
     :class: pynodes
 
-    .. thumbnail:: https://i.ibb.co/KbvbzH3/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.1j2ze8t4yn4w.webp
 
-    .. thumbnail:: https://i.ibb.co/2Ybff2T/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.bl7idbbp4vk.webp
         
     .. code:: python
         

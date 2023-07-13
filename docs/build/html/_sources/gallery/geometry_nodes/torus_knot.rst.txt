@@ -4,7 +4,7 @@ Torus Knot
 .. admonition:: Torus Knot Coord
     :class: pynodes
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-29_01-48-13.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/Snipaste_2023-06-29_01-48-131.7gzy92nzcfg0.webp
         :group: Torus Knot Coord
         
     .. code:: python
@@ -29,7 +29,7 @@ Torus Knot
 .. admonition:: Torus Knot Curve
     :class: pynodes
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-29_02-35-23.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/Snipaste_2023-06-29_02-35-231.19tae5qn0f6o.webp
         :group: Torus Knot Curve
         
     .. code:: python
@@ -66,7 +66,7 @@ Torus Knot
 .. admonition:: Version with material
     :class: pynodes
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-29_03-20-59.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/Snipaste_2023-06-29_03-20-591.4aqiow3mxla0.webp
         :group: Version with material
         
     .. code:: python

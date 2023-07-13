@@ -7,9 +7,9 @@ Concentric Circles
 .. admonition:: concentric_circles
     :class: pynodes
 
-    .. thumbnail:: https://i.ibb.co/0GjYSGP/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.7hb2sxhz0sg0.webp
 
-    .. thumbnail:: https://i.ibb.co/5h6xgJw/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.41phmfg7a7c0.webp
         
     .. code:: python
 
@@ -40,9 +40,9 @@ Slice the plane radially, except the x,y-axis.
 .. admonition:: axis_slices
     :class: pynodes
 
-    .. thumbnail:: https://i.ibb.co/C2wDGMm/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.397lcm81dfa0.webp
 
-    .. thumbnail:: https://i.ibb.co/y57NHxT/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.15ob97ozh2ak.webp
         
     .. code:: python
 
@@ -62,9 +62,9 @@ The Spiral to illustrate the rotation of coordinate.
 .. admonition:: angle_spiral
     :class: pynodes
 
-    .. thumbnail:: https://i.ibb.co/N2wFn4z/image.gif
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.6natura3bzs0.gif
 
-    .. thumbnail:: https://i.ibb.co/x1YYHny/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.729x3y208es0.webp
         
     .. code:: python
 
@@ -91,9 +91,9 @@ Text of Polar Coord
 .. admonition:: radial_coord_text
     :class: pynodes
 
-    .. thumbnail:: https://i.ibb.co/xJhrpFq/image.gif
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.3s9e7qi3pqg0.gif
 
-    .. thumbnail:: https://i.ibb.co/rxFvsdL/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.781360mbke40.webp
         
     .. code:: python
 
@@ -158,7 +158,7 @@ Line from origin to dot
 .. admonition:: line_from_origin_to_dot
     :class: pynodes
 
-    .. thumbnail:: https://i.ibb.co/1s0zjWx/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.d1hqxmz8peo.webp
         
     .. code:: python
 
@@ -189,7 +189,7 @@ Dot with Coord Text
 .. admonition:: dot_with_coord_text
     :class: pynodes
 
-    .. thumbnail:: https://i.ibb.co/WWqj0FL/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.40q1j2a4mcq0.webp
         
     .. code:: python
 
@@ -242,9 +242,9 @@ The Result Illustration
 .. admonition:: polar_coordinates
     :class: pynodes
 
-    .. thumbnail:: https://i.ibb.co/y5WxZXF/image.gif
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.4ptuda5d79q0.gif
 
-    .. thumbnail:: https://i.ibb.co/nnxpwHK/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.n5bfhauj5r4.webp
         
     .. code:: python
 

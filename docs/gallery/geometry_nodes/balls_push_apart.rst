@@ -4,9 +4,9 @@ Balls Push Apart
 .. admonition:: balls_push_apart
     :class: pynodes
 
-    .. thumbnail:: https://i.ibb.co/Nss6Y6r/image.gif
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.1idry91l91kw.gif
 
-    .. thumbnail:: https://i.ibb.co/P68cJwd/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.6n8yi6hgeww0.webp
         
     .. code:: python
         
