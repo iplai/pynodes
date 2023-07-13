@@ -17,7 +17,7 @@ This is an util node group.
         @tree
         def index_to_curve(index: Integer, max_index: Integer, size: Float):
 
-            return index.to_string().to_curve("CENTER", "MIDDLE", size=size).curve_instances.switch(max_index < index)
+            return index.to_string().to_curve("CENTER", "MIDDLE", size=size).curve_instances.join_to_instances().switch(max_index < index)
 
         @tree
         def show_index(geometry: Geometry, size: Float = 1, offset_along_normal: Float = 0.2):

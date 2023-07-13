@@ -2050,7 +2050,7 @@ class Geometry(Socket):
         items = list(others) + [self]
         node = new_node(*nodes.GeometryNodeGeometryToInstance())
         for item in items:
-            self.tree.new_link(item.bsocket, node.bnode.inputs[0])
+            new_link(item.bsocket, node.bnode.inputs[0])
         return node.outputs[0].Instances
 
     def on_points(self, points: "Points" = None, pick_instance=False, instance_index: "Integer" = None, rotation=(0.0, 0.0, 0.0), scale=(1.0, 1.0, 1.0), selection=True):
@@ -3950,6 +3950,67 @@ class Curve(Geometry):
         ret = typing.NamedTuple("GeometryNodeCurveToPoints", [("points", Points), ("tangent", Vector), ("normal", Vector), ("rotation", Vector)])
         return ret(node.outputs[0].Points, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Vector)
 
+    def to_points_with_count(self, count=10):
+        """The Curve to Points node generates a point cloud from a curve.
+        #### Path
+        - Curve > Operations > Curve to Points Node
+        #### Properties
+        - `mode`: `COUNT`, `EVALUATED`, `LENGTH`
+        #### Outputs:
+        - `#0 points: Geometry = None`
+        - `#1 tangent: Vector = (0.0, 0.0, 0.0)`
+        - `#2 normal: Vector = (0.0, 0.0, 0.0)`
+        - `#3 rotation: Vector = (0.0, 0.0, 0.0)`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveToPoints.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/operations/curve_to_points.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCurveToPoints.html)
+        """
+        node = new_node(*nodes.GeometryNodeCurveToPoints("COUNT", self, count=count))
+        ret = typing.NamedTuple("GeometryNodeCurveToPoints", [("points", Points), ("tangent", Vector), ("normal", Vector), ("rotation", Vector)])
+        return ret(node.outputs[0].Points, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Vector)
+
+    def to_points_with_length(self, length=0.1):
+        """The Curve to Points node generates a point cloud from a curve.
+        #### Path
+        - Curve > Operations > Curve to Points Node
+        #### Properties
+        - `mode`: `COUNT`, `EVALUATED`, `LENGTH`
+        #### Outputs:
+        - `#0 points: Geometry = None`
+        - `#1 tangent: Vector = (0.0, 0.0, 0.0)`
+        - `#2 normal: Vector = (0.0, 0.0, 0.0)`
+        - `#3 rotation: Vector = (0.0, 0.0, 0.0)`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveToPoints.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/operations/curve_to_points.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCurveToPoints.html)
+        """
+        node = new_node(*nodes.GeometryNodeCurveToPoints("COUNT", self, length=length))
+        ret = typing.NamedTuple("GeometryNodeCurveToPoints", [("points", Points), ("tangent", Vector), ("normal", Vector), ("rotation", Vector)])
+        return ret(node.outputs[0].Points, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Vector)
+
+    @property
+    def points_evaluated(self):
+        """The Curve to Points node generates a point cloud from a curve.
+        #### Path
+        - Curve > Operations > Curve to Points Node
+        #### Properties
+        - `mode`: `COUNT`, `EVALUATED`, `LENGTH`
+        #### Outputs:
+        - `#0 points: Geometry = None`
+        - `#1 tangent: Vector = (0.0, 0.0, 0.0)`
+        - `#2 normal: Vector = (0.0, 0.0, 0.0)`
+        - `#3 rotation: Vector = (0.0, 0.0, 0.0)`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveToPoints.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/operations/curve_to_points.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCurveToPoints.html)
+        """
+        node = new_node(*nodes.GeometryNodeCurveToPoints("COUNT", self))
+        ret = typing.NamedTuple("GeometryNodeCurveToPoints", [("points", Points), ("tangent", Vector), ("normal", Vector), ("rotation", Vector)])
+        return ret(node.outputs[0].Points, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Vector)
+
     def deform_on_surface(self):
         """The Deform Curves on Surface node translates and rotates each curve based on the difference in its root position. The root position is defined by UV coordinates stored on each curve and the UV Map selected for the purpose in the Curves surface settings.
         #### Path
@@ -4883,7 +4944,10 @@ class Mesh(Geometry):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/operations/mesh_to_volume.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeMeshToVolume.html)
         """
-        node = new_node(*nodes.GeometryNodeMeshToVolume(resolution_mode, self, density, voxel_size, voxel_amount, exterior_band_width, interior_band_width, fill_volume))
+        if bpy.app.version >= (4, 0, 0):
+            node = new_node(*nodes.GeometryNodeMeshToVolume(resolution_mode, self, density, voxel_size, voxel_amount, interior_band_width))
+        else:
+            node = new_node(*nodes.GeometryNodeMeshToVolume(resolution_mode, self, density, voxel_size, voxel_amount, exterior_band_width, interior_band_width, fill_volume))
         return node.outputs[0].Volume
 
     def scale_elements(self, scale=1.0, center: "Vector" = None, axis=(1.0, 0.0, 0.0), domain='FACE', scale_mode='UNIFORM', selection=True):
@@ -5152,8 +5216,7 @@ class Points(Geometry):
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/domain_size.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAttributeDomainSize.html)
         """
         node = new_node(*nodes.GeometryNodeAttributeDomainSize("POINTCLOUD", self))
-        ret = typing.NamedTuple("GeometryNodeAttributeDomainSize", [("point_count", Integer)])
-        return ret(node.outputs[0].Integer)
+        return node.outputs[0].Integer
 
     def merge_by_distance(self, distance=0.001, mode="ALL", selection=True):
         """The Merge by Distance node merges selected mesh vertices or point cloud points within a given distance, merging surrounding geometry where necessary. This operation is similar to the Merge by Distance operator or the Weld Modifier.
@@ -5205,6 +5268,7 @@ class Points(Geometry):
 
     def set_radius(self, radius=0.05, selection=True):
         """The Set Point Radius node controls the size each selected point cloud point should display with in the viewport.
+        - In-Place Operation
         #### Path
         - Point > Set Point Radius Node
         #### Outputs:
@@ -5216,7 +5280,8 @@ class Points(Geometry):
         """
         selection = selection if self._selection is None else self.selection
         node = new_node(*nodes.GeometryNodeSetPointRadius(self, selection, radius))
-        return node.outputs[0].Points
+        self.bsocket = node.outputs[0].bsocket
+        return self
 
 
 class Instances(Geometry):
@@ -5235,8 +5300,10 @@ class Instances(Geometry):
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/domain_size.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAttributeDomainSize.html)
         """
         node = new_node(*nodes.GeometryNodeAttributeDomainSize("INSTANCES", self))
-        ret = typing.NamedTuple("GeometryNodeAttributeDomainSize", [("instance_count", Integer)])
-        return ret(node.outputs[5].Integer)
+        return node.outputs[5].Integer
+
+    def store_named_attribute(self, name: str, value, domain="INSTANCE", selection=True):
+        return super().store_named_attribute(name, value, domain, selection)
 
     def sample_float_at_index(self, value_float=0.0, index=0, clamp=False):
         """The Sample Index node retrieves values from a source geometry at a specific index.
@@ -5924,11 +5991,30 @@ def join(*items: "Geometry"):
     """
     if len(items) == 1 and isinstance(items[0], (tuple, list)):
         items = items[0]
-    items = list(items)
     node = new_node(*nodes.GeometryNodeJoinGeometry())
-    for item in items:
+    # Reverse the iterator to keep the order
+    for item in reversed(items):
         new_link(item.bsocket, node.bnode.inputs[0])
     return node.outputs[0].Geometry
+
+
+def join_to_instances(*items: "Geometry"):
+    """The Geometry to Instance node turns every connected input geometry into an instance. Visually, the node has a similar result as the Join Geometry Node, but it outputs the result as separate instances instead. The geometry data itself isn’t actually joined.
+    #### Path
+    - Geometry > Geometry to Instance Node
+    #### Outputs:
+    - `#0 instances: Geometry = None`
+
+    ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeGeometryToInstance.webp)
+
+    [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/geometry_to_instance.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeGeometryToInstance.html)
+    """
+    if len(items) == 1 and isinstance(items[0], (tuple, list)):
+        items = items[0]
+    node = new_node(*nodes.GeometryNodeGeometryToInstance())
+    for item in reversed(items):
+        new_link(item.bsocket, node.bnode.inputs[0])
+    return node.outputs[0].Instances
 
 
 def SplineParameter():

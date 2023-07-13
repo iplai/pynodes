@@ -289,6 +289,9 @@ class Float(Socket):
     def __rtruediv__(self, other):
         return FloatMath("DIVIDE", False, other, self)
 
+    def __floordiv__(self, other):
+        return math.floor(self / other)
+
     def __eq__(self, other):
         return Compare("FLOAT", operation="EQUAL", a=self, b=other)
 
@@ -2436,6 +2439,14 @@ class Shader(Socket):
 
 class BSDF(Shader):
 
+    @property
+    def base_color(self):
+        raise RuntimeError("Input Sockets cannot be accessed in this context")
+
+    @base_color.setter
+    def base_color(self, value):
+        self["base_color"] = value
+
     @staticmethod
     def Principled(distribution='GGX', subsurface_method='RANDOM_WALK', base_color=(0.8, 0.8, 0.8, 1.0), subsurface=0.0, subsurface_radius=(1.0, 0.2, 0.1), subsurface_color=(0.8, 0.8, 0.8, 1.0), subsurface_ior=1.4, subsurface_anisotropy=0.0, metallic=0.0, specular=0.5, specular_tint=0.0, roughness=0.5, anisotropic=0.0, anisotropic_rotation=0.0, sheen=0.0, sheen_tint=0.5, clearcoat=0.0, clearcoat_roughness=0.03, ior=1.45, transmission=0.0, transmission_roughness=0.0, emission=(0.0, 0.0, 0.0, 1.0), emission_strength=1.0, alpha=1.0, normal=(0.0, 0.0, 0.0), clearcoat_normal=(0.0, 0.0, 0.0), tangent=(0.0, 0.0, 0.0), weight=0.0):
         """The Principled BSDF that combines multiple layers into a single easy to use node. It is based on the Disney principled model also known as the “PBR” shader, making it compatible with other software such as Pixar’s Renderman® and Unreal Engine®. Image textures painted or baked from software like Substance Painter® may be directly linked to the corresponding parameters in this shader.
@@ -2452,7 +2463,7 @@ class BSDF(Shader):
         [[Manual]](https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/principled.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeBsdfPrincipled.html)
         """
         node = new_node(*nodes.ShaderNodeBsdfPrincipled(distribution, subsurface_method, base_color, subsurface, subsurface_radius, subsurface_color, subsurface_ior, subsurface_anisotropy, metallic, specular, specular_tint, roughness, anisotropic, anisotropic_rotation, sheen, sheen_tint, clearcoat, clearcoat_roughness, ior, transmission, transmission_roughness, emission, emission_strength, alpha, normal, clearcoat_normal, tangent, weight))
-        return node.outputs[0].Shader
+        return BSDF(node.outputs[0].bsocket)
 
     @staticmethod
     def HairPrincipled(parametrization='COLOR', color=(0.018, 0.006, 0.002, 1.0), melanin=0.8, melanin_redness=1.0, tint=(1.0, 1.0, 1.0, 1.0), absorption_coefficient=(0.246, 0.52, 1.365), roughness=0.3, radial_roughness=0.3, coat=0.0, ior=1.55, offset=math.radians(2.0), random_color=0.0, random_roughness=0.0, random=0.0, weight=0.0):

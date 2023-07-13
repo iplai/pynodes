@@ -170,6 +170,8 @@ class SocketWraper:
             print("Cannot set default_value", e, f"{bnode.name = }", f"{bsocket.name = }", f"{value = }", sep="\n")
             if isinstance(value, tuple):
                 print("You may forget to call the member of the named tuple", value._asdict())
+        except ValueError:
+            print()
 
 
 class Socket(SocketWraper):
@@ -579,6 +581,29 @@ class Tree:
         for i, socket in enumerate(input_sockets):
             socket.bsocket = output_bnode.outputs[i]
 
+    @contextlib.contextmanager
+    def repeat(self, *input_sockets: Socket, iterations=1):
+        input_bnode: bpy.types.GeometryNodeRepeatInput = self.new_node(RepeatInput.bl_idname).bnode
+        output_bnode: bpy.types.GeometryNodeRepeatOutput = self.new_node(RepeatOutput.bl_idname).bnode
+        if iterations != 1:
+            if type(iterations) == int:
+                input_bnode.inputs[0].default_value = iterations
+            elif isinstance(iterations, Socket):
+                self.new_link(iterations.bsocket, input_bnode.inputs[0])
+        input_bnode.pair_with_output(output_bnode)
+        repeat_items = output_bnode.repeat_items
+        repeat_items.remove(output_bnode.active_item)
+        input_node = RepeatInput(input_bnode)
+        output_node = RepeatOutput(output_bnode)
+        for i, socket in enumerate(input_sockets):
+            repeat_items.new(socket.bsocket.type, socket._name or socket.bsocket.name)
+            self.new_link(socket.bsocket, input_bnode.inputs[i + 1])
+            self.new_link(input_bnode.outputs[i], output_bnode.inputs[i])
+            socket.bsocket = input_bnode.outputs[i]
+        yield SimulationZone(input_node, output_node)
+        for i, socket in enumerate(input_sockets):
+            socket.bsocket = output_bnode.outputs[i]
+
 
 class Group(NodeWraper):
     def __init__(self, bnode: Node) -> None:
@@ -624,6 +649,17 @@ class SimulationOutput(NodeWraper):
         Tree.tree.new_link(socket.bsocket, self.bnode.inputs[index])
 
 
+class RepeatInput(NodeWraper):
+    bl_idname = "GeometryNodeRepeatInput"
+
+
+class RepeatOutput(NodeWraper):
+    bl_idname = "GeometryNodeRepeatOutput"
+
+    def link_from(self, socket: Socket, index=0):
+        Tree.tree.new_link(socket.bsocket, self.bnode.inputs[index])
+
+
 class SimulationZone:
     def __init__(self, input_node: SimulationInput, output_node: SimulationOutput):
         self.input_node = input_node
@@ -640,6 +676,20 @@ class SimulationZone:
     @property
     def delta_time(self):
         return self.input_node.delta_time
+
+
+class RepeatZone:
+    def __init__(self, input_node: RepeatInput, output_node: RepeatOutput):
+        self.input_node = input_node
+        self.output_node = output_node
+
+    def to_ouput(self, socket: Socket, index=0):
+        self.output_node.link_from(socket, index)
+
+    def to_ouputs(self, *sockets: Socket):
+        for i, socket in enumerate(sockets):
+            if socket is not None:
+                self.output_node.link_from(socket, i)
 
 
 class Script(NodeWraper):
@@ -923,6 +973,10 @@ def frame(label="Layout"):
 
 def simulate(*input_sockets: Socket):
     return Tree.tree.simulate(*input_sockets)
+
+
+def repeat(*input_sockets: Socket, iterations=1):
+    return Tree.tree.repeat(*input_sockets, iterations=iterations)
 
 
 def reload():

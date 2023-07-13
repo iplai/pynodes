@@ -1,4 +1,5 @@
 import math, bpy
+from mathutils import Euler
 
 
 def GeometryNodeAttributeStatistic(data_type='FLOAT', domain='POINT', geometry=None, selection=True, attribute=0.0, attribute_001=(0.0, 0.0, 0.0)):
@@ -459,6 +460,9 @@ def GeometryNodeSampleIndex(data_type='FLOAT', domain='POINT', clamp=False, geom
     """
     params_all = [('data_type', data_type, 'FLOAT'), ('domain', domain, 'POINT'), ('clamp', clamp, False)]
     inputs_all = [(geometry, None), (value_float, 0.0), (value_int, 0), (value_vector, (0.0, 0.0, 0.0)), (value_color, (0.0, 0.0, 0.0, 0.0)), (value_bool, False), (index, 0)]
+    if bpy.app.version >= (4, 0, 0):
+        value_euler = Euler((0.0, 0.0, 0.0), 'XYZ')
+        inputs_all = [(geometry, None), (value_float, 0.0), (value_int, 0), (value_vector, (0.0, 0.0, 0.0)), (value_color, (0.0, 0.0, 0.0, 0.0)), (value_bool, False), (value_euler, Euler((0.0, 0.0, 0.0), 'XYZ')), (index, 0)]
     return "GeometryNodeSampleIndex", params_all, inputs_all
 
 
@@ -1659,7 +1663,10 @@ def GeometryNodeMeshToVolume(resolution_mode='VOXEL_AMOUNT', mesh=None, density=
     - `#0 volume: Geometry = None`
     """
     params_all = [('resolution_mode', resolution_mode, 'VOXEL_AMOUNT')]
-    inputs_all = [(mesh, None), (density, 1.0), (voxel_size, 0.3), (voxel_amount, 64.0), (exterior_band_width, 0.1), (interior_band_width, 0.0), (fill_volume, True)]
+    if bpy.app.version >= (4, 0, 0):
+        inputs_all = [(mesh, None), (density, 1.0), (voxel_size, 0.3), (voxel_amount, 64.0), (interior_band_width, 0.0)]
+    else:
+        inputs_all = [(mesh, None), (density, 1.0), (voxel_size, 0.3), (voxel_amount, 64.0), (exterior_band_width, 0.1), (interior_band_width, 0.0), (fill_volume, True)]
     return "GeometryNodeMeshToVolume", params_all, inputs_all
 
 

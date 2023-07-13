@@ -153,6 +153,10 @@ Functions
      - .. autodoc2-docstring:: pynodes.geosocks.join
           :parser: myst
           :summary:
+   * - :py:obj:`join_to_instances <pynodes.geosocks.join_to_instances>`
+     - .. autodoc2-docstring:: pynodes.geosocks.join_to_instances
+          :parser: myst
+          :summary:
    * - :py:obj:`SplineParameter <pynodes.geosocks.SplineParameter>`
      - .. autodoc2-docstring:: pynodes.geosocks.SplineParameter
           :parser: myst
@@ -1634,6 +1638,24 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Curve.to_points
          :parser: myst
 
+   .. py:method:: to_points_with_count(count=10)
+      :canonical: pynodes.geosocks.Curve.to_points_with_count
+
+      .. autodoc2-docstring:: pynodes.geosocks.Curve.to_points_with_count
+         :parser: myst
+
+   .. py:method:: to_points_with_length(length=0.1)
+      :canonical: pynodes.geosocks.Curve.to_points_with_length
+
+      .. autodoc2-docstring:: pynodes.geosocks.Curve.to_points_with_length
+         :parser: myst
+
+   .. py:property:: points_evaluated
+      :canonical: pynodes.geosocks.Curve.points_evaluated
+
+      .. autodoc2-docstring:: pynodes.geosocks.Curve.points_evaluated
+         :parser: myst
+
    .. py:method:: deform_on_surface()
       :canonical: pynodes.geosocks.Curve.deform_on_surface
 
@@ -2162,6 +2184,9 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Instances.domain_size
          :parser: myst
 
+   .. py:method:: store_named_attribute(name: str, value, domain='INSTANCE', selection=True)
+      :canonical: pynodes.geosocks.Instances.store_named_attribute
+
    .. py:method:: sample_float_at_index(value_float=0.0, index=0, clamp=False)
       :canonical: pynodes.geosocks.Instances.sample_float_at_index
 
@@ -2431,6 +2456,12 @@ API
    :canonical: pynodes.geosocks.join
 
    .. autodoc2-docstring:: pynodes.geosocks.join
+      :parser: myst
+
+.. py:function:: join_to_instances(*items: pynodes.geosocks.Geometry)
+   :canonical: pynodes.geosocks.join_to_instances
+
+   .. autodoc2-docstring:: pynodes.geosocks.join_to_instances
       :parser: myst
 
 .. py:function:: SplineParameter()

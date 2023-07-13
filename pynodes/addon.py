@@ -15,12 +15,10 @@ class PYNODES_PT_MAIN(Panel):
 
         if btree is not None:
 
-            col = layout.column(align=True)
-            split = col.split(factor=7 / (7 + len(btree.name)), align=True)
-            split.operator('node.pynodes_arrange', icon="PREFERENCES")
-            box = split.box()
-            box.scale_y = 0.5
-            box.label(text=btree.name, icon="NODETREE")
+            col = layout.column()
+            row = col.row(align=False)
+            row.operator('node.pynodes_arrange', icon="PREFERENCES")
+            row.label(text=btree.name, icon="NODETREE")
 
             layout.label(text="Node Margin:", icon="SEQ_STRIP_DUPLICATE")
             row = layout.row(align=True)
@@ -56,7 +54,12 @@ class PYNODES_PT_MAIN(Panel):
                 else:
                     box = col.box()
                     box.scale_y = 0.5
-                    box.label(text=f"{node.bl_label}", icon="NODE")
+                    name = node.bl_label
+                    if node.type == 'GROUP':
+                        name = node.node_tree.name
+                    if node.bl_idname == 'ShaderNodeMath':
+                        name = node.operation.title()
+                    box.label(text=f"{name}", icon="NODE")
                 row = col.row(align=True)
                 box = row.box()
                 box.scale_y = 0.5
@@ -69,6 +72,16 @@ class PYNODES_PT_MAIN(Panel):
                 box.label(text="Dimension", icon="OBJECT_HIDDEN")
                 row.prop(node, 'width', text="W")
                 row.prop(node, 'dimensions', text="H", index=1)
+
+                row = col.row(align=True)
+                row.operator('node.options_toggle', text="Options", icon="HIDE_OFF")
+                row.operator('node.hide_socket_toggle', text="Sockets", icon="HIDE_OFF")
+
+                for input in node.inputs:
+                    layout.row().label(text=f"{input.name} ({input.bl_idname})")
+
+                for output in node.outputs:
+                    layout.row().label(text=f"{output.name} ({output.bl_idname})")
 
         layout.separator()
         layout.row().operator('outliner.orphans_purge_recursive', icon="CANCEL")
@@ -127,10 +140,6 @@ class Column:
     @ property
     def height_with_offset(self):
         return self.height + self.offset
-
-    # @property
-    # def frame_count(self):
-    #     return len([node for node in self.nodes if is_frame(node)])
 
 
 def get_active_tree(context: Context) -> NodeTree | None:
@@ -361,8 +370,6 @@ def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, f
         # Arrange the location of nodes in columns
         x = 0
         frame_padding_x, frame_padding_y = 30, 30
-        if bpy.app.version == (3, 6, 0):
-            frame_padding_x, frame_padding_y = 30, 40
         current_has_frame = previsous_has_frame = False
         for x_index, col in enumerate(cols):
             current_has_frame = col.has_frame
@@ -384,33 +391,51 @@ def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, f
                 w, h = node.dimensions
                 if w > col.width:
                     col.width = w
-                if y_index > 0:
-                    if previsous_is_frame and current_is_frame:
-                        col.height += frame_margin_y
-                        y -= frame_margin_y
-                    elif previsous_is_frame and not current_is_frame:
-                        level_diff = frames_deepest_level[col.nodes[y_index - 1]] - frames_level_dict[col.nodes[y_index - 1]]
-                        col.height += frame_margin_y + frame_padding_y * level_diff
-                        y -= frame_margin_y - frame_padding_y * (level_diff + 1)
-                    elif not previsous_is_frame and current_is_frame:
-                        level_diff = frames_deepest_level[node] - frames_level_dict[node]
-                        col.height += frame_margin_y + frame_padding_y * level_diff
-                        y -= frame_margin_y + frame_padding_y * (level_diff + 1)
-                    else:
-                        col.height += margin_y
-                        y -= margin_y
-                # TODO
-                if y_index == 0 and current_is_frame:
-                    col.height -= 2 * frame_padding_y
-                if current_is_frame:
-                    node.location = (x, y)
-                else:
-                    if w > 140:
-                        node.location = (x + 140 - w, y)
-                    else:
+                if y_index == 0:
+                    if current_is_frame:
                         node.location = (x, y)
-                y -= h
-                col.height += h
+                        if bpy.app.version >= (3, 6, 0):
+                            padding_top = frame_padding_y + (10 if node.label != "" else 0)
+                        else:
+                            padding_top = frame_padding_y
+                        y_offset = h - padding_top
+                        col.height += y_offset
+                        y -= y_offset
+                    else:
+                        if w > 140:
+                            node.location = (x + 140 - w, y)
+                        else:
+                            node.location = (x, y)
+                        col.height += h
+                        y -= h
+                else:  # y_index > 0
+                    if current_is_frame:
+                        if bpy.app.version >= (3, 6, 0):
+                            padding_top = frame_padding_y + (10 if node.label != "" else 0)
+                        else:
+                            padding_top = frame_padding_y
+                        y -= frame_margin_y + padding_top
+                        node.location = (x, y)
+                        y -= h - padding_top
+                        col.height += frame_margin_y + h
+                    else:
+                        if previsous_is_frame:
+                            y -= frame_margin_y
+                            if w > 140:
+                                node.location = (x + 140 - w, y)
+                            else:
+                                node.location = (x, y)
+                            y -= h
+                            col.height += frame_margin_y + h
+                        else:
+                            y -= margin_y
+                            if w > 140:
+                                node.location = (x + 140 - w, y)
+                            else:
+                                node.location = (x, y)
+                            y -= h
+                            col.height += margin_y + h
+
                 previsous_is_frame = current_is_frame
             x -= col.width
             if current_has_frame:
@@ -514,7 +539,7 @@ def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, f
 
 
 def register():
-    bpy.types.Scene.nodemargin_x = bpy.props.IntProperty(default=40, min=-140, update=arrange)
+    bpy.types.Scene.nodemargin_x = bpy.props.IntProperty(default=-140, min=-140, update=arrange)
     bpy.types.Scene.nodemargin_y = bpy.props.IntProperty(default=20, update=arrange)
     bpy.types.Scene.framemargin_x = bpy.props.IntProperty(default=10, update=arrange)
     bpy.types.Scene.framemargin_y = bpy.props.IntProperty(default=10, update=arrange)

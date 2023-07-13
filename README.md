@@ -43,12 +43,14 @@ Nodes are created by a series of chain calls in a python function decrorated by�
 
 ## Install Addon
 
-- Download the latest released zip file from [github](https://github.com/iplai/pynodes/releases).
+- Download the latest released zip file from [Github](https://github.com/iplai/pynodes/releases).
 
-- Install the addon in blender
+    ![](https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.2l9jgrgq4o00.webp)
 
-    ![](docs/_static/images/Snipaste_2023-06-29_00-57-591.png)
-    ![](docs/_static/images/Snipaste_2023-06-29_00-58-391.png)
+- Install the addon in Blender.
+
+    ![](https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.8ak53qej92c.webp)
+    ![](https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.1jzh5bvmpm2o.webp)
 
 When the addon installed, enable it. (check the box of `Node: PyNodes`). Then the module `pynodes` is in your python path of blender, and the UI will appear in the Sidebar of Node Editor of Blender. The nodes in node editor can be arranged in real time with the parameters in UI.
 
@@ -66,7 +68,7 @@ It is recommanded to use vscode to write python scripts for blender. Here are tu
 
 The (p,q)-torus knot winds q times around a circle in the interior of the torus, and p times around its axis of rotational symmetry. If p and q are not relatively prime, then we have a torus link with more than one component.
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/TorusKnot3D.png/220px-TorusKnot3D.png)
+![](https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.78ajgij2yts0.webp)
 
 ### Parametric Equation
 
@@ -85,7 +87,7 @@ $$
 
 Define a node tree corresponding the parametric equation above:
 
-![](docs/_static/images/Snipaste_2023-06-29_01-48-131.png)
+![](https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.m94b81dbki8.webp)
 
 ```python
 from pynodes import *
@@ -118,7 +120,7 @@ See [Available Socket Types](https://iplai.github.io/pynodes/socket_types.html)
 
 Make a curve circle, set the position of the curve by calling the function above.
 
-![](docs/_static/images/Snipaste_2023-06-29_02-35-231.png)
+![](https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.6vgg5u5rvn00.webp)
 
 ```python
 @tree
@@ -163,7 +165,7 @@ The function decorated by the decorator [`pynodes.core.tree`](https://iplai.git
 
 Then sweep the curve to mesh with a profile curve.
 
-![](docs/_static/images/Snipaste_2023-06-29_02-53-311.png)
+![](https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.1kzbf4sl958g.webp)
 
 ```python
 @tree
@@ -192,7 +194,7 @@ At this point, the Geometry node tree is created, and then you just need to add 
 
 Not only geometry nodes, material nodes are also supported. Modify the third function, and add a material function.
 
-![](docs/_static/images/Snipaste_2023-06-29_03-20-591.png)
+![](https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.17iodwy40hz4.webp)
 
 ```python
 @tree

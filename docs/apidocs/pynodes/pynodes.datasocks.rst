@@ -616,6 +616,12 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Float.__rtruediv__
          :parser: myst
 
+   .. py:method:: __floordiv__(other)
+      :canonical: pynodes.datasocks.Float.__floordiv__
+
+      .. autodoc2-docstring:: pynodes.datasocks.Float.__floordiv__
+         :parser: myst
+
    .. py:method:: __eq__(other)
       :canonical: pynodes.datasocks.Float.__eq__
 
@@ -2192,6 +2198,12 @@ API
    :canonical: pynodes.datasocks.BSDF
 
    Bases: :py:obj:`pynodes.datasocks.Shader`
+
+   .. py:property:: base_color
+      :canonical: pynodes.datasocks.BSDF.base_color
+
+      .. autodoc2-docstring:: pynodes.datasocks.BSDF.base_color
+         :parser: myst
 
    .. py:method:: Principled(distribution='GGX', subsurface_method='RANDOM_WALK', base_color=(0.8, 0.8, 0.8, 1.0), subsurface=0.0, subsurface_radius=(1.0, 0.2, 0.1), subsurface_color=(0.8, 0.8, 0.8, 1.0), subsurface_ior=1.4, subsurface_anisotropy=0.0, metallic=0.0, specular=0.5, specular_tint=0.0, roughness=0.5, anisotropic=0.0, anisotropic_rotation=0.0, sheen=0.0, sheen_tint=0.5, clearcoat=0.0, clearcoat_roughness=0.03, ior=1.45, transmission=0.0, transmission_roughness=0.0, emission=(0.0, 0.0, 0.0, 1.0), emission_strength=1.0, alpha=1.0, normal=(0.0, 0.0, 0.0), clearcoat_normal=(0.0, 0.0, 0.0), tangent=(0.0, 0.0, 0.0), weight=0.0)
       :canonical: pynodes.datasocks.BSDF.Principled
