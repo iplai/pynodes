@@ -49,8 +49,20 @@ Classes
      - .. autodoc2-docstring:: pynodes.core.SimulationOutput
           :parser: myst
           :summary:
+   * - :py:obj:`RepeatInput <pynodes.core.RepeatInput>`
+     - .. autodoc2-docstring:: pynodes.core.RepeatInput
+          :parser: myst
+          :summary:
+   * - :py:obj:`RepeatOutput <pynodes.core.RepeatOutput>`
+     - .. autodoc2-docstring:: pynodes.core.RepeatOutput
+          :parser: myst
+          :summary:
    * - :py:obj:`SimulationZone <pynodes.core.SimulationZone>`
      - .. autodoc2-docstring:: pynodes.core.SimulationZone
+          :parser: myst
+          :summary:
+   * - :py:obj:`RepeatZone <pynodes.core.RepeatZone>`
+     - .. autodoc2-docstring:: pynodes.core.RepeatZone
           :parser: myst
           :summary:
    * - :py:obj:`Script <pynodes.core.Script>`
@@ -99,6 +111,10 @@ Functions
           :summary:
    * - :py:obj:`simulate <pynodes.core.simulate>`
      - .. autodoc2-docstring:: pynodes.core.simulate
+          :parser: myst
+          :summary:
+   * - :py:obj:`repeat <pynodes.core.repeat>`
+     - .. autodoc2-docstring:: pynodes.core.repeat
           :parser: myst
           :summary:
    * - :py:obj:`reload <pynodes.core.reload>`
@@ -561,6 +577,12 @@ API
       .. autodoc2-docstring:: pynodes.core.Tree.simulate
          :parser: myst
 
+   .. py:method:: repeat(*input_sockets: pynodes.core.Socket, iterations=1)
+      :canonical: pynodes.core.Tree.repeat
+
+      .. autodoc2-docstring:: pynodes.core.Tree.repeat
+         :parser: myst
+
 .. py:class:: Group(bnode: bpy.types.Node)
    :canonical: pynodes.core.Group
 
@@ -664,6 +686,52 @@ API
       .. autodoc2-docstring:: pynodes.core.SimulationOutput.link_from
          :parser: myst
 
+.. py:class:: RepeatInput(bnode: bpy.types.Node)
+   :canonical: pynodes.core.RepeatInput
+
+   Bases: :py:obj:`pynodes.core.NodeWraper`
+
+   .. autodoc2-docstring:: pynodes.core.RepeatInput
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.core.RepeatInput.__init__
+      :parser: myst
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.core.RepeatInput.bl_idname
+      :value: 'GeometryNodeRepeatInput'
+
+      .. autodoc2-docstring:: pynodes.core.RepeatInput.bl_idname
+         :parser: myst
+
+.. py:class:: RepeatOutput(bnode: bpy.types.Node)
+   :canonical: pynodes.core.RepeatOutput
+
+   Bases: :py:obj:`pynodes.core.NodeWraper`
+
+   .. autodoc2-docstring:: pynodes.core.RepeatOutput
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.core.RepeatOutput.__init__
+      :parser: myst
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.core.RepeatOutput.bl_idname
+      :value: 'GeometryNodeRepeatOutput'
+
+      .. autodoc2-docstring:: pynodes.core.RepeatOutput.bl_idname
+         :parser: myst
+
+   .. py:method:: link_from(socket: pynodes.core.Socket, index=0)
+      :canonical: pynodes.core.RepeatOutput.link_from
+
+      .. autodoc2-docstring:: pynodes.core.RepeatOutput.link_from
+         :parser: myst
+
 .. py:class:: SimulationZone(input_node: pynodes.core.SimulationInput, output_node: pynodes.core.SimulationOutput)
    :canonical: pynodes.core.SimulationZone
 
@@ -691,6 +759,29 @@ API
       :canonical: pynodes.core.SimulationZone.delta_time
 
       .. autodoc2-docstring:: pynodes.core.SimulationZone.delta_time
+         :parser: myst
+
+.. py:class:: RepeatZone(input_node: pynodes.core.RepeatInput, output_node: pynodes.core.RepeatOutput)
+   :canonical: pynodes.core.RepeatZone
+
+   .. autodoc2-docstring:: pynodes.core.RepeatZone
+      :parser: myst
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: pynodes.core.RepeatZone.__init__
+      :parser: myst
+
+   .. py:method:: to_ouput(socket: pynodes.core.Socket, index=0)
+      :canonical: pynodes.core.RepeatZone.to_ouput
+
+      .. autodoc2-docstring:: pynodes.core.RepeatZone.to_ouput
+         :parser: myst
+
+   .. py:method:: to_ouputs(*sockets: pynodes.core.Socket)
+      :canonical: pynodes.core.RepeatZone.to_ouputs
+
+      .. autodoc2-docstring:: pynodes.core.RepeatZone.to_ouputs
          :parser: myst
 
 .. py:class:: Script(bnode: bpy.types.Node)
@@ -815,6 +906,12 @@ API
    :canonical: pynodes.core.simulate
 
    .. autodoc2-docstring:: pynodes.core.simulate
+      :parser: myst
+
+.. py:function:: repeat(*input_sockets: pynodes.core.Socket, iterations=1)
+   :canonical: pynodes.core.repeat
+
+   .. autodoc2-docstring:: pynodes.core.repeat
       :parser: myst
 
 .. py:function:: reload()

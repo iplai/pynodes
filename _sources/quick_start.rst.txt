@@ -5,30 +5,26 @@ Quick Start
 Install Addon
 ==============
 
-.. admonition:: Download the latest released zip file from `github <https://github.com/iplai/pynodes>`_
-    :class: pynodes
+- Download the latest released zip file from `Github <https://github.com/iplai/pynodes/releases>`_
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-29_00-55-03.png
-        :group: Install Addon
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.2l9jgrgq4o00.webp
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-29_00-55-45.png
-        :group: Install Addon
+- Install the addon in Blender
 
-.. admonition:: Install the addon in blender
-    :class: pynodes
+    :menuselection:`Preferences --> Add-ons --> Install`
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-29_00-57-59.png
-        :group: Install Addon
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.8ak53qej92c.webp
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-29_00-58-39.png
-        :group: Install Addon
+    Select the file and install.
+
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.1jzh5bvmpm2o.webp
 
 When the addon installed, enable it. (check the box of ``Node: PyNodes``).
 Then the module ``pynodes`` is in your python path of blender,
 and the UI will appear in the Sidebar of Node Editor of Blender.
 The nodes in node editor can be arranged in real time with the parameters in UI.
 
-.. thumbnail:: /_static/images/node_arrange.gif
+.. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.4jeuhqxio5g0.gif
 
 Setup VSCode
 ==============
@@ -54,7 +50,7 @@ A Quick Example
 
     Make a parametric Torus Knot
 
-.. thumbnail:: https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/TorusKnot3D.png/220px-TorusKnot3D.png
+.. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.78ajgij2yts0.webp
    :align: right
    :height: 220
    :width: 220
@@ -85,7 +81,7 @@ Define a node tree corresponding the parametric equation above:
 .. admonition:: Torus Knot Coord
     :class: pynodes
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-29_01-48-13.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.m94b81dbki8.webp
         :group: Torus Knot Coord
         
     .. code:: python
@@ -130,7 +126,7 @@ Make a curve circle, set the position of the curve by calling the function above
 .. admonition:: Torus Knot Curve
     :class: pynodes
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-29_02-35-23.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.6vgg5u5rvn00.webp
         :group: Torus Knot Curve
         
     .. code:: python
@@ -183,7 +179,7 @@ Then sweep the curve to mesh with a profile curve.
 .. admonition:: Torus Knot Mesh
     :class: pynodes
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-29_02-53-31.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.1kzbf4sl958g.webp
         :group: Torus Knot Mesh
         
     .. code:: python
@@ -220,7 +216,7 @@ Modify the third function, and add a material function.
 .. admonition:: Version with material
     :class: pynodes
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-29_03-20-59.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.17iodwy40hz4.webp
         :group: Version with material
         
     .. code:: python

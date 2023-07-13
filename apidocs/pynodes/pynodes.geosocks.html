@@ -392,7 +392,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pynodes.geosocks.join" title="pynodes.geosocks.join"><code class="xref py py-obj docutils literal notranslate"><span class="pre">join</span></code></a></p></td>
 <td><p>The Join Geometry node merges separately generated geometries into a single one. If the geometry inputs contain different types of data, the output will also contain different data types.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.geosocks.SplineParameter" title="pynodes.geosocks.SplineParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SplineParameter</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.geosocks.join_to_instances" title="pynodes.geosocks.join_to_instances"><code class="xref py py-obj docutils literal notranslate"><span class="pre">join_to_instances</span></code></a></p></td>
+<td><p>The Geometry to Instance node turns every connected input geometry into an instance. Visually, the node has a similar result as the Join Geometry Node, but it outputs the result as separate instances instead. The geometry data itself isn’t actually joined.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.geosocks.SplineParameter" title="pynodes.geosocks.SplineParameter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SplineParameter</span></code></a></p></td>
 <td><p>The Spline Parameter node outputs how far along each spline a control point is. The Factor output is different from dividing the index by the total number of control points, because the control points might not be equally spaced along the curve.</p></td>
 </tr>
 </tbody>
@@ -5585,6 +5588,93 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="pynodes.geosocks.Curve.to_points_with_count">
+<span class="sig-name descname"><span class="pre">to_points_with_count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.Curve.to_points_with_count" title="Permalink to this definition">#</a></dt>
+<dd><p>The Curve to Points node generates a point cloud from a curve.</p>
+<section id="path">
+<h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Curve &gt; Operations &gt; Curve to Points Node</p></li>
+</ul>
+</section>
+<section id="properties">
+<h4>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mode</span></code>: <code class="docutils literal notranslate"><span class="pre">COUNT</span></code>, <code class="docutils literal notranslate"><span class="pre">EVALUATED</span></code>, <code class="docutils literal notranslate"><span class="pre">LENGTH</span></code></p></li>
+</ul>
+</section>
+<section id="outputs">
+<h4>Outputs:<a class="headerlink" href="#outputs" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">points:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#1</span> <span class="pre">tangent:</span> <span class="pre">Vector</span> <span class="pre">=</span> <span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#2</span> <span class="pre">normal:</span> <span class="pre">Vector</span> <span class="pre">=</span> <span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#3</span> <span class="pre">rotation:</span> <span class="pre">Vector</span> <span class="pre">=</span> <span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></code></p></li>
+</ul>
+<p><img alt="" src="https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveToPoints.webp" /></p>
+<p><a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/operations/curve_to_points.html">[Manual]</a> <a class="reference external" href="https://docs.blender.org/api/current/bpy.types.GeometryNodeCurveToPoints.html">[API]</a></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.geosocks.Curve.to_points_with_length">
+<span class="sig-name descname"><span class="pre">to_points_with_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.Curve.to_points_with_length" title="Permalink to this definition">#</a></dt>
+<dd><p>The Curve to Points node generates a point cloud from a curve.</p>
+<section id="path">
+<h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Curve &gt; Operations &gt; Curve to Points Node</p></li>
+</ul>
+</section>
+<section id="properties">
+<h4>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mode</span></code>: <code class="docutils literal notranslate"><span class="pre">COUNT</span></code>, <code class="docutils literal notranslate"><span class="pre">EVALUATED</span></code>, <code class="docutils literal notranslate"><span class="pre">LENGTH</span></code></p></li>
+</ul>
+</section>
+<section id="outputs">
+<h4>Outputs:<a class="headerlink" href="#outputs" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">points:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#1</span> <span class="pre">tangent:</span> <span class="pre">Vector</span> <span class="pre">=</span> <span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#2</span> <span class="pre">normal:</span> <span class="pre">Vector</span> <span class="pre">=</span> <span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#3</span> <span class="pre">rotation:</span> <span class="pre">Vector</span> <span class="pre">=</span> <span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></code></p></li>
+</ul>
+<p><img alt="" src="https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveToPoints.webp" /></p>
+<p><a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/operations/curve_to_points.html">[Manual]</a> <a class="reference external" href="https://docs.blender.org/api/current/bpy.types.GeometryNodeCurveToPoints.html">[API]</a></p>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.geosocks.Curve.points_evaluated">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">points_evaluated</span></span><a class="headerlink" href="#pynodes.geosocks.Curve.points_evaluated" title="Permalink to this definition">#</a></dt>
+<dd><p>The Curve to Points node generates a point cloud from a curve.</p>
+<section id="path">
+<h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Curve &gt; Operations &gt; Curve to Points Node</p></li>
+</ul>
+</section>
+<section id="properties">
+<h4>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mode</span></code>: <code class="docutils literal notranslate"><span class="pre">COUNT</span></code>, <code class="docutils literal notranslate"><span class="pre">EVALUATED</span></code>, <code class="docutils literal notranslate"><span class="pre">LENGTH</span></code></p></li>
+</ul>
+</section>
+<section id="outputs">
+<h4>Outputs:<a class="headerlink" href="#outputs" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">points:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#1</span> <span class="pre">tangent:</span> <span class="pre">Vector</span> <span class="pre">=</span> <span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#2</span> <span class="pre">normal:</span> <span class="pre">Vector</span> <span class="pre">=</span> <span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#3</span> <span class="pre">rotation:</span> <span class="pre">Vector</span> <span class="pre">=</span> <span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></code></p></li>
+</ul>
+<p><img alt="" src="https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveToPoints.webp" /></p>
+<p><a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/operations/curve_to_points.html">[Manual]</a> <a class="reference external" href="https://docs.blender.org/api/current/bpy.types.GeometryNodeCurveToPoints.html">[API]</a></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pynodes.geosocks.Curve.deform_on_surface">
 <span class="sig-name descname"><span class="pre">deform_on_surface</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.Curve.deform_on_surface" title="Permalink to this definition">#</a></dt>
 <dd><p>The Deform Curves on Surface node translates and rotates each curve based on the difference in its root position. The root position is defined by UV coordinates stored on each curve and the UV Map selected for the purpose in the Curves surface settings.</p>
@@ -7283,6 +7373,9 @@
 <dt class="sig sig-object py" id="pynodes.geosocks.Points.set_radius">
 <span class="sig-name descname"><span class="pre">set_radius</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.Points.set_radius" title="Permalink to this definition">#</a></dt>
 <dd><p>The Set Point Radius node controls the size each selected point cloud point should display with in the viewport.</p>
+<ul class="simple">
+<li><p>In-Place Operation</p></li>
+</ul>
 <section id="path">
 <h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
@@ -7326,6 +7419,11 @@
 <p><a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/domain_size.html">[Manual]</a> <a class="reference external" href="https://docs.blender.org/api/current/bpy.types.GeometryNodeAttributeDomainSize.html">[API]</a></p>
 </section>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.geosocks.Instances.store_named_attribute">
+<span class="sig-name descname"><span class="pre">store_named_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'INSTANCE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.Instances.store_named_attribute" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pynodes.geosocks.Instances.sample_float_at_index">
@@ -8268,6 +8366,26 @@
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="pynodes.geosocks.join_to_instances">
+<span class="sig-prename descclassname"><span class="pre">pynodes.geosocks.</span></span><span class="sig-name descname"><span class="pre">join_to_instances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.geosocks.Geometry" title="pynodes.geosocks.Geometry"><span class="pre">pynodes.geosocks.Geometry</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.join_to_instances" title="Permalink to this definition">#</a></dt>
+<dd><p>The Geometry to Instance node turns every connected input geometry into an instance. Visually, the node has a similar result as the Join Geometry Node, but it outputs the result as separate instances instead. The geometry data itself isn’t actually joined.</p>
+<section id="path">
+<h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Geometry &gt; Geometry to Instance Node</p></li>
+</ul>
+</section>
+<section id="outputs">
+<h4>Outputs:<a class="headerlink" href="#outputs" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">instances:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
+</ul>
+<p><img alt="" src="https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeGeometryToInstance.webp" /></p>
+<p><a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/geometry_to_instance.html">[Manual]</a> <a class="reference external" href="https://docs.blender.org/api/current/bpy.types.GeometryNodeGeometryToInstance.html">[API]</a></p>
+</section>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="pynodes.geosocks.SplineParameter">
 <span class="sig-prename descclassname"><span class="pre">pynodes.geosocks.</span></span><span class="sig-name descname"><span class="pre">SplineParameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.SplineParameter" title="Permalink to this definition">#</a></dt>
 <dd><p>The Spline Parameter node outputs how far along each spline a control point is. The Factor output is different from dividing the index by the total number of control points, because the control points might not be equally spaced along the curve.</p>
@@ -8590,6 +8708,9 @@
 <li><a class="reference internal" href="#pynodes.geosocks.Curve.set_spline_type_nurbs"><code class="docutils literal notranslate"><span class="pre">Curve.set_spline_type_nurbs()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Curve.to_mesh"><code class="docutils literal notranslate"><span class="pre">Curve.to_mesh()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Curve.to_points"><code class="docutils literal notranslate"><span class="pre">Curve.to_points()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.geosocks.Curve.to_points_with_count"><code class="docutils literal notranslate"><span class="pre">Curve.to_points_with_count()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.geosocks.Curve.to_points_with_length"><code class="docutils literal notranslate"><span class="pre">Curve.to_points_with_length()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.geosocks.Curve.points_evaluated"><code class="docutils literal notranslate"><span class="pre">Curve.points_evaluated</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Curve.deform_on_surface"><code class="docutils literal notranslate"><span class="pre">Curve.deform_on_surface()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Curve.fill_curve"><code class="docutils literal notranslate"><span class="pre">Curve.fill_curve()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Curve.filled_mesh"><code class="docutils literal notranslate"><span class="pre">Curve.filled_mesh</span></code></a></li>
@@ -8678,6 +8799,7 @@
 </li>
 <li><a class="reference internal" href="#pynodes.geosocks.Instances"><code class="docutils literal notranslate"><span class="pre">Instances</span></code></a><ul>
 <li><a class="reference internal" href="#pynodes.geosocks.Instances.domain_size"><code class="docutils literal notranslate"><span class="pre">Instances.domain_size</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.geosocks.Instances.store_named_attribute"><code class="docutils literal notranslate"><span class="pre">Instances.store_named_attribute()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Instances.sample_float_at_index"><code class="docutils literal notranslate"><span class="pre">Instances.sample_float_at_index()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Instances.sample_integer_at_index"><code class="docutils literal notranslate"><span class="pre">Instances.sample_integer_at_index()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Instances.sample_vector_at_index"><code class="docutils literal notranslate"><span class="pre">Instances.sample_vector_at_index()</span></code></a></li>
@@ -8726,6 +8848,7 @@
 <li><a class="reference internal" href="#pynodes.geosocks.InputPoints"><code class="docutils literal notranslate"><span class="pre">InputPoints()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.VolumeCube"><code class="docutils literal notranslate"><span class="pre">VolumeCube()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.join"><code class="docutils literal notranslate"><span class="pre">join()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.geosocks.join_to_instances"><code class="docutils literal notranslate"><span class="pre">join_to_instances()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.SplineParameter"><code class="docutils literal notranslate"><span class="pre">SplineParameter()</span></code></a></li>
 </ul>
 </li>

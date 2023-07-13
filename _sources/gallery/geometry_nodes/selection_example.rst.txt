@@ -16,7 +16,7 @@ Selection Example
         @tree
         def index_number_to_curve(index: Integer, max_index: Integer, size: Float):
 
-            return index.to_string().to_curve("CENTER", "MIDDLE", size=size).curve_instances.switch(max_index < index)
+            return index.to_string().to_curve("CENTER", "MIDDLE", size=size).curve_instances.join_to_instances().switch(max_index < index)
 
 
         @tree
