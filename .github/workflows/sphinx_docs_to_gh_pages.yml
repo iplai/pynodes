@@ -1,4 +1,4 @@
-name: Sphinx Deploy
+name: Checkout Sphinx Build to Github Pages Brunch
 
 on:
   push:
