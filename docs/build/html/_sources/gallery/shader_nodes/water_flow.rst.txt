@@ -1,6 +1,18 @@
 Water Flow
 =========================
 
+Use Musgrave Texture to simulate water flowing.
+
+.. note::
+
+    This example is from bilibili by @峰峰居士.
+
+.. raw:: html
+
+    <embed>
+        <iframe width="810" height="500" src="//player.bilibili.com/player.html?aid=743420681&bvid=BV18k4y1N7pg&cid=1196747039&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+    </embed>
+
 Geometry Nodes
 ------------------
 
