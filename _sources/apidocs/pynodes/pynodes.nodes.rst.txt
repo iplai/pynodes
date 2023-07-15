@@ -1959,19 +1959,19 @@ API
    .. autodoc2-docstring:: pynodes.nodes.GeometryNodeSetMaterialIndex
       :parser: myst
 
-.. py:function:: ShaderNodeTexBrick(color_mapping=None, offset=0.5, offset_frequency=2, squash=1.0, squash_frequency=2, texture_mapping=None, vector=None, color1=(0.8, 0.8, 0.8, 1.0), color2=(0.2, 0.2, 0.2, 1.0), mortar=(0.0, 0.0, 0.0, 1.0), scale=5.0, mortar_size=0.02, mortar_smooth=0.1, bias=0.0, brick_width=0.5, row_height=0.25)
+.. py:function:: ShaderNodeTexBrick(offset=0.5, offset_frequency=2, squash=1.0, squash_frequency=2, vector=None, color1=(0.8, 0.8, 0.8, 1.0), color2=(0.2, 0.2, 0.2, 1.0), mortar=(0.0, 0.0, 0.0, 1.0), scale=5.0, mortar_size=0.02, mortar_smooth=0.1, bias=0.0, brick_width=0.5, row_height=0.25)
    :canonical: pynodes.nodes.ShaderNodeTexBrick
 
    .. autodoc2-docstring:: pynodes.nodes.ShaderNodeTexBrick
       :parser: myst
 
-.. py:function:: ShaderNodeTexChecker(color_mapping=None, texture_mapping=None, vector=None, color1=(0.8, 0.8, 0.8, 1.0), color2=(0.2, 0.2, 0.2, 1.0), scale=5.0)
+.. py:function:: ShaderNodeTexChecker(vector=None, color1=(0.8, 0.8, 0.8, 1.0), color2=(0.2, 0.2, 0.2, 1.0), scale=5.0)
    :canonical: pynodes.nodes.ShaderNodeTexChecker
 
    .. autodoc2-docstring:: pynodes.nodes.ShaderNodeTexChecker
       :parser: myst
 
-.. py:function:: ShaderNodeTexGradient(gradient_type='LINEAR', color_mapping=None, texture_mapping=None, vector=None)
+.. py:function:: ShaderNodeTexGradient(gradient_type='LINEAR', vector=None)
    :canonical: pynodes.nodes.ShaderNodeTexGradient
 
    .. autodoc2-docstring:: pynodes.nodes.ShaderNodeTexGradient
@@ -1983,31 +1983,31 @@ API
    .. autodoc2-docstring:: pynodes.nodes.GeometryNodeImageTexture
       :parser: myst
 
-.. py:function:: ShaderNodeTexMagic(color_mapping=None, texture_mapping=None, turbulence_depth=2, vector=None, scale=5.0, distortion=1.0)
+.. py:function:: ShaderNodeTexMagic(turbulence_depth=2, vector=None, scale=5.0, distortion=1.0)
    :canonical: pynodes.nodes.ShaderNodeTexMagic
 
    .. autodoc2-docstring:: pynodes.nodes.ShaderNodeTexMagic
       :parser: myst
 
-.. py:function:: ShaderNodeTexMusgrave(musgrave_dimensions='3D', musgrave_type='FBM', color_mapping=None, texture_mapping=None, vector=None, w=0.0, scale=5.0, detail=2.0, dimension=2.0, lacunarity=2.0, offset=0.0, gain=1.0)
+.. py:function:: ShaderNodeTexMusgrave(musgrave_dimensions='3D', musgrave_type='FBM', vector=None, w=0.0, scale=5.0, detail=2.0, dimension=2.0, lacunarity=2.0, offset=0.0, gain=1.0)
    :canonical: pynodes.nodes.ShaderNodeTexMusgrave
 
    .. autodoc2-docstring:: pynodes.nodes.ShaderNodeTexMusgrave
       :parser: myst
 
-.. py:function:: ShaderNodeTexNoise(noise_dimensions='3D', color_mapping=None, texture_mapping=None, vector=None, w=0.0, scale=5.0, detail=2.0, roughness=0.5, distortion=0.0)
+.. py:function:: ShaderNodeTexNoise(noise_dimensions='3D', vector=None, w=0.0, scale=5.0, detail=2.0, roughness=0.5, distortion=0.0)
    :canonical: pynodes.nodes.ShaderNodeTexNoise
 
    .. autodoc2-docstring:: pynodes.nodes.ShaderNodeTexNoise
       :parser: myst
 
-.. py:function:: ShaderNodeTexVoronoi(distance='EUCLIDEAN', feature='F1', voronoi_dimensions='3D', color_mapping=None, texture_mapping=None, vector=None, w=0.0, scale=5.0, smoothness=1.0, exponent=0.5, randomness=1.0)
+.. py:function:: ShaderNodeTexVoronoi(distance='EUCLIDEAN', feature='F1', voronoi_dimensions='3D', vector=None, w=0.0, scale=5.0, smoothness=1.0, exponent=0.5, randomness=1.0)
    :canonical: pynodes.nodes.ShaderNodeTexVoronoi
 
    .. autodoc2-docstring:: pynodes.nodes.ShaderNodeTexVoronoi
       :parser: myst
 
-.. py:function:: ShaderNodeTexWave(bands_direction='X', rings_direction='X', wave_profile='SIN', wave_type='BANDS', color_mapping=None, texture_mapping=None, vector=None, scale=5.0, distortion=0.0, detail=2.0, detail_scale=1.0, detail_roughness=0.5, phase_offset=0.0)
+.. py:function:: ShaderNodeTexWave(bands_direction='X', rings_direction='X', wave_profile='SIN', wave_type='BANDS', vector=None, scale=5.0, distortion=0.0, detail=2.0, detail_scale=1.0, detail_roughness=0.5, phase_offset=0.0)
    :canonical: pynodes.nodes.ShaderNodeTexWave
 
    .. autodoc2-docstring:: pynodes.nodes.ShaderNodeTexWave
@@ -2019,7 +2019,7 @@ API
    .. autodoc2-docstring:: pynodes.nodes.ShaderNodeTexWhiteNoise
       :parser: myst
 
-.. py:function:: ShaderNodeValToRGB(color_ramp=None, fac=0.5)
+.. py:function:: ShaderNodeValToRGB(fac=0.5)
    :canonical: pynodes.nodes.ShaderNodeValToRGB
 
    .. autodoc2-docstring:: pynodes.nodes.ShaderNodeValToRGB
@@ -2475,7 +2475,7 @@ API
    .. autodoc2-docstring:: pynodes.nodes.ShaderNodeVolumeScatter
       :parser: myst
 
-.. py:function:: ShaderNodeTexEnvironment(interpolation='Linear', projection='EQUIRECTANGULAR', color_mapping=None, image=None, image_user=None, texture_mapping=None, vector=(0.0, 0.0, 0.0))
+.. py:function:: ShaderNodeTexEnvironment(interpolation='Linear', projection='EQUIRECTANGULAR', image=None, image_user=None, vector=(0.0, 0.0, 0.0))
    :canonical: pynodes.nodes.ShaderNodeTexEnvironment
 
    .. autodoc2-docstring:: pynodes.nodes.ShaderNodeTexEnvironment
@@ -2487,7 +2487,7 @@ API
    .. autodoc2-docstring:: pynodes.nodes.ShaderNodeTexIES
       :parser: myst
 
-.. py:function:: ShaderNodeTexImage(extension='REPEAT', interpolation='Linear', projection='FLAT', color_mapping=None, image=None, image_user=None, projection_blend=0.0, texture_mapping=None, vector=(0.0, 0.0, 0.0))
+.. py:function:: ShaderNodeTexImage(extension='REPEAT', interpolation='Linear', projection='FLAT', image=None, image_user=None, projection_blend=0.0, vector=(0.0, 0.0, 0.0))
    :canonical: pynodes.nodes.ShaderNodeTexImage
 
    .. autodoc2-docstring:: pynodes.nodes.ShaderNodeTexImage
@@ -2499,7 +2499,7 @@ API
    .. autodoc2-docstring:: pynodes.nodes.ShaderNodeTexPointDensity
       :parser: myst
 
-.. py:function:: ShaderNodeTexSky(sky_type='NISHITA', air_density=1.0, altitude=0.0, color_mapping=None, dust_density=1.0, ground_albedo=0.3, ozone_density=1.0, sun_direction=(0.0, 0.0, 1.0), sun_disc=True, sun_elevation=math.radians(15.0), sun_intensity=1.0, sun_rotation=0.0, sun_size=math.radians(0.545), texture_mapping=None, turbidity=2.2, vector=(0.0, 0.0, 0.0))
+.. py:function:: ShaderNodeTexSky(sky_type='NISHITA', air_density=1.0, altitude=0.0, dust_density=1.0, ground_albedo=0.3, ozone_density=1.0, sun_direction=(0.0, 0.0, 1.0), sun_disc=True, sun_elevation=math.radians(15.0), sun_intensity=1.0, sun_rotation=0.0, sun_size=math.radians(0.545), turbidity=2.2, vector=(0.0, 0.0, 0.0))
    :canonical: pynodes.nodes.ShaderNodeTexSky
 
    .. autodoc2-docstring:: pynodes.nodes.ShaderNodeTexSky

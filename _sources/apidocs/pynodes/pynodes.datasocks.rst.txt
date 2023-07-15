@@ -110,6 +110,10 @@ Classes
           :parser: myst
           :summary:
    * - :py:obj:`BSDF <pynodes.datasocks.BSDF>`
+     - .. autodoc2-docstring:: pynodes.datasocks.BSDF
+          :parser: myst
+          :summary:
+   * - :py:obj:`BsdfPrincipled <pynodes.datasocks.BsdfPrincipled>`
      -
    * - :py:obj:`Object <pynodes.datasocks.Object>`
      - .. autodoc2-docstring:: pynodes.datasocks.Object
@@ -139,6 +143,10 @@ Functions
    :class: autosummary longtable
    :align: left
 
+   * - :py:obj:`access_error <pynodes.datasocks.access_error>`
+     - .. autodoc2-docstring:: pynodes.datasocks.access_error
+          :parser: myst
+          :summary:
    * - :py:obj:`InputBool <pynodes.datasocks.InputBool>`
      - .. autodoc2-docstring:: pynodes.datasocks.InputBool
           :parser: myst
@@ -2194,23 +2202,17 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Shader.to_rgb
          :parser: myst
 
-.. py:class:: BSDF(bsocket: bpy.types.NodeSocket)
+.. py:function:: access_error()
+   :canonical: pynodes.datasocks.access_error
+
+   .. autodoc2-docstring:: pynodes.datasocks.access_error
+      :parser: myst
+
+.. py:class:: BSDF
    :canonical: pynodes.datasocks.BSDF
 
-   Bases: :py:obj:`pynodes.datasocks.Shader`
-
-   .. py:property:: base_color
-      :canonical: pynodes.datasocks.BSDF.base_color
-
-      .. autodoc2-docstring:: pynodes.datasocks.BSDF.base_color
-         :parser: myst
-
-   .. py:method:: Principled(distribution='GGX', subsurface_method='RANDOM_WALK', base_color=(0.8, 0.8, 0.8, 1.0), subsurface=0.0, subsurface_radius=(1.0, 0.2, 0.1), subsurface_color=(0.8, 0.8, 0.8, 1.0), subsurface_ior=1.4, subsurface_anisotropy=0.0, metallic=0.0, specular=0.5, specular_tint=0.0, roughness=0.5, anisotropic=0.0, anisotropic_rotation=0.0, sheen=0.0, sheen_tint=0.5, clearcoat=0.0, clearcoat_roughness=0.03, ior=1.45, transmission=0.0, transmission_roughness=0.0, emission=(0.0, 0.0, 0.0, 1.0), emission_strength=1.0, alpha=1.0, normal=(0.0, 0.0, 0.0), clearcoat_normal=(0.0, 0.0, 0.0), tangent=(0.0, 0.0, 0.0), weight=0.0)
-      :canonical: pynodes.datasocks.BSDF.Principled
-      :staticmethod:
-
-      .. autodoc2-docstring:: pynodes.datasocks.BSDF.Principled
-         :parser: myst
+   .. autodoc2-docstring:: pynodes.datasocks.BSDF
+      :parser: myst
 
    .. py:method:: HairPrincipled(parametrization='COLOR', color=(0.018, 0.006, 0.002, 1.0), melanin=0.8, melanin_redness=1.0, tint=(1.0, 1.0, 1.0, 1.0), absorption_coefficient=(0.246, 0.52, 1.365), roughness=0.3, radial_roughness=0.3, coat=0.0, ior=1.55, offset=math.radians(2.0), random_color=0.0, random_roughness=0.0, random=0.0, weight=0.0)
       :canonical: pynodes.datasocks.BSDF.HairPrincipled
@@ -2294,6 +2296,167 @@ API
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.datasocks.BSDF.Velvet
+         :parser: myst
+
+.. py:class:: BsdfPrincipled(distribution='GGX', subsurface_method='RANDOM_WALK', base_color=(0.8, 0.8, 0.8, 1.0), subsurface=0.0, subsurface_radius=(1.0, 0.2, 0.1), subsurface_color=(0.8, 0.8, 0.8, 1.0), subsurface_ior=1.4, subsurface_anisotropy=0.0, metallic=0.0, specular=0.5, specular_tint=0.0, roughness=0.5, anisotropic=0.0, anisotropic_rotation=0.0, sheen=0.0, sheen_tint=0.5, clearcoat=0.0, clearcoat_roughness=0.03, ior=1.45, transmission=0.0, transmission_roughness=0.0, emission=(0.0, 0.0, 0.0, 1.0), emission_strength=1.0, alpha=1.0, normal=(0.0, 0.0, 0.0), clearcoat_normal=(0.0, 0.0, 0.0), tangent=(0.0, 0.0, 0.0), weight=0.0)
+   :canonical: pynodes.datasocks.BsdfPrincipled
+
+   Bases: :py:obj:`pynodes.datasocks.Shader`
+
+   .. py:property:: base_color
+      :canonical: pynodes.datasocks.BsdfPrincipled.base_color
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.base_color
+         :parser: myst
+
+   .. py:property:: subsurface
+      :canonical: pynodes.datasocks.BsdfPrincipled.subsurface
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.subsurface
+         :parser: myst
+
+   .. py:property:: subsurface_radius
+      :canonical: pynodes.datasocks.BsdfPrincipled.subsurface_radius
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.subsurface_radius
+         :parser: myst
+
+   .. py:property:: subsurface_color
+      :canonical: pynodes.datasocks.BsdfPrincipled.subsurface_color
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.subsurface_color
+         :parser: myst
+
+   .. py:property:: subsurface_ior
+      :canonical: pynodes.datasocks.BsdfPrincipled.subsurface_ior
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.subsurface_ior
+         :parser: myst
+
+   .. py:property:: subsurface_anisotropy
+      :canonical: pynodes.datasocks.BsdfPrincipled.subsurface_anisotropy
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.subsurface_anisotropy
+         :parser: myst
+
+   .. py:property:: metallic
+      :canonical: pynodes.datasocks.BsdfPrincipled.metallic
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.metallic
+         :parser: myst
+
+   .. py:property:: specular
+      :canonical: pynodes.datasocks.BsdfPrincipled.specular
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.specular
+         :parser: myst
+
+   .. py:property:: specular_tint
+      :canonical: pynodes.datasocks.BsdfPrincipled.specular_tint
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.specular_tint
+         :parser: myst
+
+   .. py:property:: roughness
+      :canonical: pynodes.datasocks.BsdfPrincipled.roughness
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.roughness
+         :parser: myst
+
+   .. py:property:: anisotropic
+      :canonical: pynodes.datasocks.BsdfPrincipled.anisotropic
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.anisotropic
+         :parser: myst
+
+   .. py:property:: anisotropic_rotation
+      :canonical: pynodes.datasocks.BsdfPrincipled.anisotropic_rotation
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.anisotropic_rotation
+         :parser: myst
+
+   .. py:property:: sheen
+      :canonical: pynodes.datasocks.BsdfPrincipled.sheen
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.sheen
+         :parser: myst
+
+   .. py:property:: sheen_tint
+      :canonical: pynodes.datasocks.BsdfPrincipled.sheen_tint
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.sheen_tint
+         :parser: myst
+
+   .. py:property:: clearcoat
+      :canonical: pynodes.datasocks.BsdfPrincipled.clearcoat
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.clearcoat
+         :parser: myst
+
+   .. py:property:: clearcoat_roughness
+      :canonical: pynodes.datasocks.BsdfPrincipled.clearcoat_roughness
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.clearcoat_roughness
+         :parser: myst
+
+   .. py:property:: ior
+      :canonical: pynodes.datasocks.BsdfPrincipled.ior
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.ior
+         :parser: myst
+
+   .. py:property:: transmission
+      :canonical: pynodes.datasocks.BsdfPrincipled.transmission
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.transmission
+         :parser: myst
+
+   .. py:property:: transmission_roughness
+      :canonical: pynodes.datasocks.BsdfPrincipled.transmission_roughness
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.transmission_roughness
+         :parser: myst
+
+   .. py:property:: emission
+      :canonical: pynodes.datasocks.BsdfPrincipled.emission
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.emission
+         :parser: myst
+
+   .. py:property:: emission_strength
+      :canonical: pynodes.datasocks.BsdfPrincipled.emission_strength
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.emission_strength
+         :parser: myst
+
+   .. py:property:: alpha
+      :canonical: pynodes.datasocks.BsdfPrincipled.alpha
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.alpha
+         :parser: myst
+
+   .. py:property:: normal
+      :canonical: pynodes.datasocks.BsdfPrincipled.normal
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.normal
+         :parser: myst
+
+   .. py:property:: clearcoat_normal
+      :canonical: pynodes.datasocks.BsdfPrincipled.clearcoat_normal
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.clearcoat_normal
+         :parser: myst
+
+   .. py:property:: tangent
+      :canonical: pynodes.datasocks.BsdfPrincipled.tangent
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.tangent
+         :parser: myst
+
+   .. py:property:: weight
+      :canonical: pynodes.datasocks.BsdfPrincipled.weight
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.weight
          :parser: myst
 
 .. py:class:: Object(bsocket: bpy.types.NodeSocket)
@@ -2570,7 +2733,7 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.ViewBoolean
       :parser: myst
 
-.. py:function:: BrickTexture(offset=0.5, offset_frequency=2, squash=1.0, squash_frequency=2, texture_mapping=None, vector: pynodes.datasocks.Vector = None, color1=(0.8, 0.8, 0.8, 1.0), color2=(0.2, 0.2, 0.2, 1.0), mortar=(0.0, 0.0, 0.0, 1.0), scale=5.0, mortar_size=0.02, mortar_smooth=0.1, bias=0.0, brick_width=0.5, row_height=0.25)
+.. py:function:: BrickTexture(offset=0.5, offset_frequency=2, squash=1.0, squash_frequency=2, vector: pynodes.datasocks.Vector = None, color1=(0.8, 0.8, 0.8, 1.0), color2=(0.2, 0.2, 0.2, 1.0), mortar=(0.0, 0.0, 0.0, 1.0), scale=5.0, mortar_size=0.02, mortar_smooth=0.1, bias=0.0, brick_width=0.5, row_height=0.25)
    :canonical: pynodes.datasocks.BrickTexture
 
    .. autodoc2-docstring:: pynodes.datasocks.BrickTexture
@@ -2594,13 +2757,13 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.ImageTextureGeo
       :parser: myst
 
-.. py:function:: MagicTexture(color_mapping=None, texture_mapping=None, turbulence_depth=2, vector: pynodes.datasocks.Vector = None, scale=5.0, distortion=1.0)
+.. py:function:: MagicTexture(turbulence_depth=2, vector: pynodes.datasocks.Vector = None, scale=5.0, distortion=1.0)
    :canonical: pynodes.datasocks.MagicTexture
 
    .. autodoc2-docstring:: pynodes.datasocks.MagicTexture
       :parser: myst
 
-.. py:function:: MusgraveTexture(musgrave_dimensions='3D', musgrave_type='FBM', color_mapping=None, texture_mapping=None, vector: pynodes.datasocks.Vector = None, w=0.0, scale=5.0, detail=2.0, dimension=2.0, lacunarity=2.0, offset=0.0, gain=1.0)
+.. py:function:: MusgraveTexture(musgrave_dimensions='3D', musgrave_type='FBM', vector: pynodes.datasocks.Vector = None, w=0.0, scale=5.0, detail=2.0, dimension=2.0, lacunarity=2.0, offset=0.0, gain=1.0)
    :canonical: pynodes.datasocks.MusgraveTexture
 
    .. autodoc2-docstring:: pynodes.datasocks.MusgraveTexture
@@ -2612,7 +2775,7 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.NoiseTexture
       :parser: myst
 
-.. py:function:: VoronoiTexture(voronoi_dimensions='3D', feature='F1', distance='EUCLIDEAN', color_mapping=None, texture_mapping=None, vector: pynodes.datasocks.Vector = None, w=0.0, scale=5.0, smoothness=1.0, exponent=0.5, randomness=1.0)
+.. py:function:: VoronoiTexture(voronoi_dimensions='3D', feature='F1', distance='EUCLIDEAN', vector: pynodes.datasocks.Vector = None, w=0.0, scale=5.0, smoothness=1.0, exponent=0.5, randomness=1.0)
    :canonical: pynodes.datasocks.VoronoiTexture
 
    .. autodoc2-docstring:: pynodes.datasocks.VoronoiTexture
@@ -2780,7 +2943,7 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.IES_Texture
       :parser: myst
 
-.. py:function:: ImageTexture(image=None, interpolation='Linear', projection='FLAT', extension='REPEAT', color_mapping=None, image_user=None, projection_blend=0.0, texture_mapping=None, vector=(0.0, 0.0, 0.0))
+.. py:function:: ImageTexture(image=None, interpolation='Linear', projection='FLAT', extension='REPEAT', image_user=None, projection_blend=0.0, vector=(0.0, 0.0, 0.0))
    :canonical: pynodes.datasocks.ImageTexture
 
    .. autodoc2-docstring:: pynodes.datasocks.ImageTexture
@@ -2792,7 +2955,7 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.PointDensity
       :parser: myst
 
-.. py:function:: SkyTexture(sky_type='NISHITA', air_density=1.0, altitude=0.0, color_mapping=None, dust_density=1.0, ground_albedo=0.3, ozone_density=1.0, sun_direction=(0.0, 0.0, 1.0), sun_disc=True, sun_elevation=math.radians(15.0), sun_intensity=1.0, sun_rotation=0.0, sun_size=math.radians(0.545), texture_mapping=None, turbidity=2.2, vector=(0.0, 0.0, 0.0))
+.. py:function:: SkyTexture(sky_type='NISHITA', air_density=1.0, altitude=0.0, dust_density=1.0, ground_albedo=0.3, ozone_density=1.0, sun_direction=(0.0, 0.0, 1.0), sun_disc=True, sun_elevation=math.radians(15.0), sun_intensity=1.0, sun_rotation=0.0, sun_size=math.radians(0.545), turbidity=2.2, vector=(0.0, 0.0, 0.0))
    :canonical: pynodes.datasocks.SkyTexture
 
    .. autodoc2-docstring:: pynodes.datasocks.SkyTexture

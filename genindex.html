@@ -195,6 +195,7 @@
 <li class="toctree-l3"><a class="reference internal" href="gallery/shader_nodes/small_demos.html">Small Demos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gallery/shader_nodes/sparkles.html">Sparkles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gallery/shader_nodes/toon_shader.html">Toon Shader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gallery/shader_nodes/water_flow.html">Water Flow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gallery/shader_nodes/world_shader.html">World Shader</a></li>
 </ul>
 </li>
@@ -442,6 +443,8 @@
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Vector.absolute">absolute() (pynodes.datasocks.Vector method)</a>
 </li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.access_error">access_error() (in module pynodes.datasocks)</a>
+</li>
         <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Geometry.accumulate_float_on_corners">accumulate_float_on_corners() (pynodes.geosocks.Geometry static method)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Geometry.accumulate_float_on_curves">accumulate_float_on_curves() (pynodes.geosocks.Geometry static method)</a>
@@ -474,15 +477,17 @@
 </li>
         <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Geometry.accumulate_vector_on_faces">accumulate_vector_on_faces() (pynodes.geosocks.Geometry static method)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Geometry.accumulate_vector_on_instances">accumulate_vector_on_instances() (pynodes.geosocks.Geometry static method)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Geometry.accumulate_vector_on_points">accumulate_vector_on_points() (pynodes.geosocks.Geometry static method)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Shader.add_shader">add_shader() (pynodes.datasocks.Shader method)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Vector.align_euler_to_vector">align_euler_to_vector() (pynodes.datasocks.Vector method)</a>
+</li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.alpha">alpha (pynodes.datasocks.BsdfPrincipled property)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.AmbientOcclusion">AmbientOcclusion() (in module pynodes.datasocks)</a>
 </li>
@@ -492,7 +497,11 @@
           <li><a href="apidocs/pynodes/pynodes.core.html#pynodes.core.Socket.Angle">(pynodes.core.Socket property)</a>
 </li>
         </ul></li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.anisotropic">anisotropic (pynodes.datasocks.BsdfPrincipled property)</a>
+</li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BSDF.Anisotropic">Anisotropic() (pynodes.datasocks.BSDF static method)</a>
+</li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.anisotropic_rotation">anisotropic_rotation (pynodes.datasocks.BsdfPrincipled property)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Float.arccos">arccos() (pynodes.datasocks.Float class method)</a>
 </li>
@@ -526,7 +535,7 @@
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Shader.Background">Background() (pynodes.datasocks.Shader static method)</a>
 </li>
-        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BSDF.base_color">base_color (pynodes.datasocks.BSDF property)</a>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.base_color">base_color (pynodes.datasocks.BsdfPrincipled property)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.scene.html#pynodes.scene.Mod.bevel">bevel (pynodes.scene.Mod attribute)</a>
 </li>
@@ -542,6 +551,8 @@
 
         <ul>
           <li><a href="apidocs/pynodes/pynodes.addon.html#pynodes.addon.PYNODES_OT_PURGE.bl_idname">(pynodes.addon.PYNODES_OT_PURGE attribute)</a>
+</li>
+          <li><a href="apidocs/pynodes/pynodes.addon.html#pynodes.addon.PYNODES_OT_RELOAD.bl_idname">(pynodes.addon.PYNODES_OT_RELOAD attribute)</a>
 </li>
           <li><a href="apidocs/pynodes/pynodes.core.html#pynodes.core.Frame.bl_idname">(pynodes.core.Frame attribute)</a>
 </li>
@@ -625,6 +636,8 @@
         <ul>
           <li><a href="apidocs/pynodes/pynodes.addon.html#pynodes.addon.PYNODES_OT_PURGE.bl_label">(pynodes.addon.PYNODES_OT_PURGE attribute)</a>
 </li>
+          <li><a href="apidocs/pynodes/pynodes.addon.html#pynodes.addon.PYNODES_OT_RELOAD.bl_label">(pynodes.addon.PYNODES_OT_RELOAD attribute)</a>
+</li>
           <li><a href="apidocs/pynodes/pynodes.addon.html#pynodes.addon.PYNODES_PT_MAIN.bl_label">(pynodes.addon.PYNODES_PT_MAIN attribute)</a>
 </li>
         </ul></li>
@@ -661,6 +674,8 @@
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BrightContrast">BrightContrast() (in module pynodes.datasocks)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BSDF">BSDF (class in pynodes.datasocks)</a>
+</li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled">BsdfPrincipled (class in pynodes.datasocks)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -742,6 +757,12 @@
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Float.clamp">clamp() (pynodes.datasocks.Float method)</a>
 </li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.clearcoat">clearcoat (pynodes.datasocks.BsdfPrincipled property)</a>
+</li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.clearcoat_normal">clearcoat_normal (pynodes.datasocks.BsdfPrincipled property)</a>
+</li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.clearcoat_roughness">clearcoat_roughness (pynodes.datasocks.BsdfPrincipled property)</a>
+</li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Collection">Collection (class in pynodes.datasocks)</a>
 
         <ul>
@@ -752,14 +773,14 @@
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Color">Color (class in pynodes.datasocks)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="apidocs/pynodes/pynodes.core.html#pynodes.core.NodeWraper.color">color (pynodes.core.NodeWraper property)</a>
 
         <ul>
           <li><a href="apidocs/pynodes/pynodes.core.html#pynodes.core.Script.color">(pynodes.core.Script property)</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="apidocs/pynodes/pynodes.core.html#pynodes.core.Socket.Color">Color (pynodes.core.Socket property)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Shader.color_attribute">color_attribute() (pynodes.datasocks.Shader static method)</a>
@@ -908,6 +929,8 @@
           <li><a href="apidocs/pynodes/pynodes.core.html#pynodes.core.SimulationZone.delta_time">(pynodes.core.SimulationZone property)</a>
 </li>
         </ul></li>
+        <li><a href="apidocs/pynodes/pynodes.addon.html#pynodes.addon.dev">dev (in module pynodes.addon)</a>
+</li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BSDF.Diffuse">Diffuse() (pynodes.datasocks.BSDF static method)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.core.html#pynodes.core.dispath_tree">dispath_tree() (in module pynodes.core)</a>
@@ -970,7 +993,11 @@
 </li>
         <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Mesh.edges_to_face_groups">edges_to_face_groups() (pynodes.geosocks.Mesh static method)</a>
 </li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.emission">emission (pynodes.datasocks.BsdfPrincipled property)</a>
+</li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Shader.Emission">Emission() (pynodes.datasocks.Shader static method)</a>
+</li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.emission_strength">emission_strength (pynodes.datasocks.BsdfPrincipled property)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.scene.html#pynodes.scene.O.empty_sphere">empty_sphere (pynodes.scene.O attribute)</a>
 </li>
@@ -1104,6 +1131,8 @@
 
         <ul>
           <li><a href="apidocs/pynodes/pynodes.addon.html#pynodes.addon.PYNODES_OT_PURGE.execute">(pynodes.addon.PYNODES_OT_PURGE method)</a>
+</li>
+          <li><a href="apidocs/pynodes/pynodes.addon.html#pynodes.addon.PYNODES_OT_RELOAD.execute">(pynodes.addon.PYNODES_OT_RELOAD method)</a>
 </li>
         </ul></li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Float.exponent">exponent (pynodes.datasocks.Float property)</a>
@@ -1714,14 +1743,14 @@
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.InputVector">InputVector() (in module pynodes.datasocks)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Instances">Instances (class in pynodes.geosocks)</a>
 
         <ul>
           <li><a href="apidocs/pynodes/pynodes.core.html#pynodes.core.Socket.Instances">(pynodes.core.Socket property)</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Integer">Integer (class in pynodes.datasocks)</a>
 
         <ul>
@@ -1767,6 +1796,8 @@
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Color.invert">invert() (pynodes.datasocks.Color method)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.addon.html#pynodes.addon.PYNODES_OT_ARRANGE.invoke">invoke() (pynodes.addon.PYNODES_OT_ARRANGE method)</a>
+</li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.ior">ior (pynodes.datasocks.BsdfPrincipled property)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Curve.is_cyclic">is_cyclic (pynodes.geosocks.Curve property)</a>
 </li>
@@ -1990,10 +2021,12 @@
 </li>
         <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.MeshUVSphere">MeshUVSphere() (in module pynodes.geosocks)</a>
 </li>
-        <li><a href="apidocs/pynodes/pynodes.colors.html#pynodes.colors.mid_azure">mid_azure (in module pynodes.colors)</a>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.metallic">metallic (pynodes.datasocks.BsdfPrincipled property)</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="apidocs/pynodes/pynodes.colors.html#pynodes.colors.mid_azure">mid_azure (in module pynodes.colors)</a>
+</li>
         <li><a href="apidocs/pynodes/pynodes.colors.html#pynodes.colors.mid_blue">mid_blue (in module pynodes.colors)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.colors.html#pynodes.colors.mid_cyan">mid_cyan (in module pynodes.colors)</a>
@@ -2115,14 +2148,14 @@
 </li>
         <li><a href="apidocs/pynodes/pynodes.core.html#pynodes.core.Tree.new_input">new_input() (pynodes.core.Tree method)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="apidocs/pynodes/pynodes.core.html#pynodes.core.new_link">new_link() (in module pynodes.core)</a>
 
         <ul>
           <li><a href="apidocs/pynodes/pynodes.core.html#pynodes.core.Tree.new_link">(pynodes.core.Tree method)</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="apidocs/pynodes/pynodes.core.html#pynodes.core.new_node">new_node() (in module pynodes.core)</a>
 
         <ul>
@@ -2139,8 +2172,12 @@
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Boolean.nor">nor() (pynodes.datasocks.Boolean method)</a>
 </li>
-        <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Geometry.normal">normal (pynodes.geosocks.Geometry property)</a>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.normal">normal (pynodes.datasocks.BsdfPrincipled property)</a>
+
+        <ul>
+          <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Geometry.normal">(pynodes.geosocks.Geometry property)</a>
 </li>
+        </ul></li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Color.normal_map">normal_map() (pynodes.datasocks.Color method)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Vector.normalize">normalize (pynodes.datasocks.Vector property)</a>
@@ -2245,8 +2282,6 @@
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BSDF.Principled">Principled() (pynodes.datasocks.BSDF static method)</a>
-</li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Vector.project">project() (pynodes.datasocks.Vector method)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Geometry.proximity">proximity() (pynodes.geosocks.Geometry method)</a>
@@ -2310,6 +2345,8 @@
         <li><a href="apidocs/pynodes/pynodes.addon.html#pynodes.addon.PYNODES_OT_ARRANGE">PYNODES_OT_ARRANGE (class in pynodes.addon)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.addon.html#pynodes.addon.PYNODES_OT_PURGE">PYNODES_OT_PURGE (class in pynodes.addon)</a>
+</li>
+        <li><a href="apidocs/pynodes/pynodes.addon.html#pynodes.addon.PYNODES_OT_RELOAD">PYNODES_OT_RELOAD (class in pynodes.addon)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.addon.html#pynodes.addon.PYNODES_PT_MAIN">PYNODES_PT_MAIN (class in pynodes.addon)</a>
 </li>
@@ -2445,6 +2482,8 @@
           <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Instances.rotation">(pynodes.geosocks.Instances property)</a>
 </li>
         </ul></li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.roughness">roughness (pynodes.datasocks.BsdfPrincipled property)</a>
+</li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Float.round">round (pynodes.datasocks.Float property)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.core.html#pynodes.core.RT">RT (in module pynodes.core)</a>
@@ -2494,6 +2533,14 @@
 </li>
         </ul></li>
         <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Geometry.sample_nearest">sample_nearest() (pynodes.geosocks.Geometry method)</a>
+</li>
+        <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Geometry.sample_nearest_on_corners">sample_nearest_on_corners() (pynodes.geosocks.Geometry method)</a>
+</li>
+        <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Geometry.sample_nearest_on_edges">sample_nearest_on_edges() (pynodes.geosocks.Geometry method)</a>
+</li>
+        <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Geometry.sample_nearest_on_faces">sample_nearest_on_faces() (pynodes.geosocks.Geometry method)</a>
+</li>
+        <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Geometry.sample_nearest_on_points">sample_nearest_on_points() (pynodes.geosocks.Geometry method)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Mesh.sample_uv_surface_boolean">sample_uv_surface_boolean() (pynodes.geosocks.Mesh method)</a>
 </li>
@@ -2705,8 +2752,6 @@
 </li>
         <li><a href="apidocs/pynodes/pynodes.nodes.html#pynodes.nodes.ShaderNodeLightFalloff">ShaderNodeLightFalloff() (in module pynodes.nodes)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="apidocs/pynodes/pynodes.nodes.html#pynodes.nodes.ShaderNodeLightPath">ShaderNodeLightPath() (in module pynodes.nodes)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.ShaderNodeMapping">ShaderNodeMapping() (in module pynodes.datasocks)</a>
@@ -2715,6 +2760,8 @@
           <li><a href="apidocs/pynodes/pynodes.nodes.html#pynodes.nodes.ShaderNodeMapping">(in module pynodes.nodes)</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="apidocs/pynodes/pynodes.nodes.html#pynodes.nodes.ShaderNodeMapRange">ShaderNodeMapRange() (in module pynodes.nodes)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.nodes.html#pynodes.nodes.ShaderNodeMath">ShaderNodeMath() (in module pynodes.nodes)</a>
@@ -2855,6 +2902,10 @@
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.ShaderScript">ShaderScript() (in module pynodes.datasocks)</a>
 </li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.sheen">sheen (pynodes.datasocks.BsdfPrincipled property)</a>
+</li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.sheen_tint">sheen_tint (pynodes.datasocks.BsdfPrincipled property)</a>
+</li>
         <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Mesh.shortest_edge_paths">shortest_edge_paths() (pynodes.geosocks.Mesh static method)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Float.sign">sign (pynodes.datasocks.Float property)</a>
@@ -2907,7 +2958,11 @@
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.String.special_characters">special_characters (pynodes.datasocks.String property)</a>
 </li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.specular">specular (pynodes.datasocks.BsdfPrincipled property)</a>
+</li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BSDF.Specular">Specular() (pynodes.datasocks.BSDF static method)</a>
+</li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.specular_tint">specular_tint (pynodes.datasocks.BsdfPrincipled property)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Curve.spline_length">spline_length (pynodes.geosocks.Curve property)</a>
 </li>
@@ -2943,6 +2998,16 @@
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Boolean.substract">substract() (pynodes.datasocks.Boolean method)</a>
 </li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.subsurface">subsurface (pynodes.datasocks.BsdfPrincipled property)</a>
+</li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.subsurface_anisotropy">subsurface_anisotropy (pynodes.datasocks.BsdfPrincipled property)</a>
+</li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.subsurface_color">subsurface_color (pynodes.datasocks.BsdfPrincipled property)</a>
+</li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.subsurface_ior">subsurface_ior (pynodes.datasocks.BsdfPrincipled property)</a>
+</li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.subsurface_radius">subsurface_radius (pynodes.datasocks.BsdfPrincipled property)</a>
+</li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Shader.SubsurfaceScattering">SubsurfaceScattering() (pynodes.datasocks.Shader static method)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Switch">Switch() (in module pynodes.datasocks)</a>
@@ -2969,9 +3034,11 @@
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Float.tan">tan() (pynodes.datasocks.Float class method)</a>
 </li>
-        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Float.tangent">tangent (pynodes.datasocks.Float property)</a>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.tangent">tangent (pynodes.datasocks.BsdfPrincipled property)</a>
 
         <ul>
+          <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Float.tangent">(pynodes.datasocks.Float property)</a>
+</li>
           <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Curve.tangent">(pynodes.geosocks.Curve property)</a>
 </li>
         </ul></li>
@@ -3037,6 +3104,8 @@
         </ul></li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Curve.to_points_evaluated">to_points_evaluated() (pynodes.geosocks.Curve method)</a>
+</li>
         <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Curve.to_points_with_count">to_points_with_count() (pynodes.geosocks.Curve method)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Curve.to_points_with_length">to_points_with_length() (pynodes.geosocks.Curve method)</a>
@@ -3062,6 +3131,10 @@
         <li><a href="apidocs/pynodes/pynodes.geosocks.html#pynodes.geosocks.Instances.translate_instances">translate_instances() (pynodes.geosocks.Instances method)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BSDF.Translucent">Translucent() (pynodes.datasocks.BSDF static method)</a>
+</li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.transmission">transmission (pynodes.datasocks.BsdfPrincipled property)</a>
+</li>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.transmission_roughness">transmission_roughness (pynodes.datasocks.BsdfPrincipled property)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BSDF.Transparent">Transparent() (pynodes.datasocks.BSDF static method)</a>
 </li>
@@ -3235,10 +3308,12 @@
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.WaveTextureRings">WaveTextureRings() (in module pynodes.datasocks)</a>
 </li>
-        <li><a href="apidocs/pynodes/pynodes.colors.html#pynodes.colors.white">white (in module pynodes.colors)</a>
+        <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.BsdfPrincipled.weight">weight (pynodes.datasocks.BsdfPrincipled property)</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="apidocs/pynodes/pynodes.colors.html#pynodes.colors.white">white (in module pynodes.colors)</a>
+</li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.WhiteNoiseTexture">WhiteNoiseTexture() (in module pynodes.datasocks)</a>
 </li>
         <li><a href="apidocs/pynodes/pynodes.datasocks.html#pynodes.datasocks.Shader.wire_frame">wire_frame() (pynodes.datasocks.Shader static method)</a>

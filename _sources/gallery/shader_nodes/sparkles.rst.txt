@@ -7,9 +7,9 @@ Geometry Pieces
 .. admonition:: Geometry Pieces
     :class: pynodes
 
-    .. thumbnail:: https://i.ibb.co/4tfqgvK/image.gif
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.6bzabnryexc0.gif
 
-    .. thumbnail:: https://i.ibb.co/Pt9HdZ0/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.261oqcc2lyow.webp
         
     .. code:: python
 
@@ -49,9 +49,9 @@ URL of the ImageTexture: `sparkle.png <https://github.com/iplai/pynodes/blob/mai
 .. admonition:: Sparkles Material
     :class: pynodes
 
-    .. thumbnail:: https://i.ibb.co/nw0kjmx/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.5t3sbjfruh40.webp
 
-    .. thumbnail:: https://i.ibb.co/tKR2w3y/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.6e4vjtsuvt00.webp
         
     .. code:: python
 

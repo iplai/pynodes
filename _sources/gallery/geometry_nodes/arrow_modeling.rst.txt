@@ -14,9 +14,9 @@ Calculate coordinate of arrow
 .. admonition:: arrow_coord
     :class: pynodes
 
-    .. thumbnail:: https://i.ibb.co/BcTyWQz/Arrow-comp.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.7cj27eak8kg0.webp
 
-    .. thumbnail:: https://i.ibb.co/q10sgLs/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.66avinfny5k0.webp
         
     .. code:: python
 
@@ -52,7 +52,7 @@ coordinate Correction
 .. admonition:: coord_correction
     :class: pynodes
 
-    .. thumbnail:: https://i.ibb.co/gv4793z/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.3uy6nq5rsm20.webp
         
     .. code:: python
 
@@ -73,7 +73,7 @@ Arrow Modeling
 .. admonition:: arrow_modeling
     :class: pynodes
 
-    .. thumbnail:: https://i.ibb.co/Q9k7jC0/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.lggswhskqrk.webp
         
     .. code:: python
 
@@ -137,7 +137,7 @@ Arrow Materials
 .. admonition:: Arrow materials
     :class: pynodes
 
-    .. thumbnail:: https://i.ibb.co/GdndKM6/image.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.1427vp408cdc.webp
         
     .. code:: python
 

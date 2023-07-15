@@ -37,7 +37,7 @@ Classes
 API
 ~~~
 
-.. py:class:: ObjType
+.. py:class:: ObjType(*args, **kwds)
    :canonical: pynodes.scene.ObjType
 
    Bases: :py:obj:`enum.Enum`
@@ -48,7 +48,7 @@ API
       .. autodoc2-docstring:: pynodes.scene.ObjType.__matmul__
          :parser: myst
 
-.. py:class:: O
+.. py:class:: O(*args, **kwds)
    :canonical: pynodes.scene.O
 
    Bases: :py:obj:`pynodes.scene.ObjType`
@@ -130,7 +130,7 @@ API
       .. autodoc2-docstring:: pynodes.scene.O.empty_sphere
          :parser: myst
 
-.. py:class:: Mod
+.. py:class:: Mod(*args, **kwds)
    :canonical: pynodes.scene.Mod
 
    Bases: :py:obj:`pynodes.scene.ObjType`
@@ -170,7 +170,7 @@ API
       .. autodoc2-docstring:: pynodes.scene.Mod.smooth
          :parser: myst
 
-.. py:class:: Mat
+.. py:class:: Mat(*args, **kwds)
    :canonical: pynodes.scene.Mat
 
    Bases: :py:obj:`pynodes.scene.ObjType`

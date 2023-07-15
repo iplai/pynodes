@@ -9,7 +9,7 @@ Mesh Surface to Maze
 .. admonition:: mesh_to_maze
     :class: pynodes
 
-    .. thumbnail:: /_static/images/Snipaste_2023-06-28_05-36-14.png
+    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.51vh8uuhmvk0.webp
         
     .. code:: python
 
