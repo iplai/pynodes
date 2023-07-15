@@ -2,5 +2,5 @@ sphinx
 sphinx-autodoc2
 furo
 myst-parser
-phinx-copybutton
+sphinx-copybutton
 sphinxcontrib-images
