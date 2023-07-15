@@ -217,24 +217,24 @@ Materials
         @tree
         def cerulean():
             """@material"""
-            return BSDF.Principled(base_color="#0070A8", alpha=0.5)
+            return BsdfPrincipled(base_color="#0070A8", alpha=0.5)
 
         bpy.data.materials["Cerulean"].blend_method = "BLEND"
 
         @tree
         def cerise():
             """@material"""
-            return BSDF.Principled(base_color="#CE009E")
+            return BsdfPrincipled(base_color="#CE009E")
 
         @tree
         def green():
             """@material"""
-            return BSDF.Principled(base_color="#158C00")
+            return Bsdf.Principled(base_color="#158C00")
 
         @tree
         def black():
             """@material"""
-            return BSDF.Principled(base_color="#000000")
+            return BsdfPrincipled(base_color="#000000")
 
 The Result Illustration
 --------------------------

@@ -145,7 +145,7 @@ Arrow Materials
         def arrow_head():
             """@material"""
 
-            shader = BSDF.Principled(base_color="#3ac463")
+            shader = BsdfPrincipled(base_color="#3ac463")
 
             return shader
 
@@ -154,6 +154,6 @@ Arrow Materials
         def arrow_shaft():
             """@material"""
 
-            shader = BSDF.Principled(base_color="#2c6397")
+            shader = BsdfPrincipled(base_color="#2c6397")
 
             return shader
