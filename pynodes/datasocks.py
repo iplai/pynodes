@@ -2437,33 +2437,11 @@ class Shader(Socket):
         return ret(node.outputs[0].Color, node.outputs[1].Float)
 
 
-class BSDF(Shader):
+def access_error():
+    return RuntimeError("Input Sockets cannot be accessed in this context")
 
-    @property
-    def base_color(self):
-        raise RuntimeError("Input Sockets cannot be accessed in this context")
 
-    @base_color.setter
-    def base_color(self, value):
-        self["base_color"] = value
-
-    @staticmethod
-    def Principled(distribution='GGX', subsurface_method='RANDOM_WALK', base_color=(0.8, 0.8, 0.8, 1.0), subsurface=0.0, subsurface_radius=(1.0, 0.2, 0.1), subsurface_color=(0.8, 0.8, 0.8, 1.0), subsurface_ior=1.4, subsurface_anisotropy=0.0, metallic=0.0, specular=0.5, specular_tint=0.0, roughness=0.5, anisotropic=0.0, anisotropic_rotation=0.0, sheen=0.0, sheen_tint=0.5, clearcoat=0.0, clearcoat_roughness=0.03, ior=1.45, transmission=0.0, transmission_roughness=0.0, emission=(0.0, 0.0, 0.0, 1.0), emission_strength=1.0, alpha=1.0, normal=(0.0, 0.0, 0.0), clearcoat_normal=(0.0, 0.0, 0.0), tangent=(0.0, 0.0, 0.0), weight=0.0):
-        """The Principled BSDF that combines multiple layers into a single easy to use node. It is based on the Disney principled model also known as the “PBR” shader, making it compatible with other software such as Pixar’s Renderman® and Unreal Engine®. Image textures painted or baked from software like Substance Painter® may be directly linked to the corresponding parameters in this shader.
-        #### Path
-        - Shader > Principled BSDF
-        #### Properties:
-        - `distribution`: `GGX`, `MULTI_GGX`
-        - `subsurface_method`: `RANDOM_WALK`, `BURLEY`, `RANDOM_WALK_FIXED_RADIUS`
-        #### Outputs:
-        - `#0 bsdf: Shader = None`
-
-        ![](https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeBsdfPrincipled.webp)
-
-        [[Manual]](https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/principled.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeBsdfPrincipled.html)
-        """
-        node = new_node(*nodes.ShaderNodeBsdfPrincipled(distribution, subsurface_method, base_color, subsurface, subsurface_radius, subsurface_color, subsurface_ior, subsurface_anisotropy, metallic, specular, specular_tint, roughness, anisotropic, anisotropic_rotation, sheen, sheen_tint, clearcoat, clearcoat_roughness, ior, transmission, transmission_roughness, emission, emission_strength, alpha, normal, clearcoat_normal, tangent, weight))
-        return BSDF(node.outputs[0].bsocket)
+class BSDF:
 
     @staticmethod
     def HairPrincipled(parametrization='COLOR', color=(0.018, 0.006, 0.002, 1.0), melanin=0.8, melanin_redness=1.0, tint=(1.0, 1.0, 1.0, 1.0), absorption_coefficient=(0.246, 0.52, 1.365), roughness=0.3, radial_roughness=0.3, coat=0.0, ior=1.55, offset=math.radians(2.0), random_color=0.0, random_roughness=0.0, random=0.0, weight=0.0):
@@ -2658,6 +2636,234 @@ class BSDF(Shader):
         """
         node = new_node(*nodes.ShaderNodeBsdfVelvet(color, sigma, normal))
         return node.outputs[0].Shader
+
+
+class BsdfPrincipled(Shader):
+
+    def __init__(self, distribution='GGX', subsurface_method='RANDOM_WALK', base_color=(0.8, 0.8, 0.8, 1.0), subsurface=0.0, subsurface_radius=(1.0, 0.2, 0.1), subsurface_color=(0.8, 0.8, 0.8, 1.0), subsurface_ior=1.4, subsurface_anisotropy=0.0, metallic=0.0, specular=0.5, specular_tint=0.0, roughness=0.5, anisotropic=0.0, anisotropic_rotation=0.0, sheen=0.0, sheen_tint=0.5, clearcoat=0.0, clearcoat_roughness=0.03, ior=1.45, transmission=0.0, transmission_roughness=0.0, emission=(0.0, 0.0, 0.0, 1.0), emission_strength=1.0, alpha=1.0, normal=(0.0, 0.0, 0.0), clearcoat_normal=(0.0, 0.0, 0.0), tangent=(0.0, 0.0, 0.0), weight=0.0):
+        """The Principled BSDF that combines multiple layers into a single easy to use node. It is based on the Disney principled model also known as the “PBR” shader, making it compatible with other software such as Pixar’s Renderman® and Unreal Engine®. Image textures painted or baked from software like Substance Painter® may be directly linked to the corresponding parameters in this shader.
+        #### Path
+        - Shader > Principled BSDF
+        #### Properties:
+        - `distribution`: `GGX`, `MULTI_GGX`
+        - `subsurface_method`: `RANDOM_WALK`, `BURLEY`, `RANDOM_WALK_FIXED_RADIUS`
+        #### Outputs:
+        - `#0 bsdf: Shader = None`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeBsdfPrincipled.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/principled.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeBsdfPrincipled.html)
+        """
+        node = new_node(*nodes.ShaderNodeBsdfPrincipled(distribution, subsurface_method, base_color, subsurface, subsurface_radius, subsurface_color, subsurface_ior, subsurface_anisotropy, metallic, specular, specular_tint, roughness, anisotropic, anisotropic_rotation, sheen, sheen_tint, clearcoat, clearcoat_roughness, ior, transmission, transmission_roughness, emission, emission_strength, alpha, normal, clearcoat_normal, tangent, weight))
+        super().__init__(node.outputs[0].bsocket)
+
+    @property
+    def base_color(self):
+        raise access_error()
+
+    @base_color.setter
+    def base_color(self, value):
+        self["base_color"] = value
+
+    @property
+    def subsurface(self):
+        raise access_error()
+
+    @subsurface.setter
+    def subsurface(self, value):
+        self["subsurface"] = value
+
+    @property
+    def subsurface_radius(self):
+        raise access_error()
+
+    @subsurface_radius.setter
+    def subsurface_radius(self, value):
+        self["subsurface_radius"] = value
+
+    @property
+    def subsurface_color(self):
+        raise access_error()
+
+    @subsurface_color.setter
+    def subsurface_color(self, value):
+        self["subsurface_color"] = value
+
+    @property
+    def subsurface_ior(self):
+        raise access_error()
+
+    @subsurface_ior.setter
+    def subsurface_ior(self, value):
+        self["subsurface_ior"] = value
+
+    @property
+    def subsurface_anisotropy(self):
+        raise access_error()
+
+    @subsurface_anisotropy.setter
+    def subsurface_anisotropy(self, value):
+        self["subsurface_anisotropy"] = value
+
+    @property
+    def metallic(self):
+        raise access_error()
+
+    @metallic.setter
+    def metallic(self, value):
+        self["metallic"] = value
+
+    @property
+    def specular(self):
+        raise access_error()
+
+    @specular.setter
+    def specular(self, value):
+        self["specular"] = value
+
+    @property
+    def specular_tint(self):
+        raise access_error()
+
+    @specular_tint.setter
+    def specular_tint(self, value):
+        self["specular_tint"] = value
+
+    @property
+    def roughness(self):
+        raise access_error()
+
+    @roughness.setter
+    def roughness(self, value):
+        self["roughness"] = value
+
+    @property
+    def anisotropic(self):
+        raise access_error()
+
+    @anisotropic.setter
+    def anisotropic(self, value):
+        self["anisotropic"] = value
+
+    @property
+    def anisotropic_rotation(self):
+        raise access_error()
+
+    @anisotropic_rotation.setter
+    def anisotropic_rotation(self, value):
+        self["anisotropic_rotation"] = value
+
+    @property
+    def sheen(self):
+        raise access_error()
+
+    @sheen.setter
+    def sheen(self, value):
+        self["sheen"] = value
+
+    @property
+    def sheen_tint(self):
+        raise access_error()
+
+    @sheen_tint.setter
+    def sheen_tint(self, value):
+        self["sheen_tint"] = value
+
+    @property
+    def clearcoat(self):
+        raise access_error()
+
+    @clearcoat.setter
+    def clearcoat(self, value):
+        self["clearcoat"] = value
+
+    @property
+    def clearcoat_roughness(self):
+        raise access_error()
+
+    @clearcoat_roughness.setter
+    def clearcoat_roughness(self, value):
+        self["clearcoat_roughness"] = value
+
+    @property
+    def ior(self):
+        raise access_error()
+
+    @ior.setter
+    def ior(self, value):
+        self["ior"] = value
+
+    @property
+    def transmission(self):
+        raise access_error()
+
+    @transmission.setter
+    def transmission(self, value):
+        self["transmission"] = value
+
+    @property
+    def transmission_roughness(self):
+        raise access_error()
+
+    @transmission_roughness.setter
+    def transmission_roughness(self, value):
+        self["transmission_roughness"] = value
+
+    @property
+    def emission(self):
+        raise access_error()
+
+    @emission.setter
+    def emission(self, value):
+        self["emission"] = value
+
+    @property
+    def emission_strength(self):
+        raise access_error()
+
+    @emission_strength.setter
+    def emission_strength(self, value):
+        self["emission_strength"] = value
+
+    @property
+    def alpha(self):
+        raise access_error()
+
+    @alpha.setter
+    def alpha(self, value):
+        self["alpha"] = value
+
+    @property
+    def normal(self):
+        raise access_error()
+
+    @normal.setter
+    def normal(self, value):
+        self["normal"] = value
+
+    @property
+    def clearcoat_normal(self):
+        raise access_error()
+
+    @clearcoat_normal.setter
+    def clearcoat_normal(self, value):
+        self["clearcoat_normal"] = value
+
+    @property
+    def tangent(self):
+        raise access_error()
+
+    @tangent.setter
+    def tangent(self, value):
+        self["tangent"] = value
+
+    @property
+    def weight(self):
+        raise access_error()
+
+    @weight.setter
+    def weight(self, value):
+        self["weight"] = value
 
 
 class Object(Socket):
@@ -3139,7 +3345,7 @@ def ViewBoolean(domain="AUTO", geometry=None, value=False):
     return node
 
 
-def BrickTexture(offset=0.5, offset_frequency=2, squash=1.0, squash_frequency=2, texture_mapping=None, vector: Vector = None, color1=(0.8, 0.8, 0.8, 1.0), color2=(0.2, 0.2, 0.2, 1.0), mortar=(0.0, 0.0, 0.0, 1.0), scale=5.0, mortar_size=0.02, mortar_smooth=0.1, bias=0.0, brick_width=0.5, row_height=0.25):
+def BrickTexture(offset=0.5, offset_frequency=2, squash=1.0, squash_frequency=2, vector: Vector = None, color1=(0.8, 0.8, 0.8, 1.0), color2=(0.2, 0.2, 0.2, 1.0), mortar=(0.0, 0.0, 0.0, 1.0), scale=5.0, mortar_size=0.02, mortar_smooth=0.1, bias=0.0, brick_width=0.5, row_height=0.25):
     """The Brick Texture is used to add a procedural texture producing bricks.
     #### Path
     - Texture > Brick Texture Node
@@ -3151,7 +3357,7 @@ def BrickTexture(offset=0.5, offset_frequency=2, squash=1.0, squash_frequency=2,
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/brick.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexBrick.html)
     """
-    node = new_node(*nodes.ShaderNodeTexBrick(None, offset, offset_frequency, squash, squash_frequency, texture_mapping, vector, color1, color2, mortar, scale, mortar_size, mortar_smooth, bias, brick_width, row_height))
+    node = new_node(*nodes.ShaderNodeTexBrick(offset, offset_frequency, squash, squash_frequency, vector, color1, color2, mortar, scale, mortar_size, mortar_smooth, bias, brick_width, row_height))
     ret = typing.NamedTuple("ShaderNodeTexBrick", [("color", Color), ("fac", Float)])
     return ret(node.outputs[0].Color, node.outputs[1].Float)
 
@@ -3168,7 +3374,7 @@ def CheckerTexture(vector: Vector = None, color1=(0.8, 0.8, 0.8, 1.0), color2=(0
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/checker.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexChecker.html)
     """
-    node = new_node(*nodes.ShaderNodeTexChecker(None, None, vector, color1, color2, scale))
+    node = new_node(*nodes.ShaderNodeTexChecker(vector, color1, color2, scale))
     ret = typing.NamedTuple("ShaderNodeTexChecker", [("color", Color), ("fac", Float)])
     return ret(node.outputs[0].Color, node.outputs[1].Float)
 
@@ -3187,7 +3393,7 @@ def GradientTexture(gradient_type='LINEAR', vector: Vector = None):
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/gradient.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexGradient.html)
     """
-    node = new_node(*nodes.ShaderNodeTexGradient(gradient_type, None, None, vector))
+    node = new_node(*nodes.ShaderNodeTexGradient(gradient_type, vector))
     ret = typing.NamedTuple("ShaderNodeTexGradient", [("color", Color), ("fac", Float)])
     return ret(node.outputs[0].Color, node.outputs[1].Float)
 
@@ -3212,7 +3418,7 @@ def ImageTextureGeo(extension='REPEAT', interpolation='Linear', image=None, vect
     return ret(node.outputs[0].Color, node.outputs[1].Float)
 
 
-def MagicTexture(color_mapping=None, texture_mapping=None, turbulence_depth=2, vector: Vector = None, scale=5.0, distortion=1.0):
+def MagicTexture(turbulence_depth=2, vector: Vector = None, scale=5.0, distortion=1.0):
     """The Magic Texture node is used to add a psychedelic color texture.
     #### Path
     - Texture > Magic Texture Node
@@ -3224,12 +3430,12 @@ def MagicTexture(color_mapping=None, texture_mapping=None, turbulence_depth=2, v
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/magic.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexMagic.html)
     """
-    node = new_node(*nodes.ShaderNodeTexMagic(color_mapping, texture_mapping, turbulence_depth, vector, scale, distortion))
+    node = new_node(*nodes.ShaderNodeTexMagic(turbulence_depth, vector, scale, distortion))
     ret = typing.NamedTuple("ShaderNodeTexMagic", [("color", Color), ("fac", Float)])
     return ret(node.outputs[0].Color, node.outputs[1].Float)
 
 
-def MusgraveTexture(musgrave_dimensions='3D', musgrave_type='FBM', color_mapping=None, texture_mapping=None, vector: Vector = None, w=0.0, scale=5.0, detail=2.0, dimension=2.0, lacunarity=2.0, offset=0.0, gain=1.0):
+def MusgraveTexture(musgrave_dimensions='3D', musgrave_type='FBM', vector: Vector = None, w=0.0, scale=5.0, detail=2.0, dimension=2.0, lacunarity=2.0, offset=0.0, gain=1.0):
     """The Musgrave Texture node evaluates a fractal Perlin noise at the input texture coordinates. Unlike the Noise Texture, which is also a fractal Perlin noise, the Musgrave Texture allows greater control over how octaves are combined.
     #### Path
     - Texture > Musgrave Texture Node
@@ -3243,7 +3449,7 @@ def MusgraveTexture(musgrave_dimensions='3D', musgrave_type='FBM', color_mapping
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/musgrave.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexMusgrave.html)
     """
-    node = new_node(*nodes.ShaderNodeTexMusgrave(musgrave_dimensions, musgrave_type, color_mapping, texture_mapping, vector, w, scale, detail, dimension, lacunarity, offset, gain))
+    node = new_node(*nodes.ShaderNodeTexMusgrave(musgrave_dimensions, musgrave_type, vector, w, scale, detail, dimension, lacunarity, offset, gain))
     ret = typing.NamedTuple("ShaderNodeTexMusgrave", [("fac", Float)])
     return ret(node.outputs[0].Float)
 
@@ -3262,12 +3468,12 @@ def NoiseTexture(noise_dimensions='3D', vector: Vector = None, w=0.0, scale=5.0,
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/noise.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexNoise.html)
     """
-    node = new_node(*nodes.ShaderNodeTexNoise(noise_dimensions, None, None, vector, w, scale, detail, roughness, distortion))
+    node = new_node(*nodes.ShaderNodeTexNoise(noise_dimensions, vector, w, scale, detail, roughness, distortion))
     ret = typing.NamedTuple("ShaderNodeTexNoise", [("fac", Float), ("color", Color)])
     return ret(node.outputs[0].Float, node.outputs[1].Color)
 
 
-def VoronoiTexture(voronoi_dimensions='3D', feature='F1', distance='EUCLIDEAN', color_mapping=None, texture_mapping=None, vector: Vector = None, w=0.0, scale=5.0, smoothness=1.0, exponent=0.5, randomness=1.0):
+def VoronoiTexture(voronoi_dimensions='3D', feature='F1', distance='EUCLIDEAN', vector: Vector = None, w=0.0, scale=5.0, smoothness=1.0, exponent=0.5, randomness=1.0):
     """The Voronoi Texture node evaluates a Worley Noise at the input texture coordinates.
     #### Path
     - Texture > Voronoi Texture Node
@@ -3286,7 +3492,7 @@ def VoronoiTexture(voronoi_dimensions='3D', feature='F1', distance='EUCLIDEAN', 
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/voronoi.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexVoronoi.html)
     """
-    node = new_node(*nodes.ShaderNodeTexVoronoi(distance, feature, voronoi_dimensions, color_mapping, texture_mapping, vector, w, scale, smoothness, exponent, randomness))
+    node = new_node(*nodes.ShaderNodeTexVoronoi(distance, feature, voronoi_dimensions, vector, w, scale, smoothness, exponent, randomness))
     ret = typing.NamedTuple("ShaderNodeTexVoronoi", [("distance", Float), ("color", Color), ("position", Vector), ("w", Float), ("radius", Float)])
     return ret(node.outputs[0].Float, node.outputs[1].Color, node.outputs[2].Vector, node.outputs[3].Float, node.outputs[4].Float)
 
@@ -3308,7 +3514,7 @@ def WaveTexture(wave_type='BANDS', bands_direction='X', rings_direction='X', wav
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/wave.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexWave.html)
     """
-    node = new_node(*nodes.ShaderNodeTexWave(bands_direction, rings_direction, wave_profile, wave_type, None, None, vector, scale, distortion, detail, detail_scale, detail_roughness, phase_offset))
+    node = new_node(*nodes.ShaderNodeTexWave(bands_direction, rings_direction, wave_profile, wave_type, vector, scale, distortion, detail, detail_scale, detail_roughness, phase_offset))
     ret = typing.NamedTuple("ShaderNodeTexWave", [("color", Color), ("fac", Float)])
     return ret(node.outputs[0].Color, node.outputs[1].Float)
 
@@ -3328,7 +3534,7 @@ def WaveTextureBands(bands_direction='X', wave_profile='SIN', vector: Vector = N
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/wave.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexWave.html)
     """
-    node = new_node(*nodes.ShaderNodeTexWave(bands_direction, "X", wave_profile, "BANDS", None, None, vector, scale, distortion, detail, detail_scale, detail_roughness, phase_offset))
+    node = new_node(*nodes.ShaderNodeTexWave(bands_direction, "X", wave_profile, "BANDS", vector, scale, distortion, detail, detail_scale, detail_roughness, phase_offset))
     ret = typing.NamedTuple("ShaderNodeTexWave", [("color", Color), ("fac", Float)])
     return ret(node.outputs[0].Color, node.outputs[1].Float)
 
@@ -3348,7 +3554,7 @@ def WaveTextureRings(rings_direction='X', wave_profile='SIN', vector: Vector = N
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/wave.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexWave.html)
     """
-    node = new_node(*nodes.ShaderNodeTexWave("X", rings_direction, wave_profile, "RINGS", None, None, vector, scale, distortion, detail, detail_scale, detail_roughness, phase_offset))
+    node = new_node(*nodes.ShaderNodeTexWave("X", rings_direction, wave_profile, "RINGS", vector, scale, distortion, detail, detail_scale, detail_roughness, phase_offset))
     ret = typing.NamedTuple("ShaderNodeTexWave", [("color", Color), ("fac", Float)])
     return ret(node.outputs[0].Color, node.outputs[1].Float)
 
@@ -3384,7 +3590,7 @@ def ColorRamp(fac=0.5):
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/color/color_ramp.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeValToRGB.html)
     """
-    node = new_node(*nodes.ShaderNodeValToRGB(None, fac))
+    node = new_node(*nodes.ShaderNodeValToRGB(fac))
     ret = typing.NamedTuple("ShaderNodeValToRGB", [("color", Color), ("alpha", Float)])
     return ret(node.outputs[0].Color, node.outputs[1].Float)
 
@@ -3744,7 +3950,7 @@ def EnvironmentTexture(image=None, interpolation='Linear', projection='EQUIRECTA
     """
     if isinstance(image, str):
         image = bpy.data.images[image]
-    node = new_node(*nodes.ShaderNodeTexEnvironment(interpolation, projection, None, image, None, None, vector))
+    node = new_node(*nodes.ShaderNodeTexEnvironment(interpolation, projection, image, None,  vector))
     ret = typing.NamedTuple("ShaderNodeTexEnvironment", [("color", Color)])
     return ret(node.outputs[0].Color)
 
@@ -3767,7 +3973,7 @@ def IES_Texture(mode='INTERNAL', filepath='', ies=None, vector=(0.0, 0.0, 0.0), 
     return ret(node.outputs[0].Float)
 
 
-def ImageTexture(image=None, interpolation='Linear', projection='FLAT', extension='REPEAT', color_mapping=None, image_user=None, projection_blend=0.0, texture_mapping=None, vector=(0.0, 0.0, 0.0)):
+def ImageTexture(image=None, interpolation='Linear', projection='FLAT', extension='REPEAT', image_user=None, projection_blend=0.0, vector=(0.0, 0.0, 0.0)):
     """The Image Texture is used to add an image file as a texture.
     #### Path
     - Texture > Image Texture Node
@@ -3785,7 +3991,7 @@ def ImageTexture(image=None, interpolation='Linear', projection='FLAT', extensio
     """
     if isinstance(image, str):
         image = bpy.data.images[image]
-    node = new_node(*nodes.ShaderNodeTexImage(extension, interpolation, projection, color_mapping, image, image_user, projection_blend, texture_mapping, vector))
+    node = new_node(*nodes.ShaderNodeTexImage(extension, interpolation, projection, image, image_user, projection_blend, vector))
     ret = typing.NamedTuple("ShaderNodeTexImage", [("color", Color), ("alpha", Float)])
     return ret(node.outputs[0].Color, node.outputs[1].Float)
 
@@ -3813,7 +4019,7 @@ def PointDensity(interpolation='Linear', particle_color_source='PARTICLE_AGE', p
     return ret(node.outputs[0].Color, node.outputs[1].Float)
 
 
-def SkyTexture(sky_type='NISHITA', air_density=1.0, altitude=0.0, color_mapping=None, dust_density=1.0, ground_albedo=0.3, ozone_density=1.0, sun_direction=(0.0, 0.0, 1.0), sun_disc=True, sun_elevation=math.radians(15.0), sun_intensity=1.0, sun_rotation=0.0, sun_size=math.radians(0.545), texture_mapping=None, turbidity=2.2, vector=(0.0, 0.0, 0.0)):
+def SkyTexture(sky_type='NISHITA', air_density=1.0, altitude=0.0, dust_density=1.0, ground_albedo=0.3, ozone_density=1.0, sun_direction=(0.0, 0.0, 1.0), sun_disc=True, sun_elevation=math.radians(15.0), sun_intensity=1.0, sun_rotation=0.0, sun_size=math.radians(0.545), turbidity=2.2, vector=(0.0, 0.0, 0.0)):
     """The Sky Texture node adds a procedural Sky texture.
     #### Path
     - Texture > Sky Texture Node
@@ -3826,7 +4032,7 @@ def SkyTexture(sky_type='NISHITA', air_density=1.0, altitude=0.0, color_mapping=
 
     [[Manual]](https://docs.blender.org/manual/en/latest/render/shader_nodes/textures/sky.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexSky.html)
     """
-    node = new_node(*nodes.ShaderNodeTexSky(sky_type, air_density, altitude, color_mapping, dust_density, ground_albedo, ozone_density, sun_direction, sun_disc, sun_elevation, sun_intensity, sun_rotation, sun_size, texture_mapping, turbidity, vector))
+    node = new_node(*nodes.ShaderNodeTexSky(sky_type, air_density, altitude,  dust_density, ground_albedo, ozone_density, sun_direction, sun_disc, sun_elevation, sun_intensity, sun_rotation, sun_size,  turbidity, vector))
     ret = typing.NamedTuple("ShaderNodeTexSky", [("color", Color)])
     return ret(node.outputs[0].Color)
 

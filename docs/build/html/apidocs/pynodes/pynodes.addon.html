@@ -197,6 +197,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../gallery/shader_nodes/small_demos.html">Small Demos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../gallery/shader_nodes/sparkles.html">Sparkles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../gallery/shader_nodes/toon_shader.html">Toon Shader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gallery/shader_nodes/water_flow.html">Water Flow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../gallery/shader_nodes/world_shader.html">World Shader</a></li>
 </ul>
 </li>
@@ -284,7 +285,10 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.addon.PYNODES_OT_PURGE" title="pynodes.addon.PYNODES_OT_PURGE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYNODES_OT_PURGE</span></code></a></p></td>
 <td><p>Clear all orphaned data-blocks without any users from the file</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.addon.Column" title="pynodes.addon.Column"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Column</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.addon.PYNODES_OT_RELOAD" title="pynodes.addon.PYNODES_OT_RELOAD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYNODES_OT_RELOAD</span></code></a></p></td>
+<td><p>Reload pynodes module</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.addon.Column" title="pynodes.addon.Column"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Column</span></code></a></p></td>
 <td><p>Represent a column in blender node editor</p></td>
 </tr>
 </tbody>
@@ -327,8 +331,25 @@
 </table>
 </div>
 </section>
+<section id="data">
+<h3>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h3>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-left">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.addon.dev" title="pynodes.addon.dev"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dev</span></code></a></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 <section id="api">
 <h3>API<a class="headerlink" href="#api" title="Permalink to this heading">#</a></h3>
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.addon.dev">
+<span class="sig-prename descclassname"><span class="pre">pynodes.addon.</span></span><span class="sig-name descname"><span class="pre">dev</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#pynodes.addon.dev" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="pynodes.addon.PYNODES_PT_MAIN">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.addon.</span></span><span class="sig-name descname"><span class="pre">PYNODES_PT_MAIN</span></span><a class="headerlink" href="#pynodes.addon.PYNODES_PT_MAIN" title="Permalink to this definition">#</a></dt>
@@ -410,6 +431,28 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="pynodes.addon.PYNODES_OT_PURGE.execute">
 <span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.addon.PYNODES_OT_PURGE.execute" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_OT_RELOAD">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.addon.</span></span><span class="sig-name descname"><span class="pre">PYNODES_OT_RELOAD</span></span><a class="headerlink" href="#pynodes.addon.PYNODES_OT_RELOAD" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">bpy.types.Operator</span></code></p>
+<p>Reload pynodes module</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_OT_RELOAD.bl_idname">
+<span class="sig-name descname"><span class="pre">bl_idname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'node.pynodes_reload'</span></em><a class="headerlink" href="#pynodes.addon.PYNODES_OT_RELOAD.bl_idname" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_OT_RELOAD.bl_label">
+<span class="sig-name descname"><span class="pre">bl_label</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Reload</span> <span class="pre">PyNodes'</span></em><a class="headerlink" href="#pynodes.addon.PYNODES_OT_RELOAD.bl_label" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_OT_RELOAD.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.addon.PYNODES_OT_RELOAD.execute" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -541,7 +584,9 @@
 <li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
 <li><a class="reference internal" href="#classes">Classes</a></li>
 <li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#data">Data</a></li>
 <li><a class="reference internal" href="#api">API</a><ul>
+<li><a class="reference internal" href="#pynodes.addon.dev"><code class="docutils literal notranslate"><span class="pre">dev</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_PT_MAIN"><code class="docutils literal notranslate"><span class="pre">PYNODES_PT_MAIN</span></code></a><ul>
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_PT_MAIN.bl_label"><code class="docutils literal notranslate"><span class="pre">PYNODES_PT_MAIN.bl_label</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_PT_MAIN.bl_space_type"><code class="docutils literal notranslate"><span class="pre">PYNODES_PT_MAIN.bl_space_type</span></code></a></li>
@@ -562,6 +607,12 @@
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_PURGE.bl_idname"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_PURGE.bl_idname</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_PURGE.bl_label"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_PURGE.bl_label</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_PURGE.execute"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_PURGE.execute()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_RELOAD"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_RELOAD</span></code></a><ul>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_RELOAD.bl_idname"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_RELOAD.bl_idname</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_RELOAD.bl_label"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_RELOAD.bl_label</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_RELOAD.execute"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_RELOAD.execute()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#pynodes.addon.Column"><code class="docutils literal notranslate"><span class="pre">Column</span></code></a><ul>

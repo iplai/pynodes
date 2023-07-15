@@ -1,6 +1,8 @@
 import bpy
 from bpy.types import Node, NodeFrame, NodeLink, NodeSocket, Context, NodeTree, Panel, Operator
 
+dev = True
+
 
 class PYNODES_PT_MAIN(Panel):
     bl_label = "Arrange Nodes"
@@ -57,8 +59,8 @@ class PYNODES_PT_MAIN(Panel):
                     name = node.bl_label
                     if node.type == 'GROUP':
                         name = node.node_tree.name
-                    if node.bl_idname == 'ShaderNodeMath':
-                        name = node.operation.title()
+                    if node.bl_idname in ['ShaderNodeMath', 'ShaderNodeVectorMath', 'FunctionNodeCompare']:
+                        name = name + " → " + node.operation.replace("_", " ").title()
                     box.label(text=f"{name}", icon="NODE")
                 row = col.row(align=True)
                 box = row.box()
@@ -77,25 +79,19 @@ class PYNODES_PT_MAIN(Panel):
                 row.operator('node.options_toggle', text="Options", icon="HIDE_OFF")
                 row.operator('node.hide_socket_toggle', text="Sockets", icon="HIDE_OFF")
 
-                for input in node.inputs:
-                    layout.row().label(text=f"{input.name} ({input.bl_idname})")
+                if dev:
 
-                for output in node.outputs:
-                    layout.row().label(text=f"{output.name} ({output.bl_idname})")
+                    for i, input in enumerate(node.inputs):
+                        layout.row().label(text=f"{i} {input.identifier}", icon='HIDE_ON' if not input.enabled or input.hide else 'HIDE_OFF')
 
-        layout.separator()
-        layout.row().operator('outliner.orphans_purge_recursive', icon="CANCEL")
+                    layout.separator()
 
-
-# class PYNODES_PT_UTILS(Panel):
-#     bl_label = "Utils"
-#     bl_space_type = "NODE_EDITOR"
-#     bl_region_type = "UI"
-#     bl_category = "Pynodes"
-
-#     def draw(self, context):
-#         layout = self.layout
-#         layout.row().operator('outliner.orphans_purge_recursive', icon="CANCEL")
+                    for i, output in enumerate(node.outputs):
+                        layout.row().label(text=f"{i} {output.identifier}", icon='HIDE_ON' if not output.enabled or output.hide else 'HIDE_OFF')
+        if dev:
+            layout.separator()
+            layout.row().operator('node.pynodes_reload', icon="FILE_REFRESH")
+            layout.row().operator('outliner.orphans_purge_recursive', icon="CANCEL")
 
 
 class PYNODES_OT_ARRANGE(Operator):
@@ -124,6 +120,17 @@ class PYNODES_OT_PURGE(Operator):
 
     def execute(self, context):
         bpy.ops.outliner.orphans_purge(do_recursive=True)
+        return {'FINISHED'}
+
+
+class PYNODES_OT_RELOAD(Operator):
+    """Reload pynodes module"""
+    bl_idname = 'node.pynodes_reload'
+    bl_label = 'Reload PyNodes'
+
+    def execute(self, context):
+        from .core import reload
+        reload()
         return {'FINISHED'}
 
 
@@ -451,17 +458,15 @@ def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, f
                     node.label = f"{node.dimensions[0]:3.0f} {node.dimensions[1]:3.0f}"
         '''
 
-        # If a child node is too tall, then don't aligin center
-        for node in child_nodes:
-            if not is_frame(node) and node.dimensions[1] >= 500:
-                return
-
         diff_shreshold_factor = 0.66
 
         # Center from left columns to right columns
         if node_center1:
             for i, col in reversed(list(enumerate(cols))):
                 if i == len(cols) - 1:
+                    continue
+                # If a child node of previous column is too tall, then don't aligin center
+                if any(node.dimensions[1] >= 500 for node in cols[i + 1].nodes if not is_frame(node)):
                     continue
                 current_height = col.height + col.offset
                 pre_height = cols[i + 1].height + cols[i + 1].offset
@@ -484,9 +489,15 @@ def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, f
             for i, col in enumerate(cols):
                 if i == 0:
                     continue
+                # If a child node of previous column is too tall, then don't aligin center
+                if any(node.dimensions[1] >= 500 for node in cols[i - 1].nodes if not is_frame(node)):
+                    continue
+                for node in cols[i - 1].nodes:
+                    if not is_frame(node) and node.dimensions[1] >= 500:
+                        continue
                 current_height = col.height + col.offset
                 pre_height = cols[i - 1].height + cols[i - 1].offset
-                if current_height > pre_height * diff_shreshold_factor:
+                if current_height > pre_height:
                     continue
                 # col.offset + col.height / 2 + offset_y = cols[i - 1].offset + cols[i - 1].height / 2
                 offset_y = cols[i - 1].offset + cols[i - 1].height / 2 - (col.offset + col.height / 2)
@@ -539,7 +550,8 @@ def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, f
 
 
 def register():
-    bpy.types.Scene.nodemargin_x = bpy.props.IntProperty(default=-140, min=-140, update=arrange)
+    default_nodemargin_x = -140 if dev else 40
+    bpy.types.Scene.nodemargin_x = bpy.props.IntProperty(default=default_nodemargin_x, min=-140, update=arrange)
     bpy.types.Scene.nodemargin_y = bpy.props.IntProperty(default=20, update=arrange)
     bpy.types.Scene.framemargin_x = bpy.props.IntProperty(default=10, update=arrange)
     bpy.types.Scene.framemargin_y = bpy.props.IntProperty(default=10, update=arrange)

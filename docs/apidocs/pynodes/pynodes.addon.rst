@@ -27,6 +27,10 @@ Classes
      - .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_PURGE
           :parser: myst
           :summary:
+   * - :py:obj:`PYNODES_OT_RELOAD <pynodes.addon.PYNODES_OT_RELOAD>`
+     - .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_RELOAD
+          :parser: myst
+          :summary:
    * - :py:obj:`Column <pynodes.addon.Column>`
      - .. autodoc2-docstring:: pynodes.addon.Column
           :parser: myst
@@ -76,8 +80,27 @@ Functions
           :parser: myst
           :summary:
 
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`dev <pynodes.addon.dev>`
+     - .. autodoc2-docstring:: pynodes.addon.dev
+          :parser: myst
+          :summary:
+
 API
 ~~~
+
+.. py:data:: dev
+   :canonical: pynodes.addon.dev
+   :value: True
+
+   .. autodoc2-docstring:: pynodes.addon.dev
+      :parser: myst
 
 .. py:class:: PYNODES_PT_MAIN
    :canonical: pynodes.addon.PYNODES_PT_MAIN
@@ -171,6 +194,31 @@ API
 
    .. py:method:: execute(context)
       :canonical: pynodes.addon.PYNODES_OT_PURGE.execute
+
+.. py:class:: PYNODES_OT_RELOAD
+   :canonical: pynodes.addon.PYNODES_OT_RELOAD
+
+   Bases: :py:obj:`bpy.types.Operator`
+
+   .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_RELOAD
+      :parser: myst
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.addon.PYNODES_OT_RELOAD.bl_idname
+      :value: 'node.pynodes_reload'
+
+      .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_RELOAD.bl_idname
+         :parser: myst
+
+   .. py:attribute:: bl_label
+      :canonical: pynodes.addon.PYNODES_OT_RELOAD.bl_label
+      :value: 'Reload PyNodes'
+
+      .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_RELOAD.bl_label
+         :parser: myst
+
+   .. py:method:: execute(context)
+      :canonical: pynodes.addon.PYNODES_OT_RELOAD.execute
 
 .. py:class:: Column()
    :canonical: pynodes.addon.Column

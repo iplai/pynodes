@@ -30,3 +30,4 @@ from .geosocks import *
 import mathutils
 
 from .colors import rgb, color_tuple
+from math import pi, tau

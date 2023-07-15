@@ -698,6 +698,30 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_nearest
          :parser: myst
 
+   .. py:method:: sample_nearest_on_points(sample_position: pynodes.datasocks.Vector = None)
+      :canonical: pynodes.geosocks.Geometry.sample_nearest_on_points
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_nearest_on_points
+         :parser: myst
+
+   .. py:method:: sample_nearest_on_edges(sample_position: pynodes.datasocks.Vector = None)
+      :canonical: pynodes.geosocks.Geometry.sample_nearest_on_edges
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_nearest_on_edges
+         :parser: myst
+
+   .. py:method:: sample_nearest_on_faces(sample_position: pynodes.datasocks.Vector = None)
+      :canonical: pynodes.geosocks.Geometry.sample_nearest_on_faces
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_nearest_on_faces
+         :parser: myst
+
+   .. py:method:: sample_nearest_on_corners(sample_position: pynodes.datasocks.Vector = None)
+      :canonical: pynodes.geosocks.Geometry.sample_nearest_on_corners
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_nearest_on_corners
+         :parser: myst
+
    .. py:method:: bound_box()
       :canonical: pynodes.geosocks.Geometry.bound_box
 
@@ -1648,6 +1672,12 @@ API
       :canonical: pynodes.geosocks.Curve.to_points_with_length
 
       .. autodoc2-docstring:: pynodes.geosocks.Curve.to_points_with_length
+         :parser: myst
+
+   .. py:method:: to_points_evaluated()
+      :canonical: pynodes.geosocks.Curve.to_points_evaluated
+
+      .. autodoc2-docstring:: pynodes.geosocks.Curve.to_points_evaluated
          :parser: myst
 
    .. py:property:: points_evaluated

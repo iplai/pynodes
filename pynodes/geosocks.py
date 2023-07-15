@@ -1596,6 +1596,70 @@ class Geometry(Socket):
         node = new_node(*nodes.GeometryNodeSampleNearest(domain, self, sample_position))
         return node.outputs[0].Integer
 
+    def sample_nearest_on_points(self, sample_position: "Vector" = None):
+        """The Sample Nearest node retrieves the index of the geometry element in its input geometry that is closest to the input position. This node is similar to the Geometry Proximity Node, but it outputs the index of the closest element instead of its distance from the current location.
+        #### Path
+        - Geometry > Sample > Sample Nearest Node
+        #### Properties
+        - `domain`: `POINT`, `EDGE`, `FACE`, `CORNER`
+        #### Outputs:
+        - `#0 index: Integer = 0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSampleNearest.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/sample_nearest.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeSampleNearest.html)
+        """
+        node = new_node(*nodes.GeometryNodeSampleNearest("POINT", self, sample_position))
+        return node.outputs[0].Integer
+
+    def sample_nearest_on_edges(self, sample_position: "Vector" = None):
+        """The Sample Nearest node retrieves the index of the geometry element in its input geometry that is closest to the input position. This node is similar to the Geometry Proximity Node, but it outputs the index of the closest element instead of its distance from the current location.
+        #### Path
+        - Geometry > Sample > Sample Nearest Node
+        #### Properties
+        - `domain`: `POINT`, `EDGE`, `FACE`, `CORNER`
+        #### Outputs:
+        - `#0 index: Integer = 0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSampleNearest.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/sample_nearest.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeSampleNearest.html)
+        """
+        node = new_node(*nodes.GeometryNodeSampleNearest("EDGE", self, sample_position))
+        return node.outputs[0].Integer
+
+    def sample_nearest_on_faces(self, sample_position: "Vector" = None):
+        """The Sample Nearest node retrieves the index of the geometry element in its input geometry that is closest to the input position. This node is similar to the Geometry Proximity Node, but it outputs the index of the closest element instead of its distance from the current location.
+        #### Path
+        - Geometry > Sample > Sample Nearest Node
+        #### Properties
+        - `domain`: `POINT`, `EDGE`, `FACE`, `CORNER`
+        #### Outputs:
+        - `#0 index: Integer = 0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSampleNearest.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/sample_nearest.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeSampleNearest.html)
+        """
+        node = new_node(*nodes.GeometryNodeSampleNearest("FACE", self, sample_position))
+        return node.outputs[0].Integer
+
+    def sample_nearest_on_corners(self, sample_position: "Vector" = None):
+        """The Sample Nearest node retrieves the index of the geometry element in its input geometry that is closest to the input position. This node is similar to the Geometry Proximity Node, but it outputs the index of the closest element instead of its distance from the current location.
+        #### Path
+        - Geometry > Sample > Sample Nearest Node
+        #### Properties
+        - `domain`: `POINT`, `EDGE`, `FACE`, `CORNER`
+        #### Outputs:
+        - `#0 index: Integer = 0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSampleNearest.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/sample_nearest.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeSampleNearest.html)
+        """
+        node = new_node(*nodes.GeometryNodeSampleNearest("CORNER", self, sample_position))
+        return node.outputs[0].Integer
+
     def bound_box(self):
         """The Bounding Box node creates a box mesh with the minimum volume that encapsulates the geometry of the input. The node also can output the vector positions of the bounding dimensions.
         #### Path
@@ -3986,7 +4050,27 @@ class Curve(Geometry):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/operations/curve_to_points.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCurveToPoints.html)
         """
-        node = new_node(*nodes.GeometryNodeCurveToPoints("COUNT", self, length=length))
+        node = new_node(*nodes.GeometryNodeCurveToPoints("LENGTH", self, length=length))
+        ret = typing.NamedTuple("GeometryNodeCurveToPoints", [("points", Points), ("tangent", Vector), ("normal", Vector), ("rotation", Vector)])
+        return ret(node.outputs[0].Points, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Vector)
+
+    def to_points_evaluated(self):
+        """The Curve to Points node generates a point cloud from a curve.
+        #### Path
+        - Curve > Operations > Curve to Points Node
+        #### Properties
+        - `mode`: `COUNT`, `EVALUATED`, `LENGTH`
+        #### Outputs:
+        - `#0 points: Geometry = None`
+        - `#1 tangent: Vector = (0.0, 0.0, 0.0)`
+        - `#2 normal: Vector = (0.0, 0.0, 0.0)`
+        - `#3 rotation: Vector = (0.0, 0.0, 0.0)`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCurveToPoints.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/operations/curve_to_points.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCurveToPoints.html)
+        """
+        node = new_node(*nodes.GeometryNodeCurveToPoints("EVALUATED", self))
         ret = typing.NamedTuple("GeometryNodeCurveToPoints", [("points", Points), ("tangent", Vector), ("normal", Vector), ("rotation", Vector)])
         return ret(node.outputs[0].Points, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Vector)
 
@@ -4007,9 +4091,8 @@ class Curve(Geometry):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/operations/curve_to_points.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCurveToPoints.html)
         """
-        node = new_node(*nodes.GeometryNodeCurveToPoints("COUNT", self))
-        ret = typing.NamedTuple("GeometryNodeCurveToPoints", [("points", Points), ("tangent", Vector), ("normal", Vector), ("rotation", Vector)])
-        return ret(node.outputs[0].Points, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Vector)
+        node = new_node(*nodes.GeometryNodeCurveToPoints("EVALUATED", self))
+        return node.outputs[0].Points
 
     def deform_on_surface(self):
         """The Deform Curves on Surface node translates and rotates each curve based on the difference in its root position. The root position is defined by UV coordinates stored on each curve and the UV Map selected for the purpose in the Curves surface settings.

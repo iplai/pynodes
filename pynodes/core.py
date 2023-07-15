@@ -585,11 +585,10 @@ class Tree:
     def repeat(self, *input_sockets: Socket, iterations=1):
         input_bnode: bpy.types.GeometryNodeRepeatInput = self.new_node(RepeatInput.bl_idname).bnode
         output_bnode: bpy.types.GeometryNodeRepeatOutput = self.new_node(RepeatOutput.bl_idname).bnode
-        if iterations != 1:
-            if type(iterations) == int:
-                input_bnode.inputs[0].default_value = iterations
-            elif isinstance(iterations, Socket):
-                self.new_link(iterations.bsocket, input_bnode.inputs[0])
+        if type(iterations) == int:
+            input_bnode.inputs[0].default_value = iterations
+        elif isinstance(iterations, Socket):
+            self.new_link(iterations.bsocket, input_bnode.inputs[0])
         input_bnode.pair_with_output(output_bnode)
         repeat_items = output_bnode.repeat_items
         repeat_items.remove(output_bnode.active_item)

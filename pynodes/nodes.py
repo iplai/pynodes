@@ -2204,7 +2204,7 @@ def GeometryNodeSetMaterialIndex(geometry=None, selection=True, material_index=0
     return "GeometryNodeSetMaterialIndex", params_all, inputs_all
 
 
-def ShaderNodeTexBrick(color_mapping=None, offset=0.5, offset_frequency=2, squash=1.0, squash_frequency=2, texture_mapping=None, vector=None, color1=(0.8, 0.8, 0.8, 1.0), color2=(0.2, 0.2, 0.2, 1.0), mortar=(0.0, 0.0, 0.0, 1.0), scale=5.0, mortar_size=0.02, mortar_smooth=0.1, bias=0.0, brick_width=0.5, row_height=0.25):
+def ShaderNodeTexBrick(offset=0.5, offset_frequency=2, squash=1.0, squash_frequency=2, vector=None, color1=(0.8, 0.8, 0.8, 1.0), color2=(0.2, 0.2, 0.2, 1.0), mortar=(0.0, 0.0, 0.0, 1.0), scale=5.0, mortar_size=0.02, mortar_smooth=0.1, bias=0.0, brick_width=0.5, row_height=0.25):
     """
     #### Inputs:
     - `#0 vector: Vector = (0.0, 0.0, 0.0)`
@@ -2221,12 +2221,12 @@ def ShaderNodeTexBrick(color_mapping=None, offset=0.5, offset_frequency=2, squas
     - `#0 color: Color = (0.0, 0.0, 0.0, 0.0)`
     - `#1 fac: Float = 0.0`
     """
-    params_all = [('color_mapping', color_mapping, None), ('offset', offset, 0.5), ('offset_frequency', offset_frequency, 2), ('squash', squash, 1.0), ('squash_frequency', squash_frequency, 2), ('texture_mapping', texture_mapping, None)]
+    params_all = [('offset', offset, 0.5), ('offset_frequency', offset_frequency, 2), ('squash', squash, 1.0), ('squash_frequency', squash_frequency, 2)]
     inputs_all = [(vector, None), (color1, (0.8, 0.8, 0.8, 1.0)), (color2, (0.2, 0.2, 0.2, 1.0)), (mortar, (0.0, 0.0, 0.0, 1.0)), (scale, 5.0), (mortar_size, 0.02), (mortar_smooth, 0.1), (bias, 0.0), (brick_width, 0.5), (row_height, 0.25)]
     return "ShaderNodeTexBrick", params_all, inputs_all
 
 
-def ShaderNodeTexChecker(color_mapping=None, texture_mapping=None, vector=None, color1=(0.8, 0.8, 0.8, 1.0), color2=(0.2, 0.2, 0.2, 1.0), scale=5.0):
+def ShaderNodeTexChecker(vector=None, color1=(0.8, 0.8, 0.8, 1.0), color2=(0.2, 0.2, 0.2, 1.0), scale=5.0):
     """
     #### Inputs:
     - `#0 vector: Vector = (0.0, 0.0, 0.0)`
@@ -2237,12 +2237,12 @@ def ShaderNodeTexChecker(color_mapping=None, texture_mapping=None, vector=None, 
     - `#0 color: Color = (0.0, 0.0, 0.0, 0.0)`
     - `#1 fac: Float = 0.0`
     """
-    params_all = [('color_mapping', color_mapping, None), ('texture_mapping', texture_mapping, None)]
+    params_all = []
     inputs_all = [(vector, None), (color1, (0.8, 0.8, 0.8, 1.0)), (color2, (0.2, 0.2, 0.2, 1.0)), (scale, 5.0)]
     return "ShaderNodeTexChecker", params_all, inputs_all
 
 
-def ShaderNodeTexGradient(gradient_type='LINEAR', color_mapping=None, texture_mapping=None, vector=None):
+def ShaderNodeTexGradient(gradient_type='LINEAR', vector=None):
     """
     - `gradient_type`: `LINEAR`, `QUADRATIC`, `EASING`, `DIAGONAL`, `SPHERICAL`, `QUADRATIC_SPHERE`, `RADIAL`
     #### Inputs:
@@ -2251,7 +2251,7 @@ def ShaderNodeTexGradient(gradient_type='LINEAR', color_mapping=None, texture_ma
     - `#0 color: Color = (0.0, 0.0, 0.0, 0.0)`
     - `#1 fac: Float = 0.0`
     """
-    params_all = [('gradient_type', gradient_type, 'LINEAR'), ('color_mapping', color_mapping, None), ('texture_mapping', texture_mapping, None)]
+    params_all = [('gradient_type', gradient_type, 'LINEAR')]
     inputs_all = [(vector, None)]
     return "ShaderNodeTexGradient", params_all, inputs_all
 
@@ -2273,7 +2273,7 @@ def GeometryNodeImageTexture(extension='REPEAT', interpolation='Linear', image=N
     return "GeometryNodeImageTexture", params_all, inputs_all
 
 
-def ShaderNodeTexMagic(color_mapping=None, texture_mapping=None, turbulence_depth=2, vector=None, scale=5.0, distortion=1.0):
+def ShaderNodeTexMagic(turbulence_depth=2, vector=None, scale=5.0, distortion=1.0):
     """
     #### Inputs:
     - `#0 vector: Vector = (0.0, 0.0, 0.0)`
@@ -2283,12 +2283,12 @@ def ShaderNodeTexMagic(color_mapping=None, texture_mapping=None, turbulence_dept
     - `#0 color: Color = (0.0, 0.0, 0.0, 0.0)`
     - `#1 fac: Float = 0.0`
     """
-    params_all = [('color_mapping', color_mapping, None), ('texture_mapping', texture_mapping, None), ('turbulence_depth', turbulence_depth, 2)]
+    params_all = [('turbulence_depth', turbulence_depth, 2)]
     inputs_all = [(vector, None), (scale, 5.0), (distortion, 1.0)]
     return "ShaderNodeTexMagic", params_all, inputs_all
 
 
-def ShaderNodeTexMusgrave(musgrave_dimensions='3D', musgrave_type='FBM', color_mapping=None, texture_mapping=None, vector=None, w=0.0, scale=5.0, detail=2.0, dimension=2.0, lacunarity=2.0, offset=0.0, gain=1.0):
+def ShaderNodeTexMusgrave(musgrave_dimensions='3D', musgrave_type='FBM', vector=None, w=0.0, scale=5.0, detail=2.0, dimension=2.0, lacunarity=2.0, offset=0.0, gain=1.0):
     """
     - `musgrave_dimensions`: `3D`, `1D`, `2D`, `4D`
     - `musgrave_type`: `FBM`, `MULTIFRACTAL`, `RIDGED_MULTIFRACTAL`, `HYBRID_MULTIFRACTAL`, `HETERO_TERRAIN`
@@ -2304,12 +2304,12 @@ def ShaderNodeTexMusgrave(musgrave_dimensions='3D', musgrave_type='FBM', color_m
     #### Outputs:
     - `#0 fac: Float = 0.0`
     """
-    params_all = [('musgrave_dimensions', musgrave_dimensions, '3D'), ('musgrave_type', musgrave_type, 'FBM'), ('color_mapping', color_mapping, None), ('texture_mapping', texture_mapping, None)]
+    params_all = [('musgrave_dimensions', musgrave_dimensions, '3D'), ('musgrave_type', musgrave_type, 'FBM')]
     inputs_all = [(vector, None), (w, 0.0), (scale, 5.0), (detail, 2.0), (dimension, 2.0), (lacunarity, 2.0), (offset, 0.0), (gain, 1.0)]
     return "ShaderNodeTexMusgrave", params_all, inputs_all
 
 
-def ShaderNodeTexNoise(noise_dimensions='3D', color_mapping=None, texture_mapping=None, vector=None, w=0.0, scale=5.0, detail=2.0, roughness=0.5, distortion=0.0):
+def ShaderNodeTexNoise(noise_dimensions='3D', vector=None, w=0.0, scale=5.0, detail=2.0, roughness=0.5, distortion=0.0):
     """
     - `noise_dimensions`: `3D`, `1D`, `2D`, `4D`
     #### Inputs:
@@ -2323,12 +2323,12 @@ def ShaderNodeTexNoise(noise_dimensions='3D', color_mapping=None, texture_mappin
     - `#0 fac: Float = 0.0`
     - `#1 color: Color = (0.0, 0.0, 0.0, 0.0)`
     """
-    params_all = [('noise_dimensions', noise_dimensions, '3D'), ('color_mapping', color_mapping, None), ('texture_mapping', texture_mapping, None)]
+    params_all = [('noise_dimensions', noise_dimensions, '3D'),]
     inputs_all = [(vector, None), (w, 0.0), (scale, 5.0), (detail, 2.0), (roughness, 0.5), (distortion, 0.0)]
     return "ShaderNodeTexNoise", params_all, inputs_all
 
 
-def ShaderNodeTexVoronoi(distance='EUCLIDEAN', feature='F1', voronoi_dimensions='3D', color_mapping=None, texture_mapping=None, vector=None, w=0.0, scale=5.0, smoothness=1.0, exponent=0.5, randomness=1.0):
+def ShaderNodeTexVoronoi(distance='EUCLIDEAN', feature='F1', voronoi_dimensions='3D', vector=None, w=0.0, scale=5.0, smoothness=1.0, exponent=0.5, randomness=1.0):
     """
     - `distance`: `EUCLIDEAN`, `MANHATTAN`, `CHEBYCHEV`, `MINKOWSKI`
     - `feature`: `F1`, `F2`, `SMOOTH_F1`, `DISTANCE_TO_EDGE`, `N_SPHERE_RADIUS`
@@ -2347,12 +2347,12 @@ def ShaderNodeTexVoronoi(distance='EUCLIDEAN', feature='F1', voronoi_dimensions=
     - `#3 w: Float = 0.0`
     - `#4 radius: Float = 0.0`
     """
-    params_all = [('distance', distance, 'EUCLIDEAN'), ('feature', feature, 'F1'), ('voronoi_dimensions', voronoi_dimensions, '3D'), ('color_mapping', color_mapping, None), ('texture_mapping', texture_mapping, None)]
+    params_all = [('distance', distance, 'EUCLIDEAN'), ('feature', feature, 'F1'), ('voronoi_dimensions', voronoi_dimensions, '3D')]
     inputs_all = [(vector, None), (w, 0.0), (scale, 5.0), (smoothness, 1.0), (exponent, 0.5), (randomness, 1.0)]
     return "ShaderNodeTexVoronoi", params_all, inputs_all
 
 
-def ShaderNodeTexWave(bands_direction='X', rings_direction='X', wave_profile='SIN', wave_type='BANDS', color_mapping=None, texture_mapping=None, vector=None, scale=5.0, distortion=0.0, detail=2.0, detail_scale=1.0, detail_roughness=0.5, phase_offset=0.0):
+def ShaderNodeTexWave(bands_direction='X', rings_direction='X', wave_profile='SIN', wave_type='BANDS', vector=None, scale=5.0, distortion=0.0, detail=2.0, detail_scale=1.0, detail_roughness=0.5, phase_offset=0.0):
     """
     - `bands_direction`: `X`, `Y`, `Z`, `DIAGONAL`
     - `rings_direction`: `X`, `Y`, `Z`, `SPHERICAL`
@@ -2370,7 +2370,7 @@ def ShaderNodeTexWave(bands_direction='X', rings_direction='X', wave_profile='SI
     - `#0 color: Color = (0.0, 0.0, 0.0, 0.0)`
     - `#1 fac: Float = 0.0`
     """
-    params_all = [('bands_direction', bands_direction, 'X'), ('rings_direction', rings_direction, 'X'), ('wave_profile', wave_profile, 'SIN'), ('wave_type', wave_type, 'BANDS'), ('color_mapping', color_mapping, None), ('texture_mapping', texture_mapping, None)]
+    params_all = [('bands_direction', bands_direction, 'X'), ('rings_direction', rings_direction, 'X'), ('wave_profile', wave_profile, 'SIN'), ('wave_type', wave_type, 'BANDS')]
     inputs_all = [(vector, None), (scale, 5.0), (distortion, 0.0), (detail, 2.0), (detail_scale, 1.0), (detail_roughness, 0.5), (phase_offset, 0.0)]
     return "ShaderNodeTexWave", params_all, inputs_all
 
@@ -2390,7 +2390,7 @@ def ShaderNodeTexWhiteNoise(noise_dimensions='3D', vector=None, w=0.0):
     return "ShaderNodeTexWhiteNoise", params_all, inputs_all
 
 
-def ShaderNodeValToRGB(color_ramp=None, fac=0.5):
+def ShaderNodeValToRGB(fac=0.5):
     """
     #### Inputs:
     - `#0 fac: Float = 0.5`
@@ -2398,7 +2398,7 @@ def ShaderNodeValToRGB(color_ramp=None, fac=0.5):
     - `#0 color: Color = (0.0, 0.0, 0.0, 0.0)`
     - `#1 alpha: Float = 0.0`
     """
-    params_all = [('color_ramp', color_ramp, None)]
+    params_all = []
     inputs_all = [(fac, 0.5)]
     return "ShaderNodeValToRGB", params_all, inputs_all
 
@@ -3648,7 +3648,7 @@ def ShaderNodeVolumeScatter(color=(0.8, 0.8, 0.8, 1.0), density=1.0, anisotropy=
     return "ShaderNodeVolumeScatter", params_all, inputs_all
 
 
-def ShaderNodeTexEnvironment(interpolation='Linear', projection='EQUIRECTANGULAR', color_mapping=None, image=None, image_user=None, texture_mapping=None, vector=(0.0, 0.0, 0.0)):
+def ShaderNodeTexEnvironment(interpolation='Linear', projection='EQUIRECTANGULAR', image=None, image_user=None, vector=(0.0, 0.0, 0.0)):
     """
     - `interpolation`: `Linear`, `Closest`, `Cubic`, `Smart`
     - `projection`: `EQUIRECTANGULAR`, `MIRROR_BALL`
@@ -3657,7 +3657,7 @@ def ShaderNodeTexEnvironment(interpolation='Linear', projection='EQUIRECTANGULAR
     #### Outputs:
     - `#0 color: Color = (0.0, 0.0, 0.0, 0.0)`
     """
-    params_all = [('interpolation', interpolation, 'Linear'), ('projection', projection, 'EQUIRECTANGULAR'), ('color_mapping', color_mapping, None), ('image', image, None), ('image_user', image_user, None), ('texture_mapping', texture_mapping, None)]
+    params_all = [('interpolation', interpolation, 'Linear'), ('projection', projection, 'EQUIRECTANGULAR'), ('image', image, None), ('image_user', image_user, None)]
     inputs_all = [(vector, (0.0, 0.0, 0.0))]
     return "ShaderNodeTexEnvironment", params_all, inputs_all
 
@@ -3676,7 +3676,7 @@ def ShaderNodeTexIES(mode='INTERNAL', filepath='', ies=None, vector=(0.0, 0.0, 0
     return "ShaderNodeTexIES", params_all, inputs_all
 
 
-def ShaderNodeTexImage(extension='REPEAT', interpolation='Linear', projection='FLAT', color_mapping=None, image=None, image_user=None, projection_blend=0.0, texture_mapping=None, vector=(0.0, 0.0, 0.0)):
+def ShaderNodeTexImage(extension='REPEAT', interpolation='Linear', projection='FLAT', image=None, image_user=None, projection_blend=0.0, vector=(0.0, 0.0, 0.0)):
     """
     - `extension`: `REPEAT`, `EXTEND`, `CLIP`, `MIRROR`
     - `interpolation`: `Linear`, `Closest`, `Cubic`, `Smart`
@@ -3687,7 +3687,7 @@ def ShaderNodeTexImage(extension='REPEAT', interpolation='Linear', projection='F
     - `#0 color: Color = (0.0, 0.0, 0.0, 0.0)`
     - `#1 alpha: Float = 0.0`
     """
-    params_all = [('extension', extension, 'REPEAT'), ('interpolation', interpolation, 'Linear'), ('projection', projection, 'FLAT'), ('color_mapping', color_mapping, None), ('image', image, None), ('image_user', image_user, None), ('projection_blend', projection_blend, 0.0), ('texture_mapping', texture_mapping, None)]
+    params_all = [('extension', extension, 'REPEAT'), ('interpolation', interpolation, 'Linear'), ('projection', projection, 'FLAT'), ('image', image, None), ('image_user', image_user, None), ('projection_blend', projection_blend, 0.0)]
     inputs_all = [(vector, (0.0, 0.0, 0.0))]
     return "ShaderNodeTexImage", params_all, inputs_all
 
@@ -3710,7 +3710,7 @@ def ShaderNodeTexPointDensity(interpolation='Linear', particle_color_source='PAR
     return "ShaderNodeTexPointDensity", params_all, inputs_all
 
 
-def ShaderNodeTexSky(sky_type='NISHITA', air_density=1.0, altitude=0.0, color_mapping=None, dust_density=1.0, ground_albedo=0.3, ozone_density=1.0, sun_direction=(0.0, 0.0, 1.0), sun_disc=True, sun_elevation=math.radians(15.0), sun_intensity=1.0, sun_rotation=0.0, sun_size=math.radians(0.545), texture_mapping=None, turbidity=2.2, vector=(0.0, 0.0, 0.0)):
+def ShaderNodeTexSky(sky_type='NISHITA', air_density=1.0, altitude=0.0, dust_density=1.0, ground_albedo=0.3, ozone_density=1.0, sun_direction=(0.0, 0.0, 1.0), sun_disc=True, sun_elevation=math.radians(15.0), sun_intensity=1.0, sun_rotation=0.0, sun_size=math.radians(0.545), turbidity=2.2, vector=(0.0, 0.0, 0.0)):
     """
     - `sky_type`: `NISHITA`, `PREETHAM`, `HOSEK_WILKIE`
     #### Inputs:
@@ -3718,8 +3718,8 @@ def ShaderNodeTexSky(sky_type='NISHITA', air_density=1.0, altitude=0.0, color_ma
     #### Outputs:
     - `#0 color: Color = (0.0, 0.0, 0.0, 0.0)`
     """
-    params_all = [('sky_type', sky_type, 'NISHITA'), ('air_density', air_density, 1.0), ('altitude', altitude, 0.0), ('color_mapping', color_mapping, None), ('dust_density', dust_density, 1.0), ('ground_albedo', ground_albedo, 0.3), ('ozone_density', ozone_density, 1.0), ('sun_direction', sun_direction, (0.0, 0.0, 1.0)),
-                  ('sun_disc', sun_disc, True), ('sun_elevation', sun_elevation, math.radians(15.0)), ('sun_intensity', sun_intensity, 1.0), ('sun_rotation', sun_rotation, 0.0), ('sun_size', sun_size, math.radians(0.545)), ('texture_mapping', texture_mapping, None), ('turbidity', turbidity, 2.2)]
+    params_all = [('sky_type', sky_type, 'NISHITA'), ('air_density', air_density, 1.0), ('altitude', altitude, 0.0), ('dust_density', dust_density, 1.0), ('ground_albedo', ground_albedo, 0.3), ('ozone_density', ozone_density, 1.0), ('sun_direction', sun_direction, (0.0, 0.0, 1.0)),
+                  ('sun_disc', sun_disc, True), ('sun_elevation', sun_elevation, math.radians(15.0)), ('sun_intensity', sun_intensity, 1.0), ('sun_rotation', sun_rotation, 0.0), ('sun_size', sun_size, math.radians(0.545)), ('turbidity', turbidity, 2.2)]
     inputs_all = [(vector, (0.0, 0.0, 0.0))]
     return "ShaderNodeTexSky", params_all, inputs_all
 
