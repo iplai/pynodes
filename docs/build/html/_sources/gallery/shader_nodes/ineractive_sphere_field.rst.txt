@@ -53,7 +53,7 @@ Gradient Material
         @tree
         def principled(base_color: Color = (0.8, 0.8, 0.8, 1), roughness: Float = (0.5, 0, 1)):
             """@shader"""
-            return BSDF.Principled(base_color=base_color, roughness=roughness)("Shader")
+            return BsdfPrincipled(base_color=base_color, roughness=roughness)("Shader")
 
 
         @tree

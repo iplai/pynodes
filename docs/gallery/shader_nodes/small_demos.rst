@@ -55,7 +55,7 @@ Random Color
         @tree
         def random_color():
             """@material"""
-            shader = BSDF.Principled()
+            shader = BsdfPrincipled()
             # a list with ten bright hex color strings
             bright_colors = ["#ff0000", "#ff8000", "#ffff00", "#80ff00", "#00ff00",
                             "#00ff80", "#00ffff", "#0080ff", "#0000ff", "#8000ff"]

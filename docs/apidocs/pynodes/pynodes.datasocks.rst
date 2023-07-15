@@ -2214,6 +2214,13 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.BSDF
       :parser: myst
 
+   .. py:method:: Principled(distribution='GGX', subsurface_method='RANDOM_WALK', base_color=(0.8, 0.8, 0.8, 1.0), subsurface=0.0, subsurface_radius=(1.0, 0.2, 0.1), subsurface_color=(0.8, 0.8, 0.8, 1.0), subsurface_ior=1.4, subsurface_anisotropy=0.0, metallic=0.0, specular=0.5, specular_tint=0.0, roughness=0.5, anisotropic=0.0, anisotropic_rotation=0.0, sheen=0.0, sheen_tint=0.5, clearcoat=0.0, clearcoat_roughness=0.03, ior=1.45, transmission=0.0, transmission_roughness=0.0, emission=(0.0, 0.0, 0.0, 1.0), emission_strength=1.0, alpha=1.0, normal=(0.0, 0.0, 0.0), clearcoat_normal=(0.0, 0.0, 0.0), tangent=(0.0, 0.0, 0.0), weight=0.0)
+      :canonical: pynodes.datasocks.BSDF.Principled
+      :staticmethod:
+
+      .. autodoc2-docstring:: pynodes.datasocks.BSDF.Principled
+         :parser: myst
+
    .. py:method:: HairPrincipled(parametrization='COLOR', color=(0.018, 0.006, 0.002, 1.0), melanin=0.8, melanin_redness=1.0, tint=(1.0, 1.0, 1.0, 1.0), absorption_coefficient=(0.246, 0.52, 1.365), roughness=0.3, radial_roughness=0.3, coat=0.0, ior=1.55, offset=math.radians(2.0), random_color=0.0, random_roughness=0.0, random=0.0, weight=0.0)
       :canonical: pynodes.datasocks.BSDF.HairPrincipled
       :staticmethod:

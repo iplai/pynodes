@@ -224,7 +224,7 @@ def torus_knot_mesh(
 def torus_knot():
     """@Material"""
 
-    shader = BSDF.Principled()
+    shader = BsdfPrincipled()
 
     factor = Shader.attribute(name="factor").fac
 

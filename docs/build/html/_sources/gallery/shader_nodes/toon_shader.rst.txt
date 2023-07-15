@@ -155,7 +155,7 @@ Material: toon
 
             color = ramped_diffuse_color()
 
-            shader = BSDF.Principled(base_color=color)
+            shader = BsdfPrincipled(base_color=color)
 
             return shader
         
@@ -179,7 +179,7 @@ Material: toon_gradient
 
             color = grandient_color()
 
-            shader = BSDF.Principled(base_color=color)
+            shader = BsdfPrincipled(base_color=color)
 
             return shader
 
