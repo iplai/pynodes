@@ -31,6 +31,10 @@ Classes
      - .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_RELOAD
           :parser: myst
           :summary:
+   * - :py:obj:`PYNODES_OT_select_all_reroute <pynodes.addon.PYNODES_OT_select_all_reroute>`
+     - .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_select_all_reroute
+          :parser: myst
+          :summary:
    * - :py:obj:`Column <pynodes.addon.Column>`
      - .. autodoc2-docstring:: pynodes.addon.Column
           :parser: myst
@@ -219,6 +223,31 @@ API
 
    .. py:method:: execute(context)
       :canonical: pynodes.addon.PYNODES_OT_RELOAD.execute
+
+.. py:class:: PYNODES_OT_select_all_reroute
+   :canonical: pynodes.addon.PYNODES_OT_select_all_reroute
+
+   Bases: :py:obj:`bpy.types.Operator`
+
+   .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_select_all_reroute
+      :parser: myst
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.addon.PYNODES_OT_select_all_reroute.bl_idname
+      :value: 'node.pynodes_select_all_reroute'
+
+      .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_select_all_reroute.bl_idname
+         :parser: myst
+
+   .. py:attribute:: bl_label
+      :canonical: pynodes.addon.PYNODES_OT_select_all_reroute.bl_label
+      :value: 'Select all Reroute Nodes'
+
+      .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_select_all_reroute.bl_label
+         :parser: myst
+
+   .. py:method:: execute(context)
+      :canonical: pynodes.addon.PYNODES_OT_select_all_reroute.execute
 
 .. py:class:: Column()
    :canonical: pynodes.addon.Column

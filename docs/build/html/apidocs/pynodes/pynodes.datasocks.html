@@ -618,6 +618,9 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.datasocks.ShaderScript" title="pynodes.datasocks.ShaderScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ShaderScript</span></code></a></p></td>
 <td><p>It is also possible to create your own nodes using <a class="reference external" href="https://github.com/AcademySoftwareFoundation/OpenShadingLanguage">Open Shading Language</a> (OSL). These nodes will only work with the CPU and OptiX rendering backend. OSL was designed for node-based shading, and each OSL shader corresponds to one node in a node setup. To add an OSL shader, add a script node and link it to a text data-block or an external file. Input and output sockets will be created from the shader parameters on clicking the update button in the Node or the Text editor. OSL shaders can be linked to the node in a few different ways. With the Internal mode, a text data-block is used to store the OSL shader, and the OSO bytecode is stored in the node itself. This is useful for distributing a blend-file with everything packed into it. The <em>External</em> mode can be used to specify a <code class="docutils literal notranslate"><span class="pre">.osl</span></code> file from a drive, and this will then be automatically compiled into a <code class="docutils literal notranslate"><span class="pre">.oso</span></code> file in the same directory. It is also possible to specify a path to a <code class="docutils literal notranslate"><span class="pre">.oso</span></code> file, which will then be used directly, with compilation done manually by the user. The third option is to specify just the module name, which will be looked up in the shader search path.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.datasocks.join_strings" title="pynodes.datasocks.join_strings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">join_strings</span></code></a></p></td>
+<td><p>The Join Strings node combines any number of input strings into the output string. The order of the result depends on the vertical ordering of the inputs in the multi-input socket.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -679,7 +682,10 @@
 <dt class="sig sig-object py" id="pynodes.datasocks.Float.color_ramp">
 <span class="sig-name descname"><span class="pre">color_ramp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0,</span> <span class="pre">1.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1.0,</span> <span class="pre">1.0,</span> <span class="pre">1.0,</span> <span class="pre">1.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.datasocks.Float.color_ramp" title="Permalink to this definition">#</a></dt>
 <dd><p>The Color Ramp Node is used for mapping values to colors with the use of a gradient.</p>
-<p>item of colors: hex string or float or tuple</p>
+<ul class="simple">
+<li><p>Item of colors: hex string or float or tuple</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">interpolation</span></code>: <code class="docutils literal notranslate"><span class="pre">EASE</span></code>, <code class="docutils literal notranslate"><span class="pre">CARDINAL</span></code>, <code class="docutils literal notranslate"><span class="pre">LINEAR</span></code>, <code class="docutils literal notranslate"><span class="pre">B_SPLINE</span></code>, <code class="docutils literal notranslate"><span class="pre">CONSTANT</span></code></p></li>
+</ul>
 <section id="path">
 <h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
@@ -701,7 +707,10 @@
 <dt class="sig sig-object py" id="pynodes.datasocks.Float.color_ramp_uniform">
 <span class="sig-name descname"><span class="pre">color_ramp_uniform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">colors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.datasocks.Float.color_ramp_uniform" title="Permalink to this definition">#</a></dt>
 <dd><p>The Color Ramp Node is used for mapping values to colors with the use of a gradient.</p>
-<p>item of colors: hex string or float or tuple</p>
+<ul class="simple">
+<li><p>Item of colors: hex string or float or tuple</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">interpolation</span></code>: <code class="docutils literal notranslate"><span class="pre">EASE</span></code>, <code class="docutils literal notranslate"><span class="pre">CARDINAL</span></code>, <code class="docutils literal notranslate"><span class="pre">LINEAR</span></code>, <code class="docutils literal notranslate"><span class="pre">B_SPLINE</span></code>, <code class="docutils literal notranslate"><span class="pre">CONSTANT</span></code></p></li>
+</ul>
 <section id="path">
 <h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
@@ -723,7 +732,10 @@
 <dt class="sig sig-object py" id="pynodes.datasocks.Float.color_ramp_with_position">
 <span class="sig-name descname"><span class="pre">color_ramp_with_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">colors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.datasocks.Float.color_ramp_with_position" title="Permalink to this definition">#</a></dt>
 <dd><p>The Color Ramp Node is used for mapping values to colors with the use of a gradient.</p>
-<p>colors: <code class="docutils literal notranslate"><span class="pre">[(position,</span> <span class="pre">color),</span> <span class="pre">...]</span></code> position from 0 to 1, color: hex string or float or tuple</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">colors</span></code>: <code class="docutils literal notranslate"><span class="pre">[(position,</span> <span class="pre">color),</span> <span class="pre">...]</span></code> position from 0 to 1, color: hex string or float or tuple</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">interpolation</span></code>: <code class="docutils literal notranslate"><span class="pre">EASE</span></code>, <code class="docutils literal notranslate"><span class="pre">CARDINAL</span></code>, <code class="docutils literal notranslate"><span class="pre">LINEAR</span></code>, <code class="docutils literal notranslate"><span class="pre">B_SPLINE</span></code>, <code class="docutils literal notranslate"><span class="pre">CONSTANT</span></code></p></li>
+</ul>
 <section id="path">
 <h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
@@ -3373,6 +3385,26 @@
 <span class="sig-name descname"><span class="pre">bl_idname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NodeSocketColor'</span></em><a class="headerlink" href="#pynodes.datasocks.Color.bl_idname" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.datasocks.Color.red">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">red</span></span><a class="headerlink" href="#pynodes.datasocks.Color.red" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.datasocks.Color.green">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">green</span></span><a class="headerlink" href="#pynodes.datasocks.Color.green" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.datasocks.Color.blue">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">blue</span></span><a class="headerlink" href="#pynodes.datasocks.Color.blue" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.datasocks.Color.alpha">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">alpha</span></span><a class="headerlink" href="#pynodes.datasocks.Color.alpha" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="pynodes.datasocks.Color.mix">
 <span class="sig-name descname"><span class="pre">mix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.5,</span> <span class="pre">0.5,</span> <span class="pre">0.5,</span> <span class="pre">1.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blend_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MIX'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clamp_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clamp_result</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor_float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.datasocks.Color.mix" title="Permalink to this definition">#</a></dt>
@@ -3417,8 +3449,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pynodes.datasocks.Color.seperate">
-<span class="sig-name descname"><span class="pre">seperate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RGB'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.datasocks.Color.seperate" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pynodes.datasocks.Color.separate">
+<span class="sig-name descname"><span class="pre">separate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RGB'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.datasocks.Color.separate" title="Permalink to this definition">#</a></dt>
 <dd><p>The Separate Color Node splits an image into its composite color channels. The node can output multiple Color Models depending on the Mode property.</p>
 <section id="path">
 <h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
@@ -5953,7 +5985,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pynodes.datasocks.RandomInteger">
-<span class="sig-prename descclassname"><span class="pre">pynodes.datasocks.</span></span><span class="sig-name descname"><span class="pre">RandomInteger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.datasocks.RandomInteger" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pynodes.datasocks.</span></span><span class="sig-name descname"><span class="pre">RandomInteger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.datasocks.Integer" title="pynodes.datasocks.Integer"><span class="pre">pynodes.datasocks.Integer</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.datasocks.RandomInteger" title="Permalink to this definition">#</a></dt>
 <dd><p>The Random Value node outputs a white noise like value as a Float, Integer, Vector, or Boolean field.</p>
 <section id="path">
 <h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
@@ -6707,6 +6739,26 @@
 </section>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.datasocks.join_strings">
+<span class="sig-prename descclassname"><span class="pre">pynodes.datasocks.</span></span><span class="sig-name descname"><span class="pre">join_strings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">strings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.datasocks.join_strings" title="Permalink to this definition">#</a></dt>
+<dd><p>The Join Strings node combines any number of input strings into the output string. The order of the result depends on the vertical ordering of the inputs in the multi-input socket.</p>
+<section id="path">
+<h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Utilities &gt; Text &gt; Join Strings Node</p></li>
+</ul>
+</section>
+<section id="outputs">
+<h4>Outputs:<a class="headerlink" href="#outputs" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">string:</span> <span class="pre">String</span> <span class="pre">=</span> <span class="pre">&quot;&quot;</span></code></p></li>
+</ul>
+<p><img alt="" src="https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeStringJoin.webp" /></p>
+<p><a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/text/join_strings.html">[Manual]</a> <a class="reference external" href="https://docs.blender.org/api/current/bpy.types.GeometryNodeStringJoin.html">[API]</a></p>
+</section>
+</dd></dl>
+
 </section>
 </section>
 </section>
@@ -7040,9 +7092,13 @@
 </li>
 <li><a class="reference internal" href="#pynodes.datasocks.Color"><code class="docutils literal notranslate"><span class="pre">Color</span></code></a><ul>
 <li><a class="reference internal" href="#pynodes.datasocks.Color.bl_idname"><code class="docutils literal notranslate"><span class="pre">Color.bl_idname</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.datasocks.Color.red"><code class="docutils literal notranslate"><span class="pre">Color.red</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.datasocks.Color.green"><code class="docutils literal notranslate"><span class="pre">Color.green</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.datasocks.Color.blue"><code class="docutils literal notranslate"><span class="pre">Color.blue</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.datasocks.Color.alpha"><code class="docutils literal notranslate"><span class="pre">Color.alpha</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.datasocks.Color.mix"><code class="docutils literal notranslate"><span class="pre">Color.mix()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.datasocks.Color.rgb_curve"><code class="docutils literal notranslate"><span class="pre">Color.rgb_curve()</span></code></a></li>
-<li><a class="reference internal" href="#pynodes.datasocks.Color.seperate"><code class="docutils literal notranslate"><span class="pre">Color.seperate()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.datasocks.Color.separate"><code class="docutils literal notranslate"><span class="pre">Color.separate()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.datasocks.Color.bright_contrast"><code class="docutils literal notranslate"><span class="pre">Color.bright_contrast()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.datasocks.Color.gamma"><code class="docutils literal notranslate"><span class="pre">Color.gamma()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.datasocks.Color.hue_saturation"><code class="docutils literal notranslate"><span class="pre">Color.hue_saturation()</span></code></a></li>
@@ -7236,6 +7292,7 @@
 <li><a class="reference internal" href="#pynodes.datasocks.ShaderGeometry"><code class="docutils literal notranslate"><span class="pre">ShaderGeometry()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.datasocks.MixShader"><code class="docutils literal notranslate"><span class="pre">MixShader()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.datasocks.ShaderScript"><code class="docutils literal notranslate"><span class="pre">ShaderScript()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.datasocks.join_strings"><code class="docutils literal notranslate"><span class="pre">join_strings()</span></code></a></li>
 </ul>
 </li>
 </ul>

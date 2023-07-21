@@ -2079,7 +2079,7 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Mesh.subdivision_surface
          :parser: myst
 
-   .. py:method:: triangulate(ngon_method='BEAUTY', quad_method='SHORTEST_DIAGONAL', minimum_vertices=4, selection=True)
+   .. py:method:: triangulate(quad_method='SHORTEST_DIAGONAL', ngon_method='BEAUTY', minimum_vertices=4, selection=True)
       :canonical: pynodes.geosocks.Mesh.triangulate
 
       .. autodoc2-docstring:: pynodes.geosocks.Mesh.triangulate
