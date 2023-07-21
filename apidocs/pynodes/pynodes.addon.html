@@ -288,7 +288,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pynodes.addon.PYNODES_OT_RELOAD" title="pynodes.addon.PYNODES_OT_RELOAD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYNODES_OT_RELOAD</span></code></a></p></td>
 <td><p>Reload pynodes module</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.addon.Column" title="pynodes.addon.Column"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Column</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.addon.PYNODES_OT_select_all_reroute" title="pynodes.addon.PYNODES_OT_select_all_reroute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYNODES_OT_select_all_reroute</span></code></a></p></td>
+<td><p>Select all reroute nodes</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.addon.Column" title="pynodes.addon.Column"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Column</span></code></a></p></td>
 <td><p>Represent a column in blender node editor</p></td>
 </tr>
 </tbody>
@@ -458,6 +461,28 @@
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_OT_select_all_reroute">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.addon.</span></span><span class="sig-name descname"><span class="pre">PYNODES_OT_select_all_reroute</span></span><a class="headerlink" href="#pynodes.addon.PYNODES_OT_select_all_reroute" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">bpy.types.Operator</span></code></p>
+<p>Select all reroute nodes</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_OT_select_all_reroute.bl_idname">
+<span class="sig-name descname"><span class="pre">bl_idname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'node.pynodes_select_all_reroute'</span></em><a class="headerlink" href="#pynodes.addon.PYNODES_OT_select_all_reroute.bl_idname" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_OT_select_all_reroute.bl_label">
+<span class="sig-name descname"><span class="pre">bl_label</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Select</span> <span class="pre">all</span> <span class="pre">Reroute</span> <span class="pre">Nodes'</span></em><a class="headerlink" href="#pynodes.addon.PYNODES_OT_select_all_reroute.bl_label" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_OT_select_all_reroute.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.addon.PYNODES_OT_select_all_reroute.execute" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="pynodes.addon.Column">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.addon.</span></span><span class="sig-name descname"><span class="pre">Column</span></span><a class="headerlink" href="#pynodes.addon.Column" title="Permalink to this definition">#</a></dt>
 <dd><p>Represent a column in blender node editor</p>
@@ -613,6 +638,12 @@
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_RELOAD.bl_idname"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_RELOAD.bl_idname</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_RELOAD.bl_label"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_RELOAD.bl_label</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_RELOAD.execute"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_RELOAD.execute()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_select_all_reroute"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_select_all_reroute</span></code></a><ul>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_select_all_reroute.bl_idname"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_select_all_reroute.bl_idname</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_select_all_reroute.bl_label"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_select_all_reroute.bl_label</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_select_all_reroute.execute"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_select_all_reroute.execute()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#pynodes.addon.Column"><code class="docutils literal notranslate"><span class="pre">Column</span></code></a><ul>

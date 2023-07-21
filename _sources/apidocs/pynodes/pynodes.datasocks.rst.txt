@@ -467,6 +467,10 @@ Functions
      - .. autodoc2-docstring:: pynodes.datasocks.ShaderScript
           :parser: myst
           :summary:
+   * - :py:obj:`join_strings <pynodes.datasocks.join_strings>`
+     - .. autodoc2-docstring:: pynodes.datasocks.join_strings
+          :parser: myst
+          :summary:
 
 API
 ~~~
@@ -1944,6 +1948,30 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Color.bl_idname
          :parser: myst
 
+   .. py:property:: red
+      :canonical: pynodes.datasocks.Color.red
+
+      .. autodoc2-docstring:: pynodes.datasocks.Color.red
+         :parser: myst
+
+   .. py:property:: green
+      :canonical: pynodes.datasocks.Color.green
+
+      .. autodoc2-docstring:: pynodes.datasocks.Color.green
+         :parser: myst
+
+   .. py:property:: blue
+      :canonical: pynodes.datasocks.Color.blue
+
+      .. autodoc2-docstring:: pynodes.datasocks.Color.blue
+         :parser: myst
+
+   .. py:property:: alpha
+      :canonical: pynodes.datasocks.Color.alpha
+
+      .. autodoc2-docstring:: pynodes.datasocks.Color.alpha
+         :parser: myst
+
    .. py:method:: mix(b_color=(0.5, 0.5, 0.5, 1.0), blend_type='MIX', clamp_factor=True, clamp_result=False, factor_float=0.5)
       :canonical: pynodes.datasocks.Color.mix
 
@@ -1956,10 +1984,10 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Color.rgb_curve
          :parser: myst
 
-   .. py:method:: seperate(mode='RGB')
-      :canonical: pynodes.datasocks.Color.seperate
+   .. py:method:: separate(mode='RGB')
+      :canonical: pynodes.datasocks.Color.separate
 
-      .. autodoc2-docstring:: pynodes.datasocks.Color.seperate
+      .. autodoc2-docstring:: pynodes.datasocks.Color.separate
          :parser: myst
 
    .. py:method:: bright_contrast(bright=0.0, contrast=0.0)
@@ -2896,7 +2924,7 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.RandomFloat
       :parser: myst
 
-.. py:function:: RandomInteger(min=0, max=100, id=0, seed=0)
+.. py:function:: RandomInteger(min=0, max=100, id: pynodes.datasocks.Integer = None, seed=0)
    :canonical: pynodes.datasocks.RandomInteger
 
    .. autodoc2-docstring:: pynodes.datasocks.RandomInteger
@@ -3086,4 +3114,10 @@ API
    :canonical: pynodes.datasocks.ShaderScript
 
    .. autodoc2-docstring:: pynodes.datasocks.ShaderScript
+      :parser: myst
+
+.. py:function:: join_strings(*strings: str, delimiter='')
+   :canonical: pynodes.datasocks.join_strings
+
+   .. autodoc2-docstring:: pynodes.datasocks.join_strings
       :parser: myst
