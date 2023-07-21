@@ -22,7 +22,7 @@ def geometry_nodes(object: Object = "Monkey"):
 
 from pynodes.scene import *
 
-Tree({
+Scene({
     O.monkey @ "Monkey": {
         Mod.geometry_nodes: {
             "node_group": "mesh_to_contour_lines",

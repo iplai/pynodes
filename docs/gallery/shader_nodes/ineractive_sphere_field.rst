@@ -17,7 +17,7 @@ Scene Build
 
         from pynodes.scene import *
 
-        Tree({
+        Scene({
             O.empty_sphere: {},
         }).load()
 

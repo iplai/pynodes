@@ -193,6 +193,10 @@ class Socket(SocketWraper):
     def __setitem__(self, key: str, value):
         self.node[key] = value
 
+    def copy(self, number: int):
+        import copy
+        return [copy.copy(self) for _ in range(number)]
+
     @property
     def name(self) -> str:
         if self._name is not None:
@@ -599,7 +603,7 @@ class Tree:
             self.new_link(socket.bsocket, input_bnode.inputs[i + 1])
             self.new_link(input_bnode.outputs[i], output_bnode.inputs[i])
             socket.bsocket = input_bnode.outputs[i]
-        yield SimulationZone(input_node, output_node)
+        yield RepeatZone(input_node, output_node)
         for i, socket in enumerate(input_sockets):
             socket.bsocket = output_bnode.outputs[i]
 

@@ -308,7 +308,7 @@ Besides, Scene management is also possible with pynodes.
 ```python
 from pynodes.scene import *
 
-scene = Tree({
+scene = Scene({
     O.cube: {
         "location": (0, 0, 0),
         Mod.geometry_nodes: {

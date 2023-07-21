@@ -6062,7 +6062,6 @@ def VolumeCube(density=1.0, background=0.0, min=(-1.0, -1.0, -1.0), max=(1.0, 1.
 
 def join(*items: "Geometry"):
     """The Join Geometry node merges separately generated geometries into a single one. If the geometry inputs contain different types of data, the output will also contain different data types.
-    - In-Place Operation
     #### Path
     - Geometry > Join Geometry Node
     #### Outputs:

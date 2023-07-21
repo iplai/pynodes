@@ -45,7 +45,7 @@ class Key:
         return hash((self.type, self.name))
 
 
-class Tree:
+class Scene:
     def __init__(self, data: dict[ObjType | Key | bpy.types.Object, dict]) -> None:
         self.data = data
         self.objects: dict[Key | ObjType, bpy.types.Object] = {}
