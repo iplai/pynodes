@@ -80,18 +80,42 @@ class PYNODES_PT_MAIN(Panel):
                 row.operator('node.hide_socket_toggle', text="Sockets", icon="HIDE_OFF")
 
                 if dev:
+                    if node.inputs:
+                        layout.row().label(text="Input Sockets:")
+                        col = layout.column(align=True)
+                        for i, input in enumerate(node.inputs):
+                            row = col.row(align=True)
+                            row.prop(input, 'hide', icon_only=True, icon='HIDE_ON' if not input.enabled or input.hide else 'HIDE_OFF')
+                            box = row.box()
+                            box.scale_y = 0.5
+                            name = input.identifier
+                            if node.type in ['GROUP', "GROUP_INPUT", "GROUP_OUTPUT", 'REPEAT_INPUT', 'REPEAT_OUTPUT', 'SIMULATION_INPUT', 'SIMULATION_OUTPUT'] and input.name:
+                                name = f"{input.name}"
+                            box.label(text=f"{i:>02}│ {name}")
+                            row.prop(input, "enabled", icon_only=True, invert_checkbox=True, icon="LAYER_ACTIVE" if input.enabled else "BLANK1")
 
-                    for i, input in enumerate(node.inputs):
-                        layout.row().label(text=f"{i} {input.identifier}", icon='HIDE_ON' if not input.enabled or input.hide else 'HIDE_OFF')
+                    if node.outputs:
+                        layout.row().label(text="Output Sockets:")
+                        col = layout.column(align=True)
+                        for i, output in enumerate(node.outputs):
+                            row = col.row(align=True)
+                            row.prop(output, 'hide', icon_only=True, icon='HIDE_ON' if not output.enabled or output.hide else 'HIDE_OFF')
+                            box = row.box()
+                            box.scale_y = 0.5
+                            name = output.identifier
+                            if node.type in ['GROUP', "GROUP_INPUT", "GROUP_OUTPUT", 'REPEAT_INPUT', 'REPEAT_OUTPUT', 'SIMULATION_INPUT', 'SIMULATION_OUTPUT'] and output.name:
+                                name = f"{output.name}"
+                            box.label(text=f"{i:>02}│ {name}")
+                            row.prop(output, "enabled", icon_only=True, invert_checkbox=True, icon="LAYER_ACTIVE" if output.enabled else "BLANK1")
+            if dev:
+                layout.row().operator("node.pynodes_select_all_reroute", icon="EVENT_R")
 
-                    layout.separator()
-
-                    for i, output in enumerate(node.outputs):
-                        layout.row().label(text=f"{i} {output.identifier}", icon='HIDE_ON' if not output.enabled or output.hide else 'HIDE_OFF')
         if dev:
             layout.separator()
-            layout.row().operator('node.pynodes_reload', icon="FILE_REFRESH")
-            layout.row().operator('outliner.orphans_purge_recursive', icon="CANCEL")
+            layout.row().operator('node.pynodes_reload', icon="SCRIPTPLUGINS")
+            layout.row().operator('outliner.orphans_purge_recursive', icon="TRASH")
+
+            layout.row().prop(context.scene.view_settings, "view_transform", text="Color Transform")
 
 
 class PYNODES_OT_ARRANGE(Operator):
@@ -131,6 +155,20 @@ class PYNODES_OT_RELOAD(Operator):
     def execute(self, context):
         from .core import reload
         reload()
+        print("Pynodes: Reloaded")
+        return {'FINISHED'}
+
+
+class PYNODES_OT_select_all_reroute(Operator):
+    """Select all reroute nodes"""
+    bl_idname = 'node.pynodes_select_all_reroute'
+    bl_label = 'Select all Reroute Nodes'
+
+    def execute(self, context):
+        btree: NodeTree = context.space_data.edit_tree
+        for node in btree.nodes:
+            if node.bl_idname == 'NodeReroute':
+                node.select = True
         return {'FINISHED'}
 
 
@@ -342,7 +380,7 @@ def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, f
         # Arrange the nodes to columns
         index = 0
         while True:
-            if len(cols[index].nodes) == 0:
+            if len(cols[index].nodes) == 0 or index == len(remain_nodes):
                 break
             for node in cols[index].nodes:
                 if is_frame(node):

@@ -40,7 +40,8 @@ class Float(Socket):
     def color_ramp(self, start_color=(0.0, 0.0, 0.0, 1.0), end_color=(1.0, 1.0, 1.0, 1.0), interpolation=None):
         """The Color Ramp Node is used for mapping values to colors with the use of a gradient.
 
-        item of colors: hex string or float or tuple
+        - Item of colors: hex string or float or tuple
+        - `interpolation`: `EASE`, `CARDINAL`, `LINEAR`, `B_SPLINE`, `CONSTANT`
         #### Path
         - Utilities > Color > Color Ramp Node
         #### Outputs:
@@ -66,7 +67,8 @@ class Float(Socket):
     def color_ramp_uniform(self, *colors, interpolation=None):
         """The Color Ramp Node is used for mapping values to colors with the use of a gradient.
 
-        item of colors: hex string or float or tuple
+        - Item of colors: hex string or float or tuple
+        - `interpolation`: `EASE`, `CARDINAL`, `LINEAR`, `B_SPLINE`, `CONSTANT`
         #### Path
         - Utilities > Color > Color Ramp Node
         #### Outputs:
@@ -78,7 +80,7 @@ class Float(Socket):
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/color/color_ramp.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeValToRGB.html)
         """
         from .colors import color_tuple
-        node = new_node(*nodes.ShaderNodeValToRGB(None, self))
+        node = new_node(*nodes.ShaderNodeValToRGB(self))
         bnode: bpy.types.ShaderNodeValToRGB = node.bnode
         color_ramp = bnode.color_ramp
         if interpolation is not None:
@@ -97,7 +99,9 @@ class Float(Socket):
     def color_ramp_with_position(self, *colors: tuple, interpolation=None):
         """The Color Ramp Node is used for mapping values to colors with the use of a gradient.
 
-        colors: `[(position, color), ...]` position from 0 to 1, color: hex string or float or tuple
+        - `colors`: `[(position, color), ...]` position from 0 to 1, color: hex string or float or tuple
+        - `interpolation`: `EASE`, `CARDINAL`, `LINEAR`, `B_SPLINE`, `CONSTANT`
+
         #### Path
         - Utilities > Color > Color Ramp Node
         #### Outputs:
@@ -109,7 +113,7 @@ class Float(Socket):
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/color/color_ramp.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeValToRGB.html)
         """
         from .colors import color_tuple
-        node = new_node(*nodes.ShaderNodeValToRGB(None, self))
+        node = new_node(*nodes.ShaderNodeValToRGB(self))
         bnode: bpy.types.ShaderNodeValToRGB = node.bnode
         color_ramp = bnode.color_ramp
         if interpolation is not None:
@@ -278,9 +282,13 @@ class Float(Socket):
         return FloatMath("SUBTRACT", False, other, self)
 
     def __mul__(self, other):
+        if isinstance(other, tuple) and len(other) == 3:
+            return CombineXYZ(*other).scale(self)
         return FloatMath("MULTIPLY", False, self, other)
 
     def __rmul__(self, other):
+        if isinstance(other, tuple) and len(other) == 3:
+            return CombineXYZ(*other).scale(self)
         return FloatMath("MULTIPLY", False, other, self)
 
     def __truediv__(self, other):
@@ -456,11 +464,11 @@ class Float(Socket):
         #### Path
         - Utilities > Math > Math Node
         """
-        return self.math("ROUND")
+        return self.to_integer("ROUND")
 
     def __round__(self):
         """To get called by built-in round() function."""
-        return self.round
+        return self.math("ROUND")
 
     @property
     def floor(self):
@@ -468,11 +476,11 @@ class Float(Socket):
         #### Path
         - Utilities > Math > Math Node
         """
-        return self.math("FLOOR")
+        return self.to_integer("FLOOR")
 
     def __floor__(self):
         """To get called by built-in math.floor() function."""
-        return self.floor
+        return self.math("FLOOR")
 
     @property
     def ceil(self):
@@ -480,11 +488,11 @@ class Float(Socket):
         #### Path
         - Utilities > Math > Math Node
         """
-        return self.math("CEIL")
+        return self.to_integer("CEILING")
 
     def __ceil__(self):
         """To get called by built-in math.ceil() function."""
-        return self.ceil
+        return self.math("CEIL")
 
     @property
     def trunc(self):
@@ -492,11 +500,11 @@ class Float(Socket):
         #### Path
         - Utilities > Math > Math Node
         """
-        return self.math("TRUNC")
+        return self.to_integer("TRUNCATE")
 
     def __trunc__(self):
         """To get called by built-in math.trunc() function."""
-        return self.trunc
+        return self.math("TRUNC")
 
     @property
     def fract(self):
@@ -762,14 +770,14 @@ class Vector(Socket):
 
     def __init__(self, bsocket: bpy.types.NodeSocket) -> None:
         super().__init__(bsocket)
-        self._seperated = None
+        self._separated = None
         self._length = None
 
     @property
     def x(self):
-        if self._seperated is None:
-            self._seperated = self.separate_xyz()
-        return self._seperated.x
+        if self._separated is None:
+            self._separated = self.separate_xyz()
+        return self._separated.x
 
     @x.setter
     def x(self, value):
@@ -778,9 +786,9 @@ class Vector(Socket):
 
     @property
     def y(self):
-        if self._seperated is None:
-            self._seperated = self.separate_xyz()
-        return self._seperated.y
+        if self._separated is None:
+            self._separated = self.separate_xyz()
+        return self._separated.y
 
     @y.setter
     def y(self, value):
@@ -789,9 +797,9 @@ class Vector(Socket):
 
     @property
     def z(self):
-        if self._seperated is None:
-            self._seperated = self.separate_xyz()
-        return self._seperated.z
+        if self._separated is None:
+            self._separated = self.separate_xyz()
+        return self._separated.z
 
     @z.setter
     def z(self, value):
@@ -1780,13 +1788,56 @@ class String(Socket):
         if type(font) == str:
             font = bpy.data.fonts.get(font)
         node = new_node(*nodes.GeometryNodeStringToCurves(align_x, align_y, overflow, pivot_mode, font, self, size, character_spacing, word_spacing, line_spacing, text_box_width, text_box_height))
-        ret = typing.NamedTuple("GeometryNodeStringToCurves", [("curve_instances", Instances), ("remainder", String), ("line", Integer), ("pivot_point", Vector)])
-        return ret(node.outputs[0].Instances, node.outputs[1].String, node.outputs[2].Integer, node.outputs[3].Vector)
+        return node.outputs[0].Curve
 
 
 class Color(Vector):
     """RGBA color socket of a node, float array of 4 items in [0, inf], default (0.0, 0.0, 0.0, 0.0)"""
     bl_idname = "NodeSocketColor"
+
+    @property
+    def red(self):
+        if self._separated is None:
+            self._separated = self.separate()
+        return self._separated.red
+
+    @red.setter
+    def red(self, value):
+        socket = CombineColor(value, self.green, self.blue)
+        self.bsocket = socket.bsocket
+
+    @property
+    def green(self):
+        if self._separated is None:
+            self._separated = self.separate()
+        return self._separated.green
+
+    @green.setter
+    def green(self, value):
+        socket = CombineColor(self.red, value, self.blue)
+        self.bsocket = socket.bsocket
+
+    @property
+    def blue(self):
+        if self._separated is None:
+            self._separated = self.separate()
+        return self._separated.blue
+
+    @blue.setter
+    def blue(self, value):
+        socket = CombineColor(self.red, self.green, value)
+        self.bsocket = socket.bsocket
+
+    @property
+    def alpha(self):
+        if self._separated is None:
+            self._separated = self.separate()
+        return self._separated.alpha
+
+    @alpha.setter
+    def alpha(self, value):
+        socket = CombineColor(self.red, self.green, self.blue, value)
+        self.bsocket = socket.bsocket
 
     def mix(self, b_color=(0.5, 0.5, 0.5, 1.0), blend_type="MIX", clamp_factor=True, clamp_result=False, factor_float=0.5):
         """The Mix Node mixes values, colors and vectors inputs using a factor to control the amount of interpolation. The Color mode has additional blending modes.
@@ -1817,7 +1868,7 @@ class Color(Vector):
         node = new_node(*nodes.ShaderNodeRGBCurve(mapping, fac, self))
         return node.outputs[0].Color
 
-    def seperate(self, mode='RGB'):
+    def separate(self, mode='RGB'):
         """The Separate Color Node splits an image into its composite color channels. The node can output multiple Color Models depending on the Mode property.
         #### Path
         - Utilities > Color > Separate Color Node
@@ -3468,8 +3519,8 @@ def MusgraveTexture(musgrave_dimensions='3D', musgrave_type='FBM', vector: Vecto
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/musgrave.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexMusgrave.html)
     """
     node = new_node(*nodes.ShaderNodeTexMusgrave(musgrave_dimensions, musgrave_type, vector, w, scale, detail, dimension, lacunarity, offset, gain))
-    ret = typing.NamedTuple("ShaderNodeTexMusgrave", [("fac", Float)])
-    return ret(node.outputs[0].Float)
+    ret = typing.NamedTuple("ShaderNodeTexMusgrave", [("fac", Float), ("height", Float)])
+    return ret(node.outputs[0].Float, node.outputs[0].Float)
 
 
 def NoiseTexture(noise_dimensions='3D', vector: Vector = None, w=0.0, scale=5.0, detail=2.0, roughness=0.5, distortion=0.0):
@@ -3843,7 +3894,7 @@ def RandomFloat(min=0.0, max=1.0, id=0, seed=0):
     return node.outputs[1].Float
 
 
-def RandomInteger(min=0, max=100, id=0, seed=0):
+def RandomInteger(min=0, max=100, id: Integer = None, seed=0):
     """The Random Value node outputs a white noise like value as a Float, Integer, Vector, or Boolean field.
     #### Path
     - Utilities > Random Value Node
@@ -4415,6 +4466,26 @@ def ShaderScript(mode="INTERNAL", script: bpy.types.Text = None, **kwargs):
     for key, val in kwargs.items():
         node[key] = val
     return node
+
+
+def join_strings(*strings: str, delimiter=""):
+    """The Join Strings node combines any number of input strings into the output string. The order of the result depends on the vertical ordering of the inputs in the multi-input socket.
+    #### Path
+    - Utilities > Text > Join Strings Node
+    #### Outputs:
+    - `#0 string: String = ""`
+
+    ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeStringJoin.webp)
+
+    [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/text/join_strings.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeStringJoin.html)
+    """
+    items = list(reversed(strings))
+    node = new_node(*nodes.GeometryNodeStringJoin(delimiter))
+    for item in items:
+        if type(item) == str:
+            item = InputString(item)
+        new_link(item.bsocket, node.bnode.inputs[1])
+    return node.outputs[0].String
 
 
 from .geosocks import Geometry, Instances

@@ -168,7 +168,7 @@ class SocketWraper:
             setattr(bsocket, "default_value", value)
         except TypeError as e:
             print("Cannot set default_value", e, f"{bnode.name = }", f"{bsocket.name = }", f"{value = }", sep="\n")
-            if isinstance(value, tuple):
+            if isinstance(value, tuple) and hasattr(value, "_asdict"):
                 print("You may forget to call the member of the named tuple", value._asdict())
         except ValueError:
             print()
@@ -753,6 +753,8 @@ def new_link(bsocket_from: NodeSocket, bsocket_to: NodeSocket):
 def update_modifier(default_value, input: NodeSocketInterface):
     if input.bl_socket_idname == "NodeSocketFloat":
         default_value = float(default_value)
+    if input.bl_socket_idname == "NodeSocketColor":
+        default_value = tuple(float(x) for x in default_value)
     for obj in bpy.data.objects:
         for mod in obj.modifiers:
             if isinstance(mod, bpy.types.NodesModifier):

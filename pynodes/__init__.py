@@ -27,7 +27,7 @@ from .core import tree, frame, simulate, reload, repeat
 from .datasocks import *
 from .geosocks import *
 
-import mathutils
+import mathutils, math
 
 from .colors import rgb, color_tuple
 from math import pi, tau

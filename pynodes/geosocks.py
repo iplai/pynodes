@@ -5097,7 +5097,7 @@ class Mesh(Geometry):
         node = new_node(*nodes.GeometryNodeSubdivisionSurface(boundary_smooth, uv_smooth, self, level, edge_crease, vertex_crease))
         return node.outputs[0].Mesh
 
-    def triangulate(self, ngon_method='BEAUTY', quad_method='SHORTEST_DIAGONAL', minimum_vertices=4, selection=True):
+    def triangulate(self, quad_method='SHORTEST_DIAGONAL', ngon_method='BEAUTY', minimum_vertices=4, selection=True):
         """The Triangulate node converts all faces in a mesh (quads and n-gons) to triangular faces. It functions the same as the Triangulate tool in Edit Mode.
         #### Path
         - Mesh > Operations > Triangulate Node

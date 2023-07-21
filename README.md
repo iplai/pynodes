@@ -9,6 +9,79 @@
 Pynodes is ia a module as well as an addon for blender to create all kinds of nodes in node editor with python scripts.
 Decorate a python function to represent a blender node group for any kind of tree in blender node editor.
 
+## Features
+
+Pynodes is a well designed library that mirrors the actual geometry(shader etc) node functionality in a Pythonic way.
+
+- It provides a Python interface to create geometry nodes and sockets programmatically.
+
+- The main classes represent different socket types like Geometry, Mesh, Curve, Points, etc.
+
+- There are methods to create common nodes like primitives, operators, transforms.
+
+- The nodes are organized into categories like Curve, Mesh, Points acting as class methods for easier discovery.
+
+- There are methods to set node properties and access outputs.
+
+- Inputs can be passed in as Python data types like vectors and booleans.
+
+- The documentation shows the node path and Blender manual link for each node.
+
+One advantage is being able to create and reuse nodes without having to use the visual editor.
+It could be useful for automating repetitive geometry tasks or integrating with procedural generation. This module enables scripting of geometry nodes for automation and programmatic modeling in Blender through a clean Python API.
+
+Nodes are created by a series of chain calls in a python function decrorated by [`pynodes.core.tree`](https://iplai.github.io/pynodes/apidocs/pynodes/pynodes.core.html#pynodes.core.tree "pynodes.core.tree") which represents a node group in blender.
+
+- Operations on nodes are based on the output port(data socket), not on the node itself.
+
+- A decorated `Python` function (`@tree`) corresponds to a tree of nodes. Calling the function means creating a group node in the current node tree.
+
+- Material trees are marked with a @Material docstring tag. (other tree types: @Shader @Light @World ect), if no docstring tag exist, the decorated python function represents the default geometry nodes tree.
+
+- Nodes can be chained together through method calls. Frames and Simulation(Repeat) Zone can be created with Python scopes and contexts(with statement).
+
+- Data in a data flow has strict type checking, what methods are available for the data socket, and what is provided by its type.
+
+- Good IDE support，e.g. [`VS Code`](https://code.visualstudio.com/). All exposed methods have built-in documentation, including images of the nodes involved, optional enumeration parameters, and links to official documentation.
+
+> Pynodes enables creating full geometry and material node systems in Python for parametric and procedural workflows. The API design makes complex trees possible while staying concise and Pythonic. Overall, it seems like a very useful tool for programmatic node-based modeling in Blender.
+
+It allows creating geometry and material node trees in Python. Node trees are defined as Python functions decorated with `@tree`. Strong typing is enforced for inputs. Common nodes like math, curves, mesh ops are exposed through the pynodes API. Tree inputs can be set as function arguments with defaults(the default value or a tuple consisting of `name` `default` `min` `max`, any one of the four can be omitted except the `default`).
+
+Pynodes allows specifying tree parameters as function arguments in several ways:
+
+- Default Value Only:
+```python
+def node_tree(param1:Float=0.5):
+   ...
+```
+This will set param1 to 0.5 by default.
+
+- Name + Default:
+```python
+def node_tree(param1:Float=("My Param", 0.5)):
+   ...
+```
+This will name the parameter "My Param" and default it to 0.5.
+
+- Name + Default + Min + Max:
+```python
+def node_tree(param1:Float=("My Param", 0.5, 0.0, 1.0)):
+   ...
+```
+This will also set the min and max values for the parameter in the UI.
+
+- Default + Min + Max:
+```python
+def node_tree(param1:Float=(0.5, 0.0, 1.0)):
+   ...
+```
+The name will be inferred from the argument name "Param1".
+
+Pynodes gives a lot of flexibility to configure the node parameters both in the Python API and the visual UI. The name, default, min and max can be specified concisely for each parameter.
+
+Scene management is possible by constructing a scene graph in a python dict data structure. Node trees can be assigned to objects through modifiers enum. Animated parameters are possible by setting keyframes. The UI panel reflects properties set in the Python trees. VSCode is recommended for development with auto-complete etc.
+
 ## Documentation
 
 https://iplai.github.io/pynodes/
@@ -29,17 +102,6 @@ Before using pynodes, you must first know:
 
 - How to run `Python` script in `Blender`
 
-## Bacis Concepts
-
-Nodes are created by a series of chain calls in a python function decrorated by [`pynodes.core.tree`](https://iplai.github.io/pynodes/apidocs/pynodes/pynodes.core.html#pynodes.core.tree "pynodes.core.tree") which represents a node group in blender.
-
-- Operations on nodes are based on the output port(data socket), not on the node itself.
-
-- A decorated `Python` function (`@tree`) corresponds to a tree of nodes. Calling the function means creating a group node in the current node tree.
-
-- Data in a data flow has strict type checking, what methods are available for the data socket, and what is provided by its type.
-
-- Good IDE support，e.g. [`VS Code`](https://code.visualstudio.com/). All exposed methods have built-in documentation, including images of the nodes involved, optional enumeration parameters, and links to official documentation.
 
 ## Install Addon
 
@@ -258,6 +320,8 @@ scene = Tree({
 ```
 
 The submodule pynodes.scene is still under construction, very limited features are available at the moment.
+
+This quick example shows how pynodes can be used to procedurally define complex scenes and effects in a concise way, by combining reusable node trees. The node trees abstract away the underlying node logic into easy to use Python functions and math formula.
 
 ## Gallery
 
