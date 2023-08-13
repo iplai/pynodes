@@ -29,8 +29,8 @@ Classes
      - .. autodoc2-docstring:: pynodes.scene.Key
           :parser: myst
           :summary:
-   * - :py:obj:`Tree <pynodes.scene.Tree>`
-     - .. autodoc2-docstring:: pynodes.scene.Tree
+   * - :py:obj:`Scene <pynodes.scene.Scene>`
+     - .. autodoc2-docstring:: pynodes.scene.Scene
           :parser: myst
           :summary:
 
@@ -199,37 +199,37 @@ API
    .. py:method:: __hash__() -> int
       :canonical: pynodes.scene.Key.__hash__
 
-.. py:class:: Tree(data: dict[pynodes.scene.ObjType | pynodes.scene.Key | bpy.types.Object, dict])
-   :canonical: pynodes.scene.Tree
+.. py:class:: Scene(data: dict[pynodes.scene.ObjType | pynodes.scene.Key | bpy.types.Object, dict])
+   :canonical: pynodes.scene.Scene
 
-   .. autodoc2-docstring:: pynodes.scene.Tree
+   .. autodoc2-docstring:: pynodes.scene.Scene
       :parser: myst
 
    .. rubric:: Initialization
 
-   .. autodoc2-docstring:: pynodes.scene.Tree.__init__
+   .. autodoc2-docstring:: pynodes.scene.Scene.__init__
       :parser: myst
 
    .. py:method:: __getitem__(key)
-      :canonical: pynodes.scene.Tree.__getitem__
+      :canonical: pynodes.scene.Scene.__getitem__
 
-      .. autodoc2-docstring:: pynodes.scene.Tree.__getitem__
+      .. autodoc2-docstring:: pynodes.scene.Scene.__getitem__
          :parser: myst
 
    .. py:method:: load(clear_animation=True)
-      :canonical: pynodes.scene.Tree.load
+      :canonical: pynodes.scene.Scene.load
 
-      .. autodoc2-docstring:: pynodes.scene.Tree.load
+      .. autodoc2-docstring:: pynodes.scene.Scene.load
          :parser: myst
 
    .. py:method:: parse_modifier(k: pynodes.scene.Key, v: dict[str], obj: bpy.types.Object)
-      :canonical: pynodes.scene.Tree.parse_modifier
+      :canonical: pynodes.scene.Scene.parse_modifier
 
-      .. autodoc2-docstring:: pynodes.scene.Tree.parse_modifier
+      .. autodoc2-docstring:: pynodes.scene.Scene.parse_modifier
          :parser: myst
 
    .. py:method:: parse_mat_slots(obj: bpy.types.Object, material_names: list[str])
-      :canonical: pynodes.scene.Tree.parse_mat_slots
+      :canonical: pynodes.scene.Scene.parse_mat_slots
 
-      .. autodoc2-docstring:: pynodes.scene.Tree.parse_mat_slots
+      .. autodoc2-docstring:: pynodes.scene.Scene.parse_mat_slots
          :parser: myst

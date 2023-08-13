@@ -41,7 +41,7 @@ Balls Push Apart
 
         from pynodes.scene import *
 
-        Tree({
+        Scene({
             O.cube @ "Sphere": {
                 Mod.geometry_nodes: {
                     "node_group": "Target Sphere",

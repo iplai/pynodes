@@ -61,7 +61,7 @@ The is an util node group for modeling.
 
         from pynodes.scene import *
 
-        Tree({
+        Scene({
             O.bezier_curve: {
                 Mod.geometry_nodes @ "1": {
                     "node_group": "line_to_wall"
