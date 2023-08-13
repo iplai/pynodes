@@ -12,6 +12,7 @@ Geometry nodes can modify different types of geometry:
 """
 import bpy, typing, math
 from .core import Socket, new_node, new_link
+from .datasocks import Float, Vector, Integer, Color, Boolean
 from . import nodes
 
 
@@ -1153,6 +1154,23 @@ class Geometry(Socket):
             value_name = "value_bool"
         return self._store_named_attribute(data_type, domain, selection, name, **{value_name: value})
 
+    def store_named_attributes(self, data: dict[str], domain="POINT", selection=True):
+        """The Store Named Attribute node stores the result of a field on a geometry as an attribute with the specified name. If the attribute already exists, the data type and domain will be updated to the values chosen in the node. However, keep in mind that the domain and data type of Built-In Attributes cannot be changed.
+        - In-Place Operation
+        #### Path
+        - Attribute > Store Named Attribute Node
+        #### Properties
+        - `data_type`: `FLOAT`, `INT`, `FLOAT_VECTOR`, `FLOAT_COLOR`, `BYTE_COLOR`, `BOOLEAN`, `FLOAT2`
+        - `domain`: `POINT`, `EDGE`, `FACE`, `CORNER`, `CURVE`, `INSTANCE`
+        #### Outputs:
+        - `#0 geometry: Geometry = None`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeStoreNamedAttribute.png)
+        """
+        for key, value in data.items():
+            self.store_named_attribute(key, value, domain, selection)
+        return self
+
     @property
     def ID(self):
         """The ID node gives an integer value indicating the stable random identifier of each element on the point domain, which is stored in the id attribute.
@@ -1971,9 +1989,6 @@ class Geometry(Socket):
         - Geometry > Operations > Separate Geometry Node
         #### Properties
         - `domain`: `POINT`, `EDGE`, `FACE`, `CURVE`, `INSTANCE`
-        #### Outputs:
-        - `#0 selection: Geometry = None`
-        - `#1 inverted: Geometry = None`
 
         ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeSeparateGeometry.webp)
 
@@ -5866,7 +5881,8 @@ def CurveStar(points=8, inner_radius=1.0, outer_radius=2.0, twist=math.radians(0
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/primitives/star.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCurveStar.html)
     """
     node = new_node(*nodes.GeometryNodeCurveStar(points, inner_radius, outer_radius, twist))
-    return node.outputs[0].Curve, node.outputs[1].Boolean
+    ret = typing.NamedTuple("GeometryNodeCurveStar", [("curve", Curve), ("outer_points", Boolean)])
+    return ret(node.outputs[0].Curve, node.outputs[1].Boolean)
 
 
 def MeshCone(fill_type='NGON', vertices=32, side_segments=1, fill_segments=1, radius_top=0.0, radius_bottom=1.0, depth=2.0):
@@ -6071,8 +6087,12 @@ def join(*items: "Geometry"):
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/join_geometry.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeJoinGeometry.html)
     """
-    if len(items) == 1 and isinstance(items[0], (tuple, list)):
-        items = items[0]
+    if len(items) == 1:
+        if isinstance(items[0], (tuple, list)):
+            items = items[0]
+        import types
+        if isinstance(items[0], types.GeneratorType):
+            items = list(items[0])
     node = new_node(*nodes.GeometryNodeJoinGeometry())
     # Reverse the iterator to keep the order
     for item in reversed(items):
@@ -6115,6 +6135,3 @@ def SplineParameter():
     node = new_node(*nodes.GeometryNodeSplineParameter())
     ret = typing.NamedTuple("GeometryNodeSplineParameter", [("factor", Float), ("length", Float), ("index", Integer)])
     return ret(node.outputs[0].Float, node.outputs[1].Float, node.outputs[2].Integer)
-
-
-from .datasocks import Float, Vector, Integer, Color, Boolean

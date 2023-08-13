@@ -471,6 +471,10 @@ Functions
      - .. autodoc2-docstring:: pynodes.datasocks.join_strings
           :parser: myst
           :summary:
+   * - :py:obj:`Attribute <pynodes.datasocks.Attribute>`
+     - .. autodoc2-docstring:: pynodes.datasocks.Attribute
+          :parser: myst
+          :summary:
 
 API
 ~~~
@@ -1174,6 +1178,18 @@ API
       :canonical: pynodes.datasocks.Vector.z
 
       .. autodoc2-docstring:: pynodes.datasocks.Vector.z
+         :parser: myst
+
+   .. py:property:: separated
+      :canonical: pynodes.datasocks.Vector.separated
+
+      .. autodoc2-docstring:: pynodes.datasocks.Vector.separated
+         :parser: myst
+
+   .. py:property:: xyz
+      :canonical: pynodes.datasocks.Vector.xyz
+
+      .. autodoc2-docstring:: pynodes.datasocks.Vector.xyz
          :parser: myst
 
    .. py:method:: line_to(end=(0.0, 0.0, 1.0))
@@ -2918,7 +2934,7 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.Switch
       :parser: myst
 
-.. py:function:: RandomFloat(min=0.0, max=1.0, id=0, seed=0)
+.. py:function:: RandomFloat(min=0.0, max=1.0, id=None, seed=0)
    :canonical: pynodes.datasocks.RandomFloat
 
    .. autodoc2-docstring:: pynodes.datasocks.RandomFloat
@@ -2930,13 +2946,13 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.RandomInteger
       :parser: myst
 
-.. py:function:: RandomVector(min=(0.0, 0.0, 0.0), max=(1.0, 1.0, 1.0), id=0, seed=0)
+.. py:function:: RandomVector(min=(0.0, 0.0, 0.0), max=(1.0, 1.0, 1.0), id=None, seed=0)
    :canonical: pynodes.datasocks.RandomVector
 
    .. autodoc2-docstring:: pynodes.datasocks.RandomVector
       :parser: myst
 
-.. py:function:: RandomBoolean(probability=0.5, id=0, seed=0)
+.. py:function:: RandomBoolean(probability=0.5, id=None, seed=0)
    :canonical: pynodes.datasocks.RandomBoolean
 
    .. autodoc2-docstring:: pynodes.datasocks.RandomBoolean
@@ -3120,4 +3136,10 @@ API
    :canonical: pynodes.datasocks.join_strings
 
    .. autodoc2-docstring:: pynodes.datasocks.join_strings
+      :parser: myst
+
+.. py:function:: Attribute(name='', attribute_type='GEOMETRY')
+   :canonical: pynodes.datasocks.Attribute
+
+   .. autodoc2-docstring:: pynodes.datasocks.Attribute
       :parser: myst

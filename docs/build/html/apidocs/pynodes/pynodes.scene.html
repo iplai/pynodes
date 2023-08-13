@@ -291,7 +291,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.scene.Key" title="pynodes.scene.Key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Key</span></code></a></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.scene.Tree" title="pynodes.scene.Tree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tree</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.scene.Scene" title="pynodes.scene.Scene"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Scene</span></code></a></p></td>
 <td></td>
 </tr>
 </tbody>
@@ -431,27 +431,27 @@
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="pynodes.scene.Tree">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.scene.</span></span><span class="sig-name descname"><span class="pre">Tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pynodes.scene.ObjType" title="pynodes.scene.ObjType"><span class="pre">pynodes.scene.ObjType</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pynodes.scene.Key" title="pynodes.scene.Key"><span class="pre">pynodes.scene.Key</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bpy.types.Object</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.scene.Tree" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pynodes.scene.Scene">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.scene.</span></span><span class="sig-name descname"><span class="pre">Scene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pynodes.scene.ObjType" title="pynodes.scene.ObjType"><span class="pre">pynodes.scene.ObjType</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#pynodes.scene.Key" title="pynodes.scene.Key"><span class="pre">pynodes.scene.Key</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bpy.types.Object</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.scene.Scene" title="Permalink to this definition">#</a></dt>
 <dd><p class="rubric">Initialization</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="pynodes.scene.Tree.__getitem__">
-<span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.scene.Tree.__getitem__" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pynodes.scene.Scene.__getitem__">
+<span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.scene.Scene.__getitem__" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pynodes.scene.Tree.load">
-<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clear_animation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.scene.Tree.load" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pynodes.scene.Scene.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clear_animation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.scene.Scene.load" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pynodes.scene.Tree.parse_modifier">
-<span class="sig-name descname"><span class="pre">parse_modifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.scene.Key" title="pynodes.scene.Key"><span class="pre">pynodes.scene.Key</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bpy.types.Object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.scene.Tree.parse_modifier" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pynodes.scene.Scene.parse_modifier">
+<span class="sig-name descname"><span class="pre">parse_modifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.scene.Key" title="pynodes.scene.Key"><span class="pre">pynodes.scene.Key</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bpy.types.Object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.scene.Scene.parse_modifier" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pynodes.scene.Tree.parse_mat_slots">
-<span class="sig-name descname"><span class="pre">parse_mat_slots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bpy.types.Object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.scene.Tree.parse_mat_slots" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pynodes.scene.Scene.parse_mat_slots">
+<span class="sig-name descname"><span class="pre">parse_mat_slots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bpy.types.Object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.scene.Scene.parse_mat_slots" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -553,11 +553,11 @@
 <li><a class="reference internal" href="#pynodes.scene.Key.__hash__"><code class="docutils literal notranslate"><span class="pre">Key.__hash__()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#pynodes.scene.Tree"><code class="docutils literal notranslate"><span class="pre">Tree</span></code></a><ul>
-<li><a class="reference internal" href="#pynodes.scene.Tree.__getitem__"><code class="docutils literal notranslate"><span class="pre">Tree.__getitem__()</span></code></a></li>
-<li><a class="reference internal" href="#pynodes.scene.Tree.load"><code class="docutils literal notranslate"><span class="pre">Tree.load()</span></code></a></li>
-<li><a class="reference internal" href="#pynodes.scene.Tree.parse_modifier"><code class="docutils literal notranslate"><span class="pre">Tree.parse_modifier()</span></code></a></li>
-<li><a class="reference internal" href="#pynodes.scene.Tree.parse_mat_slots"><code class="docutils literal notranslate"><span class="pre">Tree.parse_mat_slots()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.scene.Scene"><code class="docutils literal notranslate"><span class="pre">Scene</span></code></a><ul>
+<li><a class="reference internal" href="#pynodes.scene.Scene.__getitem__"><code class="docutils literal notranslate"><span class="pre">Scene.__getitem__()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.scene.Scene.load"><code class="docutils literal notranslate"><span class="pre">Scene.load()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.scene.Scene.parse_modifier"><code class="docutils literal notranslate"><span class="pre">Scene.parse_modifier()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.scene.Scene.parse_mat_slots"><code class="docutils literal notranslate"><span class="pre">Scene.parse_mat_slots()</span></code></a></li>
 </ul>
 </li>
 </ul>

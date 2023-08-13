@@ -109,13 +109,14 @@ class PYNODES_PT_MAIN(Panel):
                             row.prop(output, "enabled", icon_only=True, invert_checkbox=True, icon="LAYER_ACTIVE" if output.enabled else "BLANK1")
             if dev:
                 layout.row().operator("node.pynodes_select_all_reroute", icon="EVENT_R")
+                if btree.type == 'GEOMETRY':
+                    layout.row().operator("screen.toggle_editor", icon="NODE_MATERIAL")
+                if btree.type == 'SHADER':
+                    layout.row().operator("screen.toggle_editor", icon="GEOMETRY_NODES")
 
         if dev:
             layout.separator()
             layout.row().operator('node.pynodes_reload', icon="SCRIPTPLUGINS")
-            layout.row().operator('outliner.orphans_purge_recursive', icon="TRASH")
-
-            layout.row().prop(context.scene.view_settings, "view_transform", text="Color Transform")
 
 
 class PYNODES_OT_ARRANGE(Operator):
@@ -135,16 +136,6 @@ class PYNODES_OT_ARRANGE(Operator):
     def poll(cls, context: Context):
         space = context.space_data
         return space and (space.type == 'NODE_EDITOR') and space.edit_tree and not space.edit_tree.library
-
-
-class PYNODES_OT_PURGE(Operator):
-    """Clear all orphaned data-blocks without any users from the file"""
-    bl_idname = 'outliner.orphans_purge_recursive'
-    bl_label = 'Purge Orphan'
-
-    def execute(self, context):
-        bpy.ops.outliner.orphans_purge(do_recursive=True)
-        return {'FINISHED'}
 
 
 class PYNODES_OT_RELOAD(Operator):
@@ -169,6 +160,20 @@ class PYNODES_OT_select_all_reroute(Operator):
         for node in btree.nodes:
             if node.bl_idname == 'NodeReroute':
                 node.select = True
+        return {'FINISHED'}
+
+
+class PYNODES_OT_toggle_editor(Operator):
+    """Toggle between Geometry and Shader Editor"""
+    bl_idname = 'screen.toggle_editor'
+    bl_label = 'Toggle Editor'
+
+    def execute(self, context):
+        if context.area.type != "NODE_EDITOR":
+            context.area.type = "NODE_EDITOR"
+        editor: bpy.types.SpaceNodeEditor = context.area.spaces.active
+        editor.tree_type = "ShaderNodeTree" if editor.tree_type == "GeometryNodeTree" else "GeometryNodeTree"
+        # bpy.ops.node.view_all()
         return {'FINISHED'}
 
 
@@ -505,15 +510,16 @@ def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, f
                     continue
                 # If a child node of previous column is too tall, then don't aligin center
                 if any(node.dimensions[1] >= 500 for node in cols[i + 1].nodes if not is_frame(node)):
-                    continue
-                current_height = col.height + col.offset
-                pre_height = cols[i + 1].height + cols[i + 1].offset
-                if cols[i + 1].offset > 0 and cols[i + 1].offset + cols[i + 1].height / 2 - col.height / 2 < cols[i + 1].height * (1 - diff_shreshold_factor):
-                    continue
-                if cols[i + 1].offset == 0 and current_height > pre_height * diff_shreshold_factor:
-                    continue
-                # col.offset + col.height / 2 + offset_y = cols[i + 1].offset + cols[i + 1].height / 2
-                offset_y = cols[i + 1].offset + cols[i + 1].height / 2 - col.height / 2
+                    offset_y = cols[i + 1].offset
+                else:
+                    current_height = col.height + col.offset
+                    pre_height = cols[i + 1].height + cols[i + 1].offset
+                    if cols[i + 1].offset > 0 and cols[i + 1].offset + cols[i + 1].height / 2 - col.height / 2 < cols[i + 1].height * (1 - diff_shreshold_factor):
+                        continue
+                    if cols[i + 1].offset == 0 and current_height > pre_height * diff_shreshold_factor:
+                        continue
+                    # col.offset + col.height / 2 + offset_y = cols[i + 1].offset + cols[i + 1].height / 2
+                    offset_y = cols[i + 1].offset + cols[i + 1].height / 2 - col.height / 2
                 if offset_y < 0:
                     continue
                 else:

@@ -23,16 +23,16 @@ Classes
      - .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_ARRANGE
           :parser: myst
           :summary:
-   * - :py:obj:`PYNODES_OT_PURGE <pynodes.addon.PYNODES_OT_PURGE>`
-     - .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_PURGE
-          :parser: myst
-          :summary:
    * - :py:obj:`PYNODES_OT_RELOAD <pynodes.addon.PYNODES_OT_RELOAD>`
      - .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_RELOAD
           :parser: myst
           :summary:
    * - :py:obj:`PYNODES_OT_select_all_reroute <pynodes.addon.PYNODES_OT_select_all_reroute>`
      - .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_select_all_reroute
+          :parser: myst
+          :summary:
+   * - :py:obj:`PYNODES_OT_toggle_editor <pynodes.addon.PYNODES_OT_toggle_editor>`
+     - .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_toggle_editor
           :parser: myst
           :summary:
    * - :py:obj:`Column <pynodes.addon.Column>`
@@ -174,31 +174,6 @@ API
       :canonical: pynodes.addon.PYNODES_OT_ARRANGE.poll
       :classmethod:
 
-.. py:class:: PYNODES_OT_PURGE
-   :canonical: pynodes.addon.PYNODES_OT_PURGE
-
-   Bases: :py:obj:`bpy.types.Operator`
-
-   .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_PURGE
-      :parser: myst
-
-   .. py:attribute:: bl_idname
-      :canonical: pynodes.addon.PYNODES_OT_PURGE.bl_idname
-      :value: 'outliner.orphans_purge_recursive'
-
-      .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_PURGE.bl_idname
-         :parser: myst
-
-   .. py:attribute:: bl_label
-      :canonical: pynodes.addon.PYNODES_OT_PURGE.bl_label
-      :value: 'Purge Orphan'
-
-      .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_PURGE.bl_label
-         :parser: myst
-
-   .. py:method:: execute(context)
-      :canonical: pynodes.addon.PYNODES_OT_PURGE.execute
-
 .. py:class:: PYNODES_OT_RELOAD
    :canonical: pynodes.addon.PYNODES_OT_RELOAD
 
@@ -248,6 +223,31 @@ API
 
    .. py:method:: execute(context)
       :canonical: pynodes.addon.PYNODES_OT_select_all_reroute.execute
+
+.. py:class:: PYNODES_OT_toggle_editor
+   :canonical: pynodes.addon.PYNODES_OT_toggle_editor
+
+   Bases: :py:obj:`bpy.types.Operator`
+
+   .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_toggle_editor
+      :parser: myst
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.addon.PYNODES_OT_toggle_editor.bl_idname
+      :value: 'screen.toggle_editor'
+
+      .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_toggle_editor.bl_idname
+         :parser: myst
+
+   .. py:attribute:: bl_label
+      :canonical: pynodes.addon.PYNODES_OT_toggle_editor.bl_label
+      :value: 'Toggle Editor'
+
+      .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_toggle_editor.bl_label
+         :parser: myst
+
+   .. py:method:: execute(context)
+      :canonical: pynodes.addon.PYNODES_OT_toggle_editor.execute
 
 .. py:class:: Column()
    :canonical: pynodes.addon.Column

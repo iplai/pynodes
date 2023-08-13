@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 bl_info = {
     "name": "PyNodes",
     "author": "iplai",

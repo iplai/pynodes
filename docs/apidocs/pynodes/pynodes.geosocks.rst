@@ -543,6 +543,12 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.store_named_attribute
          :parser: myst
 
+   .. py:method:: store_named_attributes(data: dict[str], domain='POINT', selection=True)
+      :canonical: pynodes.geosocks.Geometry.store_named_attributes
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.store_named_attributes
+         :parser: myst
+
    .. py:property:: ID
       :canonical: pynodes.geosocks.Geometry.ID
 

@@ -12,7 +12,7 @@ def calculate_coord(p: Integer, q: Integer, R: Float, r: Float, ɸ: Float):
 
     x = c * cos(a)
     y = c * sin(a)
-    z = sin(b)
+    z = sin(b) * r
 
     return CombineXYZ(x, y, z)
 
@@ -20,18 +20,18 @@ def calculate_coord(p: Integer, q: Integer, R: Float, r: Float, ɸ: Float):
 @tree
 def torus_knot(
     resolution_ratio: Float = 10,
-    p: Integer = 1,
+    p: Integer = 4,
     q: Integer = 3,
-    R: Float = 5,
-    r: Float = 1,
-    profile_radius: Float = 0.5,
+    R: Float = 1,
+    r: Float = 0.5,
+    profile_radius: Float = 0.2,
     n: Integer = (3, 3),
     keep_normal: Boolean = False
 ):
 
     with frame("Torus"):
 
-        torus = CurveCircle(R, 64).to_mesh(CurveCircle(r / 5)).set_material("#c43131")
+        torus = CurveCircle(R, 64).to_mesh(CurveCircle(r / 1.1)).set_material("#c43131")
 
     with frame("Calculate curve resolution"):
 

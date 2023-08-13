@@ -244,6 +244,12 @@ API
       .. autodoc2-docstring:: pynodes.core.Socket.__setitem__
          :parser: myst
 
+   .. py:method:: copy(number: int)
+      :canonical: pynodes.core.Socket.copy
+
+      .. autodoc2-docstring:: pynodes.core.Socket.copy
+         :parser: myst
+
    .. py:property:: name
       :canonical: pynodes.core.Socket.name
       :type: str

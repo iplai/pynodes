@@ -806,6 +806,16 @@ class Vector(Socket):
         socket = CombineXYZ(self.x, self.y, value)
         self.bsocket = socket.bsocket
 
+    @property
+    def separated(self):
+        if self._separated is None:
+            self._separated = self.separate_xyz()
+        return self._separated
+
+    @property
+    def xyz(self):
+        return self.separated
+
     def line_to(self, end=(0.0, 0.0, 1.0)):
         """The Curve Line node generates poly spline line.
         #### Path
@@ -3879,7 +3889,7 @@ def Switch(input_type='GEOMETRY', switch=False, switch_001=False, false=0.0, tru
     return node.outputs[0].Float, node.outputs[1].Integer, node.outputs[2].Boolean, node.outputs[3].Vector, node.outputs[4].Color, node.outputs[5].String, node.outputs[6].Geometry, node.outputs[7].Object, node.outputs[8].Collection, node.outputs[9].Texture, node.outputs[10].Material, node.outputs[11].Image
 
 
-def RandomFloat(min=0.0, max=1.0, id=0, seed=0):
+def RandomFloat(min=0.0, max=1.0, id=None, seed=0):
     """The Random Value node outputs a white noise like value as a Float, Integer, Vector, or Boolean field.
     #### Path
     - Utilities > Random Value Node
@@ -3909,7 +3919,7 @@ def RandomInteger(min=0, max=100, id: Integer = None, seed=0):
     return node.outputs[2].Integer
 
 
-def RandomVector(min=(0.0, 0.0, 0.0), max=(1.0, 1.0, 1.0), id=0, seed=0):
+def RandomVector(min=(0.0, 0.0, 0.0), max=(1.0, 1.0, 1.0), id=None, seed=0):
     """The Random Value node outputs a white noise like value as a Float, Integer, Vector, or Boolean field.
     #### Path
     - Utilities > Random Value Node
@@ -3924,7 +3934,7 @@ def RandomVector(min=(0.0, 0.0, 0.0), max=(1.0, 1.0, 1.0), id=0, seed=0):
     return node.outputs[0].Vector
 
 
-def RandomBoolean(probability=0.5, id=0, seed=0):
+def RandomBoolean(probability=0.5, id=None, seed=0):
     """The Random Value node outputs a white noise like value as a Float, Integer, Vector, or Boolean field.
     #### Path
     - Utilities > Random Value Node
@@ -4486,6 +4496,27 @@ def join_strings(*strings: str, delimiter=""):
             item = InputString(item)
         new_link(item.bsocket, node.bnode.inputs[1])
     return node.outputs[0].String
+
+
+def Attribute(name='', attribute_type='GEOMETRY'):
+    """The Attribute node allows you to retrieve attributes attached to an object or mesh.
+    #### Path
+    - Input > Attribute Node
+    #### Properties:
+    - `attribute_type`: `GEOMETRY`, `OBJECT`, `INSTANCER`, `VIEW_LAYER`
+    #### Outputs:
+    - `#0 color: Color = (0.0, 0.0, 0.0, 0.0)`
+    - `#1 vector: Vector = (0.0, 0.0, 0.0)`
+    - `#2 fac: Float = 0.0`
+    - `#3 alpha: Float = 0.0`
+
+    ![](https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeAttribute.webp)
+
+    [[Manual]](https://docs.blender.org/manual/en/latest/render/shader_nodes/input/attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeAttribute.html)
+    """
+    node = new_node(*nodes.ShaderNodeAttribute(attribute_type, name))
+    ret = typing.NamedTuple("ShaderNodeAttribute", [("color", Color), ("vector", Vector), ("fac", Float), ("alpha", Float)])
+    return ret(node.outputs[0].Color, node.outputs[1].Vector, node.outputs[2].Float, node.outputs[3].Float)
 
 
 from .geosocks import Geometry, Instances

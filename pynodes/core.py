@@ -82,7 +82,7 @@ class NodeWraper:
             if isinstance(data, Socket):
                 new_link(data.bsocket, socket_to.bsocket)
                 continue
-            if isinstance(data, (list, tuple)):
+            elif isinstance(data, (list, tuple)):
                 if len(data) == 3:
                     if any(isinstance(a, Socket) for a in data) or socket_to.bsocket.display_shape == "DIAMOND":
                         from .datasocks import CombineXYZ
@@ -99,7 +99,21 @@ class NodeWraper:
                         new_link(socket.bsocket, socket_to.bsocket)
                         continue
             if data != default_value:
-                socket_to.default_value = data
+                if isinstance(data, (int, float, bool)) and socket_to.bsocket.display_shape == "DIAMOND":
+                    if socket_to.bsocket.type == "VALUE":
+                        from .datasocks import InputFloat
+                        socket = InputFloat(data)
+                        new_link(socket.bsocket, socket_to.bsocket)
+                    if socket_to.bsocket.type == "INT":
+                        from .datasocks import InputInteger
+                        socket = InputInteger(data)
+                        new_link(socket.bsocket, socket_to.bsocket)
+                    if socket_to.bsocket.type == "BOOLEAN":
+                        from .datasocks import InputBool
+                        socket = InputBool(data)
+                        new_link(socket.bsocket, socket_to.bsocket)
+                else:
+                    socket_to.default_value = data
                 continue
 
     def __setitem__(self, key: str, value):
@@ -258,9 +272,13 @@ class Socket(SocketWraper):
             if input.bl_socket_idname == "NodeSocketMaterial":
                 if type(default) == str:
                     mat_name = default
-                    default = bpy.data.materials.get(mat_name)
-                    if default is None:
-                        default = bpy.data.materials.new(mat_name)
+                    mat = bpy.data.materials.get(mat_name)
+                    if mat is None:
+                        mat = bpy.data.materials.new(mat_name)
+                        if mat_name.startswith("#"):
+                            from .colors import hex_color_to_rgba
+                            mat.diffuse_color = hex_color_to_rgba(mat_name)
+                    default = mat
             if input.bl_socket_idname == "NodeSocketObject":
                 if type(default) == str:
                     default = bpy.data.objects.get(default)
@@ -599,7 +617,8 @@ class Tree:
         input_node = RepeatInput(input_bnode)
         output_node = RepeatOutput(output_bnode)
         for i, socket in enumerate(input_sockets):
-            repeat_items.new(socket.bsocket.type, socket._name or socket.bsocket.name)
+            socket_type = "FLOAT" if socket.bsocket.type == "VALUE" else socket.bsocket.type
+            repeat_items.new(socket_type, socket._name or socket.bsocket.name)
             self.new_link(socket.bsocket, input_bnode.inputs[i + 1])
             self.new_link(input_bnode.outputs[i], output_bnode.inputs[i])
             socket.bsocket = input_bnode.outputs[i]
@@ -921,10 +940,10 @@ def tree(func: typing.Callable[Param, RT]) -> typing.Callable[Param, RT]:
                 sig_param_default = sig_param_default[1:]
 
             if issubclass(param.annotation, Vector) and len(sig_param_default) == 3 and all(isinstance(i, (int, float)) for i in param.default):
-                input_params['default'] = sig_param_default
+                input_params['default'] = tuple(float(c) for c in sig_param_default)
                 sig_param_default = ()
             elif issubclass(param.annotation, Color) and len(sig_param_default) == 4 and all(isinstance(i, (int, float)) for i in param.default):
-                input_params['default'] = sig_param_default
+                input_params['default'] = tuple(float(c) for c in sig_param_default)
                 sig_param_default = ()
 
             if sig_param_default:
