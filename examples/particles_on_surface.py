@@ -26,6 +26,6 @@ def particles_on_surface(mesh: Mesh, geometry: Points, obj: Object):
 
         geometry.set_position(offset=NoiseTexture().color - 0.5)
 
-        zone.to_ouput(geometry)
+        zone.to_output(geometry)
 
     return geometry

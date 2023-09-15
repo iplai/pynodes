@@ -1,8 +1,6 @@
 import bpy
 from bpy.types import Node, NodeFrame, NodeLink, NodeSocket, Context, NodeTree, Panel, Operator
 
-dev = True
-
 
 class PYNODES_PT_MAIN(Panel):
     bl_label = "Arrange Nodes"
@@ -37,86 +35,92 @@ class PYNODES_PT_MAIN(Panel):
             row.prop(context.scene, 'node_center1', text="L → R", toggle=True)
             row.prop(context.scene, 'node_center2', text="L ← R", toggle=True)
 
-            layout.label(text="Options:")
-            col = layout.column(align=True)
-            col.prop(context.scene, 'only_selected_frame', text="Only Selected Frame", toggle=True)
-            col.prop(context.scene, 'reverse_single_link_sequence', text="Reverse Single Sequence", toggle=True)
+            row = layout.row(align=True)
+            row.label(text="Options:")
+            row.prop(context.scene, 'only_selected_frame', text="Frame", icon="MENU_PANEL", toggle=True)
+            row.prop(context.scene, 'reverse_single_link_sequence', text="Reverse", icon="DECORATE_OVERRIDE", toggle=True)
 
-            layout.separator()
-            # node = btree.nodes.active
+            layout.row().operator("node.pynodes_select_all_reroute", icon="DECORATE_KEYFRAME")
+
+
+class PYNODES_PT_node_info(Panel):
+    bl_label = "Node Info"
+    bl_space_type = "NODE_EDITOR"
+    bl_region_type = "UI"
+    bl_category = "Pynodes"
+    bl_options = {'DEFAULT_CLOSED'}
+
+    def draw(self, context):
+
+        layout = self.layout
+        btree: NodeTree = context.space_data.edit_tree
+
+        if btree is not None:
             node = context.active_node
             if node is not None and node.select:
-                col = layout.column(align=True)
+                row = layout.row(align=False)
+                row.alignment = "LEFT"
                 if node.bl_idname == "NodeFrame":
-                    split = col.split(factor=0.33, align=True)
-                    box = split.box()
-                    box.scale_y = 0.5
-                    box.label(text=f"{node.bl_label}", icon="NODE")
-                    split.prop(node, "label", text="")
+                    split = row.split(factor=0.3333, align=True)
+                    split.label(text="Frame", icon="NODE")
+                    split.operator("wm.call_panel", text=node.label or "Rename", emboss=False).name = "TOPBAR_PT_name"
+                    if not node.label:
+                        split.label()
                 else:
-                    box = col.box()
-                    box.scale_y = 0.5
                     name = node.bl_label
                     if node.type == 'GROUP':
                         name = node.node_tree.name
-                    if node.bl_idname in ['ShaderNodeMath', 'ShaderNodeVectorMath', 'FunctionNodeCompare']:
+                    elif node.bl_idname in ['ShaderNodeMath', 'ShaderNodeVectorMath', 'FunctionNodeCompare']:
                         name = name + " → " + node.operation.replace("_", " ").title()
-                    box.label(text=f"{name}", icon="NODE")
-                row = col.row(align=True)
-                box = row.box()
-                box.scale_y = 0.5
-                box.label(text="Location", icon="ORIENTATION_VIEW")
+                    # row.label(text=name, icon="NODE")
+                    row.operator("pynodes.copy_node_bl_idname", text=name, emboss=False, icon="NODE").node_bl_idname = node.bl_idname
+                row = layout.row(align=True)
+                row.label(text="Location", icon="ORIENTATION_VIEW")
                 row.prop(node, 'location', text="X", index=0)
                 row.prop(node, 'location', text="Y", index=1)
-                row = col.row(align=True)
-                box = row.box()
-                box.scale_y = 0.5
-                box.label(text="Dimension", icon="OBJECT_HIDDEN")
+                row = layout.row(align=True)
+                row.label(text="Dimension", icon="OBJECT_HIDDEN")
                 row.prop(node, 'width', text="W")
                 row.prop(node, 'dimensions', text="H", index=1)
 
-                row = col.row(align=True)
-                row.operator('node.options_toggle', text="Options", icon="HIDE_OFF")
-                row.operator('node.hide_socket_toggle', text="Sockets", icon="HIDE_OFF")
+                row = layout.row(align=True)
+                icon = "HIDE_OFF" if node.show_options else "HIDE_ON"
+                row.operator('node.options_toggle', text="Options", icon=icon)
+                icon = "HIDE_OFF"
+                for input in node.inputs:
+                    if input.enabled and input.hide:
+                        icon = "HIDE_ON"
+                row.operator('node.hide_socket_toggle', text="Sockets", icon=icon)
+                icon = "MUTE_IPO_OFF" if node.mute else "MUTE_IPO_ON"
+                row.operator('node.mute_toggle', text="Mute", icon=icon)
 
-                if dev:
-                    if node.inputs:
-                        layout.row().label(text="Input Sockets:")
-                        col = layout.column(align=True)
-                        for i, input in enumerate(node.inputs):
-                            row = col.row(align=True)
-                            row.prop(input, 'hide', icon_only=True, icon='HIDE_ON' if not input.enabled or input.hide else 'HIDE_OFF')
-                            box = row.box()
-                            box.scale_y = 0.5
-                            name = input.identifier
-                            if node.type in ['GROUP', "GROUP_INPUT", "GROUP_OUTPUT", 'REPEAT_INPUT', 'REPEAT_OUTPUT', 'SIMULATION_INPUT', 'SIMULATION_OUTPUT'] and input.name:
-                                name = f"{input.name}"
-                            box.label(text=f"{i:>02}│ {name}")
-                            row.prop(input, "enabled", icon_only=True, invert_checkbox=True, icon="LAYER_ACTIVE" if input.enabled else "BLANK1")
+                if node.inputs:
+                    layout.row().label(text="Input Sockets:")
+                    col = layout.column(align=True)
+                    for i, input in enumerate(node.inputs):
+                        row = col.row(align=True)
+                        row.prop(input, 'hide', icon_only=True, icon='HIDE_ON' if not input.enabled or input.hide else 'HIDE_OFF')
+                        box = row.box()
+                        box.scale_y = 0.5
+                        name = input.identifier
+                        if node.type in ['GROUP', "GROUP_INPUT", "GROUP_OUTPUT", 'REPEAT_INPUT', 'REPEAT_OUTPUT', 'SIMULATION_INPUT', 'SIMULATION_OUTPUT'] and input.name:
+                            name = f"{input.name}"
+                        box.label(text=f"{i:>02}│ {name}")
+                        row.prop(input, "enabled", icon_only=True, invert_checkbox=True, icon="LAYER_ACTIVE" if input.enabled else "BLANK1")
 
-                    if node.outputs:
-                        layout.row().label(text="Output Sockets:")
-                        col = layout.column(align=True)
-                        for i, output in enumerate(node.outputs):
-                            row = col.row(align=True)
-                            row.prop(output, 'hide', icon_only=True, icon='HIDE_ON' if not output.enabled or output.hide else 'HIDE_OFF')
-                            box = row.box()
-                            box.scale_y = 0.5
-                            name = output.identifier
-                            if node.type in ['GROUP', "GROUP_INPUT", "GROUP_OUTPUT", 'REPEAT_INPUT', 'REPEAT_OUTPUT', 'SIMULATION_INPUT', 'SIMULATION_OUTPUT'] and output.name:
-                                name = f"{output.name}"
-                            box.label(text=f"{i:>02}│ {name}")
-                            row.prop(output, "enabled", icon_only=True, invert_checkbox=True, icon="LAYER_ACTIVE" if output.enabled else "BLANK1")
-            if dev:
-                layout.row().operator("node.pynodes_select_all_reroute", icon="EVENT_R")
-                if btree.type == 'GEOMETRY':
-                    layout.row().operator("screen.toggle_editor", icon="NODE_MATERIAL")
-                if btree.type == 'SHADER':
-                    layout.row().operator("screen.toggle_editor", icon="GEOMETRY_NODES")
-
-        if dev:
-            layout.separator()
-            layout.row().operator('node.pynodes_reload', icon="SCRIPTPLUGINS")
+                if node.outputs:
+                    layout.row().label(text="Output Sockets:")
+                    col = layout.column(align=True)
+                    for i, output in enumerate(node.outputs):
+                        row = col.row(align=True)
+                        row.prop(output, 'hide', icon_only=True, icon='HIDE_ON' if not output.enabled or output.hide else 'HIDE_OFF')
+                        box = row.box()
+                        box.scale_y = 0.5
+                        name = output.identifier
+                        if node.type in ['GROUP', "GROUP_INPUT", "GROUP_OUTPUT", 'REPEAT_INPUT', 'REPEAT_OUTPUT', 'SIMULATION_INPUT', 'SIMULATION_OUTPUT'] and output.name:
+                            name = f"{output.name}"
+                        box.label(text=f"{i:>02}│ {name}")
+                        row.prop(output, "enabled", icon_only=True, invert_checkbox=True, icon="LAYER_ACTIVE" if output.enabled else "BLANK1")
 
 
 class PYNODES_OT_ARRANGE(Operator):
@@ -158,8 +162,16 @@ class PYNODES_OT_select_all_reroute(Operator):
     def execute(self, context):
         btree: NodeTree = context.space_data.edit_tree
         for node in btree.nodes:
+            bl_idname = node.bl_idname
+            node.hide = False
+            if bl_idname in ["ShaderNodeMath", "ShaderNodeVectorMath", "FunctionNodeCompare"]:
+                node.show_options = False
+            if node.width < 140:
+                node.width = 140
             if node.bl_idname == 'NodeReroute':
                 node.select = True
+            else:
+                node.select = False
         return {'FINISHED'}
 
 
@@ -174,6 +186,18 @@ class PYNODES_OT_toggle_editor(Operator):
         editor: bpy.types.SpaceNodeEditor = context.area.spaces.active
         editor.tree_type = "ShaderNodeTree" if editor.tree_type == "GeometryNodeTree" else "GeometryNodeTree"
         # bpy.ops.node.view_all()
+        return {'FINISHED'}
+
+
+class PYNODES_OT_copy_node_bl_idname(Operator):
+    """Copy bl_idname of selected node to clipboard"""
+    bl_idname = 'pynodes.copy_node_bl_idname'
+    bl_label = 'Copy bl_idname of selected node to clipboard'
+
+    node_bl_idname: bpy.props.StringProperty(name='node_bl_idname', default='')
+
+    def execute(self, context):
+        context.window_manager.clipboard = self.node_bl_idname
         return {'FINISHED'}
 
 
@@ -247,6 +271,19 @@ def arrange(self, context: Context):
 
 
 def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, frame_margin_y=10, node_center1=True, node_center2=True, only_selected_frame=False, reverse_single_link_sequence=False):
+    # Hide Vector input sockets with default value to save spaces
+    for bnode in btree.nodes:
+        if bnode.bl_idname == "ShaderNodeMapping":
+            continue
+        for bsocket in bnode.inputs:
+            if not bsocket.is_linked:
+                if bsocket.bl_idname in ['NodeSocketVector', 'NodeSocketVectorTranslation', "NodeSocketVectorEuler"]:
+                    if tuple(bsocket.default_value) == (0, 0, 0):
+                        bsocket.hide = True
+                if bsocket.name == "Scale" and bsocket.bl_idname in ['NodeSocketVectorXYZ']:
+                    if tuple(bsocket.default_value) == (1, 1, 1):
+                        bsocket.hide = True
+
     # A list to record all frames and their level
     frames_level: list[tuple(NodeFrame, int)] = []
     for node in btree.nodes:
@@ -594,15 +631,15 @@ def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, f
 
 
 def register():
-    default_nodemargin_x = -140 if dev else 40
+    default_nodemargin_x = 40
     bpy.types.Scene.nodemargin_x = bpy.props.IntProperty(default=default_nodemargin_x, min=-140, update=arrange)
     bpy.types.Scene.nodemargin_y = bpy.props.IntProperty(default=20, update=arrange)
     bpy.types.Scene.framemargin_x = bpy.props.IntProperty(default=10, update=arrange)
     bpy.types.Scene.framemargin_y = bpy.props.IntProperty(default=10, update=arrange)
     bpy.types.Scene.node_center1 = bpy.props.BoolProperty(default=True, description="Center each column from left to right", update=arrange)
     bpy.types.Scene.node_center2 = bpy.props.BoolProperty(default=True, description="Center each column from right to left", update=arrange)
-    bpy.types.Scene.only_selected_frame = bpy.props.BoolProperty(default=False, description="Only arrange selected frame, if no frame selected, arrange the root tree", update=arrange)
-    bpy.types.Scene.reverse_single_link_sequence = bpy.props.BoolProperty(default=False, description="Reverse single link staggered sequence", update=arrange)
+    bpy.types.Scene.only_selected_frame = bpy.props.BoolProperty(default=False, name="Only Arrange Selected Frame", description="Only arrange selected frame, if no frame selected, arrange the root tree", update=arrange)
+    bpy.types.Scene.reverse_single_link_sequence = bpy.props.BoolProperty(default=False, name="Reverse Single Link Sequence", description="Reverse single link staggered sequence", update=arrange)
 
 
 def unregister():

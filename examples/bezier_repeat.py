@@ -68,7 +68,7 @@ def geometry_nodes(points_count: Integer = n, fac: Float = (0.33, 0, 1)):
         new_curve.set_position(pos.mix(pos_next, fac))
         curve_joined.join(new_curve)
 
-        zone.to_ouputs(new_curve, curve_joined, points_count - 1)
+        zone.to_outputs(new_curve, curve_joined, points_count - 1)
 
     with frame("The Result Bézier Curve"):
 

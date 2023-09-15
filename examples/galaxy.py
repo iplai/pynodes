@@ -13,7 +13,7 @@ def galaxy_simulate():
         theta2 = RandomFloat(0, tau, rnd_id, seed=2)
         points[points.position.length < 1].set_position(position=(sin(theta1) * 5, cos(theta2) * 5, 0))
         # points.Points[(points.position.distance(points.evaluate_vector_at_index_on_points(points.index_of_nearest().index, points.position)) > 0.2) & (points.position.length > 6)].delete()
-        zone.to_ouput(points)
+        zone.to_output(points)
     return points
 
 
@@ -25,5 +25,5 @@ def geometry_nodes_repeat(n: Integer = (0, 0)):
         points.set_position(offset=(points.position * -0.1).rotate_around_z_axis(angle=radians(75)))
         theta = RandomFloat(0, tau, n + points.index)
         points[points.position.length < 1].set_position(position=(sin(theta) * 5, cos(theta) * 5, 0))
-        zone.to_ouput(points)
+        zone.to_output(points)
     return points

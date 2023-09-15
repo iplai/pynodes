@@ -115,7 +115,10 @@ class Scene:
                 for frame, value in mod_v:
                     if k.type == Mod.geometry_nodes:
                         mod: bpy.types.NodesModifier
-                        node_input = mod.node_group.inputs[mod_k]
+                        try:
+                            node_input = mod.node_group.inputs[mod_k]
+                        except KeyError:
+                            node_input = mod.node_group.inputs[mod_k.replace("_", " ").title()]
                         if node_input.bl_label == "Float":
                             value = float(value)
                         elif node_input.bl_label == "Object":

@@ -760,6 +760,9 @@ def GeometryNodeSampleCurve(data_type='FLOAT', mode='FACTOR', use_all_curves=Fal
     """
     params_all = [('data_type', data_type, 'FLOAT'), ('mode', mode, 'FACTOR'), ('use_all_curves', use_all_curves, False)]
     inputs_all = [(curves, None), (value_float, 0.0), (value_int, 0), (value_vector, (0.0, 0.0, 0.0)), (value_color, (0.0, 0.0, 0.0, 0.0)), (value_bool, False), (factor, 0.0), (length, 0.0), (curve_index, 0)]
+    if bpy.app.version >= (4, 0, 0):
+        value_euler = Euler((0.0, 0.0, 0.0), 'XYZ')
+    inputs_all = [(curves, None), (value_float, 0.0), (value_int, 0), (value_vector, (0.0, 0.0, 0.0)), (value_color, (0.0, 0.0, 0.0, 0.0)), (value_bool, False), (value_euler, Euler((0.0, 0.0, 0.0), 'XYZ')), (factor, 0.0), (length, 0.0), (curve_index, 0)]
     return "GeometryNodeSampleCurve", params_all, inputs_all
 
 

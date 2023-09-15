@@ -1,7 +1,7 @@
 import bpy, typing, math
 
 from bpy.types import NodeSocket
-from .core import Socket, new_node, new_link
+from .core import Socket, Tree, new_node, new_link
 from . import nodes
 
 
@@ -23,7 +23,7 @@ class Float(Socket):
         node = new_node(*nodes.GeometryNodeSwitch("FLOAT", switch, false=self, true=true_float))
         return node.outputs[0].Float
 
-    def mix(self, factor_float=0.5, b_float=0.0, clamp_factor=True):
+    def mix(self, b_float=0.0, factor_float=0.5, clamp_factor=True):
         """The Mix Node mixes values, colors and vectors inputs using a factor to control the amount of interpolation. The Color mode has additional blending modes.
         #### Path
         - Utilities > Math > Mix Node
@@ -53,7 +53,7 @@ class Float(Socket):
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/color/color_ramp.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeValToRGB.html)
         """
         from .colors import color_tuple
-        node = new_node(*nodes.ShaderNodeValToRGB(None, self))
+        node = new_node(*nodes.ShaderNodeValToRGB(self))
         bnode: bpy.types.ShaderNodeValToRGB = node.bnode
         color_ramp = bnode.color_ramp
         if interpolation is not None:
@@ -282,11 +282,17 @@ class Float(Socket):
         return FloatMath("SUBTRACT", False, other, self)
 
     def __mul__(self, other):
+        if isinstance(other, (int, float)):
+            return FloatMath("MULTIPLY", False, self, other)
         if isinstance(other, tuple) and len(other) == 3:
             return CombineXYZ(*other).scale(self)
+        if isinstance(other, Vector):
+            return other * self
         return FloatMath("MULTIPLY", False, self, other)
 
     def __rmul__(self, other):
+        if isinstance(other, (int, float)):
+            return FloatMath("MULTIPLY", False, other, self)
         if isinstance(other, tuple) and len(other) == 3:
             return CombineXYZ(*other).scale(self)
         return FloatMath("MULTIPLY", False, other, self)
@@ -400,6 +406,10 @@ class Float(Socket):
         - Utilities > Math > Math Node
         """
         return self.math("EXPONENT")
+
+    @classmethod
+    def exp(cls, value):
+        return cls.math(value, "EXPONENT")
 
     def minimum(self, other=0.5, clamp=False):
         """Outputs the smallest of the input values.
@@ -593,6 +603,14 @@ class Float(Socket):
         - Utilities > Math > Math Node
         """
         return cls.math(value, "TANGENT", use_clamp=clamp)
+
+    @classmethod
+    def cot(cls, value=0.5, clamp=False):
+        """
+        #### Path
+        - Utilities > Math > Math Node
+        """
+        return 1 / cls.math(value, "TANGENT", use_clamp=clamp)
 
     @property
     def arcsine(self):
@@ -1093,6 +1111,9 @@ class Vector(Socket):
             return VectorMath("SCALE", self, scale=1 / other).vector
         else:
             return VectorMath("DIVIDE", self, other).vector
+
+    def __rtruediv__(self, other):
+        return CombineXYZ(other / self.x, other / self.y, other / self.z)
 
     def multiply_add(self, multiplier=(0.0, 0.0, 0.0), addend=(0.0, 0.0, 0.0)):
         """The entrywise combination of the multiply and addition operations.
@@ -1849,7 +1870,7 @@ class Color(Vector):
         socket = CombineColor(self.red, self.green, self.blue, value)
         self.bsocket = socket.bsocket
 
-    def mix(self, b_color=(0.5, 0.5, 0.5, 1.0), blend_type="MIX", clamp_factor=True, clamp_result=False, factor_float=0.5):
+    def mix(self, b_color=(0.5, 0.5, 0.5, 1.0), blend_type="MIX", factor=0.5, clamp_factor=True, clamp_result=False):
         """The Mix Node mixes values, colors and vectors inputs using a factor to control the amount of interpolation. The Color mode has additional blending modes.
         - `blend_type`: `MIX`, `DARKEN`, `MULTIPLY`, `BURN`, `LIGHTEN`, `SCREEN`, `DODGE`, `ADD`, `OVERLAY`, `SOFT_LIGHT`, `LINEAR_LIGHT`, `DIFFERENCE`, `EXCLUSION`, `SUBTRACT`, `DIVIDE`, `HUE`, `SATURATION`, `COLOR`, `VALUE`
         #### Path
@@ -1861,7 +1882,7 @@ class Color(Vector):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/color/mix_rgb.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeMix.html)
         """
-        node = new_node(*nodes.ShaderNodeMix(blend_type, "RGBA", clamp_factor=clamp_factor, clamp_result=clamp_result, factor_float=factor_float, a_color=self, b_color=b_color))
+        node = new_node(*nodes.ShaderNodeMix(blend_type, "RGBA", clamp_factor=clamp_factor, clamp_result=clamp_result, factor_float=factor, a_color=self, b_color=b_color))
         return node.outputs[2].Color
 
     def rgb_curve(self, mapping=None, fac=1.0):
@@ -3014,24 +3035,6 @@ class Material(Socket):
 
     def __init__(self, bsocket: bpy.types.NodeSocket) -> None:
         super().__init__(bsocket)
-        self._index = None
-
-    @property
-    def index(self):
-        """The Material Index node outputs which material in the list of materials of the geometry each element corresponds to. Currently the node supports mesh data, where material_index is a built-in attribute on faces.
-        #### Path
-        - Material > Material Index Node
-        #### Outputs:
-        - `#0 material_index: Integer = 0`
-
-        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputMaterialIndex.webp)
-
-        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/material/material_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeInputMaterialIndex.html)
-        """
-        if self._index is None:
-            node = new_node(*nodes.GeometryNodeInputMaterialIndex())
-            self._index = node.outputs[0].Integer
-        return self._index
 
     def material_selection(self):
         """The Material Selection node provides a selection for meshes that use this material. Since the material_index is stored on each face, the output will be implicitly interpolated to a different domain when necessary. For example, every vertex connected to a selected face will be selected.
@@ -3242,7 +3245,7 @@ def InputVector(vector=(0.0, 0.0, 0.0)):
     return node.outputs[0].Vector
 
 
-def CollectionInfo(transform_space='ORIGINAL', collection=None, separate_children=False, reset_children=False):
+def CollectionInfo(collection=None, transform_space='ORIGINAL', separate_children=False, reset_children=False):
     """The Collection Info node gets information from collections. This can be useful to control parameters in the geometry node tree with an external collection.
     #### Path
     - Input > Scene > Collection Info Node
@@ -3296,7 +3299,7 @@ def IsViewport():
     return node.outputs[0].Boolean
 
 
-def ObjectInfo(transform_space='ORIGINAL', object=None, as_instance=False):
+def ObjectInfo(object=None, transform_space='ORIGINAL', as_instance=False):
     """The Object Info node gets information from objects. This can be useful to control parameters in the geometry node tree with an external object, either directly by using its geometry, or via its transformation properties.
     #### Path
     - Input > Scene > Object Info Node
@@ -3687,6 +3690,8 @@ def CombineColor(red=0.0, green=0.0, blue=0.0, alpha=1.0, mode='RGB'):
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/color/combine_color.html) [[API]](https://docs.blender.org/api/current/bpy.types.FunctionNodeCombineColor.html)
     """
+    if Tree.tree.btree.type != "GEOMETRY":
+        return ShaderNodeCombineColor(red, green, blue, mode)
     node = new_node(*nodes.FunctionNodeCombineColor(mode, red, green, blue, alpha))
     return node.outputs[0].Color
 
@@ -3721,10 +3726,12 @@ def MixVector(a_vector=(0.0, 0.0, 0.0), b_vector=(0.0, 0.0, 0.0), factor_float=0
     return node.outputs[1].Vector
 
 
-def MixColor(a_color=(0.5, 0.5, 0.5, 1.0), b_color=(0.5, 0.5, 0.5, 1.0), blend_type="MIX", clamp_factor=True, clamp_result=False, factor_float=0.5):
+def MixColor(a_color=(0.5, 0.5, 0.5, 1.0), b_color=(0.5, 0.5, 0.5, 1.0), blend_type="MIX", factor=0.5, clamp_factor=True, clamp_result=False):
     """The Mix Node mixes images by working on the individual and corresponding pixels of the two input images. Called “Mix Color” in the shader, geometry, and texture context.
     #### Path
     - Utilities > Color > Mix Node
+    #### Properties:
+    - `blend_type`: 'MIX', 'DARKEN', 'MULTIPLY', 'BURN', 'LIGHTEN', 'SCREEN', 'DODGE', 'ADD', 'OVERLAY', 'SOFT_LIGHT', 'LINEAR_LIGHT', 'DIFFERENCE', 'EXCLUSION', 'SUBTRACT', 'DIVIDE', 'HUE', 'SATURATION', 'COLOR', 'VALUE'
     #### Outputs:
     - `#2 result_color: Color = (0.0, 0.0, 0.0, 0.0)`
 
@@ -3732,8 +3739,8 @@ def MixColor(a_color=(0.5, 0.5, 0.5, 1.0), b_color=(0.5, 0.5, 0.5, 1.0), blend_t
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/color/mix_rgb.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeMix.html)
     """
-    node = new_node(*nodes.ShaderNodeMix(blend_type, "RGBA", clamp_factor=clamp_factor, clamp_result=clamp_result, factor_float=factor_float, a_color=a_color, b_color=b_color))
-    return node.outputs[1].Vector
+    node = new_node(*nodes.ShaderNodeMix(blend_type, "RGBA", clamp_factor=clamp_factor, clamp_result=clamp_result, factor_float=factor, a_color=a_color, b_color=b_color))
+    return node.outputs[2].Color
 
 
 def ShaderNodeRGBCurve(mapping=None, fac=1.0, color=(1.0, 1.0, 1.0, 1.0)):
@@ -4296,7 +4303,7 @@ def ShaderNodeBlackbody(temperature=1500.0):
     return node.outputs[0].Color
 
 
-def ShaderNodeCombineColor(mode='RGB', red=0.0, green=0.0, blue=0.0):
+def ShaderNodeCombineColor(red=0.0, green=0.0, blue=0.0, mode='RGB'):
     """The Combine Color Node combines an image from its composite color channels. The node can combine multiple Color Models depending on the Mode property.
     #### Path
     - Converter > Combine Color Node

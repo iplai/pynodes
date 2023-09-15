@@ -25,7 +25,7 @@ def unregister():
     auto_load.unregister()
 
 
-from .core import tree, frame, simulate, reload, repeat
+from .core import Tree, tree, frame, simulate, reload, repeat
 from .datasocks import *
 from .geosocks import *
 

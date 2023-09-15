@@ -28,6 +28,7 @@ class Geometry(Socket):
         self._normal = None
         self._position = None
         self._radius = None
+        self._material_index = None
 
     def __getitem__(self, selection):
         socket = None
@@ -2202,6 +2203,23 @@ class Geometry(Socket):
         self.bsocket = node.outputs[0].bsocket
         return self
 
+    @property
+    def material_index(self):
+        """The Material Index node outputs which material in the list of materials of the geometry each element corresponds to. Currently the node supports mesh data, where material_index is a built-in attribute on faces.
+        #### Path
+        - Material > Material Index Node
+        #### Outputs:
+        - `#0 material_index: Integer = 0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeInputMaterialIndex.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/material/material_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeInputMaterialIndex.html)
+        """
+        if self._material_index is None:
+            node = new_node(*nodes.GeometryNodeInputMaterialIndex())
+            self._material_index = node.outputs[0].Integer
+        return self._material_index
+
     @staticmethod
     def accumulate_float_on_points(value_float=0.0, group_index=0):
         """The Accumulate Field node counts a running total of its input values, in the order defined by the geometry's indices. The node's essential operation is just addition, but instead of only outputting the final total, it outputs the current value at every element.
@@ -3673,7 +3691,8 @@ class Curve(Geometry):
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/sample/sample_curve.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeSampleCurve.html)
         """
         node = new_node(*nodes.GeometryNodeSampleCurve(data_type, mode, use_all_curves, self, value_float, value_int, value_vector, value_color, value_bool, factor, length, curve_index))
-        return node.outputs[0].Float, node.outputs[1].Integer, node.outputs[2].Vector, node.outputs[3].Color, node.outputs[4].Boolean, node.outputs[5].Vector, node.outputs[6].Vector, node.outputs[7].Vector
+        ret = typing.NamedTuple("GeometryNodeSampleCurve", [("value", Float), ("position", Vector), ("tangent", Vector), ("normal", Vector)])
+        return ret(node.outputs[0].Float, node.outputs[-3].Vector, node.outputs[-2].Vector, node.outputs[-1].Vector)
 
     def sample_float(self, mode='FACTOR', use_all_curves=False, value_float=0.0, factor=0.0, length=0.0, curve_index=0):
         """The Sample Curve calculates a point on a curve at a certain distance from the start of the curve, specified by the length or factor inputs. It also outputs data retrieved from that position on the curve. The sampled values are linearly interpolated from the values at the evaluated curve points at each side of the sampled point.
@@ -3693,7 +3712,7 @@ class Curve(Geometry):
         """
         node = new_node(*nodes.GeometryNodeSampleCurve("FLOAT", mode, use_all_curves, self, value_float, 0, (0.0, 0.0, 0.0), (0.0, 0.0, 0.0, 0.0), False, factor, length, curve_index))
         ret = typing.NamedTuple("GeometryNodeSampleCurve", [("value", Float), ("position", Vector), ("tangent", Vector), ("normal", Vector)])
-        return ret(node.outputs[0].Float, node.outputs[5].Vector, node.outputs[6].Vector, node.outputs[7].Vector)
+        return ret(node.outputs[0].Float, node.outputs[-3].Vector, node.outputs[-2].Vector, node.outputs[-1].Vector)
 
     def sample_integer(self, mode='FACTOR', use_all_curves=False, value_int=0, factor=0.0, length=0.0, curve_index=0):
         """The Sample Curve calculates a point on a curve at a certain distance from the start of the curve, specified by the length or factor inputs. It also outputs data retrieved from that position on the curve. The sampled values are linearly interpolated from the values at the evaluated curve points at each side of the sampled point.
@@ -3713,7 +3732,7 @@ class Curve(Geometry):
         """
         node = new_node(*nodes.GeometryNodeSampleCurve("INT", mode, use_all_curves, self, 0.0, value_int, (0.0, 0.0, 0.0), (0.0, 0.0, 0.0, 0.0), False, factor, length, curve_index))
         ret = typing.NamedTuple("GeometryNodeSampleCurve", [("value", Integer), ("position", Vector), ("tangent", Vector), ("normal", Vector)])
-        return ret(node.outputs[1].Integer, node.outputs[5].Vector, node.outputs[6].Vector, node.outputs[7].Vector)
+        return ret(node.outputs[1].Integer, node.outputs[-3].Vector, node.outputs[-2].Vector, node.outputs[-1].Vector)
 
     def sample_vector(self, mode='FACTOR', use_all_curves=False, value_vector=(0.0, 0.0, 0.0), factor=0.0, length=0.0, curve_index=0):
         """The Sample Curve calculates a point on a curve at a certain distance from the start of the curve, specified by the length or factor inputs. It also outputs data retrieved from that position on the curve. The sampled values are linearly interpolated from the values at the evaluated curve points at each side of the sampled point.
@@ -3733,7 +3752,7 @@ class Curve(Geometry):
         """
         node = new_node(*nodes.GeometryNodeSampleCurve("FLOAT_VECTOR", mode, use_all_curves, self, 0.0, 0, value_vector, (0.0, 0.0, 0.0, 0.0), False, factor, length, curve_index))
         ret = typing.NamedTuple("GeometryNodeSampleCurve", [("value", Vector), ("position", Vector), ("tangent", Vector), ("normal", Vector)])
-        return ret(node.outputs[2].Vector, node.outputs[5].Vector, node.outputs[6].Vector, node.outputs[7].Vector)
+        return ret(node.outputs[2].Vector, node.outputs[-3].Vector, node.outputs[-2].Vector, node.outputs[-1].Vector)
 
     def sample_color(self, mode='FACTOR', use_all_curves=False, value_color=(0.0, 0.0, 0.0, 0.0), factor=0.0, length=0.0, curve_index=0):
         """The Sample Curve calculates a point on a curve at a certain distance from the start of the curve, specified by the length or factor inputs. It also outputs data retrieved from that position on the curve. The sampled values are linearly interpolated from the values at the evaluated curve points at each side of the sampled point.
@@ -3753,7 +3772,7 @@ class Curve(Geometry):
         """
         node = new_node(*nodes.GeometryNodeSampleCurve("FLOAT_COLOR", mode, use_all_curves, self, 0.0, 0, (0.0, 0.0, 0.0), value_color, False, factor, length, curve_index))
         ret = typing.NamedTuple("GeometryNodeSampleCurve", [("value", Color), ("position", Vector), ("tangent", Vector), ("normal", Vector)])
-        return ret(node.outputs[3].Color, node.outputs[5].Vector, node.outputs[6].Vector, node.outputs[7].Vector)
+        return ret(node.outputs[3].Color, node.outputs[-3].Vector, node.outputs[-2].Vector, node.outputs[-1].Vector)
 
     def sample_boolean(self, mode='FACTOR', use_all_curves=False, value_bool=False, factor=0.0, length=0.0, curve_index=0):
         """The Sample Curve calculates a point on a curve at a certain distance from the start of the curve, specified by the length or factor inputs. It also outputs data retrieved from that position on the curve. The sampled values are linearly interpolated from the values at the evaluated curve points at each side of the sampled point.
@@ -3773,7 +3792,7 @@ class Curve(Geometry):
         """
         node = new_node(*nodes.GeometryNodeSampleCurve("BOOLEAN", mode, use_all_curves, self, 0.0, 0, (0.0, 0.0, 0.0), (0.0, 0.0, 0.0, 0.0), value_bool, factor, length, curve_index))
         ret = typing.NamedTuple("GeometryNodeSampleCurve", [("value", Boolean), ("position", Vector), ("tangent", Vector), ("normal", Vector)])
-        return ret(node.outputs[4].Boolean, node.outputs[5].Vector, node.outputs[6].Vector, node.outputs[7].Vector)
+        return ret(node.outputs[4].Boolean, node.outputs[-3].Vector, node.outputs[-2].Vector, node.outputs[-1].Vector)
 
     def set_normal(self, mode='MINIMUM_TWIST', selection=True):
         """The Set Curve Normal controls the method used to calculate curve normals for every curve.
@@ -5994,6 +6013,40 @@ def MeshCircle(vertices=32, radius=1.0, fill_type='NONE'):
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/primitives/mesh_circle.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeMeshCircle.html)
     """
     node = new_node(*nodes.GeometryNodeMeshCircle(fill_type, vertices, radius))
+    return node.outputs[0].Mesh
+
+
+def MeshCircleFilledNgon(vertices=32, radius=1.0):
+    """The Mesh Circle node generates a circular ring of edges that is optionally filled with faces.
+    #### Path
+    - Mesh > Primitives > Mesh Circle Node
+    #### Properties
+    - `fill_type`: `NONE`, `NGON`, `TRIANGLE_FAN`
+    #### Outputs:
+    - `#0 mesh: Geometry = None`
+
+    ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeMeshCircle.webp)
+
+    [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/primitives/mesh_circle.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeMeshCircle.html)
+    """
+    node = new_node(*nodes.GeometryNodeMeshCircle("NGON", vertices, radius))
+    return node.outputs[0].Mesh
+
+
+def MeshCircleFilledTriangle(vertices=32, radius=1.0):
+    """The Mesh Circle node generates a circular ring of edges that is optionally filled with faces.
+    #### Path
+    - Mesh > Primitives > Mesh Circle Node
+    #### Properties
+    - `fill_type`: `NONE`, `NGON`, `TRIANGLE_FAN`
+    #### Outputs:
+    - `#0 mesh: Geometry = None`
+
+    ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeMeshCircle.webp)
+
+    [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/primitives/mesh_circle.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeMeshCircle.html)
+    """
+    node = new_node(*nodes.GeometryNodeMeshCircle("TRIANGLE_FAN", vertices, radius))
     return node.outputs[0].Mesh
 
 

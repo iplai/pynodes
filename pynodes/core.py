@@ -116,9 +116,9 @@ class NodeWraper:
                     socket_to.default_value = data
                 continue
 
-    def __setitem__(self, key: str, value):
-        for input in self.inputs:
-            if input.bsocket.name == key.replace('_', " ").title():
+    def __setitem__(self, key: str | int, value):
+        for i, input in enumerate(self.inputs):
+            if i == key or input.bsocket.name == key.replace('_', " ").title() or input.bsocket.identifier == key:
                 if isinstance(value, Socket):
                     new_link(value.bsocket, input.bsocket)
                 else:
@@ -163,6 +163,16 @@ class SocketWraper:
                 value = bpy.data.materials[mat_name]
             else:
                 assert isinstance(value, bpy.types.Material)
+        elif bsocket.bl_label == "Collection":
+            if type(value) == str:
+                value = bpy.data.collections[value]
+            else:
+                assert isinstance(value, bpy.types.Collection)
+        elif bsocket.bl_label == "Object":
+            if type(value) == str:
+                value = bpy.data.objects[value]
+            else:
+                assert isinstance(value, bpy.types.Object)
         elif bsocket.bl_label == "Image":
             if type(value) == str:
                 if bpy.data.images.get(value) is None:
@@ -181,7 +191,8 @@ class SocketWraper:
         try:
             setattr(bsocket, "default_value", value)
         except TypeError as e:
-            print("Cannot set default_value", e, f"{bnode.name = }", f"{bsocket.name = }", f"{value = }", sep="\n")
+            btree = Tree.tree.btree
+            print("Cannot set default_value", e, f"{btree.name = }", f"{bnode.name = }", f"{bsocket.name = }", f"{value = }", sep="\n")
             if isinstance(value, tuple) and hasattr(value, "_asdict"):
                 print("You may forget to call the member of the named tuple", value._asdict())
         except ValueError:
@@ -206,6 +217,10 @@ class Socket(SocketWraper):
 
     def __setitem__(self, key: str, value):
         self.node[key] = value
+
+    def delete(self):
+        Tree.tree.btree.nodes.remove(self.bsocket.node)
+        return self
 
     def copy(self, number: int):
         import copy
@@ -541,7 +556,7 @@ class Tree:
         bnode = self.btree.nodes.new(bl_idname)
         bnode.select = False
         bnode.parent = self.cur_frame
-        if bl_idname in ["ShaderNodeMath",]:
+        if bl_idname in ["ShaderNodeMath", "ShaderNodeTexCoord",]:
             bnode.show_options = False
 
         node = NodeWraper(bnode)
@@ -604,7 +619,7 @@ class Tree:
             socket.bsocket = output_bnode.outputs[i]
 
     @contextlib.contextmanager
-    def repeat(self, *input_sockets: Socket, iterations=1):
+    def repeat(self, *input_sockets: Socket, iterations=1, fakes: list[int] | int = None):
         input_bnode: bpy.types.GeometryNodeRepeatInput = self.new_node(RepeatInput.bl_idname).bnode
         output_bnode: bpy.types.GeometryNodeRepeatOutput = self.new_node(RepeatOutput.bl_idname).bnode
         if type(iterations) == int:
@@ -625,6 +640,13 @@ class Tree:
         yield RepeatZone(input_node, output_node)
         for i, socket in enumerate(input_sockets):
             socket.bsocket = output_bnode.outputs[i]
+
+        # Remove the fake links after the zone inputs initialized
+        if fakes is not None:
+            if isinstance(fakes, int):
+                fakes = [fakes]
+            for fake_index in fakes:
+                Tree.tree.btree.links.remove(input_node.inputs[fake_index + 1].bsocket.links[0])
 
 
 class Group(NodeWraper):
@@ -687,10 +709,10 @@ class SimulationZone:
         self.input_node = input_node
         self.output_node = output_node
 
-    def to_ouput(self, socket: Socket, index=0):
+    def to_output(self, socket: Socket, index=0):
         self.output_node.link_from(socket, index)
 
-    def to_ouputs(self, *sockets: Socket):
+    def to_outputs(self, *sockets: Socket):
         for i, socket in enumerate(sockets):
             if socket is not None:
                 self.output_node.link_from(socket, i)
@@ -705,10 +727,10 @@ class RepeatZone:
         self.input_node = input_node
         self.output_node = output_node
 
-    def to_ouput(self, socket: Socket, index=0):
+    def to_output(self, socket: Socket, index=0):
         self.output_node.link_from(socket, index)
 
-    def to_ouputs(self, *sockets: Socket):
+    def to_outputs(self, *sockets: Socket):
         for i, socket in enumerate(sockets):
             if socket is not None:
                 self.output_node.link_from(socket, i)
@@ -999,8 +1021,8 @@ def simulate(*input_sockets: Socket):
     return Tree.tree.simulate(*input_sockets)
 
 
-def repeat(*input_sockets: Socket, iterations=1):
-    return Tree.tree.repeat(*input_sockets, iterations=iterations)
+def repeat(*input_sockets: Socket, iterations=1, fakes: list[int] | int = None):
+    return Tree.tree.repeat(*input_sockets, iterations=iterations, fakes=fakes)
 
 
 def reload():

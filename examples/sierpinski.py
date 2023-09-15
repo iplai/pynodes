@@ -15,7 +15,7 @@ def sierpinski_triangle(iterations: Integer = (1, 0, 12), scale: Float = 0.5):
             dl = geo.Geometry.transform((-math.sqrt(3) / 4, -1 / 4, 0), scale=scale)
         with frame("Down Right"):
             dr = geo.Geometry.transform((math.sqrt(3) / 4, -1 / 4, 0), scale=scale)
-        zone.to_ouputs(join(ul, dl, dr), ul, dl, dr)
+        zone.to_outputs(join(ul, dl, dr), ul, dl, dr)
 
     return join(
         geos[0].set_material("#ff0000"),
@@ -34,7 +34,7 @@ def sierpinski_relatives(iterations: Integer = (1, 0, 12)):
         ul = geo.Geometry.transform((0, 1, 0), (0, 0, -pi / 2), scale=0.5)
         dl = geo.Geometry.transform((0.0, 0.0, 0), scale=0.5)
         dr = geo.Geometry.transform((0.5, 0.0, 0), scale=0.5)
-        zone.to_ouputs(join(ul, dl, dr), ul, dl, dr)
+        zone.to_outputs(join(ul, dl, dr), ul, dl, dr)
 
     return join(
         geos[0].set_material("#ff0000"),
@@ -68,7 +68,7 @@ def sierpinski_relatives_all(iterations: Integer = (6, 0, 12), t1: Integer = (1,
         ul = transform_relatives(geo, t1).transform((-0.5, 0.5, 0), scale=0.5)
         dl = transform_relatives(geo, t2).transform((-0.5, -0.5, 0), scale=0.5)
         dr = transform_relatives(geo, t3).transform((0.5, -0.5, 0), scale=0.5)
-        zone.to_ouputs(join(ul, dl, dr), ul, dl, dr)
+        zone.to_outputs(join(ul, dl, dr), ul, dl, dr)
 
     return join(
         geos[0].set_material("#ff0000"),
@@ -100,7 +100,7 @@ def sierpinski_triangle_animation(iterations: Float = (1, 0), scale: Float = 0.5
             dl = geo.Geometry.transform((-math.sqrt(3) / 4, -1 / 4, 0) * InputFloat(1).switch(is_last_loop, factor), scale=scale)
         with frame("Down Right"):
             dr = geo.Geometry.transform((math.sqrt(3) / 4, -1 / 4, 0) * InputFloat(1).switch(is_last_loop, factor), scale=scale)
-        zone.to_ouputs(join(ul, dl, dr), ul, dl, dr, current_loop + 1)
+        zone.to_outputs(join(ul, dl, dr), ul, dl, dr, current_loop + 1)
 
     with frame("Join"):
         geo_joined = join(
