@@ -8,13 +8,13 @@ In information visualization and graphic design, `Truchet tiles <https://en.wiki
 
 .. list-table::
 
-    * - .. figure:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/250px-Truchet_base_tiling.svg.370189gtb300.webp
+    * - .. figure:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/250px-Truchet_base_tiling.svg.370189gtb300.webp
             :height: 220
             :width: 220
         
         The tile originally studied by Truchet is split along the diagonal into two triangles of contrasting colors. The tile has four possible orientations.
 
-      - .. figure:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/250px-Truchet_tiling.svg.38smjzv34wm0.webp
+      - .. figure:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/250px-Truchet_tiling.svg.38smjzv34wm0.webp
             :height: 220
             :width: 220
 
@@ -26,7 +26,7 @@ Implementation
 .. admonition:: Base Tile
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.4cwln3t4cls0.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.4cwln3t4cls0.webp
         
     .. code:: python
 
@@ -62,7 +62,7 @@ Implementation
 .. admonition:: Truchet Tiling
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.6rdxn4j4hl00.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.6rdxn4j4hl00.webp
         
     .. code:: python
 

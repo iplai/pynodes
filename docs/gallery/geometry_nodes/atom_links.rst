@@ -4,7 +4,7 @@ Atom Links
 .. admonition:: sweep_mesh_edges
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.2hin7ycm9fo0.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.2hin7ycm9fo0.webp
         
     .. code:: python
 
@@ -24,7 +24,7 @@ Atom Links
 .. admonition:: link_mesh_atoms
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.4k3d4h51oys0.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.4k3d4h51oys0.webp
         
     .. code:: python
 

@@ -33,3 +33,5 @@ goto end
 
 :end
 popd
+
+@REM "e:\ProgramData\miniconda3\python.exe"  "e:\ProgramData\miniconda3\Scripts\sphinx-build.exe" -M html docs docs/build

@@ -61,9 +61,9 @@ Define Shaders
 .. admonition:: castiron_cover
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.2cflm68z9c7w.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.2cflm68z9c7w.webp
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.5l5qydo8ei80.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.5l5qydo8ei80.webp
         
     .. code:: python
 
@@ -89,9 +89,9 @@ Define Shaders
 .. admonition:: checker_board
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.79wxgux9rmw0.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.79wxgux9rmw0.webp
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.32ingjeuup40.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.32ingjeuup40.webp
         
     .. code:: python
 
@@ -106,9 +106,9 @@ Define Shaders
 .. admonition:: color_range
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.1wrp3fgevcw0.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.1wrp3fgevcw0.webp
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.6igxwna3tcg0.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.6igxwna3tcg0.webp
         
     .. code:: python
 
@@ -123,19 +123,19 @@ Define Shaders
 .. admonition:: Other examples
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.60iq0hi87dg0.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.60iq0hi87dg0.webp
         :title: Diamond Plate
         :show_caption: true
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.drs6mpemzv4.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.drs6mpemzv4.webp
         :title: Dots
         :show_caption: True
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.6l6ipifj7ro0.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.6l6ipifj7ro0.webp
         :title: Simple Noise
         :show_caption: True
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.owq7wgjenkw.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.owq7wgjenkw.webp
         :title: Water Droplet
         :show_caption: True
         
