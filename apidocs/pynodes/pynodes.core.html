@@ -324,13 +324,13 @@
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-left">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.core.new_node" title="pynodes.core.new_node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">new_node</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.core.camel_to_snake" title="pynodes.core.camel_to_snake"><code class="xref py py-obj docutils literal notranslate"><span class="pre">camel_to_snake</span></code></a></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.core.new_link" title="pynodes.core.new_link"><code class="xref py py-obj docutils literal notranslate"><span class="pre">new_link</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.core.new_node" title="pynodes.core.new_node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">new_node</span></code></a></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.core.update_modifier" title="pynodes.core.update_modifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_modifier</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.core.new_link" title="pynodes.core.new_link"><code class="xref py py-obj docutils literal notranslate"><span class="pre">new_link</span></code></a></p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pynodes.core.convert_param_name" title="pynodes.core.convert_param_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_param_name</span></code></a></p></td>
@@ -366,10 +366,13 @@
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-left">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.core.Param" title="pynodes.core.Param"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Param</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.core.is_4_0_beta" title="pynodes.core.is_4_0_beta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_4_0_beta</span></code></a></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.core.RT" title="pynodes.core.RT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RT</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.core.Param" title="pynodes.core.Param"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Param</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.core.RT" title="pynodes.core.RT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RT</span></code></a></p></td>
 <td></td>
 </tr>
 </tbody>
@@ -378,6 +381,16 @@
 </section>
 <section id="api">
 <h3>API<a class="headerlink" href="#api" title="Permalink to this heading">#</a></h3>
+<dl class="py data">
+<dt class="sig sig-object py" id="pynodes.core.is_4_0_beta">
+<span class="sig-prename descclassname"><span class="pre">pynodes.core.</span></span><span class="sig-name descname"><span class="pre">is_4_0_beta</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pynodes.core.is_4_0_beta" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.core.camel_to_snake">
+<span class="sig-prename descclassname"><span class="pre">pynodes.core.</span></span><span class="sig-name descname"><span class="pre">camel_to_snake</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.camel_to_snake" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="pynodes.core.NodeWraper">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.core.</span></span><span class="sig-name descname"><span class="pre">NodeWraper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bnode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bpy.types.Node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.NodeWraper" title="Permalink to this definition">#</a></dt>
@@ -409,7 +422,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pynodes.core.NodeWraper.__setitem__">
-<span class="sig-name descname"><span class="pre">__setitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.NodeWraper.__setitem__" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">__setitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.NodeWraper.__setitem__" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -449,6 +462,11 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="pynodes.core.Socket.__setitem__">
 <span class="sig-name descname"><span class="pre">__setitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.Socket.__setitem__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.core.Socket.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.Socket.delete" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -731,7 +749,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pynodes.core.Tree.repeat">
-<span class="sig-name descname"><span class="pre">repeat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">input_sockets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.Socket" title="pynodes.core.Socket"><span class="pre">pynodes.core.Socket</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.Tree.repeat" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">repeat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">input_sockets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.Socket" title="pynodes.core.Socket"><span class="pre">pynodes.core.Socket</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fakes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.Tree.repeat" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -838,13 +856,13 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.core.</span></span><span class="sig-name descname"><span class="pre">SimulationZone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.SimulationInput" title="pynodes.core.SimulationInput"><span class="pre">pynodes.core.SimulationInput</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.SimulationOutput" title="pynodes.core.SimulationOutput"><span class="pre">pynodes.core.SimulationOutput</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.SimulationZone" title="Permalink to this definition">#</a></dt>
 <dd><p class="rubric">Initialization</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="pynodes.core.SimulationZone.to_ouput">
-<span class="sig-name descname"><span class="pre">to_ouput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.Socket" title="pynodes.core.Socket"><span class="pre">pynodes.core.Socket</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.SimulationZone.to_ouput" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pynodes.core.SimulationZone.to_output">
+<span class="sig-name descname"><span class="pre">to_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.Socket" title="pynodes.core.Socket"><span class="pre">pynodes.core.Socket</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.SimulationZone.to_output" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pynodes.core.SimulationZone.to_ouputs">
-<span class="sig-name descname"><span class="pre">to_ouputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">sockets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.Socket" title="pynodes.core.Socket"><span class="pre">pynodes.core.Socket</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.SimulationZone.to_ouputs" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pynodes.core.SimulationZone.to_outputs">
+<span class="sig-name descname"><span class="pre">to_outputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">sockets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.Socket" title="pynodes.core.Socket"><span class="pre">pynodes.core.Socket</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.SimulationZone.to_outputs" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -859,13 +877,13 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.core.</span></span><span class="sig-name descname"><span class="pre">RepeatZone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.RepeatInput" title="pynodes.core.RepeatInput"><span class="pre">pynodes.core.RepeatInput</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.RepeatOutput" title="pynodes.core.RepeatOutput"><span class="pre">pynodes.core.RepeatOutput</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.RepeatZone" title="Permalink to this definition">#</a></dt>
 <dd><p class="rubric">Initialization</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="pynodes.core.RepeatZone.to_ouput">
-<span class="sig-name descname"><span class="pre">to_ouput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.Socket" title="pynodes.core.Socket"><span class="pre">pynodes.core.Socket</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.RepeatZone.to_ouput" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pynodes.core.RepeatZone.to_output">
+<span class="sig-name descname"><span class="pre">to_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.Socket" title="pynodes.core.Socket"><span class="pre">pynodes.core.Socket</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.RepeatZone.to_output" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pynodes.core.RepeatZone.to_ouputs">
-<span class="sig-name descname"><span class="pre">to_ouputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">sockets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.Socket" title="pynodes.core.Socket"><span class="pre">pynodes.core.Socket</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.RepeatZone.to_ouputs" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pynodes.core.RepeatZone.to_outputs">
+<span class="sig-name descname"><span class="pre">to_outputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">sockets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.Socket" title="pynodes.core.Socket"><span class="pre">pynodes.core.Socket</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.RepeatZone.to_outputs" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -920,11 +938,6 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="pynodes.core.new_link">
 <span class="sig-prename descclassname"><span class="pre">pynodes.core.</span></span><span class="sig-name descname"><span class="pre">new_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bsocket_from</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bpy.types.NodeSocket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bsocket_to</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bpy.types.NodeSocket</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.new_link" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pynodes.core.update_modifier">
-<span class="sig-prename descclassname"><span class="pre">pynodes.core.</span></span><span class="sig-name descname"><span class="pre">update_modifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">default_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bpy.types.NodeSocketInterface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.update_modifier" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
@@ -1018,7 +1031,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pynodes.core.repeat">
-<span class="sig-prename descclassname"><span class="pre">pynodes.core.</span></span><span class="sig-name descname"><span class="pre">repeat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">input_sockets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.Socket" title="pynodes.core.Socket"><span class="pre">pynodes.core.Socket</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.repeat" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pynodes.core.</span></span><span class="sig-name descname"><span class="pre">repeat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">input_sockets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pynodes.core.Socket" title="pynodes.core.Socket"><span class="pre">pynodes.core.Socket</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fakes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.core.repeat" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -1098,6 +1111,8 @@
 <li><a class="reference internal" href="#functions">Functions</a></li>
 <li><a class="reference internal" href="#data">Data</a></li>
 <li><a class="reference internal" href="#api">API</a><ul>
+<li><a class="reference internal" href="#pynodes.core.is_4_0_beta"><code class="docutils literal notranslate"><span class="pre">is_4_0_beta</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.camel_to_snake"><code class="docutils literal notranslate"><span class="pre">camel_to_snake()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.NodeWraper"><code class="docutils literal notranslate"><span class="pre">NodeWraper</span></code></a><ul>
 <li><a class="reference internal" href="#pynodes.core.NodeWraper.outputs"><code class="docutils literal notranslate"><span class="pre">NodeWraper.outputs</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.NodeWraper.inputs"><code class="docutils literal notranslate"><span class="pre">NodeWraper.inputs</span></code></a></li>
@@ -1116,6 +1131,7 @@
 <li><a class="reference internal" href="#pynodes.core.Socket.node"><code class="docutils literal notranslate"><span class="pre">Socket.node</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.Socket.__call__"><code class="docutils literal notranslate"><span class="pre">Socket.__call__()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.Socket.__setitem__"><code class="docutils literal notranslate"><span class="pre">Socket.__setitem__()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.Socket.delete"><code class="docutils literal notranslate"><span class="pre">Socket.delete()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.Socket.copy"><code class="docutils literal notranslate"><span class="pre">Socket.copy()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.Socket.name"><code class="docutils literal notranslate"><span class="pre">Socket.name</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.Socket.link_tree_output"><code class="docutils literal notranslate"><span class="pre">Socket.link_tree_output()</span></code></a></li>
@@ -1206,14 +1222,14 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#pynodes.core.SimulationZone"><code class="docutils literal notranslate"><span class="pre">SimulationZone</span></code></a><ul>
-<li><a class="reference internal" href="#pynodes.core.SimulationZone.to_ouput"><code class="docutils literal notranslate"><span class="pre">SimulationZone.to_ouput()</span></code></a></li>
-<li><a class="reference internal" href="#pynodes.core.SimulationZone.to_ouputs"><code class="docutils literal notranslate"><span class="pre">SimulationZone.to_ouputs()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.SimulationZone.to_output"><code class="docutils literal notranslate"><span class="pre">SimulationZone.to_output()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.SimulationZone.to_outputs"><code class="docutils literal notranslate"><span class="pre">SimulationZone.to_outputs()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.SimulationZone.delta_time"><code class="docutils literal notranslate"><span class="pre">SimulationZone.delta_time</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#pynodes.core.RepeatZone"><code class="docutils literal notranslate"><span class="pre">RepeatZone</span></code></a><ul>
-<li><a class="reference internal" href="#pynodes.core.RepeatZone.to_ouput"><code class="docutils literal notranslate"><span class="pre">RepeatZone.to_ouput()</span></code></a></li>
-<li><a class="reference internal" href="#pynodes.core.RepeatZone.to_ouputs"><code class="docutils literal notranslate"><span class="pre">RepeatZone.to_ouputs()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.RepeatZone.to_output"><code class="docutils literal notranslate"><span class="pre">RepeatZone.to_output()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.core.RepeatZone.to_outputs"><code class="docutils literal notranslate"><span class="pre">RepeatZone.to_outputs()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#pynodes.core.Script"><code class="docutils literal notranslate"><span class="pre">Script</span></code></a><ul>
@@ -1228,7 +1244,6 @@
 </li>
 <li><a class="reference internal" href="#pynodes.core.new_node"><code class="docutils literal notranslate"><span class="pre">new_node()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.new_link"><code class="docutils literal notranslate"><span class="pre">new_link()</span></code></a></li>
-<li><a class="reference internal" href="#pynodes.core.update_modifier"><code class="docutils literal notranslate"><span class="pre">update_modifier()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.Param"><code class="docutils literal notranslate"><span class="pre">Param</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.RT"><code class="docutils literal notranslate"><span class="pre">RT</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.core.convert_param_name"><code class="docutils literal notranslate"><span class="pre">convert_param_name()</span></code></a></li>

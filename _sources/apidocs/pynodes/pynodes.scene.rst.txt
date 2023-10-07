@@ -34,8 +34,27 @@ Classes
           :parser: myst
           :summary:
 
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`is_4_0_beta <pynodes.scene.is_4_0_beta>`
+     - .. autodoc2-docstring:: pynodes.scene.is_4_0_beta
+          :parser: myst
+          :summary:
+
 API
 ~~~
+
+.. py:data:: is_4_0_beta
+   :canonical: pynodes.scene.is_4_0_beta
+   :value: None
+
+   .. autodoc2-docstring:: pynodes.scene.is_4_0_beta
+      :parser: myst
 
 .. py:class:: ObjType(*args, **kwds)
    :canonical: pynodes.scene.ObjType
