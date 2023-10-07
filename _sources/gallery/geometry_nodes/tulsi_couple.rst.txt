@@ -4,9 +4,9 @@ Tulsi Couple
 .. admonition:: Tulsi Couple
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/tulsi_couple.1u9wbpam35wg.gif
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/tulsi_couple.1u9wbpam35wg.gif
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.cneusph9rg0.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.cneusph9rg0.webp
         
     .. code:: python
 

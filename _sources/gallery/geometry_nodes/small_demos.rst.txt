@@ -7,9 +7,9 @@ Flying Dust
 .. admonition:: Dust
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/Snipaste_2023-06-28_06-26-031.2q6a7jmkj6u0.gif
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/Snipaste_2023-06-28_06-26-031.2q6a7jmkj6u0.gif
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/Snipaste_2023-06-28_06-27-501.3okdbi6lycc0.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/Snipaste_2023-06-28_06-27-501.3okdbi6lycc0.webp
         
     .. code:: python
 
@@ -44,9 +44,9 @@ Link Vertices
 .. admonition:: Link Vertices
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.4bnb2szcq900.gif
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.4bnb2szcq900.gif
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.7kfiut2ntxo0.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.7kfiut2ntxo0.webp
         
     .. code:: python
 
@@ -75,7 +75,7 @@ Recursive Subdivide
 .. admonition:: random_subdivide_iterate
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.3bqvahfligg0.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.3bqvahfligg0.webp
         
     .. code:: python
 
@@ -94,9 +94,9 @@ Recursive Subdivide
 .. admonition:: random_subdivide
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.19onsipxxuf4.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.19onsipxxuf4.webp
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.2rh1xzi37t60.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.2rh1xzi37t60.webp
         
     .. code:: python
 

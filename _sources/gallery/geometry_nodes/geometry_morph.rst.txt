@@ -4,7 +4,7 @@ Mesh Transition
 .. admonition:: Mesh Transition
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.31dov1slsd20.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.31dov1slsd20.webp
 
     .. code:: python
 
@@ -29,9 +29,9 @@ Mesh Transition
 .. admonition:: Mesh Transition Test
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.5wymcq0jdao0.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.5wymcq0jdao0.webp
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.573cjhuam5k0.gif
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.573cjhuam5k0.gif
 
     .. code:: python
                 

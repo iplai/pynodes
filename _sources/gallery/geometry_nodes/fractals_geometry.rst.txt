@@ -7,9 +7,9 @@ Sierpinski Triangle 3D
 .. admonition:: Sierpinski Triangle
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.4t0ul02nucq0.gif
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.4t0ul02nucq0.gif
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.j8bew49fe80.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.j8bew49fe80.webp
         
     .. code:: python
 
@@ -37,9 +37,9 @@ Menger Sponge
 .. admonition:: Menger Sponge
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.5ufmqhuu6a8.gif
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.5ufmqhuu6a8.gif
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.5h6dv60fau40.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.5h6dv60fau40.webp
         
     .. code:: python
 
@@ -69,13 +69,13 @@ Pythagoras Tree
 .. admonition:: pythagoras_tree
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.mtzsele774w.gif
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.mtzsele774w.gif
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.6bm6vm7koqk0.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.6bm6vm7koqk0.webp
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.78clwb76o440.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.78clwb76o440.webp
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.758r438t6n80.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.758r438t6n80.webp
         
     .. code:: python
 
@@ -169,10 +169,10 @@ Quadratic Koch 3D
 .. admonition:: quadratic_koch_3d
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.ff96oedbxdc.gif
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.ff96oedbxdc.gif
         :width: 300
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.1ohcn3m8l8hs.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/image.1ohcn3m8l8hs.webp
         
     .. code:: python
                 

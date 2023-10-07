@@ -4,7 +4,7 @@ Water Wave
 .. admonition:: wave_coord
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/Snipaste_2023-06-29_00-37-541.2hllk8g5r760.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/Snipaste_2023-06-29_00-37-541.2hllk8g5r760.webp
     .. code:: python
 
         from pynodes import *
@@ -24,7 +24,7 @@ Water Wave
 .. admonition:: grid_vertex_select
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/Snipaste_2023-06-29_00-40-141.3q0r3ofzu320.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/Snipaste_2023-06-29_00-40-141.3q0r3ofzu320.webp
 
     .. code:: python
 
@@ -48,9 +48,9 @@ Water Wave
 .. admonition:: water_wave
     :class: pynodes
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/Snipaste_2023-06-29_00-40-231.3iavy3eynjk0.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/Snipaste_2023-06-29_00-40-231.3iavy3eynjk0.webp
 
-    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/Snipaste_2023-06-29_00-45-451.1t2h3z9gz98g.webp
+    .. thumbnail:: https://cdn.statically.io/gh/iplai/picx-images-hosting@master/20230713/Snipaste_2023-06-29_00-45-451.1t2h3z9gz98g.webp
 
     .. code:: python
 
