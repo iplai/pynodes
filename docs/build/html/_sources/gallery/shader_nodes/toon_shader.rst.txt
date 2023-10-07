@@ -16,7 +16,7 @@ inner_faces_shader
 .. admonition:: Shader: inner_faces_shader
     :class: pynodes
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.3cll8lna3n60.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.3cll8lna3n60.webp
         
     .. code:: python
 
@@ -38,7 +38,7 @@ inner_faces_shader_with_hole
 .. admonition:: Shader: inner_faces_shader_with_hole
     :class: pynodes
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.1q2uqykxlu74.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.1q2uqykxlu74.webp
         
     .. code:: python
 
@@ -62,7 +62,7 @@ ramped_diffuse_color
 .. admonition:: Shader: ramped_diffuse_color
     :class: pynodes
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.6mff3difqjo0.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.6mff3difqjo0.webp
         
     .. code:: python
 
@@ -113,7 +113,7 @@ Enable Color Decorator
 
     Then, there will be a color panel to select colors in vscode.
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.55lahynrje80.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.55lahynrje80.webp
 
 grandient_color
 -----------------------------
@@ -121,7 +121,7 @@ grandient_color
 .. admonition:: Shader: grandient_color
     :class: pynodes
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.678967xqn0o0.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.678967xqn0o0.webp
         
     .. code:: python
 
@@ -143,9 +143,9 @@ Material: toon
 .. admonition:: Material: toon
     :class: pynodes
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.42bjmx8tbqu0.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.42bjmx8tbqu0.webp
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.794di5bdugg0.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.794di5bdugg0.webp
         
     .. code:: python
 
@@ -167,9 +167,9 @@ Material: toon_gradient
 .. admonition:: Material: toon_gradient
     :class: pynodes
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.5o2ez49aa3s0.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.5o2ez49aa3s0.webp
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.1fusn7n8orhc.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.1fusn7n8orhc.webp
         
     .. code:: python
 
@@ -189,9 +189,9 @@ Material: toon_inner
 .. admonition:: Material: toon_inner
     :class: pynodes
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.7h434o03uw00.gif
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.7h434o03uw00.gif
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.49cp2k6wucy0.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.49cp2k6wucy0.webp
         
     .. code:: python
 

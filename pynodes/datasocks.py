@@ -4,6 +4,8 @@ from bpy.types import NodeSocket
 from .core import Socket, Tree, new_node, new_link
 from . import nodes
 
+is_4_0_beta = bpy.app.version_string == "4.0.0 Beta"
+
 
 class Float(Socket):
     """Floating-point number socket of a node, float in [-inf, inf], default 0.0"""
@@ -37,11 +39,13 @@ class Float(Socket):
         node = new_node(*nodes.ShaderNodeMix(data_type='FLOAT', clamp_factor=clamp_factor, factor_float=factor_float, a_float=self, b_float=b_float))
         return node.outputs[0].Float
 
-    def color_ramp(self, start_color=(0.0, 0.0, 0.0, 1.0), end_color=(1.0, 1.0, 1.0, 1.0), interpolation=None):
+    def color_ramp(self, start_color=(0.0, 0.0, 0.0, 1.0), end_color=(1.0, 1.0, 1.0, 1.0), color_mode=None, interpolation=None):
         """The Color Ramp Node is used for mapping values to colors with the use of a gradient.
 
         - Item of colors: hex string or float or tuple
+        - `color_mode`: `RGB`, `HSV`, `HSL`
         - `interpolation`: `EASE`, `CARDINAL`, `LINEAR`, `B_SPLINE`, `CONSTANT`
+        - `interpolation`(HSV): `NEAR`, `FAR`, `CW`, `CCW`
         #### Path
         - Utilities > Color > Color Ramp Node
         #### Outputs:
@@ -56,8 +60,13 @@ class Float(Socket):
         node = new_node(*nodes.ShaderNodeValToRGB(self))
         bnode: bpy.types.ShaderNodeValToRGB = node.bnode
         color_ramp = bnode.color_ramp
+        if color_mode is not None:
+            color_ramp.color_mode = color_mode
         if interpolation is not None:
-            color_ramp.interpolation = interpolation
+            if color_mode in ['HSV', "HSL"]:
+                color_ramp.hue_interpolation = interpolation
+            else:
+                color_ramp.interpolation = interpolation
         element = color_ramp.elements[0]
         element.color = color_tuple(start_color)
         element = color_ramp.elements[1]
@@ -304,7 +313,10 @@ class Float(Socket):
         return FloatMath("DIVIDE", False, other, self)
 
     def __floordiv__(self, other):
-        return math.floor(self / other)
+        return FloatMath("DIVIDE", False, self, other).floor
+
+    def __rfloordiv__(self, other):
+        return FloatMath("DIVIDE", False, other, self).floor
 
     def __eq__(self, other):
         return Compare("FLOAT", operation="EQUAL", a=self, b=other)
@@ -340,6 +352,9 @@ class Float(Socket):
 
     def __pow__(self, exponent):
         return self.power(exponent)
+
+    def __rpow__(self, base):
+        return FloatMath("POWER", value=base, value_001=self)
 
     def log(self, base=0.5, clamp=False):
         """The log of the value with a Base as its base.
@@ -834,6 +849,12 @@ class Vector(Socket):
     def xyz(self):
         return self.separated
 
+    def __eq__(self, other):
+        return Compare("VECTOR", operation="EQUAL", a_vec3=self, b_vec3=other)
+
+    def __ne__(self, other):
+        return Compare("VECTOR", operation="NOT_EQUAL", a_vec3=self, b_vec3=other)
+
     def line_to(self, end=(0.0, 0.0, 1.0)):
         """The Curve Line node generates poly spline line.
         #### Path
@@ -1105,6 +1126,13 @@ class Vector(Socket):
         else:
             return VectorMath("MULTIPLY", self, other).vector
 
+    def __rmul__(self, other):
+        """1.The result of multiplying A by the scalar input Scale; 2.The entrywise product of A and B."""
+        if isinstance(other, (float, int, Float, Integer)):
+            return VectorMath("SCALE", other, scale=self).vector
+        else:
+            return VectorMath("MULTIPLY", self, other).vector
+
     def __truediv__(self, other):
         """1.The result of multiplying A by the 1/scalar input Scale; 2.The entrywise division of A by B. Division by zero results in zero."""
         if isinstance(other, (float, int, Float, Integer)):
@@ -1219,7 +1247,7 @@ class Vector(Socket):
         return self.math("SCALE", scale=scale).vector
 
     @property
-    def normalize(self):
+    def normalized(self):
         """The result of normalizing A. The result vector points to the same direction as A and has a length of 1. If A is (0, 0, 0), the result is (0, 0, 0) as well.
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/vector/vector_math.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeVectorMath.html)
         #### Path
@@ -1590,11 +1618,11 @@ class Boolean(Socket):
         return self.math("NOT")
 
     def __neg__(self,):
-        """To get called for unary negative e.g. -someobject."""
+        """Inverse the boolean value using the - operator, same as ~ operator"""
         return self.invert
 
     def __invert__(self,):
-        """To get called for inversion using the ~ operator."""
+        """Inverse the boolean value using the ~ operator, same as - operator"""
         return self.invert
 
     def not_and(self, other=False):
@@ -2771,7 +2799,10 @@ class BsdfPrincipled(Shader):
 
     @subsurface.setter
     def subsurface(self, value):
-        self["subsurface"] = value
+        if is_4_0_beta:
+            self["subsurface_weight"] = value
+        else:
+            self["subsurface"] = value
 
     @property
     def subsurface_radius(self):
@@ -2787,7 +2818,10 @@ class BsdfPrincipled(Shader):
 
     @subsurface_color.setter
     def subsurface_color(self, value):
-        self["subsurface_color"] = value
+        if is_4_0_beta:
+            self["base_color"] = value
+        else:
+            self["subsurface_color"] = value
 
     @property
     def subsurface_ior(self):
@@ -2819,7 +2853,10 @@ class BsdfPrincipled(Shader):
 
     @specular.setter
     def specular(self, value):
-        self["specular"] = value
+        if is_4_0_beta:
+            self["Specular IOR Level"] = value
+        else:
+            self["specular"] = value
 
     @property
     def specular_tint(self):
@@ -2859,7 +2896,10 @@ class BsdfPrincipled(Shader):
 
     @sheen.setter
     def sheen(self, value):
-        self["sheen"] = value
+        if is_4_0_beta:
+            self["sheen_weight"] = value
+        else:
+            self["sheen"] = value
 
     @property
     def sheen_tint(self):
@@ -2876,6 +2916,14 @@ class BsdfPrincipled(Shader):
     @clearcoat.setter
     def clearcoat(self, value):
         self["clearcoat"] = value
+
+    @property
+    def coat_weight(self):
+        raise access_error()
+
+    @coat_weight.setter
+    def coat_weight(self, value):
+        self["coat_weight"] = value
 
     @property
     def clearcoat_roughness(self):
@@ -2899,7 +2947,10 @@ class BsdfPrincipled(Shader):
 
     @transmission.setter
     def transmission(self, value):
-        self["transmission"] = value
+        if is_4_0_beta:
+            self["transmission_weight"] = value
+        else:
+            self["transmission"] = value
 
     @property
     def transmission_roughness(self):
@@ -2977,25 +3028,25 @@ class Object(Socket):
     @property
     def geometry(self):
         if self._object is None:
-            self._object = self.object_info()
+            self.object_info()
         return self._object.geometry
 
     @property
     def location(self):
         if self._object is None:
-            self._object = self.object_info()
+            self.object_info()
         return self._object.location
 
     @property
     def rotation(self):
         if self._object is None:
-            self._object = self.object_info()
+            self.object_info()
         return self._object.rotation
 
     @property
     def scale(self):
         if self._object is None:
-            self._object = self.object_info()
+            self.object_info()
         return self._object.scale
 
     def object_info(self, transform_space='ORIGINAL', as_instance=False):
@@ -3016,7 +3067,8 @@ class Object(Socket):
         """
         node = new_node(*nodes.GeometryNodeObjectInfo(transform_space, self, as_instance))
         ret = typing.NamedTuple("GeometryNodeObjectInfo", [("location", Vector), ("rotation", Vector), ("scale", Vector), ("geometry", Geometry)])
-        return ret(node.outputs[0].Vector, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Geometry)
+        self._object = ret(node.outputs[0].Vector, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Geometry)
+        return self._object
 
 
 class Collection(Socket):
@@ -3536,7 +3588,7 @@ def MusgraveTexture(musgrave_dimensions='3D', musgrave_type='FBM', vector: Vecto
     return ret(node.outputs[0].Float, node.outputs[0].Float)
 
 
-def NoiseTexture(noise_dimensions='3D', vector: Vector = None, w=0.0, scale=5.0, detail=2.0, roughness=0.5, distortion=0.0):
+def NoiseTexture(noise_dimensions='3D', vector: Vector = None, w=0.0, scale=5.0, detail=2.0, roughness=0.5, lacunarity=2.0, distortion=0.0):
     """The Noise Texture node evaluates a fractal Perlin noise at the input texture coordinates.
     #### Path
     - Texture > Noise Texture Node
@@ -3550,7 +3602,7 @@ def NoiseTexture(noise_dimensions='3D', vector: Vector = None, w=0.0, scale=5.0,
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/noise.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexNoise.html)
     """
-    node = new_node(*nodes.ShaderNodeTexNoise(noise_dimensions, vector, w, scale, detail, roughness, distortion))
+    node = new_node(*nodes.ShaderNodeTexNoise(noise_dimensions, vector, w, scale, detail, roughness, lacunarity, distortion))
     ret = typing.NamedTuple("ShaderNodeTexNoise", [("fac", Float), ("color", Color)])
     return ret(node.outputs[0].Float, node.outputs[1].Color)
 

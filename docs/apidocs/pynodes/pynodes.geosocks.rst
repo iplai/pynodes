@@ -129,6 +129,14 @@ Functions
      - .. autodoc2-docstring:: pynodes.geosocks.MeshCircle
           :parser: myst
           :summary:
+   * - :py:obj:`MeshCircleFilledNgon <pynodes.geosocks.MeshCircleFilledNgon>`
+     - .. autodoc2-docstring:: pynodes.geosocks.MeshCircleFilledNgon
+          :parser: myst
+          :summary:
+   * - :py:obj:`MeshCircleFilledTriangle <pynodes.geosocks.MeshCircleFilledTriangle>`
+     - .. autodoc2-docstring:: pynodes.geosocks.MeshCircleFilledTriangle
+          :parser: myst
+          :summary:
    * - :py:obj:`MeshLine <pynodes.geosocks.MeshLine>`
      - .. autodoc2-docstring:: pynodes.geosocks.MeshLine
           :parser: myst
@@ -632,36 +640,6 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.proximity
          :parser: myst
 
-   .. py:method:: raycast_vector(mapping='INTERPOLATED', attribute=(0.0, 0.0, 0.0), source_position: pynodes.datasocks.Vector = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0)
-      :canonical: pynodes.geosocks.Geometry.raycast_vector
-
-      .. autodoc2-docstring:: pynodes.geosocks.Geometry.raycast_vector
-         :parser: myst
-
-   .. py:method:: raycast_float(mapping='INTERPOLATED', attribute=0.0, source_position: pynodes.datasocks.Vector = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0)
-      :canonical: pynodes.geosocks.Geometry.raycast_float
-
-      .. autodoc2-docstring:: pynodes.geosocks.Geometry.raycast_float
-         :parser: myst
-
-   .. py:method:: raycast_color(mapping='INTERPOLATED', attribute=(0.0, 0.0, 0.0, 0.0), source_position: pynodes.datasocks.Vector = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0)
-      :canonical: pynodes.geosocks.Geometry.raycast_color
-
-      .. autodoc2-docstring:: pynodes.geosocks.Geometry.raycast_color
-         :parser: myst
-
-   .. py:method:: raycast_boolean(mapping='INTERPOLATED', attribute=False, source_position: pynodes.datasocks.Vector = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0)
-      :canonical: pynodes.geosocks.Geometry.raycast_boolean
-
-      .. autodoc2-docstring:: pynodes.geosocks.Geometry.raycast_boolean
-         :parser: myst
-
-   .. py:method:: raycast_integer(mapping='INTERPOLATED', attribute=0, source_position: pynodes.datasocks.Vector = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0)
-      :canonical: pynodes.geosocks.Geometry.raycast_integer
-
-      .. autodoc2-docstring:: pynodes.geosocks.Geometry.raycast_integer
-         :parser: myst
-
    .. py:method:: sample_index(data_type='FLOAT', domain='POINT', clamp=False, value_float=0.0, value_int=0, value_vector=(0.0, 0.0, 0.0), value_color=(0.0, 0.0, 0.0, 0.0), value_bool=False, index=0)
       :canonical: pynodes.geosocks.Geometry.sample_index
 
@@ -906,6 +884,12 @@ API
       :canonical: pynodes.geosocks.Geometry.set_material_index
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.set_material_index
+         :parser: myst
+
+   .. py:property:: material_index
+      :canonical: pynodes.geosocks.Geometry.material_index
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.material_index
          :parser: myst
 
    .. py:method:: accumulate_float_on_points(value_float=0.0, group_index=0)
@@ -1822,10 +1806,52 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Mesh.domain_size
          :parser: myst
 
+   .. py:method:: raycast(mapping='INTERPOLATED', attribute=0.0, source_position: pynodes.datasocks.Vector = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0)
+      :canonical: pynodes.geosocks.Mesh.raycast
+
+      .. autodoc2-docstring:: pynodes.geosocks.Mesh.raycast
+         :parser: myst
+
+   .. py:method:: raycast_vector(mapping='INTERPOLATED', attribute=(0.0, 0.0, 0.0), source_position: pynodes.datasocks.Vector = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0)
+      :canonical: pynodes.geosocks.Mesh.raycast_vector
+
+      .. autodoc2-docstring:: pynodes.geosocks.Mesh.raycast_vector
+         :parser: myst
+
+   .. py:method:: raycast_float(mapping='INTERPOLATED', attribute=0.0, source_position: pynodes.datasocks.Vector = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0)
+      :canonical: pynodes.geosocks.Mesh.raycast_float
+
+      .. autodoc2-docstring:: pynodes.geosocks.Mesh.raycast_float
+         :parser: myst
+
+   .. py:method:: raycast_color(mapping='INTERPOLATED', attribute=(0.0, 0.0, 0.0, 0.0), source_position: pynodes.datasocks.Vector = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0)
+      :canonical: pynodes.geosocks.Mesh.raycast_color
+
+      .. autodoc2-docstring:: pynodes.geosocks.Mesh.raycast_color
+         :parser: myst
+
+   .. py:method:: raycast_boolean(mapping='INTERPOLATED', attribute=False, source_position: pynodes.datasocks.Vector = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0)
+      :canonical: pynodes.geosocks.Mesh.raycast_boolean
+
+      .. autodoc2-docstring:: pynodes.geosocks.Mesh.raycast_boolean
+         :parser: myst
+
+   .. py:method:: raycast_integer(mapping='INTERPOLATED', attribute=0, source_position: pynodes.datasocks.Vector = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0)
+      :canonical: pynodes.geosocks.Mesh.raycast_integer
+
+      .. autodoc2-docstring:: pynodes.geosocks.Mesh.raycast_integer
+         :parser: myst
+
    .. py:method:: merge_by_distance(distance=0.001, mode='ALL', selection=True)
       :canonical: pynodes.geosocks.Mesh.merge_by_distance
 
       .. autodoc2-docstring:: pynodes.geosocks.Mesh.merge_by_distance
+         :parser: myst
+
+   .. py:method:: merge_connected(distance=0.001, selection=True)
+      :canonical: pynodes.geosocks.Mesh.merge_connected
+
+      .. autodoc2-docstring:: pynodes.geosocks.Mesh.merge_connected
          :parser: myst
 
    .. py:property:: edge_angle
@@ -2220,6 +2246,12 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Instances.domain_size
          :parser: myst
 
+   .. py:method:: capture_integer(value_int=0)
+      :canonical: pynodes.geosocks.Instances.capture_integer
+
+      .. autodoc2-docstring:: pynodes.geosocks.Instances.capture_integer
+         :parser: myst
+
    .. py:method:: store_named_attribute(name: str, value, domain='INSTANCE', selection=True)
       :canonical: pynodes.geosocks.Instances.store_named_attribute
 
@@ -2456,6 +2488,18 @@ API
    :canonical: pynodes.geosocks.MeshCircle
 
    .. autodoc2-docstring:: pynodes.geosocks.MeshCircle
+      :parser: myst
+
+.. py:function:: MeshCircleFilledNgon(vertices=32, radius=1.0)
+   :canonical: pynodes.geosocks.MeshCircleFilledNgon
+
+   .. autodoc2-docstring:: pynodes.geosocks.MeshCircleFilledNgon
+      :parser: myst
+
+.. py:function:: MeshCircleFilledTriangle(vertices=32, radius=1.0)
+   :canonical: pynodes.geosocks.MeshCircleFilledTriangle
+
+   .. autodoc2-docstring:: pynodes.geosocks.MeshCircleFilledTriangle
       :parser: myst
 
 .. py:function:: MeshLine(start_location=(0.0, 0.0, 0.0), offset=(0.0, 0.0, 1.0), count=10)

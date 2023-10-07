@@ -61,11 +61,12 @@ class PYNODES_PT_node_info(Panel):
                 row = layout.row(align=False)
                 row.alignment = "LEFT"
                 if node.bl_idname == "NodeFrame":
-                    split = row.split(factor=0.3333, align=True)
-                    split.label(text="Frame", icon="NODE")
-                    split.operator("wm.call_panel", text=node.label or "Rename", emboss=False).name = "TOPBAR_PT_name"
-                    if not node.label:
-                        split.label()
+                    row.operator("wm.call_panel", icon="NODE", text=node.label or "Frame (Click to Rename)", emboss=False).name = "TOPBAR_PT_name"
+                elif node.bl_idname == "ShaderNodeValToRGB":
+                    name = node.bl_label
+                    # split = row.split(factor=0.6666, align=True)
+                    row.operator("pynodes.copy_node_bl_idname", text=name, emboss=False, icon="NODE").node_bl_idname = node.bl_idname
+                    row.operator("node.pynodes_copy_color_ramp", emboss=False)
                 else:
                     name = node.bl_label
                     if node.type == 'GROUP':
@@ -151,6 +152,22 @@ class PYNODES_OT_RELOAD(Operator):
         from .core import reload
         reload()
         print("Pynodes: Reloaded")
+        return {'FINISHED'}
+
+
+class PYNODES_OT_copy_color_ramp(Operator):
+    """Copy color ramp to clipboard as python list"""
+    bl_idname = 'node.pynodes_copy_color_ramp'
+    bl_label = 'Copy'
+
+    def execute(self, context):
+        from .colors import srgb_to_hex_string, linear_to_srgb
+        node: bpy.types.ShaderNodeValToRGB = context.active_node
+        color_ramp = node.color_ramp
+        colors = []
+        for element in color_ramp.elements:
+            colors.append((round(element.position, 3), srgb_to_hex_string(*[linear_to_srgb(c) for c in element.color[:3]])))
+        context.window_manager.clipboard = repr(colors)
         return {'FINISHED'}
 
 
@@ -276,13 +293,14 @@ def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, f
         if bnode.bl_idname == "ShaderNodeMapping":
             continue
         for bsocket in bnode.inputs:
-            if not bsocket.is_linked:
-                if bsocket.bl_idname in ['NodeSocketVector', 'NodeSocketVectorTranslation', "NodeSocketVectorEuler"]:
-                    if tuple(bsocket.default_value) == (0, 0, 0):
-                        bsocket.hide = True
-                if bsocket.name == "Scale" and bsocket.bl_idname in ['NodeSocketVectorXYZ']:
-                    if tuple(bsocket.default_value) == (1, 1, 1):
-                        bsocket.hide = True
+            if bsocket.is_linked or bsocket.display_shape == "DIAMOND" or bsocket.enabled == False or bsocket.hide_value == True:
+                continue
+            if bsocket.bl_idname in ['NodeSocketVector', 'NodeSocketVectorTranslation', "NodeSocketVectorEuler"]:
+                if tuple(bsocket.default_value) == (0, 0, 0) and "_" not in bsocket.identifier:
+                    bsocket.hide = True
+            if bsocket.name == "Scale" and bsocket.bl_idname in ['NodeSocketVectorXYZ']:
+                if tuple(bsocket.default_value) == (1, 1, 1):
+                    bsocket.hide = True
 
     # A list to record all frames and their level
     frames_level: list[tuple(NodeFrame, int)] = []

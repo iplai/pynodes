@@ -19,6 +19,8 @@ Classes
 
    * - :py:obj:`PYNODES_PT_MAIN <pynodes.addon.PYNODES_PT_MAIN>`
      -
+   * - :py:obj:`PYNODES_PT_node_info <pynodes.addon.PYNODES_PT_node_info>`
+     -
    * - :py:obj:`PYNODES_OT_ARRANGE <pynodes.addon.PYNODES_OT_ARRANGE>`
      - .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_ARRANGE
           :parser: myst
@@ -27,12 +29,20 @@ Classes
      - .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_RELOAD
           :parser: myst
           :summary:
+   * - :py:obj:`PYNODES_OT_copy_color_ramp <pynodes.addon.PYNODES_OT_copy_color_ramp>`
+     - .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_copy_color_ramp
+          :parser: myst
+          :summary:
    * - :py:obj:`PYNODES_OT_select_all_reroute <pynodes.addon.PYNODES_OT_select_all_reroute>`
      - .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_select_all_reroute
           :parser: myst
           :summary:
    * - :py:obj:`PYNODES_OT_toggle_editor <pynodes.addon.PYNODES_OT_toggle_editor>`
      - .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_toggle_editor
+          :parser: myst
+          :summary:
+   * - :py:obj:`PYNODES_OT_copy_node_bl_idname <pynodes.addon.PYNODES_OT_copy_node_bl_idname>`
+     - .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_copy_node_bl_idname
           :parser: myst
           :summary:
    * - :py:obj:`Column <pynodes.addon.Column>`
@@ -84,27 +94,8 @@ Functions
           :parser: myst
           :summary:
 
-Data
-~~~~
-
-.. list-table::
-   :class: autosummary longtable
-   :align: left
-
-   * - :py:obj:`dev <pynodes.addon.dev>`
-     - .. autodoc2-docstring:: pynodes.addon.dev
-          :parser: myst
-          :summary:
-
 API
 ~~~
-
-.. py:data:: dev
-   :canonical: pynodes.addon.dev
-   :value: True
-
-   .. autodoc2-docstring:: pynodes.addon.dev
-      :parser: myst
 
 .. py:class:: PYNODES_PT_MAIN
    :canonical: pynodes.addon.PYNODES_PT_MAIN
@@ -141,6 +132,49 @@ API
 
    .. py:method:: draw(context)
       :canonical: pynodes.addon.PYNODES_PT_MAIN.draw
+
+.. py:class:: PYNODES_PT_node_info
+   :canonical: pynodes.addon.PYNODES_PT_node_info
+
+   Bases: :py:obj:`bpy.types.Panel`
+
+   .. py:attribute:: bl_label
+      :canonical: pynodes.addon.PYNODES_PT_node_info.bl_label
+      :value: 'Node Info'
+
+      .. autodoc2-docstring:: pynodes.addon.PYNODES_PT_node_info.bl_label
+         :parser: myst
+
+   .. py:attribute:: bl_space_type
+      :canonical: pynodes.addon.PYNODES_PT_node_info.bl_space_type
+      :value: 'NODE_EDITOR'
+
+      .. autodoc2-docstring:: pynodes.addon.PYNODES_PT_node_info.bl_space_type
+         :parser: myst
+
+   .. py:attribute:: bl_region_type
+      :canonical: pynodes.addon.PYNODES_PT_node_info.bl_region_type
+      :value: 'UI'
+
+      .. autodoc2-docstring:: pynodes.addon.PYNODES_PT_node_info.bl_region_type
+         :parser: myst
+
+   .. py:attribute:: bl_category
+      :canonical: pynodes.addon.PYNODES_PT_node_info.bl_category
+      :value: 'Pynodes'
+
+      .. autodoc2-docstring:: pynodes.addon.PYNODES_PT_node_info.bl_category
+         :parser: myst
+
+   .. py:attribute:: bl_options
+      :canonical: pynodes.addon.PYNODES_PT_node_info.bl_options
+      :value: None
+
+      .. autodoc2-docstring:: pynodes.addon.PYNODES_PT_node_info.bl_options
+         :parser: myst
+
+   .. py:method:: draw(context)
+      :canonical: pynodes.addon.PYNODES_PT_node_info.draw
 
 .. py:class:: PYNODES_OT_ARRANGE
    :canonical: pynodes.addon.PYNODES_OT_ARRANGE
@@ -199,6 +233,31 @@ API
    .. py:method:: execute(context)
       :canonical: pynodes.addon.PYNODES_OT_RELOAD.execute
 
+.. py:class:: PYNODES_OT_copy_color_ramp
+   :canonical: pynodes.addon.PYNODES_OT_copy_color_ramp
+
+   Bases: :py:obj:`bpy.types.Operator`
+
+   .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_copy_color_ramp
+      :parser: myst
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.addon.PYNODES_OT_copy_color_ramp.bl_idname
+      :value: 'node.pynodes_copy_color_ramp'
+
+      .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_copy_color_ramp.bl_idname
+         :parser: myst
+
+   .. py:attribute:: bl_label
+      :canonical: pynodes.addon.PYNODES_OT_copy_color_ramp.bl_label
+      :value: 'Copy'
+
+      .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_copy_color_ramp.bl_label
+         :parser: myst
+
+   .. py:method:: execute(context)
+      :canonical: pynodes.addon.PYNODES_OT_copy_color_ramp.execute
+
 .. py:class:: PYNODES_OT_select_all_reroute
    :canonical: pynodes.addon.PYNODES_OT_select_all_reroute
 
@@ -248,6 +307,39 @@ API
 
    .. py:method:: execute(context)
       :canonical: pynodes.addon.PYNODES_OT_toggle_editor.execute
+
+.. py:class:: PYNODES_OT_copy_node_bl_idname
+   :canonical: pynodes.addon.PYNODES_OT_copy_node_bl_idname
+
+   Bases: :py:obj:`bpy.types.Operator`
+
+   .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_copy_node_bl_idname
+      :parser: myst
+
+   .. py:attribute:: bl_idname
+      :canonical: pynodes.addon.PYNODES_OT_copy_node_bl_idname.bl_idname
+      :value: 'pynodes.copy_node_bl_idname'
+
+      .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_copy_node_bl_idname.bl_idname
+         :parser: myst
+
+   .. py:attribute:: bl_label
+      :canonical: pynodes.addon.PYNODES_OT_copy_node_bl_idname.bl_label
+      :value: 'Copy bl_idname of selected node to clipboard'
+
+      .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_copy_node_bl_idname.bl_label
+         :parser: myst
+
+   .. py:attribute:: node_bl_idname
+      :canonical: pynodes.addon.PYNODES_OT_copy_node_bl_idname.node_bl_idname
+      :type: bpy.props.StringProperty(name='node_bl_idname', default='')
+      :value: None
+
+      .. autodoc2-docstring:: pynodes.addon.PYNODES_OT_copy_node_bl_idname.node_bl_idname
+         :parser: myst
+
+   .. py:method:: execute(context)
+      :canonical: pynodes.addon.PYNODES_OT_copy_node_bl_idname.execute
 
 .. py:class:: Column()
    :canonical: pynodes.addon.Column

@@ -24,7 +24,7 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinx_copybutton",
     "autodoc2",
-    'sphinxcontrib.images',
+    # 'sphinxcontrib.images',
 ]
 autodoc2_packages = [
     {

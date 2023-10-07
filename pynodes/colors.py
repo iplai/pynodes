@@ -3,9 +3,9 @@ import math, mathutils
 
 def hex_color_to_rgb(hex_color: str):
     hex_color = hex_color.lstrip("#")
-    r = convert_srgb_to_linear_rgb(int(hex_color[:2], 16) / 255)
-    g = convert_srgb_to_linear_rgb(int(hex_color[2:4], 16) / 255)
-    b = convert_srgb_to_linear_rgb(int(hex_color[4:6], 16) / 255)
+    r = srgb_to_linear(int(hex_color[:2], 16) / 255)
+    g = srgb_to_linear(int(hex_color[2:4], 16) / 255)
+    b = srgb_to_linear(int(hex_color[4:6], 16) / 255)
     return r, g, b
 
 
@@ -19,7 +19,18 @@ def hex_color_to_rgba(hex_color: str):
     return r, g, b, a
 
 
-def convert_srgb_to_linear_rgb(srgb_color_component: float):
+def linear_to_srgb(color_value: float):
+    if color_value <= 0.0031308:
+        return int(12.92 * color_value * 255.99)
+    else:
+        return int((1.055 * color_value ** (1 / 2.4) - 0.055) * 255.99)
+
+
+def srgb_to_hex_string(r, g, b):
+    return '#{:02X}{:02X}{:02X}'.format(r, g, b)
+
+
+def srgb_to_linear(srgb_color_component: float):
     """Converting from sRGB to Linear RGB, based on [wikipedia](https://en.wikipedia.org/wiki/SRGB#From_sRGB_to_CIE_XYZ)"""
     if srgb_color_component <= 0.04045:
         linear_color_component = srgb_color_component / 12.92
@@ -118,7 +129,7 @@ color_palettes = [
 def rgb(r=0, g=0, b=0):
     if isinstance(r, str):
         return hex_color_to_rgb(r)
-    c = convert_srgb_to_linear_rgb
+    c = srgb_to_linear
     return c(r / 255), c(g / 255), c(b / 255)
 
 

@@ -19,9 +19,9 @@ Geometry Nodes
 .. admonition:: Geometry Nodes
     :class: pynodes
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230715/image.1vu0t1840ge8.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230715/image.1vu0t1840ge8.webp
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230715/image.1pm0lri7mu0w.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230715/image.1pm0lri7mu0w.webp
         
     .. code:: python
 
@@ -48,9 +48,9 @@ Water Material
 .. admonition:: Water Material
     :class: pynodes
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230715/image.2fempje3nw00.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230715/image.2fempje3nw00.webp
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230715/image.2okz6wm8d2g0.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230715/image.2okz6wm8d2g0.webp
         
     .. code:: python
 

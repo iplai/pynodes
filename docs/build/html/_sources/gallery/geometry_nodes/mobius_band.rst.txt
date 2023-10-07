@@ -16,7 +16,7 @@ Möbius Band with Extruded Face
 .. admonition:: extrude_faces
     :class: pynodes
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.11l7gufyn67k.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.11l7gufyn67k.webp
 
     .. code:: python
 
@@ -38,7 +38,7 @@ Möbius Band with Extruded Face
 .. admonition:: curve_to_mesh
     :class: pynodes
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.39vf62vin6w0.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.39vf62vin6w0.webp
 
     .. code:: python
 
@@ -58,9 +58,9 @@ Möbius Band with Extruded Face
 .. admonition:: möbius_band
     :class: pynodes
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.4mscnoo6p2i0.gif
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.4mscnoo6p2i0.gif
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.64gbaqb2n380.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.64gbaqb2n380.webp
 
     .. code:: python
 
@@ -89,9 +89,9 @@ Möbius Band with Vertex Balls
 .. admonition:: Möbius Band with Vertex Balls
     :class: pynodes
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.5px6a99am700.gif
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.5px6a99am700.gif
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.638atcnmoi80.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.638atcnmoi80.webp
 
     .. code:: python
 

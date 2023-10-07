@@ -282,7 +282,13 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.hex_color_to_rgba" title="pynodes.colors.hex_color_to_rgba"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hex_color_to_rgba</span></code></a></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.convert_srgb_to_linear_rgb" title="pynodes.colors.convert_srgb_to_linear_rgb"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_srgb_to_linear_rgb</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.linear_to_srgb" title="pynodes.colors.linear_to_srgb"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linear_to_srgb</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.srgb_to_hex_string" title="pynodes.colors.srgb_to_hex_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">srgb_to_hex_string</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.colors.srgb_to_linear" title="pynodes.colors.srgb_to_linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">srgb_to_linear</span></code></a></p></td>
 <td><p>Converting from sRGB to Linear RGB, based on <a class="reference external" href="https://en.wikipedia.org/wiki/SRGB#From_sRGB_to_CIE_XYZ">wikipedia</a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pynodes.colors.rgb" title="pynodes.colors.rgb"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rgb</span></code></a></p></td>
@@ -485,8 +491,18 @@
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="pynodes.colors.convert_srgb_to_linear_rgb">
-<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">convert_srgb_to_linear_rgb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">srgb_color_component</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.colors.convert_srgb_to_linear_rgb" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pynodes.colors.linear_to_srgb">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">linear_to_srgb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.colors.linear_to_srgb" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.colors.srgb_to_hex_string">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">srgb_to_hex_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.colors.srgb_to_hex_string" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.colors.srgb_to_linear">
+<span class="sig-prename descclassname"><span class="pre">pynodes.colors.</span></span><span class="sig-name descname"><span class="pre">srgb_to_linear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">srgb_color_component</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.colors.srgb_to_linear" title="Permalink to this definition">#</a></dt>
 <dd><p>Converting from sRGB to Linear RGB, based on <a class="reference external" href="https://en.wikipedia.org/wiki/SRGB#From_sRGB_to_CIE_XYZ">wikipedia</a></p>
 </dd></dl>
 
@@ -854,7 +870,9 @@
 <li><a class="reference internal" href="#api">API</a><ul>
 <li><a class="reference internal" href="#pynodes.colors.hex_color_to_rgb"><code class="docutils literal notranslate"><span class="pre">hex_color_to_rgb()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.colors.hex_color_to_rgba"><code class="docutils literal notranslate"><span class="pre">hex_color_to_rgba()</span></code></a></li>
-<li><a class="reference internal" href="#pynodes.colors.convert_srgb_to_linear_rgb"><code class="docutils literal notranslate"><span class="pre">convert_srgb_to_linear_rgb()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.linear_to_srgb"><code class="docutils literal notranslate"><span class="pre">linear_to_srgb()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.srgb_to_hex_string"><code class="docutils literal notranslate"><span class="pre">srgb_to_hex_string()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.colors.srgb_to_linear"><code class="docutils literal notranslate"><span class="pre">srgb_to_linear()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.colors.white"><code class="docutils literal notranslate"><span class="pre">white</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.colors.black"><code class="docutils literal notranslate"><span class="pre">black</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.colors.light_gray"><code class="docutils literal notranslate"><span class="pre">light_gray</span></code></a></li>

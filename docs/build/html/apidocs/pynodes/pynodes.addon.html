@@ -279,11 +279,17 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.addon.PYNODES_PT_MAIN" title="pynodes.addon.PYNODES_PT_MAIN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYNODES_PT_MAIN</span></code></a></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.addon.PYNODES_OT_ARRANGE" title="pynodes.addon.PYNODES_OT_ARRANGE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYNODES_OT_ARRANGE</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.addon.PYNODES_PT_node_info" title="pynodes.addon.PYNODES_PT_node_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYNODES_PT_node_info</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.addon.PYNODES_OT_ARRANGE" title="pynodes.addon.PYNODES_OT_ARRANGE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYNODES_OT_ARRANGE</span></code></a></p></td>
 <td><p>Arrange all nodes, deepest frame first, columns by columns from left to right</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.addon.PYNODES_OT_RELOAD" title="pynodes.addon.PYNODES_OT_RELOAD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYNODES_OT_RELOAD</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.addon.PYNODES_OT_RELOAD" title="pynodes.addon.PYNODES_OT_RELOAD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYNODES_OT_RELOAD</span></code></a></p></td>
 <td><p>Reload pynodes module</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.addon.PYNODES_OT_copy_color_ramp" title="pynodes.addon.PYNODES_OT_copy_color_ramp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYNODES_OT_copy_color_ramp</span></code></a></p></td>
+<td><p>Copy color ramp to clipboard as python list</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pynodes.addon.PYNODES_OT_select_all_reroute" title="pynodes.addon.PYNODES_OT_select_all_reroute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYNODES_OT_select_all_reroute</span></code></a></p></td>
 <td><p>Select all reroute nodes</p></td>
@@ -291,7 +297,10 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.addon.PYNODES_OT_toggle_editor" title="pynodes.addon.PYNODES_OT_toggle_editor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYNODES_OT_toggle_editor</span></code></a></p></td>
 <td><p>Toggle between Geometry and Shader Editor</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.addon.Column" title="pynodes.addon.Column"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Column</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.addon.PYNODES_OT_copy_node_bl_idname" title="pynodes.addon.PYNODES_OT_copy_node_bl_idname"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PYNODES_OT_copy_node_bl_idname</span></code></a></p></td>
+<td><p>Copy bl_idname of selected node to clipboard</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.addon.Column" title="pynodes.addon.Column"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Column</span></code></a></p></td>
 <td><p>Represent a column in blender node editor</p></td>
 </tr>
 </tbody>
@@ -334,25 +343,8 @@
 </table>
 </div>
 </section>
-<section id="data">
-<h3>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h3>
-<div class="table-wrapper autosummary longtable docutils container">
-<table class="autosummary longtable docutils align-left">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.addon.dev" title="pynodes.addon.dev"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dev</span></code></a></p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
 <section id="api">
 <h3>API<a class="headerlink" href="#api" title="Permalink to this heading">#</a></h3>
-<dl class="py data">
-<dt class="sig sig-object py" id="pynodes.addon.dev">
-<span class="sig-prename descclassname"><span class="pre">pynodes.addon.</span></span><span class="sig-name descname"><span class="pre">dev</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#pynodes.addon.dev" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="pynodes.addon.PYNODES_PT_MAIN">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.addon.</span></span><span class="sig-name descname"><span class="pre">PYNODES_PT_MAIN</span></span><a class="headerlink" href="#pynodes.addon.PYNODES_PT_MAIN" title="Permalink to this definition">#</a></dt>
@@ -380,6 +372,42 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="pynodes.addon.PYNODES_PT_MAIN.draw">
 <span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.addon.PYNODES_PT_MAIN.draw" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_PT_node_info">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.addon.</span></span><span class="sig-name descname"><span class="pre">PYNODES_PT_node_info</span></span><a class="headerlink" href="#pynodes.addon.PYNODES_PT_node_info" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">bpy.types.Panel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_PT_node_info.bl_label">
+<span class="sig-name descname"><span class="pre">bl_label</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Node</span> <span class="pre">Info'</span></em><a class="headerlink" href="#pynodes.addon.PYNODES_PT_node_info.bl_label" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_PT_node_info.bl_space_type">
+<span class="sig-name descname"><span class="pre">bl_space_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NODE_EDITOR'</span></em><a class="headerlink" href="#pynodes.addon.PYNODES_PT_node_info.bl_space_type" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_PT_node_info.bl_region_type">
+<span class="sig-name descname"><span class="pre">bl_region_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'UI'</span></em><a class="headerlink" href="#pynodes.addon.PYNODES_PT_node_info.bl_region_type" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_PT_node_info.bl_category">
+<span class="sig-name descname"><span class="pre">bl_category</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Pynodes'</span></em><a class="headerlink" href="#pynodes.addon.PYNODES_PT_node_info.bl_category" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_PT_node_info.bl_options">
+<span class="sig-name descname"><span class="pre">bl_options</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pynodes.addon.PYNODES_PT_node_info.bl_options" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_PT_node_info.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.addon.PYNODES_PT_node_info.draw" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -439,6 +467,28 @@
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_OT_copy_color_ramp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.addon.</span></span><span class="sig-name descname"><span class="pre">PYNODES_OT_copy_color_ramp</span></span><a class="headerlink" href="#pynodes.addon.PYNODES_OT_copy_color_ramp" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">bpy.types.Operator</span></code></p>
+<p>Copy color ramp to clipboard as python list</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_OT_copy_color_ramp.bl_idname">
+<span class="sig-name descname"><span class="pre">bl_idname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'node.pynodes_copy_color_ramp'</span></em><a class="headerlink" href="#pynodes.addon.PYNODES_OT_copy_color_ramp.bl_idname" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_OT_copy_color_ramp.bl_label">
+<span class="sig-name descname"><span class="pre">bl_label</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Copy'</span></em><a class="headerlink" href="#pynodes.addon.PYNODES_OT_copy_color_ramp.bl_label" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_OT_copy_color_ramp.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.addon.PYNODES_OT_copy_color_ramp.execute" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="pynodes.addon.PYNODES_OT_select_all_reroute">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.addon.</span></span><span class="sig-name descname"><span class="pre">PYNODES_OT_select_all_reroute</span></span><a class="headerlink" href="#pynodes.addon.PYNODES_OT_select_all_reroute" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">bpy.types.Operator</span></code></p>
@@ -478,6 +528,33 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="pynodes.addon.PYNODES_OT_toggle_editor.execute">
 <span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.addon.PYNODES_OT_toggle_editor.execute" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_OT_copy_node_bl_idname">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pynodes.addon.</span></span><span class="sig-name descname"><span class="pre">PYNODES_OT_copy_node_bl_idname</span></span><a class="headerlink" href="#pynodes.addon.PYNODES_OT_copy_node_bl_idname" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">bpy.types.Operator</span></code></p>
+<p>Copy bl_idname of selected node to clipboard</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_OT_copy_node_bl_idname.bl_idname">
+<span class="sig-name descname"><span class="pre">bl_idname</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pynodes.copy_node_bl_idname'</span></em><a class="headerlink" href="#pynodes.addon.PYNODES_OT_copy_node_bl_idname.bl_idname" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_OT_copy_node_bl_idname.bl_label">
+<span class="sig-name descname"><span class="pre">bl_label</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Copy</span> <span class="pre">bl_idname</span> <span class="pre">of</span> <span class="pre">selected</span> <span class="pre">node</span> <span class="pre">to</span> <span class="pre">clipboard'</span></em><a class="headerlink" href="#pynodes.addon.PYNODES_OT_copy_node_bl_idname.bl_label" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_OT_copy_node_bl_idname.node_bl_idname">
+<span class="sig-name descname"><span class="pre">node_bl_idname</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bpy.props.StringProperty(name='node_bl_idname',</span> <span class="pre">default='')</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pynodes.addon.PYNODES_OT_copy_node_bl_idname.node_bl_idname" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.addon.PYNODES_OT_copy_node_bl_idname.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.addon.PYNODES_OT_copy_node_bl_idname.execute" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -609,15 +686,22 @@
 <li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
 <li><a class="reference internal" href="#classes">Classes</a></li>
 <li><a class="reference internal" href="#functions">Functions</a></li>
-<li><a class="reference internal" href="#data">Data</a></li>
 <li><a class="reference internal" href="#api">API</a><ul>
-<li><a class="reference internal" href="#pynodes.addon.dev"><code class="docutils literal notranslate"><span class="pre">dev</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_PT_MAIN"><code class="docutils literal notranslate"><span class="pre">PYNODES_PT_MAIN</span></code></a><ul>
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_PT_MAIN.bl_label"><code class="docutils literal notranslate"><span class="pre">PYNODES_PT_MAIN.bl_label</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_PT_MAIN.bl_space_type"><code class="docutils literal notranslate"><span class="pre">PYNODES_PT_MAIN.bl_space_type</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_PT_MAIN.bl_region_type"><code class="docutils literal notranslate"><span class="pre">PYNODES_PT_MAIN.bl_region_type</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_PT_MAIN.bl_category"><code class="docutils literal notranslate"><span class="pre">PYNODES_PT_MAIN.bl_category</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_PT_MAIN.draw"><code class="docutils literal notranslate"><span class="pre">PYNODES_PT_MAIN.draw()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_PT_node_info"><code class="docutils literal notranslate"><span class="pre">PYNODES_PT_node_info</span></code></a><ul>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_PT_node_info.bl_label"><code class="docutils literal notranslate"><span class="pre">PYNODES_PT_node_info.bl_label</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_PT_node_info.bl_space_type"><code class="docutils literal notranslate"><span class="pre">PYNODES_PT_node_info.bl_space_type</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_PT_node_info.bl_region_type"><code class="docutils literal notranslate"><span class="pre">PYNODES_PT_node_info.bl_region_type</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_PT_node_info.bl_category"><code class="docutils literal notranslate"><span class="pre">PYNODES_PT_node_info.bl_category</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_PT_node_info.bl_options"><code class="docutils literal notranslate"><span class="pre">PYNODES_PT_node_info.bl_options</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_PT_node_info.draw"><code class="docutils literal notranslate"><span class="pre">PYNODES_PT_node_info.draw()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_ARRANGE"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_ARRANGE</span></code></a><ul>
@@ -634,6 +718,12 @@
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_RELOAD.execute"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_RELOAD.execute()</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_copy_color_ramp"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_copy_color_ramp</span></code></a><ul>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_copy_color_ramp.bl_idname"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_copy_color_ramp.bl_idname</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_copy_color_ramp.bl_label"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_copy_color_ramp.bl_label</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_copy_color_ramp.execute"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_copy_color_ramp.execute()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_select_all_reroute"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_select_all_reroute</span></code></a><ul>
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_select_all_reroute.bl_idname"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_select_all_reroute.bl_idname</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_select_all_reroute.bl_label"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_select_all_reroute.bl_label</span></code></a></li>
@@ -644,6 +734,13 @@
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_toggle_editor.bl_idname"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_toggle_editor.bl_idname</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_toggle_editor.bl_label"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_toggle_editor.bl_label</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_toggle_editor.execute"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_toggle_editor.execute()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_copy_node_bl_idname"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_copy_node_bl_idname</span></code></a><ul>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_copy_node_bl_idname.bl_idname"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_copy_node_bl_idname.bl_idname</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_copy_node_bl_idname.bl_label"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_copy_node_bl_idname.bl_label</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_copy_node_bl_idname.node_bl_idname"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_copy_node_bl_idname.node_bl_idname</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.addon.PYNODES_OT_copy_node_bl_idname.execute"><code class="docutils literal notranslate"><span class="pre">PYNODES_OT_copy_node_bl_idname.execute()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#pynodes.addon.Column"><code class="docutils literal notranslate"><span class="pre">Column</span></code></a><ul>

@@ -25,8 +25,16 @@ Functions
      - .. autodoc2-docstring:: pynodes.colors.hex_color_to_rgba
           :parser: myst
           :summary:
-   * - :py:obj:`convert_srgb_to_linear_rgb <pynodes.colors.convert_srgb_to_linear_rgb>`
-     - .. autodoc2-docstring:: pynodes.colors.convert_srgb_to_linear_rgb
+   * - :py:obj:`linear_to_srgb <pynodes.colors.linear_to_srgb>`
+     - .. autodoc2-docstring:: pynodes.colors.linear_to_srgb
+          :parser: myst
+          :summary:
+   * - :py:obj:`srgb_to_hex_string <pynodes.colors.srgb_to_hex_string>`
+     - .. autodoc2-docstring:: pynodes.colors.srgb_to_hex_string
+          :parser: myst
+          :summary:
+   * - :py:obj:`srgb_to_linear <pynodes.colors.srgb_to_linear>`
+     - .. autodoc2-docstring:: pynodes.colors.srgb_to_linear
           :parser: myst
           :summary:
    * - :py:obj:`rgb <pynodes.colors.rgb>`
@@ -285,10 +293,22 @@ API
    .. autodoc2-docstring:: pynodes.colors.hex_color_to_rgba
       :parser: myst
 
-.. py:function:: convert_srgb_to_linear_rgb(srgb_color_component: float)
-   :canonical: pynodes.colors.convert_srgb_to_linear_rgb
+.. py:function:: linear_to_srgb(color_value: float)
+   :canonical: pynodes.colors.linear_to_srgb
 
-   .. autodoc2-docstring:: pynodes.colors.convert_srgb_to_linear_rgb
+   .. autodoc2-docstring:: pynodes.colors.linear_to_srgb
+      :parser: myst
+
+.. py:function:: srgb_to_hex_string(r, g, b)
+   :canonical: pynodes.colors.srgb_to_hex_string
+
+   .. autodoc2-docstring:: pynodes.colors.srgb_to_hex_string
+      :parser: myst
+
+.. py:function:: srgb_to_linear(srgb_color_component: float)
+   :canonical: pynodes.colors.srgb_to_linear
+
+   .. autodoc2-docstring:: pynodes.colors.srgb_to_linear
       :parser: myst
 
 .. py:data:: white

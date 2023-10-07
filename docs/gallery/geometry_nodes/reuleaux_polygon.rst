@@ -9,7 +9,7 @@ Regular Polygon
 .. admonition:: regular_polygon
     :class: pynodes
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.7cbocp1tqik0.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.7cbocp1tqik0.webp
         
     .. code:: python
 
@@ -29,7 +29,7 @@ Calculate the coordinate of Reuleaux Polygon
 .. admonition:: reuleaux_coord
     :class: pynodes
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.3tkgl06s1640.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.3tkgl06s1640.webp
         
     .. code:: python
 
@@ -66,7 +66,7 @@ N-side Reuleaux Polygon
 .. admonition:: reuleaux_polygon
     :class: pynodes
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.2vspt6hvb1s.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.2vspt6hvb1s.webp
         
     .. code:: python
 
@@ -93,7 +93,7 @@ Curve Transition
 .. admonition:: curve_transition
     :class: pynodes
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.5ixi0rcypcg0.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.5ixi0rcypcg0.webp
         
     .. code:: python
 
@@ -120,9 +120,9 @@ Result Test
 .. admonition:: test
     :class: pynodes
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.5g4rse8lhes0.gif
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.5g4rse8lhes0.gif
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.3ynlqe86anc0.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.3ynlqe86anc0.webp
         
     .. code:: python
 

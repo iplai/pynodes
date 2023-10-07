@@ -1,5 +1,20 @@
 import bpy, mathutils, contextlib, sys
-from bpy.types import Node, NodeSocket, NodeSocketInterface, NodeTree, NodeLink, NodeGroup
+
+is_4_0_beta = bpy.app.version_string == "4.0.0 Beta"
+
+from bpy.types import Node, NodeSocket, NodeTree, NodeLink, NodeGroup
+
+if not is_4_0_beta:
+    from bpy.types import NodeSocketInterface
+else:
+    from bpy.types import NodeTreeInterfaceSocket, NodeTreeInterfaceItem
+
+import re
+
+
+def camel_to_snake(name):
+    s1 = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', name)
+    return re.sub('([a-z0-9])([A-Z])', r'\1_\2', s1).lower()
 
 
 class NodeWraper:
@@ -127,8 +142,10 @@ class NodeWraper:
         else:
             try:
                 setattr(self.bnode, key, value)
-            except Exception as e:
+            except AttributeError as e:
                 print(e, f"Cannot set item of the node of socket {self.bnode.name}", f"{key = }", f"{value = }", sep='\n')
+                # for i, input in enumerate(self.inputs):
+                #     print(input.bsocket.identifier)
 
 
 class SocketWraper:
@@ -194,7 +211,7 @@ class SocketWraper:
             btree = Tree.tree.btree
             print("Cannot set default_value", e, f"{btree.name = }", f"{bnode.name = }", f"{bsocket.name = }", f"{value = }", sep="\n")
             if isinstance(value, tuple) and hasattr(value, "_asdict"):
-                print("You may forget to call the member of the named tuple", value._asdict())
+                print("You may forget to call the member of the named tuple", {tk: tv.__class__.__name__ for tk, tv in value._asdict().items()})
         except ValueError:
             print()
 
@@ -494,8 +511,11 @@ class Tree:
         Tree.tree = self
         self.btree = node_tree
         node_tree.nodes.clear()
-        node_tree.inputs.clear()
-        node_tree.outputs.clear()
+        if is_4_0_beta:
+            node_tree.interface.clear()
+        else:
+            node_tree.inputs.clear()
+            node_tree.outputs.clear()
         self.frames: list[Frame] = []
         self._group_input_node = None
         self._group_output_node = None
@@ -556,7 +576,7 @@ class Tree:
         bnode = self.btree.nodes.new(bl_idname)
         bnode.select = False
         bnode.parent = self.cur_frame
-        if bl_idname in ["ShaderNodeMath", "ShaderNodeTexCoord",]:
+        if bl_idname in ["ShaderNodeMath", "ShaderNodeTexCoord", "ShaderNodeVectorMath", "FunctionNodeRandomValue", "FunctionNodeCompare", "FunctionNodeFloatToInt"]:
             bnode.show_options = False
 
         node = NodeWraper(bnode)
@@ -587,9 +607,24 @@ class Tree:
         return link
 
     def new_input(self, type="NodeSocketGeometry", name="Geometry"):
+        if is_4_0_beta:
+            # https://docs.blender.org/api/4.0/bpy.types.NodeTreeInterface.html#bpy.types.NodeTreeInterface
+            basetypes = ('NodeSocketString', 'NodeSocketBool', 'NodeSocketMaterial', 'NodeSocketVector', 'NodeSocketInt', 'NodeSocketGeometry', 'NodeSocketCollection', 'NodeSocketTexture', 'NodeSocketFloat', 'NodeSocketColor', 'NodeSocketObject', 'NodeSocketRotation', 'NodeSocketImage')
+            for basetype in basetypes:
+                if type.startswith(basetype) and type != basetype:
+                    subtype = camel_to_snake(type[len(basetype):]).upper()
+                    type = basetype
+                    input = self.btree.interface.new_socket(name=name, in_out="INPUT", socket_type=type)
+                    input.subtype = subtype
+                    return input
+            else:
+                return self.btree.interface.new_socket(name=name, in_out="INPUT", socket_type=type)
         return self.btree.inputs.new(type, name)
 
     def new_output(self, type="NodeSocketGeometry", name="Geometry"):
+        if is_4_0_beta:
+            # https://docs.blender.org/api/4.0/bpy.types.NodeTreeInterface.html#bpy.types.NodeTreeInterface
+            return self.btree.interface.new_socket(name=name, in_out="OUTPUT", socket_type=type)
         return self.btree.outputs.new(type, name)
 
     @contextlib.contextmanager
@@ -610,9 +645,13 @@ class Tree:
         input_node = SimulationInput(input_bnode)
         output_node = SimulationOutput(output_bnode)
         for i, socket in enumerate(input_sockets):
-            state_items.new(socket.bsocket.type, socket._name or socket.bsocket.name)
+            socket_type = "FLOAT" if socket.bsocket.type == "VALUE" else socket.bsocket.type
+            state_items.new(socket_type, socket._name or socket.bsocket.name)
             self.new_link(socket.bsocket, input_bnode.inputs[i])
-            self.new_link(input_bnode.outputs[i + 1], output_bnode.inputs[i])
+            if is_4_0_beta:
+                self.new_link(input_bnode.outputs[i + 1], output_bnode.inputs[i + 1])
+            else:
+                self.new_link(input_bnode.outputs[i + 1], output_bnode.inputs[i])
             socket.bsocket = input_bnode.outputs[i + 1]
         yield SimulationZone(input_node, output_node)
         for i, socket in enumerate(input_sockets):
@@ -715,7 +754,12 @@ class SimulationZone:
     def to_outputs(self, *sockets: Socket):
         for i, socket in enumerate(sockets):
             if socket is not None:
-                self.output_node.link_from(socket, i)
+                if is_4_0_beta:
+                    self.output_node.link_from(socket, i + 1)
+                else:
+                    self.output_node.link_from(socket, i)
+        for i, socket in enumerate(sockets):
+            socket.bsocket = self.output_node.bnode.outputs[i]
 
     @property
     def delta_time(self):
@@ -734,6 +778,8 @@ class RepeatZone:
         for i, socket in enumerate(sockets):
             if socket is not None:
                 self.output_node.link_from(socket, i)
+        for i, socket in enumerate(sockets):
+            socket.bsocket = self.output_node.bnode.outputs[i]
 
 
 class Script(NodeWraper):
@@ -795,16 +841,28 @@ def new_link(bsocket_from: NodeSocket, bsocket_to: NodeSocket):
     return Tree.tree.new_link(bsocket_from, bsocket_to)
 
 
-def update_modifier(default_value, input: NodeSocketInterface):
-    if input.bl_socket_idname == "NodeSocketFloat":
-        default_value = float(default_value)
-    if input.bl_socket_idname == "NodeSocketColor":
-        default_value = tuple(float(x) for x in default_value)
-    for obj in bpy.data.objects:
-        for mod in obj.modifiers:
-            if isinstance(mod, bpy.types.NodesModifier):
-                if mod.node_group == Tree.tree.btree:
-                    mod[input.identifier] = default_value
+if is_4_0_beta:
+    def update_modifier(default_value, input: NodeTreeInterfaceSocket):
+        if input.bl_socket_idname == "NodeSocketFloat":
+            default_value = float(default_value)
+        if input.bl_socket_idname == "NodeSocketColor":
+            default_value = tuple(float(x) for x in default_value)
+        for obj in bpy.data.objects:
+            for mod in obj.modifiers:
+                if isinstance(mod, bpy.types.NodesModifier):
+                    if mod.node_group == Tree.tree.btree:
+                        mod[input.identifier] = default_value
+else:
+    def update_modifier(default_value, input: NodeSocketInterface):
+        if input.bl_socket_idname == "NodeSocketFloat":
+            default_value = float(default_value)
+        if input.bl_socket_idname == "NodeSocketColor":
+            default_value = tuple(float(x) for x in default_value)
+        for obj in bpy.data.objects:
+            for mod in obj.modifiers:
+                if isinstance(mod, bpy.types.NodesModifier):
+                    if mod.node_group == Tree.tree.btree:
+                        mod[input.identifier] = default_value
 
 
 import inspect, functools, typing
@@ -817,7 +875,7 @@ def convert_param_name(name: str):
     if len(name) == 1:
         return name
     elif len(name) == 2:
-        if name[1].isdigit():
+        if name[1].isdigit() or name[1] in 'xyz':
             return name
     return name.replace("_", " ").title()
 
@@ -947,6 +1005,8 @@ def tree(func: typing.Callable[Param, RT]) -> typing.Callable[Param, RT]:
     ```
     """
     node_tree = dispath_tree(func)
+    if isinstance(node_tree, bpy.types.GeometryNodeTree) and is_4_0_beta:
+        node_tree.is_modifier = True
     Tree(node_tree)
     sig = inspect.signature(func)
     args: list[Socket] = []

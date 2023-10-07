@@ -476,8 +476,27 @@ Functions
           :parser: myst
           :summary:
 
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`is_4_0_beta <pynodes.datasocks.is_4_0_beta>`
+     - .. autodoc2-docstring:: pynodes.datasocks.is_4_0_beta
+          :parser: myst
+          :summary:
+
 API
 ~~~
+
+.. py:data:: is_4_0_beta
+   :canonical: pynodes.datasocks.is_4_0_beta
+   :value: None
+
+   .. autodoc2-docstring:: pynodes.datasocks.is_4_0_beta
+      :parser: myst
 
 .. py:class:: Float(bsocket: bpy.types.NodeSocket)
    :canonical: pynodes.datasocks.Float
@@ -505,13 +524,13 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Float.switch
          :parser: myst
 
-   .. py:method:: mix(factor_float=0.5, b_float=0.0, clamp_factor=True)
+   .. py:method:: mix(b_float=0.0, factor_float=0.5, clamp_factor=True)
       :canonical: pynodes.datasocks.Float.mix
 
       .. autodoc2-docstring:: pynodes.datasocks.Float.mix
          :parser: myst
 
-   .. py:method:: color_ramp(start_color=(0.0, 0.0, 0.0, 1.0), end_color=(1.0, 1.0, 1.0, 1.0), interpolation=None)
+   .. py:method:: color_ramp(start_color=(0.0, 0.0, 0.0, 1.0), end_color=(1.0, 1.0, 1.0, 1.0), color_mode=None, interpolation=None)
       :canonical: pynodes.datasocks.Float.color_ramp
 
       .. autodoc2-docstring:: pynodes.datasocks.Float.color_ramp
@@ -638,6 +657,12 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Float.__floordiv__
          :parser: myst
 
+   .. py:method:: __rfloordiv__(other)
+      :canonical: pynodes.datasocks.Float.__rfloordiv__
+
+      .. autodoc2-docstring:: pynodes.datasocks.Float.__rfloordiv__
+         :parser: myst
+
    .. py:method:: __eq__(other)
       :canonical: pynodes.datasocks.Float.__eq__
 
@@ -672,6 +697,12 @@ API
       :canonical: pynodes.datasocks.Float.__pow__
 
       .. autodoc2-docstring:: pynodes.datasocks.Float.__pow__
+         :parser: myst
+
+   .. py:method:: __rpow__(base)
+      :canonical: pynodes.datasocks.Float.__rpow__
+
+      .. autodoc2-docstring:: pynodes.datasocks.Float.__rpow__
          :parser: myst
 
    .. py:method:: log(base=0.5, clamp=False)
@@ -727,6 +758,13 @@ API
       :canonical: pynodes.datasocks.Float.exponent
 
       .. autodoc2-docstring:: pynodes.datasocks.Float.exponent
+         :parser: myst
+
+   .. py:method:: exp(value)
+      :canonical: pynodes.datasocks.Float.exp
+      :classmethod:
+
+      .. autodoc2-docstring:: pynodes.datasocks.Float.exp
          :parser: myst
 
    .. py:method:: minimum(other=0.5, clamp=False)
@@ -898,6 +936,13 @@ API
       :classmethod:
 
       .. autodoc2-docstring:: pynodes.datasocks.Float.tan
+         :parser: myst
+
+   .. py:method:: cot(value=0.5, clamp=False)
+      :canonical: pynodes.datasocks.Float.cot
+      :classmethod:
+
+      .. autodoc2-docstring:: pynodes.datasocks.Float.cot
          :parser: myst
 
    .. py:property:: arcsine
@@ -1192,6 +1237,12 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Vector.xyz
          :parser: myst
 
+   .. py:method:: __eq__(other)
+      :canonical: pynodes.datasocks.Vector.__eq__
+
+   .. py:method:: __ne__(other)
+      :canonical: pynodes.datasocks.Vector.__ne__
+
    .. py:method:: line_to(end=(0.0, 0.0, 1.0))
       :canonical: pynodes.datasocks.Vector.line_to
 
@@ -1330,10 +1381,22 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Vector.__mul__
          :parser: myst
 
+   .. py:method:: __rmul__(other)
+      :canonical: pynodes.datasocks.Vector.__rmul__
+
+      .. autodoc2-docstring:: pynodes.datasocks.Vector.__rmul__
+         :parser: myst
+
    .. py:method:: __truediv__(other)
       :canonical: pynodes.datasocks.Vector.__truediv__
 
       .. autodoc2-docstring:: pynodes.datasocks.Vector.__truediv__
+         :parser: myst
+
+   .. py:method:: __rtruediv__(other)
+      :canonical: pynodes.datasocks.Vector.__rtruediv__
+
+      .. autodoc2-docstring:: pynodes.datasocks.Vector.__rtruediv__
          :parser: myst
 
    .. py:method:: multiply_add(multiplier=(0.0, 0.0, 0.0), addend=(0.0, 0.0, 0.0))
@@ -1396,10 +1459,10 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Vector.scale
          :parser: myst
 
-   .. py:property:: normalize
-      :canonical: pynodes.datasocks.Vector.normalize
+   .. py:property:: normalized
+      :canonical: pynodes.datasocks.Vector.normalized
 
-      .. autodoc2-docstring:: pynodes.datasocks.Vector.normalize
+      .. autodoc2-docstring:: pynodes.datasocks.Vector.normalized
          :parser: myst
 
    .. py:method:: absolute()
@@ -1988,7 +2051,7 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Color.alpha
          :parser: myst
 
-   .. py:method:: mix(b_color=(0.5, 0.5, 0.5, 1.0), blend_type='MIX', clamp_factor=True, clamp_result=False, factor_float=0.5)
+   .. py:method:: mix(b_color=(0.5, 0.5, 0.5, 1.0), blend_type='MIX', factor=0.5, clamp_factor=True, clamp_result=False)
       :canonical: pynodes.datasocks.Color.mix
 
       .. autodoc2-docstring:: pynodes.datasocks.Color.mix
@@ -2444,6 +2507,12 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.clearcoat
          :parser: myst
 
+   .. py:property:: coat_weight
+      :canonical: pynodes.datasocks.BsdfPrincipled.coat_weight
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.coat_weight
+         :parser: myst
+
    .. py:property:: clearcoat_roughness
       :canonical: pynodes.datasocks.BsdfPrincipled.clearcoat_roughness
 
@@ -2620,12 +2689,6 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Material.bl_idname
          :parser: myst
 
-   .. py:property:: index
-      :canonical: pynodes.datasocks.Material.index
-
-      .. autodoc2-docstring:: pynodes.datasocks.Material.index
-         :parser: myst
-
    .. py:method:: material_selection()
       :canonical: pynodes.datasocks.Material.material_selection
 
@@ -2718,7 +2781,7 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.InputVector
       :parser: myst
 
-.. py:function:: CollectionInfo(transform_space='ORIGINAL', collection=None, separate_children=False, reset_children=False)
+.. py:function:: CollectionInfo(collection=None, transform_space='ORIGINAL', separate_children=False, reset_children=False)
    :canonical: pynodes.datasocks.CollectionInfo
 
    .. autodoc2-docstring:: pynodes.datasocks.CollectionInfo
@@ -2736,7 +2799,7 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.IsViewport
       :parser: myst
 
-.. py:function:: ObjectInfo(transform_space='ORIGINAL', object=None, as_instance=False)
+.. py:function:: ObjectInfo(object=None, transform_space='ORIGINAL', as_instance=False)
    :canonical: pynodes.datasocks.ObjectInfo
 
    .. autodoc2-docstring:: pynodes.datasocks.ObjectInfo
@@ -2820,7 +2883,7 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.MusgraveTexture
       :parser: myst
 
-.. py:function:: NoiseTexture(noise_dimensions='3D', vector: pynodes.datasocks.Vector = None, w=0.0, scale=5.0, detail=2.0, roughness=0.5, distortion=0.0)
+.. py:function:: NoiseTexture(noise_dimensions='3D', vector: pynodes.datasocks.Vector = None, w=0.0, scale=5.0, detail=2.0, roughness=0.5, lacunarity=2.0, distortion=0.0)
    :canonical: pynodes.datasocks.NoiseTexture
 
    .. autodoc2-docstring:: pynodes.datasocks.NoiseTexture
@@ -2880,7 +2943,7 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.MixVector
       :parser: myst
 
-.. py:function:: MixColor(a_color=(0.5, 0.5, 0.5, 1.0), b_color=(0.5, 0.5, 0.5, 1.0), blend_type='MIX', clamp_factor=True, clamp_result=False, factor_float=0.5)
+.. py:function:: MixColor(a_color=(0.5, 0.5, 0.5, 1.0), b_color=(0.5, 0.5, 0.5, 1.0), blend_type='MIX', factor=0.5, clamp_factor=True, clamp_result=False)
    :canonical: pynodes.datasocks.MixColor
 
    .. autodoc2-docstring:: pynodes.datasocks.MixColor
@@ -3078,7 +3141,7 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.ShaderNodeBlackbody
       :parser: myst
 
-.. py:function:: ShaderNodeCombineColor(mode='RGB', red=0.0, green=0.0, blue=0.0)
+.. py:function:: ShaderNodeCombineColor(red=0.0, green=0.0, blue=0.0, mode='RGB')
    :canonical: pynodes.datasocks.ShaderNodeCombineColor
 
    .. autodoc2-docstring:: pynodes.datasocks.ShaderNodeCombineColor

@@ -1,4 +1,5 @@
 import bpy, enum, mathutils
+is_4_0_beta = bpy.app.version_string == "4.0.0 Beta"
 
 
 class ObjType(enum.Enum):
@@ -56,32 +57,28 @@ class Scene:
     def load(self, clear_animation=True):
         for key, val in self.data.items():
             obj = None
-            if isinstance(key, ObjType):
-                obj_name = key.name.replace("_", " ").title()
-                if bpy.data.objects.get(obj_name) is not None:
-                    obj = bpy.data.objects[obj_name]
-            elif isinstance(key, Key):
-                obj_name = key.name
-                if bpy.data.objects.get(obj_name) is not None:
-                    obj = bpy.data.objects[obj_name]
-            elif isinstance(key, bpy.types.Object):
+            if isinstance(key, bpy.types.Object):
                 obj = key
                 obj_name = obj.name
-            if obj is None:
-                try:
-                    exec(key.value if isinstance(key, ObjType) else key.type.value, {"bpy": bpy})
-                except AttributeError as e:
-                    print("Error in Scene Tree load", key, val, e, sep="\n")
-                    bpy.ops.mesh.primitive_cube_add()
-                obj = bpy.context.active_object
-                obj.select_set(False)
-            if clear_animation:
-                if obj.animation_data is not None:
-                    obj.animation_data.action.fcurves.clear()
+            else:
+                if isinstance(key, ObjType):
+                    obj_name = key.name.replace("_", " ").title()
+                elif isinstance(key, Key):
+                    obj_name = key.name
+                if bpy.data.objects.get(obj_name) is not None:
+                    obj = bpy.data.objects[obj_name]
+                if obj is None:
+                    try:
+                        exec(key.value if isinstance(key, ObjType) else key.type.value, {"bpy": bpy})
+                    except AttributeError as e:
+                        print("Error in Scene Tree load", key, val, e, sep="\n")
+                        bpy.ops.mesh.primitive_cube_add()
+                    obj = bpy.context.active_object
+                    obj.select_set(False)
+                    obj.name = obj_name
+            if clear_animation and obj.animation_data is not None:
+                obj.animation_data.action.fcurves.clear()
             self.objects[key] = obj
-
-            if obj_name is not None:
-                obj.name = obj_name
 
             for k, v in val.items():
                 if isinstance(k, str):
@@ -115,15 +112,22 @@ class Scene:
                 for frame, value in mod_v:
                     if k.type == Mod.geometry_nodes:
                         mod: bpy.types.NodesModifier
-                        try:
-                            node_input = mod.node_group.inputs[mod_k]
-                        except KeyError:
-                            node_input = mod.node_group.inputs[mod_k.replace("_", " ").title()]
-                        if node_input.bl_label == "Float":
-                            value = float(value)
-                        elif node_input.bl_label == "Object":
-                            if isinstance(value, str):
-                                value = bpy.data.objects[value]
+                        if is_4_0_beta:
+                            node_input_name = mod_k if mod_k in mod.node_group.interface.items_tree else mod_k.replace("_", " ").title()
+                            node_input = mod.node_group.interface.items_tree[node_input_name]
+                            if node_input.bl_socket_idname == "NodeSocketFloat":
+                                value = float(value)
+                            elif node_input.bl_socket_idname == "NodeSocketObject":
+                                if isinstance(value, str):
+                                    value = bpy.data.objects[value]
+                        else:
+                            node_input_name = mod_k if mod_k in mod.node_group.inputs else mod_k.replace("_", " ").title()
+                            node_input = mod.node_group.inputs[node_input_name]
+                            if node_input.bl_label == "Float":
+                                value = float(value)
+                            elif node_input.bl_label == "Object":
+                                if isinstance(value, str):
+                                    value = bpy.data.objects[value]
                         if isinstance(value, mathutils.Vector):
                             bpy.data.objects[obj.name].modifiers[mod_name][node_input.identifier][:] = value[:]
                         else:
@@ -146,23 +150,35 @@ class Scene:
                     if mod.node_group != node_group:
                         mod.node_group = node_group
                 elif k.type == Mod.geometry_nodes:
-                    try:
-                        node_input = mod.node_group.inputs[mod_k]
-                    except KeyError:
-                        node_input = mod.node_group.inputs[mod_k.title()]
-                    if node_input.bl_label == "Float":
-                        value = float(value)
-                    elif isinstance(value, (ObjType, Key)):
-                        value = self.objects[value]
-                    elif node_input.bl_label == "Object" and type(value) == str:
-                        value = bpy.data.objects[value]
-                    elif node_input.bl_label == "Collection" and type(value) == str:
-                        value = bpy.data.collections[value]
-                    if isinstance(value, mathutils.Vector):
-                        bpy.data.objects[obj.name].modifiers[mod_name][node_input.identifier][:] = value[:]
+                    if is_4_0_beta:
+                        node_input_name = mod_k if mod_k in mod.node_group.interface.items_tree else mod_k.replace("_", " ").title()
+                        node_input = mod.node_group.interface.items_tree[node_input_name]
+                        if node_input.bl_socket_idname == "NodeSocketFloat":
+                            value = float(value)
+                        elif node_input.bl_socket_idname == "NodeSocketObject" and type(value) == str:
+                            value = bpy.data.objects[value]
+                        elif node_input.bl_socket_idname == "NodeSocketCollection" and type(value) == str:
+                            value = bpy.data.collections[value]
+                        if isinstance(value, mathutils.Vector):
+                            bpy.data.objects[obj.name].modifiers[mod_name][node_input.identifier][:] = value[:]
+                        else:
+                            mod[node_input.identifier] = value
                     else:
-                        mod[node_input.identifier] = value
-                    node_input.name = node_input.name
+                        node_input_name = mod_k if mod_k in mod.node_group.inputs else mod_k.replace("_", " ").title()
+                        node_input = mod.node_group.inputs[node_input_name]
+                        if node_input.bl_label == "Float":
+                            value = float(value)
+                        if isinstance(value, (ObjType, Key)):
+                            value = self.objects[value]
+                        elif node_input.bl_label == "Object" and type(value) == str:
+                            value = bpy.data.objects[value]
+                        elif node_input.bl_label == "Collection" and type(value) == str:
+                            value = bpy.data.collections[value]
+                        if isinstance(value, mathutils.Vector):
+                            bpy.data.objects[obj.name].modifiers[mod_name][node_input.identifier][:] = value[:]
+                        else:
+                            mod[node_input.identifier] = value
+                        node_input.name = node_input.name
                 else:
                     mod.__setattr__(mod_k, value)
 

@@ -21,9 +21,9 @@ Implementation
 .. admonition:: Bézier Curve Illustration
     :class: pynodes
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.42fac2u0tz40.gif
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.42fac2u0tz40.gif
 
-    .. thumbnail:: https://cdn.staticaly.com/gh/iplai/picx-images-hosting@master/20230713/image.w18698zfyog.webp
+    .. thumbnail:: https://jsd.cdn.zzko.cn/gh/iplai/picx-images-hosting@master/20230713/image.w18698zfyog.webp
         
     .. code:: python
 

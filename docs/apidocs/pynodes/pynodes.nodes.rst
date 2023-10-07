@@ -1995,7 +1995,7 @@ API
    .. autodoc2-docstring:: pynodes.nodes.ShaderNodeTexMusgrave
       :parser: myst
 
-.. py:function:: ShaderNodeTexNoise(noise_dimensions='3D', vector=None, w=0.0, scale=5.0, detail=2.0, roughness=0.5, distortion=0.0)
+.. py:function:: ShaderNodeTexNoise(noise_dimensions='3D', vector=None, w=0.0, scale=5.0, detail=2.0, roughness=0.5, lacunarity=2.0, distortion=0.0)
    :canonical: pynodes.nodes.ShaderNodeTexNoise
 
    .. autodoc2-docstring:: pynodes.nodes.ShaderNodeTexNoise

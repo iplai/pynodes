@@ -77,16 +77,16 @@ Functions
    :class: autosummary longtable
    :align: left
 
+   * - :py:obj:`camel_to_snake <pynodes.core.camel_to_snake>`
+     - .. autodoc2-docstring:: pynodes.core.camel_to_snake
+          :parser: myst
+          :summary:
    * - :py:obj:`new_node <pynodes.core.new_node>`
      - .. autodoc2-docstring:: pynodes.core.new_node
           :parser: myst
           :summary:
    * - :py:obj:`new_link <pynodes.core.new_link>`
      - .. autodoc2-docstring:: pynodes.core.new_link
-          :parser: myst
-          :summary:
-   * - :py:obj:`update_modifier <pynodes.core.update_modifier>`
-     - .. autodoc2-docstring:: pynodes.core.update_modifier
           :parser: myst
           :summary:
    * - :py:obj:`convert_param_name <pynodes.core.convert_param_name>`
@@ -129,6 +129,10 @@ Data
    :class: autosummary longtable
    :align: left
 
+   * - :py:obj:`is_4_0_beta <pynodes.core.is_4_0_beta>`
+     - .. autodoc2-docstring:: pynodes.core.is_4_0_beta
+          :parser: myst
+          :summary:
    * - :py:obj:`Param <pynodes.core.Param>`
      - .. autodoc2-docstring:: pynodes.core.Param
           :parser: myst
@@ -140,6 +144,19 @@ Data
 
 API
 ~~~
+
+.. py:data:: is_4_0_beta
+   :canonical: pynodes.core.is_4_0_beta
+   :value: None
+
+   .. autodoc2-docstring:: pynodes.core.is_4_0_beta
+      :parser: myst
+
+.. py:function:: camel_to_snake(name)
+   :canonical: pynodes.core.camel_to_snake
+
+   .. autodoc2-docstring:: pynodes.core.camel_to_snake
+      :parser: myst
 
 .. py:class:: NodeWraper(bnode: bpy.types.Node)
    :canonical: pynodes.core.NodeWraper
@@ -183,7 +200,7 @@ API
       .. autodoc2-docstring:: pynodes.core.NodeWraper.plug_inputs
          :parser: myst
 
-   .. py:method:: __setitem__(key: str, value)
+   .. py:method:: __setitem__(key: str | int, value)
       :canonical: pynodes.core.NodeWraper.__setitem__
 
       .. autodoc2-docstring:: pynodes.core.NodeWraper.__setitem__
@@ -242,6 +259,12 @@ API
       :canonical: pynodes.core.Socket.__setitem__
 
       .. autodoc2-docstring:: pynodes.core.Socket.__setitem__
+         :parser: myst
+
+   .. py:method:: delete()
+      :canonical: pynodes.core.Socket.delete
+
+      .. autodoc2-docstring:: pynodes.core.Socket.delete
          :parser: myst
 
    .. py:method:: copy(number: int)
@@ -583,7 +606,7 @@ API
       .. autodoc2-docstring:: pynodes.core.Tree.simulate
          :parser: myst
 
-   .. py:method:: repeat(*input_sockets: pynodes.core.Socket, iterations=1)
+   .. py:method:: repeat(*input_sockets: pynodes.core.Socket, iterations=1, fakes: list[int] | int = None)
       :canonical: pynodes.core.Tree.repeat
 
       .. autodoc2-docstring:: pynodes.core.Tree.repeat
@@ -749,16 +772,16 @@ API
    .. autodoc2-docstring:: pynodes.core.SimulationZone.__init__
       :parser: myst
 
-   .. py:method:: to_ouput(socket: pynodes.core.Socket, index=0)
-      :canonical: pynodes.core.SimulationZone.to_ouput
+   .. py:method:: to_output(socket: pynodes.core.Socket, index=0)
+      :canonical: pynodes.core.SimulationZone.to_output
 
-      .. autodoc2-docstring:: pynodes.core.SimulationZone.to_ouput
+      .. autodoc2-docstring:: pynodes.core.SimulationZone.to_output
          :parser: myst
 
-   .. py:method:: to_ouputs(*sockets: pynodes.core.Socket)
-      :canonical: pynodes.core.SimulationZone.to_ouputs
+   .. py:method:: to_outputs(*sockets: pynodes.core.Socket)
+      :canonical: pynodes.core.SimulationZone.to_outputs
 
-      .. autodoc2-docstring:: pynodes.core.SimulationZone.to_ouputs
+      .. autodoc2-docstring:: pynodes.core.SimulationZone.to_outputs
          :parser: myst
 
    .. py:property:: delta_time
@@ -778,16 +801,16 @@ API
    .. autodoc2-docstring:: pynodes.core.RepeatZone.__init__
       :parser: myst
 
-   .. py:method:: to_ouput(socket: pynodes.core.Socket, index=0)
-      :canonical: pynodes.core.RepeatZone.to_ouput
+   .. py:method:: to_output(socket: pynodes.core.Socket, index=0)
+      :canonical: pynodes.core.RepeatZone.to_output
 
-      .. autodoc2-docstring:: pynodes.core.RepeatZone.to_ouput
+      .. autodoc2-docstring:: pynodes.core.RepeatZone.to_output
          :parser: myst
 
-   .. py:method:: to_ouputs(*sockets: pynodes.core.Socket)
-      :canonical: pynodes.core.RepeatZone.to_ouputs
+   .. py:method:: to_outputs(*sockets: pynodes.core.Socket)
+      :canonical: pynodes.core.RepeatZone.to_outputs
 
-      .. autodoc2-docstring:: pynodes.core.RepeatZone.to_ouputs
+      .. autodoc2-docstring:: pynodes.core.RepeatZone.to_outputs
          :parser: myst
 
 .. py:class:: Script(bnode: bpy.types.Node)
@@ -858,12 +881,6 @@ API
    .. autodoc2-docstring:: pynodes.core.new_link
       :parser: myst
 
-.. py:function:: update_modifier(default_value, input: bpy.types.NodeSocketInterface)
-   :canonical: pynodes.core.update_modifier
-
-   .. autodoc2-docstring:: pynodes.core.update_modifier
-      :parser: myst
-
 .. py:data:: Param
    :canonical: pynodes.core.Param
    :value: None
@@ -914,7 +931,7 @@ API
    .. autodoc2-docstring:: pynodes.core.simulate
       :parser: myst
 
-.. py:function:: repeat(*input_sockets: pynodes.core.Socket, iterations=1)
+.. py:function:: repeat(*input_sockets: pynodes.core.Socket, iterations=1, fakes: list[int] | int = None)
    :canonical: pynodes.core.repeat
 
    .. autodoc2-docstring:: pynodes.core.repeat

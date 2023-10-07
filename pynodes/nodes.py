@@ -436,6 +436,9 @@ def GeometryNodeRaycast(data_type='FLOAT', mapping='INTERPOLATED', target_geomet
     """
     params_all = [('data_type', data_type, 'FLOAT'), ('mapping', mapping, 'INTERPOLATED')]
     inputs_all = [(target_geometry, None), (attribute, (0.0, 0.0, 0.0)), (attribute_001, 0.0), (attribute_002, (0.0, 0.0, 0.0, 0.0)), (attribute_003, False), (attribute_004, 0), (source_position, None), (ray_direction, (0.0, 0.0, -1.0)), (ray_length, 100.0)]
+    if bpy.app.version >= (4, 0, 0):
+        value_euler = Euler((0.0, 0.0, 0.0), 'XYZ')
+        inputs_all.insert(6, (value_euler, value_euler))
     return "GeometryNodeRaycast", params_all, inputs_all
 
 
@@ -462,7 +465,7 @@ def GeometryNodeSampleIndex(data_type='FLOAT', domain='POINT', clamp=False, geom
     inputs_all = [(geometry, None), (value_float, 0.0), (value_int, 0), (value_vector, (0.0, 0.0, 0.0)), (value_color, (0.0, 0.0, 0.0, 0.0)), (value_bool, False), (index, 0)]
     if bpy.app.version >= (4, 0, 0):
         value_euler = Euler((0.0, 0.0, 0.0), 'XYZ')
-        inputs_all = [(geometry, None), (value_float, 0.0), (value_int, 0), (value_vector, (0.0, 0.0, 0.0)), (value_color, (0.0, 0.0, 0.0, 0.0)), (value_bool, False), (value_euler, Euler((0.0, 0.0, 0.0), 'XYZ')), (index, 0)]
+        inputs_all.insert(6, (value_euler, value_euler))
     return "GeometryNodeSampleIndex", params_all, inputs_all
 
 
@@ -2312,7 +2315,7 @@ def ShaderNodeTexMusgrave(musgrave_dimensions='3D', musgrave_type='FBM', vector=
     return "ShaderNodeTexMusgrave", params_all, inputs_all
 
 
-def ShaderNodeTexNoise(noise_dimensions='3D', vector=None, w=0.0, scale=5.0, detail=2.0, roughness=0.5, distortion=0.0):
+def ShaderNodeTexNoise(noise_dimensions='3D', vector=None, w=0.0, scale=5.0, detail=2.0, roughness=0.5, lacunarity=2.0, distortion=0.0):
     """
     - `noise_dimensions`: `3D`, `1D`, `2D`, `4D`
     #### Inputs:
@@ -2321,13 +2324,16 @@ def ShaderNodeTexNoise(noise_dimensions='3D', vector=None, w=0.0, scale=5.0, det
     - `#2 scale: Float = 5.0`
     - `#3 detail: Float = 2.0`
     - `#4 roughness: Float = 0.5`
-    - `#5 distortion: Float = 0.0`
+    - `#5 lacunarity: Float = 2.0`
+    - `#6 distortion: Float = 0.0`
     #### Outputs:
     - `#0 fac: Float = 0.0`
     - `#1 color: Color = (0.0, 0.0, 0.0, 0.0)`
     """
     params_all = [('noise_dimensions', noise_dimensions, '3D'),]
     inputs_all = [(vector, None), (w, 0.0), (scale, 5.0), (detail, 2.0), (roughness, 0.5), (distortion, 0.0)]
+    if bpy.app.version >= (4, 0, 0):
+        inputs_all.insert(5, (lacunarity, 2.0))
     return "ShaderNodeTexNoise", params_all, inputs_all
 
 

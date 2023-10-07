@@ -526,7 +526,7 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/blur_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeBlurAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeBlurAttribute("Float", value_float=value_float, iterations=iterations, weight=weight))
+        node = new_node(*nodes.GeometryNodeBlurAttribute("FLOAT", value_float=value_float, iterations=iterations, weight=weight))
         return node.outputs[0].Float
 
     @staticmethod
@@ -556,7 +556,7 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/blur_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeBlurAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeBlurAttribute("FLOAT_VECTOR", value_vector == value_vector, iterations=iterations, weight=weight))
+        node = new_node(*nodes.GeometryNodeBlurAttribute("FLOAT_VECTOR", value_vector=value_vector, iterations=iterations, weight=weight))
         return node.outputs[2].Vector
 
     @staticmethod
@@ -1138,7 +1138,10 @@ class Geometry(Socket):
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/store_named_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeStoreNamedAttribute.html)
         """
         selection = selection if self._selection is None else self.selection
-        if isinstance(value, (int, Integer)):
+        if isinstance(value, (bool, Boolean)):
+            data_type = "BOOLEAN"
+            value_name = "value_bool"
+        elif isinstance(value, (int, Integer)):
             data_type = "INT"
             value_name = "value_int"
         elif isinstance(value, (float, Float)):
@@ -1150,9 +1153,6 @@ class Geometry(Socket):
         elif isinstance(value, Color) or (hasattr(value, "__len__") and len(value) == 4):
             data_type = "FLOAT_COLOR"
             value_name = "value_color"
-        elif isinstance(value, (bool, Boolean)):
-            data_type = "BOOLEAN"
-            value_name = "value_bool"
         return self._store_named_attribute(data_type, domain, selection, name, **{value_name: value})
 
     def store_named_attributes(self, data: dict[str], domain="POINT", selection=True):
@@ -1393,111 +1393,6 @@ class Geometry(Socket):
         node = new_node(*nodes.GeometryNodeProximity(target_element, self, source_position))
         ret = typing.NamedTuple("GeometryNodeProximity", [("position", Vector), ("distance", Float)])
         return ret(node.outputs[0].Vector, node.outputs[1].Float)
-
-    def raycast_vector(self, mapping='INTERPOLATED', attribute=(0.0, 0.0, 0.0), source_position: "Vector" = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0):
-        """The Raycast node intersects rays from one geometry onto another. The source geometry is defined by the context of the node that the Raycast node is connected to. Each ray computes hit points on the target mesh and outputs normals, distances and any surface attribute specified.
-        #### Path
-        - Geometry > Sample > Raycast Node
-        #### Properties
-        - `mapping`: `INTERPOLATED`, `NEAREST`
-        #### Outputs:
-        - `#0 is_hit: Boolean = False`
-        - `#1 hit_position: Vector = (0.0, 0.0, 0.0)`
-        - `#2 hit_normal: Vector = (0.0, 0.0, 0.0)`
-        - `#3 hit_distance: Float = 0.0`
-        - `#4 attribute: Vector = (0.0, 0.0, 0.0)`
-
-        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeRaycast.webp)
-
-        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/raycast.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeRaycast.html)
-        """
-        node = new_node(*nodes.GeometryNodeRaycast("FLOAT_VECTOR", mapping, self, attribute=attribute, source_position=source_position, ray_direction=ray_direction, ray_length=ray_length))
-        ret = typing.NamedTuple("GeometryNodeRaycast", [("is_hit", Boolean), ("hit_position", Vector), ("hit_normal", Vector), ("hit_distance", Float), ("attribute", Vector)])
-        return ret(node.outputs[0].Boolean, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Float, node.outputs[4].Vector)
-
-    def raycast_float(self, mapping='INTERPOLATED', attribute=0.0, source_position: "Vector" = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0):
-        """The Raycast node intersects rays from one geometry onto another. The source geometry is defined by the context of the node that the Raycast node is connected to. Each ray computes hit points on the target mesh and outputs normals, distances and any surface attribute specified.
-        #### Path
-        - Geometry > Sample > Raycast Node
-        #### Properties
-        - `mapping`: `INTERPOLATED`, `NEAREST`
-        #### Outputs:
-        - `#0 is_hit: Boolean = False`
-        - `#1 hit_position: Vector = (0.0, 0.0, 0.0)`
-        - `#2 hit_normal: Vector = (0.0, 0.0, 0.0)`
-        - `#3 hit_distance: Float = 0.0`
-        - `#5 attribute_001: Float = 0.0`
-
-        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeRaycast.webp)
-
-        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/raycast.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeRaycast.html)
-        """
-        node = new_node(*nodes.GeometryNodeRaycast("FLOAT", mapping, self, attribute_001=attribute, source_position=source_position, ray_direction=ray_direction, ray_length=ray_length))
-        ret = typing.NamedTuple("GeometryNodeRaycast", [("is_hit", Boolean), ("hit_position", Vector), ("hit_normal", Vector), ("hit_distance", Float), ("attribute", Float)])
-        return ret(node.outputs[0].Boolean, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Float, node.outputs[5].Float)
-
-    def raycast_color(self, mapping='INTERPOLATED', attribute=(0.0, 0.0, 0.0, 0.0), source_position: "Vector" = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0):
-        """The Raycast node intersects rays from one geometry onto another. The source geometry is defined by the context of the node that the Raycast node is connected to. Each ray computes hit points on the target mesh and outputs normals, distances and any surface attribute specified.
-        #### Path
-        - Geometry > Sample > Raycast Node
-        #### Properties
-        - `mapping`: `INTERPOLATED`, `NEAREST`
-        #### Outputs:
-        - `#0 is_hit: Boolean = False`
-        - `#1 hit_position: Vector = (0.0, 0.0, 0.0)`
-        - `#2 hit_normal: Vector = (0.0, 0.0, 0.0)`
-        - `#3 hit_distance: Float = 0.0`
-        - `#6 attribute_002: Color = (0.0, 0.0, 0.0, 0.0)`
-
-        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeRaycast.webp)
-
-        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/raycast.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeRaycast.html)
-        """
-        node = new_node(*nodes.GeometryNodeRaycast("FLOAT_VECTOR", mapping, self, attribute_002=attribute, source_position=source_position, ray_direction=ray_direction, ray_length=ray_length))
-        ret = typing.NamedTuple("GeometryNodeRaycast", [("is_hit", Boolean), ("hit_position", Vector), ("hit_normal", Vector), ("hit_distance", Float), ("attribute", Color)])
-        return ret(node.outputs[0].Boolean, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Float, node.outputs[6].Color)
-
-    def raycast_boolean(self, mapping='INTERPOLATED', attribute=False, source_position: "Vector" = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0):
-        """The Raycast node intersects rays from one geometry onto another. The source geometry is defined by the context of the node that the Raycast node is connected to. Each ray computes hit points on the target mesh and outputs normals, distances and any surface attribute specified.
-        #### Path
-        - Geometry > Sample > Raycast Node
-        #### Properties
-        - `mapping`: `INTERPOLATED`, `NEAREST`
-        #### Outputs:
-        - `#0 is_hit: Boolean = False`
-        - `#1 hit_position: Vector = (0.0, 0.0, 0.0)`
-        - `#2 hit_normal: Vector = (0.0, 0.0, 0.0)`
-        - `#3 hit_distance: Float = 0.0`
-        - `#7 attribute_003: Boolean = False`
-
-        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeRaycast.webp)
-
-        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/raycast.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeRaycast.html)
-        """
-        node = new_node(*nodes.GeometryNodeRaycast("FLOAT_VECTOR", mapping, self, attribute_003=attribute, source_position=source_position, ray_direction=ray_direction, ray_length=ray_length))
-        ret = typing.NamedTuple("GeometryNodeRaycast", [("is_hit", Boolean), ("hit_position", Vector), ("hit_normal", Vector), ("hit_distance", Float), ("attribute", Boolean)])
-        return ret(node.outputs[0].Boolean, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Float, node.outputs[7].Color)
-
-    def raycast_integer(self, mapping='INTERPOLATED', attribute=0, source_position: "Vector" = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0):
-        """The Raycast node intersects rays from one geometry onto another. The source geometry is defined by the context of the node that the Raycast node is connected to. Each ray computes hit points on the target mesh and outputs normals, distances and any surface attribute specified.
-        #### Path
-        - Geometry > Sample > Raycast Node
-        #### Properties
-        - `mapping`: `INTERPOLATED`, `NEAREST`
-        #### Outputs:
-        - `#0 is_hit: Boolean = False`
-        - `#1 hit_position: Vector = (0.0, 0.0, 0.0)`
-        - `#2 hit_normal: Vector = (0.0, 0.0, 0.0)`
-        - `#3 hit_distance: Float = 0.0`
-        - `#8 attribute_004: Integer = 0`
-
-        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeRaycast.webp)
-
-        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/raycast.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeRaycast.html)
-        """
-        node = new_node(*nodes.GeometryNodeRaycast("INT", mapping, self, attribute_004=attribute, source_position=source_position, ray_direction=ray_direction, ray_length=ray_length))
-        ret = typing.NamedTuple("GeometryNodeRaycast", [("is_hit", Boolean), ("hit_position", Vector), ("hit_normal", Vector), ("hit_distance", Float), ("attribute", Integer)])
-        return ret(node.outputs[0].Boolean, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Float, node.outputs[8].Integer)
 
     def sample_index(self, data_type="FLOAT", domain="POINT", clamp=False, value_float=0.0, value_int=0, value_vector=(0.0, 0.0, 0.0), value_color=(0.0, 0.0, 0.0, 0.0), value_bool=False, index=0):
         """The Sample Index node retrieves values from a source geometry at a specific index.
@@ -3461,7 +3356,7 @@ class Geometry(Socket):
         return self
 
     def index_of_nearest(self, position=None, group_id=0):
-        """The *Index of Nearest* node is a way to find other close elements in the same geometry. If needed you can use Group ID to determine the group of neighbors to be analyzed together.This is an alternative to the [Sample Nearest Node](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/sample_nearest.html) node. The main difference is that this node does not require a geometry input, because the geometry from the [field context](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/fields.html#field-context) is used.
+        """The Index of Nearest node is a way to find other close elements in the same geometry. If needed you can use Group ID to determine the group of neighbors to be analyzed together.This is an alternative to the [Sample Nearest Node](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/sample_nearest.html) node. The main difference is that this node does not require a geometry input, because the geometry from the [field context](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/fields.html#field-context) is used.
         - New in Blender 3.6.0
         #### Path
         - Geometry > Sample
@@ -4429,6 +4324,132 @@ class Mesh(Geometry):
         ret = typing.NamedTuple("GeometryNodeAttributeDomainSize", [("point_count", Integer), ("edge_count", Integer), ("face_count", Integer), ("face_corner_count", Integer)])
         return ret(node.outputs[0].Integer, node.outputs[1].Integer, node.outputs[2].Integer, node.outputs[3].Integer)
 
+    def raycast(self, mapping='INTERPOLATED', attribute=0.0, source_position: "Vector" = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0):
+        """The Raycast node intersects rays from one geometry onto another. The source geometry is defined by the context of the node that the Raycast node is connected to. Each ray computes hit points on the target mesh and outputs normals, distances and any surface attribute specified.
+        #### Path
+        - Geometry > Sample > Raycast Node
+        #### Properties
+        - `mapping`: `INTERPOLATED`, `NEAREST`
+        #### Outputs:
+        - `#0 is_hit: Boolean = False`
+        - `#1 hit_position: Vector = (0.0, 0.0, 0.0)`
+        - `#2 hit_normal: Vector = (0.0, 0.0, 0.0)`
+        - `#3 hit_distance: Float = 0.0`
+        - `#5 attribute_001: Float = 0.0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeRaycast.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/raycast.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeRaycast.html)
+        """
+        node = new_node(*nodes.GeometryNodeRaycast("FLOAT", mapping, self, attribute_001=attribute, source_position=source_position, ray_direction=ray_direction, ray_length=ray_length))
+        ret = typing.NamedTuple("GeometryNodeRaycast", [("is_hit", Boolean), ("hit_position", Vector), ("hit_normal", Vector), ("hit_distance", Float), ("attribute", Float)])
+        return ret(node.outputs[0].Boolean, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Float, node.outputs[5].Float)
+
+    def raycast_vector(self, mapping='INTERPOLATED', attribute=(0.0, 0.0, 0.0), source_position: "Vector" = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0):
+        """The Raycast node intersects rays from one geometry onto another. The source geometry is defined by the context of the node that the Raycast node is connected to. Each ray computes hit points on the target mesh and outputs normals, distances and any surface attribute specified.
+        #### Path
+        - Geometry > Sample > Raycast Node
+        #### Properties
+        - `mapping`: `INTERPOLATED`, `NEAREST`
+        #### Outputs:
+        - `#0 is_hit: Boolean = False`
+        - `#1 hit_position: Vector = (0.0, 0.0, 0.0)`
+        - `#2 hit_normal: Vector = (0.0, 0.0, 0.0)`
+        - `#3 hit_distance: Float = 0.0`
+        - `#4 attribute: Vector = (0.0, 0.0, 0.0)`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeRaycast.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/raycast.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeRaycast.html)
+        """
+        node = new_node(*nodes.GeometryNodeRaycast("FLOAT_VECTOR", mapping, self, attribute=attribute, source_position=source_position, ray_direction=ray_direction, ray_length=ray_length))
+        ret = typing.NamedTuple("GeometryNodeRaycast", [("is_hit", Boolean), ("hit_position", Vector), ("hit_normal", Vector), ("hit_distance", Float), ("attribute", Vector)])
+        return ret(node.outputs[0].Boolean, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Float, node.outputs[4].Vector)
+
+    def raycast_float(self, mapping='INTERPOLATED', attribute=0.0, source_position: "Vector" = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0):
+        """The Raycast node intersects rays from one geometry onto another. The source geometry is defined by the context of the node that the Raycast node is connected to. Each ray computes hit points on the target mesh and outputs normals, distances and any surface attribute specified.
+        #### Path
+        - Geometry > Sample > Raycast Node
+        #### Properties
+        - `mapping`: `INTERPOLATED`, `NEAREST`
+        #### Outputs:
+        - `#0 is_hit: Boolean = False`
+        - `#1 hit_position: Vector = (0.0, 0.0, 0.0)`
+        - `#2 hit_normal: Vector = (0.0, 0.0, 0.0)`
+        - `#3 hit_distance: Float = 0.0`
+        - `#5 attribute_001: Float = 0.0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeRaycast.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/raycast.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeRaycast.html)
+        """
+        node = new_node(*nodes.GeometryNodeRaycast("FLOAT", mapping, self, attribute_001=attribute, source_position=source_position, ray_direction=ray_direction, ray_length=ray_length))
+        ret = typing.NamedTuple("GeometryNodeRaycast", [("is_hit", Boolean), ("hit_position", Vector), ("hit_normal", Vector), ("hit_distance", Float), ("attribute", Float)])
+        return ret(node.outputs[0].Boolean, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Float, node.outputs[5].Float)
+
+    def raycast_color(self, mapping='INTERPOLATED', attribute=(0.0, 0.0, 0.0, 0.0), source_position: "Vector" = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0):
+        """The Raycast node intersects rays from one geometry onto another. The source geometry is defined by the context of the node that the Raycast node is connected to. Each ray computes hit points on the target mesh and outputs normals, distances and any surface attribute specified.
+        #### Path
+        - Geometry > Sample > Raycast Node
+        #### Properties
+        - `mapping`: `INTERPOLATED`, `NEAREST`
+        #### Outputs:
+        - `#0 is_hit: Boolean = False`
+        - `#1 hit_position: Vector = (0.0, 0.0, 0.0)`
+        - `#2 hit_normal: Vector = (0.0, 0.0, 0.0)`
+        - `#3 hit_distance: Float = 0.0`
+        - `#6 attribute_002: Color = (0.0, 0.0, 0.0, 0.0)`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeRaycast.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/raycast.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeRaycast.html)
+        """
+        node = new_node(*nodes.GeometryNodeRaycast("FLOAT_VECTOR", mapping, self, attribute_002=attribute, source_position=source_position, ray_direction=ray_direction, ray_length=ray_length))
+        ret = typing.NamedTuple("GeometryNodeRaycast", [("is_hit", Boolean), ("hit_position", Vector), ("hit_normal", Vector), ("hit_distance", Float), ("attribute", Color)])
+        return ret(node.outputs[0].Boolean, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Float, node.outputs[6].Color)
+
+    def raycast_boolean(self, mapping='INTERPOLATED', attribute=False, source_position: "Vector" = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0):
+        """The Raycast node intersects rays from one geometry onto another. The source geometry is defined by the context of the node that the Raycast node is connected to. Each ray computes hit points on the target mesh and outputs normals, distances and any surface attribute specified.
+        #### Path
+        - Geometry > Sample > Raycast Node
+        #### Properties
+        - `mapping`: `INTERPOLATED`, `NEAREST`
+        #### Outputs:
+        - `#0 is_hit: Boolean = False`
+        - `#1 hit_position: Vector = (0.0, 0.0, 0.0)`
+        - `#2 hit_normal: Vector = (0.0, 0.0, 0.0)`
+        - `#3 hit_distance: Float = 0.0`
+        - `#7 attribute_003: Boolean = False`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeRaycast.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/raycast.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeRaycast.html)
+        """
+        node = new_node(*nodes.GeometryNodeRaycast("FLOAT_VECTOR", mapping, self, attribute_003=attribute, source_position=source_position, ray_direction=ray_direction, ray_length=ray_length))
+        ret = typing.NamedTuple("GeometryNodeRaycast", [("is_hit", Boolean), ("hit_position", Vector), ("hit_normal", Vector), ("hit_distance", Float), ("attribute", Boolean)])
+        return ret(node.outputs[0].Boolean, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Float, node.outputs[7].Color)
+
+    def raycast_integer(self, mapping='INTERPOLATED', attribute=0, source_position: "Vector" = None, ray_direction=(0.0, 0.0, -1.0), ray_length=100.0):
+        """The Raycast node intersects rays from one geometry onto another. The source geometry is defined by the context of the node that the Raycast node is connected to. Each ray computes hit points on the target mesh and outputs normals, distances and any surface attribute specified.
+        #### Path
+        - Geometry > Sample > Raycast Node
+        #### Properties
+        - `mapping`: `INTERPOLATED`, `NEAREST`
+        #### Outputs:
+        - `#0 is_hit: Boolean = False`
+        - `#1 hit_position: Vector = (0.0, 0.0, 0.0)`
+        - `#2 hit_normal: Vector = (0.0, 0.0, 0.0)`
+        - `#3 hit_distance: Float = 0.0`
+        - `#8 attribute_004: Integer = 0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeRaycast.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/raycast.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeRaycast.html)
+        """
+        node = new_node(*nodes.GeometryNodeRaycast("INT", mapping, self, attribute_004=attribute, source_position=source_position, ray_direction=ray_direction, ray_length=ray_length))
+        ret = typing.NamedTuple("GeometryNodeRaycast", [("is_hit", Boolean), ("hit_position", Vector), ("hit_normal", Vector), ("hit_distance", Float), ("attribute", Integer)])
+        return ret(node.outputs[0].Boolean, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Float, node.outputs[8].Integer)
+
     def merge_by_distance(self, distance=0.001, mode="ALL", selection=True):
         """The Merge by Distance node merges selected mesh vertices or point cloud points within a given distance, merging surrounding geometry where necessary. This operation is similar to the Merge by Distance operator or the Weld Modifier.
         #### Path
@@ -4444,6 +4465,23 @@ class Mesh(Geometry):
         """
         selection = selection if self._selection is None else self.selection
         node = new_node(*nodes.GeometryNodeMergeByDistance(mode, self, selection, distance))
+        return node.outputs[0].Mesh
+
+    def merge_connected(self, distance=0.001, selection=True):
+        """The Merge by Distance node merges selected mesh vertices or point cloud points within a given distance, merging surrounding geometry where necessary. This operation is similar to the Merge by Distance operator or the Weld Modifier.
+        #### Path
+        - Geometry > Operations > Merge by Distance Node
+        #### Properties
+        - `mode`: `ALL`, `CONNECTED`
+        #### Outputs:
+        - `#0 geometry: Geometry = None`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeMergeByDistance.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/merge_by_distance.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeMergeByDistance.html)
+        """
+        selection = selection if self._selection is None else self.selection
+        node = new_node(*nodes.GeometryNodeMergeByDistance("CONNECTED", self, selection, distance))
         return node.outputs[0].Mesh
 
     @property
@@ -5419,6 +5457,23 @@ class Instances(Geometry):
         node = new_node(*nodes.GeometryNodeAttributeDomainSize("INSTANCES", self))
         return node.outputs[5].Integer
 
+    def capture_integer(self, value_int=0):
+        """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
+        - In-Place Operation
+        #### Path
+        - Attribute > Capture Attribute Node
+        #### Outputs:
+        - `#0 geometry: Geometry = None`
+        - `#5 attribute: Integer = 0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCaptureAttribute.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
+        """
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("INT", "INSTANCE", self, value_004=value_int))
+        self.bsocket = node.outputs[0].bsocket
+        return node.outputs[5].Integer
+
     def store_named_attribute(self, name: str, value, domain="INSTANCE", selection=True):
         return super().store_named_attribute(name, value, domain, selection)
 
@@ -5708,7 +5763,7 @@ def CurveArcPoints(resolution=16, start=(-1.0, 0.0, 0.0), middle=(0.0, 2.0, 0.0)
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/curve/primitives/arc.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCurveArc.html)
     """
-    node = new_node(*nodes.GeometryNodeCurveArc("RADIUS", resolution, start, middle, end, offset_angle=offset_angle, connect_center=connect_center, invert_arc=invert_arc))
+    node = new_node(*nodes.GeometryNodeCurveArc("POINTS", resolution, start, middle, end, offset_angle=offset_angle, connect_center=connect_center, invert_arc=invert_arc))
     ret = typing.NamedTuple("CurveArc", [("curve", Curve), ("center", Vector), ("normal", Vector), ("radius", Float)])
     return ret(node.outputs[0].Curve, node.outputs[1].Vector, node.outputs[2].Vector, node.outputs[3].Float)
 
@@ -6164,8 +6219,12 @@ def join_to_instances(*items: "Geometry"):
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/geometry_to_instance.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeGeometryToInstance.html)
     """
-    if len(items) == 1 and isinstance(items[0], (tuple, list)):
-        items = items[0]
+    if len(items) == 1:
+        if isinstance(items[0], (tuple, list)):
+            items = items[0]
+        import types
+        if isinstance(items[0], types.GeneratorType):
+            items = list(items[0])
     node = new_node(*nodes.GeometryNodeGeometryToInstance())
     for item in reversed(items):
         new_link(item.bsocket, node.bnode.inputs[0])

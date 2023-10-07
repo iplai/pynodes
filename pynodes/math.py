@@ -122,4 +122,4 @@ def ln(value, clamp=False):
     return Float.math(value, "LOGARITHM", math.e, use_clamp=clamp)
 
 
-from math import pi, tau, radians, degrees, floor, ceil
+from math import pi, tau, e, radians, degrees, floor, ceil
