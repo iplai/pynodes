@@ -72,6 +72,10 @@ class Geometry(Socket):
         self._selection.name = "Selection"
         return self
 
+    def __mul__(self, other):
+        geo = self.copy(1)[0]
+        return geo.on_points(other).realize_instances()
+
     @property
     def selection(self):
         socket = self._selection
@@ -1116,6 +1120,22 @@ class Geometry(Socket):
         self.bsocket = node.outputs[0].bsocket
         return self
 
+    def remove_attributes(self, *names: list[str]):
+        """The Remove Named Attribute node deletes an attribute with a certain name from its geometry input. Any attribute that exists on geometry data will be automatically propagated when the geometry storing it is changed, which can be an expensive operation, so using this node can be a simple way to optimize the performance of a geometry node tree or even to lower the memory usage of the entire scene.
+        - In-Place Operation
+        #### Path
+        - Attribute > Remove Named Attribute Node
+        #### Outputs:
+        - `#0 geometry: Geometry = None`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeRemoveNamedAttribute.png)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/remove_named_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeRemoveAttribute.html)
+        """
+        for name in names:
+            self.remove_attribute(name)
+        return self
+
     def _store_named_attribute(self, data_type='FLOAT', domain='POINT', selection=True, name='', value_vector=(0.0, 0.0, 0.0), value_float=0.0, value_color=(0.0, 0.0, 0.0, 0.0), value_bool=False, value_int=0):
         selection = selection if self._selection is None else self.selection
         node = new_node(*nodes.GeometryNodeStoreNamedAttribute(data_type, domain, self, selection, name, value_vector, value_float, value_color, value_bool, value_int))
@@ -1154,6 +1174,17 @@ class Geometry(Socket):
             data_type = "FLOAT_COLOR"
             value_name = "value_color"
         return self._store_named_attribute(data_type, domain, selection, name, **{value_name: value})
+
+    def store_integer(self, domain="POINT", selection=True, **kwargs):
+        """The Store Named Attribute node stores the result of a field on a geometry as an attribute with the specified name. If the attribute already exists, the data type and domain will be updated to the values chosen in the node. However, keep in mind that the domain and data type of Built-In Attributes cannot be changed.
+        - In-Place Operation
+        #### Path
+        - Attribute > Store Named Attribute Node
+        """
+        name = next(iter(kwargs))
+        value = kwargs[name]
+        self.store_named_attribute(name, value, domain, selection)
+        return self.named_attribute_integer(name).attribute
 
     def store_named_attributes(self, data: dict[str], domain="POINT", selection=True):
         """The Store Named Attribute node stores the result of a field on a geometry as an attribute with the specified name. If the attribute already exists, the data type and domain will be updated to the values chosen in the node. However, keep in mind that the domain and data type of Built-In Attributes cannot be changed.
@@ -1574,7 +1605,7 @@ class Geometry(Socket):
         node = new_node(*nodes.GeometryNodeSampleNearest("CORNER", self, sample_position))
         return node.outputs[0].Integer
 
-    def bound_box(self):
+    def bounding_box(self):
         """The Bounding Box node creates a box mesh with the minimum volume that encapsulates the geometry of the input. The node also can output the vector positions of the bounding dimensions.
         #### Path
         - Geometry > Operations > Bounding Box Node
@@ -1772,14 +1803,62 @@ class Geometry(Socket):
         self.bsocket = node.outputs[0].bsocket
         return self
 
+    def translate(self, translation=(0.0, 0.0, 0.0)):
+        """The Transform Geometry Node allows you to move, rotate or scale the geometry. The transformation is applied to the entire geometry, and not per element. The Set Position Node is used for moving individual points of a geometry. For transforming instances individually, the instance translate, rotate, or scale nodes can be used.
+        - In-Place Operation
+        #### Path
+        - Geometry > Operations > Transform Geometry Node
+        #### Outputs:
+        - `#0 geometry: Geometry = None`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeTransformGeometry.jpg)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/transform_geometry.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeTransform.html)
+        """
+        node = new_node(*nodes.GeometryNodeTransform(self, translation))
+        self.bsocket = node.outputs[0].bsocket
+        return self
+
+    def rotate(self, rotation=(0.0, 0.0, 0.0)):
+        """The Transform Geometry Node allows you to move, rotate or scale the geometry. The transformation is applied to the entire geometry, and not per element. The Set Position Node is used for moving individual points of a geometry. For transforming instances individually, the instance translate, rotate, or scale nodes can be used.
+        - In-Place Operation
+        #### Path
+        - Geometry > Operations > Transform Geometry Node
+        #### Outputs:
+        - `#0 geometry: Geometry = None`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeTransformGeometry.jpg)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/transform_geometry.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeTransform.html)
+        """
+        node = new_node(*nodes.GeometryNodeTransform(self, rotation=rotation))
+        self.bsocket = node.outputs[0].bsocket
+        return self
+
+    def scale(self, scale=(1.0, 1.0, 1.0)):
+        """The Transform Geometry Node allows you to move, rotate or scale the geometry. The transformation is applied to the entire geometry, and not per element. The Set Position Node is used for moving individual points of a geometry. For transforming instances individually, the instance translate, rotate, or scale nodes can be used.
+        - In-Place Operation
+        #### Path
+        - Geometry > Operations > Transform Geometry Node
+        #### Outputs:
+        - `#0 geometry: Geometry = None`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeTransformGeometry.jpg)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/transform_geometry.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeTransform.html)
+        """
+        node = new_node(*nodes.GeometryNodeTransform(self, scale=scale))
+        self.bsocket = node.outputs[0].bsocket
+        return self
+
     def separate_components(self):
         """The Separate Components node splits a geometry into a separate output for each type of data in the geometry.
         #### Path
         - Geometry > Operations > Separate Components Node
         #### Outputs:
         - `#0 mesh: Geometry = None`
-        - `#1 point_cloud: Geometry = None`
-        - `#2 curve: Geometry = None`
+        - `#1 curve: Geometry = None`
+        - `#2 point_cloud: Geometry = None`
         - `#3 volume: Geometry = None`
         - `#4 instances: Geometry = None`
 
@@ -1788,8 +1867,11 @@ class Geometry(Socket):
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/separate_components.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeSeparateComponents.html)
         """
         node = new_node(*nodes.GeometryNodeSeparateComponents(self))
-        ret = typing.NamedTuple("GeometryNodeSeparateComponents", [("mesh", Mesh), ("point_cloud", Points), ("curve", Curve), ("volume", Volume), ("instances", Instances)])
-        return ret(node.outputs[0].Mesh, node.outputs[1].Points, node.outputs[2].Curve, node.outputs[3].Volume, node.outputs[4].Instances)
+        if bpy.app.version < (3, 6, 0):
+            ret = typing.NamedTuple("GeometryNodeSeparateComponents", [("mesh", Mesh), ("point_cloud", Points), ("curve", Curve), ("volume", Volume), ("instances", Instances)])
+            return ret(node.outputs[0].Mesh, node.outputs[1].Points, node.outputs[2].Curve, node.outputs[3].Volume, node.outputs[4].Instances)
+        ret = typing.NamedTuple("GeometryNodeSeparateComponents", [("mesh", Mesh), ("curve", Curve), ("point_cloud", Points), ("volume", Volume), ("instances", Instances)])
+        return ret(node.outputs[0].Mesh, node.outputs[1].Curve, node.outputs[2].Points, node.outputs[3].Volume, node.outputs[4].Instances)
 
     def separate(self, selection=True, domain="POINT"):
         """The Separate Geometry node produces two geometry outputs. Based on the Selection input, the input geometry is split between the two outputs.
@@ -2045,6 +2127,7 @@ class Geometry(Socket):
             red, r = colorama.Fore.RED, colorama.Style.RESET_ALL
             print(f"{red}Error: {r}The parameter {red}points{r} for {red}on_points{r} is not a Geometry instance, you may missed {red}.mesh{r}")
             return self
+        # The selection is based on the context geometry of points, not the instance it self.
         selection = selection if points._selection is None else points.selection
         node = new_node(*nodes.GeometryNodeInstanceOnPoints(points, selection, self, pick_instance, instance_index, rotation, scale))
         self.bsocket = node.outputs[0].bsocket
@@ -4848,11 +4931,13 @@ class Mesh(Geometry):
         ret = typing.NamedTuple("GeometryNodeSampleUVSurface", [("value", Boolean), ("is_valid", Boolean)])
         return ret(node.outputs[4].Boolean, node.outputs[5].Boolean)
 
-    def set_shade_smooth(self, shade_smooth=True, selection=True):
+    def set_shade_smooth(self, shade_smooth=True, domain="FACE", selection=True):
         """The Set Shade Smooth node controls whether the mesh's faces look smooth in the viewport and renders. The input node for this data is the Is Shade Smooth node.
         - In-Place Operation
         #### Path
         - Mesh > Write > Set Shade Smooth Node
+        #### Properties
+        - `domain`(New in Blender 4.0): `FACE`, `EDGE`
         #### Outputs:
         - `#0 geometry: Geometry = None`
 
@@ -4861,7 +4946,7 @@ class Mesh(Geometry):
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/write/set_shade_smooth.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeSetShadeSmooth.html)
         """
         selection = selection if self._selection is None else self.selection
-        node = new_node(*nodes.GeometryNodeSetShadeSmooth(self, selection, shade_smooth))
+        node = new_node(*nodes.GeometryNodeSetShadeSmooth(domain, self, selection, shade_smooth))
         self.bsocket = node.outputs[0].bsocket
         return self
 
@@ -5358,8 +5443,38 @@ class Mesh(Geometry):
 class Points(Geometry):
     """A points cloud data socket"""
 
+    def to_curves(self, curve_group_id=0, weight=0.0):
+        """The *Points to Curves* node generates a [Curves](https://docs.blender.org/manual/en/4.0/modeling/curves/introduction.html) geometry by taking all points and inserting them to new curves. All [Attributes](https://docs.blender.org/manual/en/4.0/modeling/geometry_nodes/attributes_reference.html) from points are propagated to [Curve Points](https://docs.blender.org/manual/en/4.0/modeling/geometry_nodes/attributes_reference.html#attribute-domains). [Built-in](https://docs.blender.org/manual/en/4.0/modeling/geometry_nodes/attributes_reference.html#geometry-nodes-builtin-attributes) curves attributes stored in points will be ignored.
+        - New in Blender 4.0.0
+        #### Path
+        - Point > Points to Curves Node
+        #### Outputs:
+        - `#0 curves: Curve = None`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodePointsToCurves.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/point/points_to_curves.html) [[API]](https://docs.blender.org/api/4.0/bpy.types.GeometryNodePointsToCurves.html)
+        """
+        node = new_node(*nodes.GeometryNodePointsToCurves(self, curve_group_id, weight))
+        return node.outputs[0].Curve
+
     @property
     def domain_size(self):
+        """The Domain Size outputs the size of an attribute domain on the selected geometry type, for example, the number of edges in a mesh, or the number of points in a point cloud.
+        #### Path
+        - Attribute > Domain Size Node
+        #### Outputs:
+        - `#0 point_count: Integer = 0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeAttributeDomainSize.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/domain_size.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAttributeDomainSize.html)
+        """
+        node = new_node(*nodes.GeometryNodeAttributeDomainSize("POINTCLOUD", self))
+        return node.outputs[0].Integer
+
+    @property
+    def point_count(self):
         """The Domain Size outputs the size of an attribute domain on the selected geometry type, for example, the number of edges in a mesh, or the number of points in a point cloud.
         #### Path
         - Attribute > Domain Size Node

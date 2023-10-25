@@ -12,11 +12,7 @@ def convert_to_snake_order(index: Integer, n: Integer):
 
 @tree
 def triangle_tile():
-    curve = CurveCircle(resolution=3)
-    curve[0].set_position((-0.5, -0.5, 0))
-    curve[1].set_position((0.5, -0.5, 0))
-    curve[2].set_position((0.5, 0.5, 0))
-    return curve.filled_ngons
+    return Rectangle(1, 1)[1].delete().filled_mesh
 
 
 @tree

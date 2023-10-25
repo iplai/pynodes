@@ -38,7 +38,7 @@ The is an util node group for modeling.
             # The following tree fomula is equivalent
             with frame("Scale normal"):
 
-                normal1 = normal.normalize * (1 / normal.length)
+                normal1 = normal.normalized * (1 / normal.length)
                 normal1.node.label = "Method 1"
 
                 normal2 = normal * (1 / normal.length**2)

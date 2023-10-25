@@ -1,10 +1,10 @@
 import bpy, mathutils, contextlib, sys
 
-is_4_0_beta = bpy.app.version_string == "4.0.0 Beta"
+is_4_0_beta_or_higher = bpy.app.version > (4, 0, 0) or bpy.app.version_string == "4.0.0 Beta"
 
 from bpy.types import Node, NodeSocket, NodeTree, NodeLink, NodeGroup
 
-if not is_4_0_beta:
+if not is_4_0_beta_or_higher:
     from bpy.types import NodeSocketInterface
 else:
     from bpy.types import NodeTreeInterfaceSocket, NodeTreeInterfaceItem
@@ -306,6 +306,8 @@ class Socket(SocketWraper):
                     mat_name = default
                     mat = bpy.data.materials.get(mat_name)
                     if mat is None:
+                        mat = bpy.data.materials.get(mat_name.replace("_", " ").title())
+                    if mat is None:
                         mat = bpy.data.materials.new(mat_name)
                         if mat_name.startswith("#"):
                             from .colors import hex_color_to_rgba
@@ -511,7 +513,7 @@ class Tree:
         Tree.tree = self
         self.btree = node_tree
         node_tree.nodes.clear()
-        if is_4_0_beta:
+        if is_4_0_beta_or_higher:
             node_tree.interface.clear()
         else:
             node_tree.inputs.clear()
@@ -607,7 +609,7 @@ class Tree:
         return link
 
     def new_input(self, type="NodeSocketGeometry", name="Geometry"):
-        if is_4_0_beta:
+        if is_4_0_beta_or_higher:
             # https://docs.blender.org/api/4.0/bpy.types.NodeTreeInterface.html#bpy.types.NodeTreeInterface
             basetypes = ('NodeSocketString', 'NodeSocketBool', 'NodeSocketMaterial', 'NodeSocketVector', 'NodeSocketInt', 'NodeSocketGeometry', 'NodeSocketCollection', 'NodeSocketTexture', 'NodeSocketFloat', 'NodeSocketColor', 'NodeSocketObject', 'NodeSocketRotation', 'NodeSocketImage')
             for basetype in basetypes:
@@ -622,7 +624,7 @@ class Tree:
         return self.btree.inputs.new(type, name)
 
     def new_output(self, type="NodeSocketGeometry", name="Geometry"):
-        if is_4_0_beta:
+        if is_4_0_beta_or_higher:
             # https://docs.blender.org/api/4.0/bpy.types.NodeTreeInterface.html#bpy.types.NodeTreeInterface
             return self.btree.interface.new_socket(name=name, in_out="OUTPUT", socket_type=type)
         return self.btree.outputs.new(type, name)
@@ -636,7 +638,7 @@ class Tree:
         frame = self.frames.pop()
 
     @contextlib.contextmanager
-    def simulate(self, *input_sockets: Socket):
+    def simulate(self, *input_sockets: Socket, fakes: list[int] | int = None):
         input_bnode: bpy.types.GeometryNodeSimulationInput = self.new_node(SimulationInput.bl_idname).bnode
         output_bnode: bpy.types.GeometryNodeSimulationOutput = self.new_node(SimulationOutput.bl_idname).bnode
         input_bnode.pair_with_output(output_bnode)
@@ -648,7 +650,7 @@ class Tree:
             socket_type = "FLOAT" if socket.bsocket.type == "VALUE" else socket.bsocket.type
             state_items.new(socket_type, socket._name or socket.bsocket.name)
             self.new_link(socket.bsocket, input_bnode.inputs[i])
-            if is_4_0_beta:
+            if is_4_0_beta_or_higher:
                 self.new_link(input_bnode.outputs[i + 1], output_bnode.inputs[i + 1])
             else:
                 self.new_link(input_bnode.outputs[i + 1], output_bnode.inputs[i])
@@ -656,6 +658,13 @@ class Tree:
         yield SimulationZone(input_node, output_node)
         for i, socket in enumerate(input_sockets):
             socket.bsocket = output_bnode.outputs[i]
+
+        # Remove the fake links after the zone inputs initialized
+        if fakes is not None:
+            if isinstance(fakes, int):
+                fakes = [fakes]
+            for fake_index in fakes:
+                Tree.tree.btree.links.remove(input_node.inputs[fake_index].bsocket.links[0])
 
     @contextlib.contextmanager
     def repeat(self, *input_sockets: Socket, iterations=1, fakes: list[int] | int = None):
@@ -748,13 +757,13 @@ class SimulationZone:
         self.input_node = input_node
         self.output_node = output_node
 
-    def to_output(self, socket: Socket, index=0):
+    def to_output(self, socket: Socket, index=1):
         self.output_node.link_from(socket, index)
 
     def to_outputs(self, *sockets: Socket):
         for i, socket in enumerate(sockets):
             if socket is not None:
-                if is_4_0_beta:
+                if is_4_0_beta_or_higher:
                     self.output_node.link_from(socket, i + 1)
                 else:
                     self.output_node.link_from(socket, i)
@@ -841,7 +850,7 @@ def new_link(bsocket_from: NodeSocket, bsocket_to: NodeSocket):
     return Tree.tree.new_link(bsocket_from, bsocket_to)
 
 
-if is_4_0_beta:
+if is_4_0_beta_or_higher:
     def update_modifier(default_value, input: NodeTreeInterfaceSocket):
         if input.bl_socket_idname == "NodeSocketFloat":
             default_value = float(default_value)
@@ -877,7 +886,9 @@ def convert_param_name(name: str):
     elif len(name) == 2:
         if name[1].isdigit() or name[1] in 'xyz':
             return name
-    return name.replace("_", " ").title()
+    # return name.replace("_", " ").title()
+    words = name.split('_')
+    return " ".join(w if w[0].isupper() else w.title() for w in words)
 
 
 def get_param_name(param: inspect.Parameter) -> str:
@@ -1005,7 +1016,7 @@ def tree(func: typing.Callable[Param, RT]) -> typing.Callable[Param, RT]:
     ```
     """
     node_tree = dispath_tree(func)
-    if isinstance(node_tree, bpy.types.GeometryNodeTree) and is_4_0_beta:
+    if isinstance(node_tree, bpy.types.GeometryNodeTree) and is_4_0_beta_or_higher:
         node_tree.is_modifier = True
     Tree(node_tree)
     sig = inspect.signature(func)
@@ -1077,8 +1088,8 @@ def frame(label="Layout"):
     return Tree.tree.frame(label)
 
 
-def simulate(*input_sockets: Socket):
-    return Tree.tree.simulate(*input_sockets)
+def simulate(*input_sockets: Socket, fakes: list[int] | int = None):
+    return Tree.tree.simulate(*input_sockets, fakes=fakes)
 
 
 def repeat(*input_sockets: Socket, iterations=1, fakes: list[int] | int = None):

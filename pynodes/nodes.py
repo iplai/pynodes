@@ -576,8 +576,8 @@ def GeometryNodeSeparateComponents(geometry=None):
     - `#0 geometry: Geometry = None`
     #### Outputs:
     - `#0 mesh: Geometry = None`
-    - `#1 point_cloud: Geometry = None`
-    - `#2 curve: Geometry = None`
+    - `#1 curve: Geometry = None`
+    - `#2 point_cloud: Geometry = None`
     - `#3 volume: Geometry = None`
     - `#4 instances: Geometry = None`
     """
@@ -1522,8 +1522,10 @@ def GeometryNodeSampleUVSurface(data_type='FLOAT', mesh=None, value_float=0.0, v
     return "GeometryNodeSampleUVSurface", params_all, inputs_all
 
 
-def GeometryNodeSetShadeSmooth(geometry=None, selection=True, shade_smooth=True):
+def GeometryNodeSetShadeSmooth(domain="FACE", geometry=None, selection=True, shade_smooth=True):
     """
+    #### Properties
+    - `domain`(New in Blender 4.0): `FACE`, `EDGE`
     #### Inputs:
     - `#0 geometry: Geometry = None`
     - `#1 selection: Boolean = True`
@@ -1531,7 +1533,10 @@ def GeometryNodeSetShadeSmooth(geometry=None, selection=True, shade_smooth=True)
     #### Outputs:
     - `#0 geometry: Geometry = None`
     """
-    params_all = []
+    if bpy.app.version < (4, 0, 0):
+        params_all = []
+    else:
+        params_all = [('domain', domain, 'FACE')]
     inputs_all = [(geometry, None), (selection, True), (shade_smooth, True)]
     return "GeometryNodeSetShadeSmooth", params_all, inputs_all
 
@@ -4019,3 +4024,17 @@ def GeometryNodeIndexOfNearest(position=None, group_id=0):
     params_all = []
     inputs_all = [(position, None), (group_id, 0)]
     return "GeometryNodeIndexOfNearest", params_all, inputs_all
+
+
+def GeometryNodePointsToCurves(points=None, curve_group_id=0, weight=0.0):
+    """
+    #### Inputs:
+    - `#0 points: Points = None`
+    - `#1 curve_group_id: Integer = 0`
+    - `#2 weight: Float = 0.0`
+    #### Outputs:
+    - `#0 curves: Curves = None`
+    """
+    params_all = []
+    inputs_all = [(points, None), (curve_group_id, 0), (weight, 0.0)]
+    return "GeometryNodePointsToCurves", params_all, inputs_all

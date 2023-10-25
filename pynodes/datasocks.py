@@ -4,7 +4,7 @@ from bpy.types import NodeSocket
 from .core import Socket, Tree, new_node, new_link
 from . import nodes
 
-is_4_0_beta = bpy.app.version_string == "4.0.0 Beta"
+is_4_0_beta_or_higher = bpy.app.version > (4, 0, 0) or bpy.app.version_string == "4.0.0 Beta"
 
 
 class Float(Socket):
@@ -189,7 +189,7 @@ class Float(Socket):
         - Example:
 
         ```
-        value.float_curve(points=[(0, 0), (0.05, 0.03), (0.5, 0.5, "AUTO_CLAMPED"), (1, 0.5)]
+        value.float_curve(points=[(0, 0), (0.05, 0.03), (0.5, 0.5, "AUTO_CLAMPED"), (1, 0.5)])
         ```
         #### Path
         - Utilities > Math > Float Curve
@@ -883,6 +883,24 @@ class Vector(Socket):
         node = new_node(*nodes.GeometryNodeCurvePrimitiveLine("DIRECTION", self, direction=direction, length=length))
         return node.outputs[0].Curve
 
+    def to_white_noise(self, noise_dimensions='3D', w=0.0):
+        """The White Noise Texture node returns a random number based on an input Seed. The seed can be a number, a 2D vector, a 3D vector, or a 4D vector; depending on the Dimensions property. The output number ranges between zero and one.
+        #### Path
+        - Texture > White Noise Texture Node
+        #### Properties:
+        - `noise_dimensions`: `3D`, `1D`, `2D`, `4D`
+        #### Outputs:
+        - `#0 value: Float = 0.0`
+        - `#1 color: Color = (0.0, 0.0, 0.0, 0.0)`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeTexWhiteNoise.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/texture/white_noise.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeTexWhiteNoise.html)
+        """
+        node = new_node(*nodes.ShaderNodeTexWhiteNoise(noise_dimensions, self, w))
+        ret = typing.NamedTuple("ShaderNodeTexWhiteNoise", [("value", Float), ("color", Color)])
+        return ret(node.outputs[0].Float, node.outputs[1].Color)
+
     def switch(self, switch=False, true_vector=(0.0, 0.0, 0.0)):
         """The Switch node outputs one of two inputs depending on a condition. Only the input that is passed through the node is computed.
         #### Path
@@ -1257,6 +1275,7 @@ class Vector(Socket):
         """
         return self.math("NORMALIZE").vector
 
+    @property
     def absolute(self):
         """The entrywise absolute value of A.
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/vector/vector_math.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeVectorMath.html)
@@ -1317,6 +1336,17 @@ class Vector(Socket):
         return self.ceil()
 
     def fraction(self):
+        """Returns the fractional part of the value entrywise.
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/vector/vector_math.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeVectorMath.html)
+        #### Path
+        - Utilities > Vector > Vector Math Node
+        #### Outputs:
+        - `#0 vector: Vector = (0.0, 0.0, 0.0)`
+        """
+        return self.math("FRACTION").vector
+
+    @property
+    def fract(self):
         """Returns the fractional part of the value entrywise.
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/vector/vector_math.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeVectorMath.html)
         #### Path
@@ -1898,7 +1928,7 @@ class Color(Vector):
         socket = CombineColor(self.red, self.green, self.blue, value)
         self.bsocket = socket.bsocket
 
-    def mix(self, b_color=(0.5, 0.5, 0.5, 1.0), blend_type="MIX", factor=0.5, clamp_factor=True, clamp_result=False):
+    def mix(self, b_color=(0.5, 0.5, 0.5, 1.0), factor=0.5, blend_type="MIX", clamp_factor=True, clamp_result=False):
         """The Mix Node mixes values, colors and vectors inputs using a factor to control the amount of interpolation. The Color mode has additional blending modes.
         - `blend_type`: `MIX`, `DARKEN`, `MULTIPLY`, `BURN`, `LIGHTEN`, `SCREEN`, `DODGE`, `ADD`, `OVERLAY`, `SOFT_LIGHT`, `LINEAR_LIGHT`, `DIFFERENCE`, `EXCLUSION`, `SUBTRACT`, `DIVIDE`, `HUE`, `SATURATION`, `COLOR`, `VALUE`
         #### Path
@@ -2799,7 +2829,7 @@ class BsdfPrincipled(Shader):
 
     @subsurface.setter
     def subsurface(self, value):
-        if is_4_0_beta:
+        if is_4_0_beta_or_higher:
             self["subsurface_weight"] = value
         else:
             self["subsurface"] = value
@@ -2818,7 +2848,7 @@ class BsdfPrincipled(Shader):
 
     @subsurface_color.setter
     def subsurface_color(self, value):
-        if is_4_0_beta:
+        if is_4_0_beta_or_higher:
             self["base_color"] = value
         else:
             self["subsurface_color"] = value
@@ -2853,7 +2883,7 @@ class BsdfPrincipled(Shader):
 
     @specular.setter
     def specular(self, value):
-        if is_4_0_beta:
+        if is_4_0_beta_or_higher:
             self["Specular IOR Level"] = value
         else:
             self["specular"] = value
@@ -2896,7 +2926,7 @@ class BsdfPrincipled(Shader):
 
     @sheen.setter
     def sheen(self, value):
-        if is_4_0_beta:
+        if is_4_0_beta_or_higher:
             self["sheen_weight"] = value
         else:
             self["sheen"] = value
@@ -2947,7 +2977,7 @@ class BsdfPrincipled(Shader):
 
     @transmission.setter
     def transmission(self, value):
-        if is_4_0_beta:
+        if is_4_0_beta_or_higher:
             self["transmission_weight"] = value
         else:
             self["transmission"] = value
@@ -2966,7 +2996,21 @@ class BsdfPrincipled(Shader):
 
     @emission.setter
     def emission(self, value):
-        self["emission"] = value
+        if is_4_0_beta_or_higher:
+            self["emission_color"] = value
+        else:
+            self["emission"] = value
+
+    @property
+    def emission_color(self):
+        raise access_error()
+
+    @emission_color.setter
+    def emission_color(self, value):
+        if is_4_0_beta_or_higher:
+            self["emission_color"] = value
+        else:
+            self["emission"] = value
 
     @property
     def emission_strength(self):
@@ -3778,7 +3822,7 @@ def MixVector(a_vector=(0.0, 0.0, 0.0), b_vector=(0.0, 0.0, 0.0), factor_float=0
     return node.outputs[1].Vector
 
 
-def MixColor(a_color=(0.5, 0.5, 0.5, 1.0), b_color=(0.5, 0.5, 0.5, 1.0), blend_type="MIX", factor=0.5, clamp_factor=True, clamp_result=False):
+def MixColor(a_color=(0.5, 0.5, 0.5, 1.0), b_color=(0.5, 0.5, 0.5, 1.0), factor=0.5, blend_type="MIX", clamp_factor=True, clamp_result=False):
     """The Mix Node mixes images by working on the individual and corresponding pixels of the two input images. Called “Mix Color” in the shader, geometry, and texture context.
     #### Path
     - Utilities > Color > Mix Node

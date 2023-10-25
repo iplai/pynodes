@@ -1,5 +1,5 @@
 import bpy, enum, mathutils
-is_4_0_beta = bpy.app.version_string == "4.0.0 Beta"
+is_4_0_beta_or_higher = bpy.app.version > (4, 0, 0) or bpy.app.version_string == "4.0.0 Beta"
 
 
 class ObjType(enum.Enum):
@@ -112,7 +112,7 @@ class Scene:
                 for frame, value in mod_v:
                     if k.type == Mod.geometry_nodes:
                         mod: bpy.types.NodesModifier
-                        if is_4_0_beta:
+                        if is_4_0_beta_or_higher:
                             node_input_name = mod_k if mod_k in mod.node_group.interface.items_tree else mod_k.replace("_", " ").title()
                             node_input = mod.node_group.interface.items_tree[node_input_name]
                             if node_input.bl_socket_idname == "NodeSocketFloat":
@@ -150,7 +150,7 @@ class Scene:
                     if mod.node_group != node_group:
                         mod.node_group = node_group
                 elif k.type == Mod.geometry_nodes:
-                    if is_4_0_beta:
+                    if is_4_0_beta_or_higher:
                         node_input_name = mod_k if mod_k in mod.node_group.interface.items_tree else mod_k.replace("_", " ").title()
                         node_input = mod.node_group.interface.items_tree[node_input_name]
                         if node_input.bl_socket_idname == "NodeSocketFloat":

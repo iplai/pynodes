@@ -129,8 +129,8 @@ Data
    :class: autosummary longtable
    :align: left
 
-   * - :py:obj:`is_4_0_beta <pynodes.core.is_4_0_beta>`
-     - .. autodoc2-docstring:: pynodes.core.is_4_0_beta
+   * - :py:obj:`is_4_0_beta_or_higher <pynodes.core.is_4_0_beta_or_higher>`
+     - .. autodoc2-docstring:: pynodes.core.is_4_0_beta_or_higher
           :parser: myst
           :summary:
    * - :py:obj:`Param <pynodes.core.Param>`
@@ -145,11 +145,11 @@ Data
 API
 ~~~
 
-.. py:data:: is_4_0_beta
-   :canonical: pynodes.core.is_4_0_beta
+.. py:data:: is_4_0_beta_or_higher
+   :canonical: pynodes.core.is_4_0_beta_or_higher
    :value: None
 
-   .. autodoc2-docstring:: pynodes.core.is_4_0_beta
+   .. autodoc2-docstring:: pynodes.core.is_4_0_beta_or_higher
       :parser: myst
 
 .. py:function:: camel_to_snake(name)
