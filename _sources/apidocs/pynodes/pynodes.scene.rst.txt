@@ -41,19 +41,19 @@ Data
    :class: autosummary longtable
    :align: left
 
-   * - :py:obj:`is_4_0_beta <pynodes.scene.is_4_0_beta>`
-     - .. autodoc2-docstring:: pynodes.scene.is_4_0_beta
+   * - :py:obj:`is_4_0_beta_or_higher <pynodes.scene.is_4_0_beta_or_higher>`
+     - .. autodoc2-docstring:: pynodes.scene.is_4_0_beta_or_higher
           :parser: myst
           :summary:
 
 API
 ~~~
 
-.. py:data:: is_4_0_beta
-   :canonical: pynodes.scene.is_4_0_beta
+.. py:data:: is_4_0_beta_or_higher
+   :canonical: pynodes.scene.is_4_0_beta_or_higher
    :value: None
 
-   .. autodoc2-docstring:: pynodes.scene.is_4_0_beta
+   .. autodoc2-docstring:: pynodes.scene.is_4_0_beta_or_higher
       :parser: myst
 
 .. py:class:: ObjType(*args, **kwds)
