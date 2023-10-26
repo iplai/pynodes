@@ -163,6 +163,16 @@ class SocketWraper:
         if bsocket.bl_label == "Vector":
             if isinstance(value, (int, float)):
                 value = (value,) * 3
+            if isinstance(value, (list, tuple)) and len(value) == 3:
+                value = list(value)
+                for i, value_channel in enumerate(value):
+                    if isinstance(value_channel, str):
+                        if value_channel.startswith("#"):
+                            value_channel = value_channel[1:].strip()
+                            fcurve = self.bsocket.driver_add("default_value", i)
+                            fcurve.driver.type = "SCRIPTED"
+                            fcurve.driver.expression = value_channel
+                            value[i] = 0
         elif bsocket.bl_label == "Color":
             from .colors import color_tuple
             value = color_tuple(value)
