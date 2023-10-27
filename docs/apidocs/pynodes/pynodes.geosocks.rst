@@ -199,6 +199,12 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.__getitem__
          :parser: myst
 
+   .. py:method:: __mul__(other)
+      :canonical: pynodes.geosocks.Geometry.__mul__
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.__mul__
+         :parser: myst
+
    .. py:property:: selection
       :canonical: pynodes.geosocks.Geometry.selection
 
@@ -539,6 +545,12 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.remove_attribute
          :parser: myst
 
+   .. py:method:: remove_attributes(*names: list[str])
+      :canonical: pynodes.geosocks.Geometry.remove_attributes
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.remove_attributes
+         :parser: myst
+
    .. py:method:: _store_named_attribute(data_type='FLOAT', domain='POINT', selection=True, name='', value_vector=(0.0, 0.0, 0.0), value_float=0.0, value_color=(0.0, 0.0, 0.0, 0.0), value_bool=False, value_int=0)
       :canonical: pynodes.geosocks.Geometry._store_named_attribute
 
@@ -549,6 +561,12 @@ API
       :canonical: pynodes.geosocks.Geometry.store_named_attribute
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.store_named_attribute
+         :parser: myst
+
+   .. py:method:: store_integer(domain='POINT', selection=True, **kwargs)
+      :canonical: pynodes.geosocks.Geometry.store_integer
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.store_integer
          :parser: myst
 
    .. py:method:: store_named_attributes(data: dict[str], domain='POINT', selection=True)
@@ -706,10 +724,10 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_nearest_on_corners
          :parser: myst
 
-   .. py:method:: bound_box()
-      :canonical: pynodes.geosocks.Geometry.bound_box
+   .. py:method:: bounding_box()
+      :canonical: pynodes.geosocks.Geometry.bounding_box
 
-      .. autodoc2-docstring:: pynodes.geosocks.Geometry.bound_box
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.bounding_box
          :parser: myst
 
    .. py:method:: convex_hull()
@@ -770,6 +788,24 @@ API
       :canonical: pynodes.geosocks.Geometry.transform
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.transform
+         :parser: myst
+
+   .. py:method:: translate(translation=(0.0, 0.0, 0.0))
+      :canonical: pynodes.geosocks.Geometry.translate
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.translate
+         :parser: myst
+
+   .. py:method:: rotate(rotation=(0.0, 0.0, 0.0))
+      :canonical: pynodes.geosocks.Geometry.rotate
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.rotate
+         :parser: myst
+
+   .. py:method:: scale(scale=(1.0, 1.0, 1.0))
+      :canonical: pynodes.geosocks.Geometry.scale
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.scale
          :parser: myst
 
    .. py:method:: separate_components()
@@ -1996,7 +2032,7 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Mesh.sample_uv_surface_boolean
          :parser: myst
 
-   .. py:method:: set_shade_smooth(shade_smooth=True, selection=True)
+   .. py:method:: set_shade_smooth(shade_smooth=True, domain='FACE', selection=True)
       :canonical: pynodes.geosocks.Mesh.set_shade_smooth
 
       .. autodoc2-docstring:: pynodes.geosocks.Mesh.set_shade_smooth
@@ -2197,10 +2233,22 @@ API
    .. autodoc2-docstring:: pynodes.geosocks.Points.__init__
       :parser: myst
 
+   .. py:method:: to_curves(curve_group_id=0, weight=0.0)
+      :canonical: pynodes.geosocks.Points.to_curves
+
+      .. autodoc2-docstring:: pynodes.geosocks.Points.to_curves
+         :parser: myst
+
    .. py:property:: domain_size
       :canonical: pynodes.geosocks.Points.domain_size
 
       .. autodoc2-docstring:: pynodes.geosocks.Points.domain_size
+         :parser: myst
+
+   .. py:property:: point_count
+      :canonical: pynodes.geosocks.Points.point_count
+
+      .. autodoc2-docstring:: pynodes.geosocks.Points.point_count
          :parser: myst
 
    .. py:method:: merge_by_distance(distance=0.001, mode='ALL', selection=True)

@@ -13,7 +13,7 @@ sys.path.insert(0, path)
 project = 'Pynodes'
 copyright = '2023, 赛博念咒师'
 author = '赛博念咒师'
-release = 'v0.1.0'
+release = 'v0.1.1'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

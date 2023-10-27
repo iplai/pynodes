@@ -1061,6 +1061,10 @@ Functions
      - .. autodoc2-docstring:: pynodes.nodes.GeometryNodeIndexOfNearest
           :parser: myst
           :summary:
+   * - :py:obj:`GeometryNodePointsToCurves <pynodes.nodes.GeometryNodePointsToCurves>`
+     - .. autodoc2-docstring:: pynodes.nodes.GeometryNodePointsToCurves
+          :parser: myst
+          :summary:
 
 API
 ~~~
@@ -1689,7 +1693,7 @@ API
    .. autodoc2-docstring:: pynodes.nodes.GeometryNodeSampleUVSurface
       :parser: myst
 
-.. py:function:: GeometryNodeSetShadeSmooth(geometry=None, selection=True, shade_smooth=True)
+.. py:function:: GeometryNodeSetShadeSmooth(domain='FACE', geometry=None, selection=True, shade_smooth=True)
    :canonical: pynodes.nodes.GeometryNodeSetShadeSmooth
 
    .. autodoc2-docstring:: pynodes.nodes.GeometryNodeSetShadeSmooth
@@ -2629,4 +2633,10 @@ API
    :canonical: pynodes.nodes.GeometryNodeIndexOfNearest
 
    .. autodoc2-docstring:: pynodes.nodes.GeometryNodeIndexOfNearest
+      :parser: myst
+
+.. py:function:: GeometryNodePointsToCurves(points=None, curve_group_id=0, weight=0.0)
+   :canonical: pynodes.nodes.GeometryNodePointsToCurves
+
+   .. autodoc2-docstring:: pynodes.nodes.GeometryNodePointsToCurves
       :parser: myst

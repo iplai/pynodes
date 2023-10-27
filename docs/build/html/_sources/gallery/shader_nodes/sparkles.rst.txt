@@ -22,7 +22,7 @@ Geometry Pieces
 
             with frame("Position of the points"):
 
-                pos = RandomVector((-1, -1, 0), (1, 1, 0)).normalize * a * 5
+                pos = RandomVector((-1, -1, 0), (1, 1, 0)).normalized * a * 5
 
             with frame("Points"):
 

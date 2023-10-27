@@ -32,7 +32,7 @@ Balls Push Apart
 
                 diff = points.position - obj.location
 
-                pos = diff.normalize.scale(obj.scale) + points.position
+                pos = diff.normalized.scale(obj.scale) + points.position
 
             points.set_position(position=pos)
 
