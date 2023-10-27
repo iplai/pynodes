@@ -985,44 +985,44 @@ def tree(func: typing.Callable[Param, RT]) -> typing.Callable[Param, RT]:
     def node_group_name(): # A Geometry Node Group Tree with tree name `Node Group Name`
         ...
     @tree
-    def foo(): # A Geometry Node Froup Tree with tree name `Node Group Name In Doc`
-        '''Node Group Name In Doc'''
+    def foo(): # A Geometry Node Froup Tree with tree name `Node Group Name In __docstring__`
+        '''Node Group Name In __docstring__'''
     @tree
     def node_group_name(): # A Shader Node Group Tree with tree name `Node Group Name`
         '''@Shader'''
     @tree
-    def foo(): # A Shader Node Group Tree with tree name `Node Group Name In Doc`
-        '''@Shader: Node Group Name In Doc'''
+    def foo(): # A Shader Node Group Tree with tree name `Node Group Name In __docstring__`
+        '''@Shader: Node Group Name In __docstring__'''
     @tree
     def mat_name(): # A material tree with material name `Mat Name`
         '''@Material'''
     @tree
-    def foo(): # An material tree with material name `Mat Name In Doc`
-        '''Material: Mat Name In Doc'''
+    def foo(): # An material tree with material name `Mat Name In __docstring__`
+        '''@Material: Mat Name In __docstring__'''
     @tree
     def world_name(): # A world shader tree with world name `World Name`
         '''@World'''
     @tree
-    def foo(): # An world shader tree with world name `World Name in Doc`
-        '''@World: World Name in Doc'''
+    def foo(): # An world shader tree with world name `World Name In __docstring__`
+        '''@World: World Name In __docstring__'''
     @tree
     def light_name(): # A light shader tree with light name `Light Name`
         '''@Light'''
     @tree
-    def foo(): # An light shader tree with light name `Light Name in Doc`
-        '''@Light: Light Name in Doc'''
+    def foo(): # An light shader tree with light name `Light Name In __docstring__`
+        '''@Light: Light Name In __docstring__'''
     @tree
     def scene_name(): # A scene compositor tree with scene name `Scene Name`
         '''@Scene'''
     @tree
-    def foo(): # A scene compositor tree with light name `Scene Name in Doc`
-        '''@Scene: Scene Name in Doc'''
+    def foo(): # A scene compositor tree with light name `Scene Name In __docstring__`
+        '''@Scene: Scene Name In __docstring__'''
     @tree
     def scene_name(): # A scene compositor tree with scene name `Scene Name`
         '''@Compositor'''
     @tree
-    def foo(): # A scene compositor tree with light name `Scene Name in Doc`
-        '''@Compositor: Scene Name in Doc'''
+    def foo(): # A scene compositor tree with light name `Scene Name In __docstring__`
+        '''@Compositor: Scene Name In __docstring__'''
     ```
     """
     node_tree = dispath_tree(func)
