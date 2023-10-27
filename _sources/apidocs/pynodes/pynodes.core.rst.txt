@@ -600,7 +600,7 @@ API
       .. autodoc2-docstring:: pynodes.core.Tree.frame
          :parser: myst
 
-   .. py:method:: simulate(*input_sockets: pynodes.core.Socket)
+   .. py:method:: simulate(*input_sockets: pynodes.core.Socket, fakes: list[int] | int = None)
       :canonical: pynodes.core.Tree.simulate
 
       .. autodoc2-docstring:: pynodes.core.Tree.simulate
@@ -772,7 +772,7 @@ API
    .. autodoc2-docstring:: pynodes.core.SimulationZone.__init__
       :parser: myst
 
-   .. py:method:: to_output(socket: pynodes.core.Socket, index=0)
+   .. py:method:: to_output(socket: pynodes.core.Socket, index=1)
       :canonical: pynodes.core.SimulationZone.to_output
 
       .. autodoc2-docstring:: pynodes.core.SimulationZone.to_output
@@ -925,7 +925,7 @@ API
    .. autodoc2-docstring:: pynodes.core.frame
       :parser: myst
 
-.. py:function:: simulate(*input_sockets: pynodes.core.Socket)
+.. py:function:: simulate(*input_sockets: pynodes.core.Socket, fakes: list[int] | int = None)
    :canonical: pynodes.core.simulate
 
    .. autodoc2-docstring:: pynodes.core.simulate

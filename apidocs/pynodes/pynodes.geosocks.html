@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="pynodes.nodes" href="pynodes.nodes.html" /><link rel="prev" title="pynodes.datasocks" href="pynodes.datasocks.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon-light.png"/><!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
-        <title>pynodes.geosocks - Pynodes v0.1.0 documentation</title>
+        <title>pynodes.geosocks - Pynodes v0.1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">Pynodes v0.1.0 documentation</div></a>
+      <a href="../../index.html"><div class="brand">Pynodes v0.1.1 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -425,6 +425,11 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="pynodes.geosocks.Geometry.__getitem__">
 <span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selection</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.Geometry.__getitem__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.geosocks.Geometry.__mul__">
+<span class="sig-name descname"><span class="pre">__mul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.Geometry.__mul__" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -1796,6 +1801,29 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="pynodes.geosocks.Geometry.remove_attributes">
+<span class="sig-name descname"><span class="pre">remove_attributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.Geometry.remove_attributes" title="Permalink to this definition">#</a></dt>
+<dd><p>The Remove Named Attribute node deletes an attribute with a certain name from its geometry input. Any attribute that exists on geometry data will be automatically propagated when the geometry storing it is changed, which can be an expensive operation, so using this node can be a simple way to optimize the performance of a geometry node tree or even to lower the memory usage of the entire scene.</p>
+<ul class="simple">
+<li><p>In-Place Operation</p></li>
+</ul>
+<section id="path">
+<h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Attribute &gt; Remove Named Attribute Node</p></li>
+</ul>
+</section>
+<section id="outputs">
+<h4>Outputs:<a class="headerlink" href="#outputs" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">geometry:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
+</ul>
+<p><img alt="" src="https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeRemoveNamedAttribute.png" /></p>
+<p><a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/remove_named_attribute.html">[Manual]</a> <a class="reference external" href="https://docs.blender.org/api/current/bpy.types.GeometryNodeRemoveAttribute.html">[API]</a></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pynodes.geosocks.Geometry._store_named_attribute">
 <span class="sig-name descname"><span class="pre">_store_named_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FLOAT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'POINT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_vector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_float</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_bool</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_int</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.Geometry._store_named_attribute" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
@@ -1827,6 +1855,21 @@
 </ul>
 <p><img alt="" src="https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeStoreNamedAttribute.png" /></p>
 <p><a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/store_named_attribute.html">[Manual]</a> <a class="reference external" href="https://docs.blender.org/api/current/bpy.types.GeometryNodeStoreNamedAttribute.html">[API]</a></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.geosocks.Geometry.store_integer">
+<span class="sig-name descname"><span class="pre">store_integer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'POINT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.Geometry.store_integer" title="Permalink to this definition">#</a></dt>
+<dd><p>The Store Named Attribute node stores the result of a field on a geometry as an attribute with the specified name. If the attribute already exists, the data type and domain will be updated to the values chosen in the node. However, keep in mind that the domain and data type of Built-In Attributes cannot be changed.</p>
+<ul class="simple">
+<li><p>In-Place Operation</p></li>
+</ul>
+<section id="path">
+<h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Attribute &gt; Store Named Attribute Node</p></li>
+</ul>
 </section>
 </dd></dl>
 
@@ -2429,8 +2472,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pynodes.geosocks.Geometry.bound_box">
-<span class="sig-name descname"><span class="pre">bound_box</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.Geometry.bound_box" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="pynodes.geosocks.Geometry.bounding_box">
+<span class="sig-name descname"><span class="pre">bounding_box</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.Geometry.bounding_box" title="Permalink to this definition">#</a></dt>
 <dd><p>The Bounding Box node creates a box mesh with the minimum volume that encapsulates the geometry of the input. The node also can output the vector positions of the bounding dimensions.</p>
 <section id="path">
 <h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
@@ -2722,6 +2765,75 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="pynodes.geosocks.Geometry.translate">
+<span class="sig-name descname"><span class="pre">translate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">translation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.Geometry.translate" title="Permalink to this definition">#</a></dt>
+<dd><p>The Transform Geometry Node allows you to move, rotate or scale the geometry. The transformation is applied to the entire geometry, and not per element. The Set Position Node is used for moving individual points of a geometry. For transforming instances individually, the instance translate, rotate, or scale nodes can be used.</p>
+<ul class="simple">
+<li><p>In-Place Operation</p></li>
+</ul>
+<section id="path">
+<h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Geometry &gt; Operations &gt; Transform Geometry Node</p></li>
+</ul>
+</section>
+<section id="outputs">
+<h4>Outputs:<a class="headerlink" href="#outputs" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">geometry:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
+</ul>
+<p><img alt="" src="https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeTransformGeometry.jpg" /></p>
+<p><a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/transform_geometry.html">[Manual]</a> <a class="reference external" href="https://docs.blender.org/api/current/bpy.types.GeometryNodeTransform.html">[API]</a></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.geosocks.Geometry.rotate">
+<span class="sig-name descname"><span class="pre">rotate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rotation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.Geometry.rotate" title="Permalink to this definition">#</a></dt>
+<dd><p>The Transform Geometry Node allows you to move, rotate or scale the geometry. The transformation is applied to the entire geometry, and not per element. The Set Position Node is used for moving individual points of a geometry. For transforming instances individually, the instance translate, rotate, or scale nodes can be used.</p>
+<ul class="simple">
+<li><p>In-Place Operation</p></li>
+</ul>
+<section id="path">
+<h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Geometry &gt; Operations &gt; Transform Geometry Node</p></li>
+</ul>
+</section>
+<section id="outputs">
+<h4>Outputs:<a class="headerlink" href="#outputs" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">geometry:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
+</ul>
+<p><img alt="" src="https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeTransformGeometry.jpg" /></p>
+<p><a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/transform_geometry.html">[Manual]</a> <a class="reference external" href="https://docs.blender.org/api/current/bpy.types.GeometryNodeTransform.html">[API]</a></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.geosocks.Geometry.scale">
+<span class="sig-name descname"><span class="pre">scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1.0,</span> <span class="pre">1.0,</span> <span class="pre">1.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.Geometry.scale" title="Permalink to this definition">#</a></dt>
+<dd><p>The Transform Geometry Node allows you to move, rotate or scale the geometry. The transformation is applied to the entire geometry, and not per element. The Set Position Node is used for moving individual points of a geometry. For transforming instances individually, the instance translate, rotate, or scale nodes can be used.</p>
+<ul class="simple">
+<li><p>In-Place Operation</p></li>
+</ul>
+<section id="path">
+<h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Geometry &gt; Operations &gt; Transform Geometry Node</p></li>
+</ul>
+</section>
+<section id="outputs">
+<h4>Outputs:<a class="headerlink" href="#outputs" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">geometry:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
+</ul>
+<p><img alt="" src="https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeTransformGeometry.jpg" /></p>
+<p><a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/transform_geometry.html">[Manual]</a> <a class="reference external" href="https://docs.blender.org/api/current/bpy.types.GeometryNodeTransform.html">[API]</a></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pynodes.geosocks.Geometry.separate_components">
 <span class="sig-name descname"><span class="pre">separate_components</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.Geometry.separate_components" title="Permalink to this definition">#</a></dt>
 <dd><p>The Separate Components node splits a geometry into a separate output for each type of data in the geometry.</p>
@@ -2735,8 +2847,8 @@
 <h4>Outputs:<a class="headerlink" href="#outputs" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">mesh:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">#1</span> <span class="pre">point_cloud:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">#2</span> <span class="pre">curve:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#1</span> <span class="pre">curve:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#2</span> <span class="pre">point_cloud:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">#3</span> <span class="pre">volume:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">#4</span> <span class="pre">instances:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
 </ul>
@@ -6837,7 +6949,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pynodes.geosocks.Mesh.set_shade_smooth">
-<span class="sig-name descname"><span class="pre">set_shade_smooth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shade_smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.Mesh.set_shade_smooth" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">set_shade_smooth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shade_smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FACE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.Mesh.set_shade_smooth" title="Permalink to this definition">#</a></dt>
 <dd><p>The Set Shade Smooth node controls whether the mesh’s faces look smooth in the viewport and renders. The input node for this data is the Is Shade Smooth node.</p>
 <ul class="simple">
 <li><p>In-Place Operation</p></li>
@@ -6846,6 +6958,12 @@
 <h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Mesh &gt; Write &gt; Set Shade Smooth Node</p></li>
+</ul>
+</section>
+<section id="properties">
+<h4>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">domain</span></code>(New in Blender 4.0): <code class="docutils literal notranslate"><span class="pre">FACE</span></code>, <code class="docutils literal notranslate"><span class="pre">EDGE</span></code></p></li>
 </ul>
 </section>
 <section id="outputs">
@@ -7515,9 +7633,52 @@
 <dd><p>Bases: <a class="reference internal" href="#pynodes.geosocks.Geometry" title="pynodes.geosocks.Geometry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pynodes.geosocks.Geometry</span></code></a></p>
 <p>A points cloud data socket</p>
 <p class="rubric">Initialization</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pynodes.geosocks.Points.to_curves">
+<span class="sig-name descname"><span class="pre">to_curves</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curve_group_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.geosocks.Points.to_curves" title="Permalink to this definition">#</a></dt>
+<dd><p>The <em>Points to Curves</em> node generates a <a class="reference external" href="https://docs.blender.org/manual/en/4.0/modeling/curves/introduction.html">Curves</a> geometry by taking all points and inserting them to new curves. All <a class="reference external" href="https://docs.blender.org/manual/en/4.0/modeling/geometry_nodes/attributes_reference.html">Attributes</a> from points are propagated to <a class="reference external" href="https://docs.blender.org/manual/en/4.0/modeling/geometry_nodes/attributes_reference.html#attribute-domains">Curve Points</a>. <a class="reference external" href="https://docs.blender.org/manual/en/4.0/modeling/geometry_nodes/attributes_reference.html#geometry-nodes-builtin-attributes">Built-in</a> curves attributes stored in points will be ignored.</p>
+<ul class="simple">
+<li><p>New in Blender 4.0.0</p></li>
+</ul>
+<section id="path">
+<h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Point &gt; Points to Curves Node</p></li>
+</ul>
+</section>
+<section id="outputs">
+<h4>Outputs:<a class="headerlink" href="#outputs" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">curves:</span> <span class="pre">Curve</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
+</ul>
+<p><img alt="" src="https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodePointsToCurves.webp" /></p>
+<p><a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/point/points_to_curves.html">[Manual]</a> <a class="reference external" href="https://docs.blender.org/api/4.0/bpy.types.GeometryNodePointsToCurves.html">[API]</a></p>
+</section>
+</dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="pynodes.geosocks.Points.domain_size">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">domain_size</span></span><a class="headerlink" href="#pynodes.geosocks.Points.domain_size" title="Permalink to this definition">#</a></dt>
+<dd><p>The Domain Size outputs the size of an attribute domain on the selected geometry type, for example, the number of edges in a mesh, or the number of points in a point cloud.</p>
+<section id="path">
+<h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Attribute &gt; Domain Size Node</p></li>
+</ul>
+</section>
+<section id="outputs">
+<h4>Outputs:<a class="headerlink" href="#outputs" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">point_count:</span> <span class="pre">Integer</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
+</ul>
+<p><img alt="" src="https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeAttributeDomainSize.webp" /></p>
+<p><a class="reference external" href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/domain_size.html">[Manual]</a> <a class="reference external" href="https://docs.blender.org/api/current/bpy.types.GeometryNodeAttributeDomainSize.html">[API]</a></p>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pynodes.geosocks.Points.point_count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">point_count</span></span><a class="headerlink" href="#pynodes.geosocks.Points.point_count" title="Permalink to this definition">#</a></dt>
 <dd><p>The Domain Size outputs the size of an attribute domain on the selected geometry type, for example, the number of edges in a mesh, or the number of points in a point cloud.</p>
 <section id="path">
 <h4>Path<a class="headerlink" href="#path" title="Permalink to this heading">#</a></h4>
@@ -8792,6 +8953,7 @@
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code></a><ul>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.bl_idname"><code class="docutils literal notranslate"><span class="pre">Geometry.bl_idname</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.__getitem__"><code class="docutils literal notranslate"><span class="pre">Geometry.__getitem__()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.geosocks.Geometry.__mul__"><code class="docutils literal notranslate"><span class="pre">Geometry.__mul__()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.selection"><code class="docutils literal notranslate"><span class="pre">Geometry.selection</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.float_statistic_on_points"><code class="docutils literal notranslate"><span class="pre">Geometry.float_statistic_on_points()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.float_statistic_on_edges"><code class="docutils literal notranslate"><span class="pre">Geometry.float_statistic_on_edges()</span></code></a></li>
@@ -8848,8 +9010,10 @@
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.capture_integer_on_curves"><code class="docutils literal notranslate"><span class="pre">Geometry.capture_integer_on_curves()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.capture_integer_on_instances"><code class="docutils literal notranslate"><span class="pre">Geometry.capture_integer_on_instances()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.remove_attribute"><code class="docutils literal notranslate"><span class="pre">Geometry.remove_attribute()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.geosocks.Geometry.remove_attributes"><code class="docutils literal notranslate"><span class="pre">Geometry.remove_attributes()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry._store_named_attribute"><code class="docutils literal notranslate"><span class="pre">Geometry._store_named_attribute()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.store_named_attribute"><code class="docutils literal notranslate"><span class="pre">Geometry.store_named_attribute()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.geosocks.Geometry.store_integer"><code class="docutils literal notranslate"><span class="pre">Geometry.store_integer()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.store_named_attributes"><code class="docutils literal notranslate"><span class="pre">Geometry.store_named_attributes()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.ID"><code class="docutils literal notranslate"><span class="pre">Geometry.ID</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.index"><code class="docutils literal notranslate"><span class="pre">Geometry.index</span></code></a></li>
@@ -8875,7 +9039,7 @@
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.sample_nearest_on_edges"><code class="docutils literal notranslate"><span class="pre">Geometry.sample_nearest_on_edges()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.sample_nearest_on_faces"><code class="docutils literal notranslate"><span class="pre">Geometry.sample_nearest_on_faces()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.sample_nearest_on_corners"><code class="docutils literal notranslate"><span class="pre">Geometry.sample_nearest_on_corners()</span></code></a></li>
-<li><a class="reference internal" href="#pynodes.geosocks.Geometry.bound_box"><code class="docutils literal notranslate"><span class="pre">Geometry.bound_box()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.geosocks.Geometry.bounding_box"><code class="docutils literal notranslate"><span class="pre">Geometry.bounding_box()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.convex_hull"><code class="docutils literal notranslate"><span class="pre">Geometry.convex_hull()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.delete"><code class="docutils literal notranslate"><span class="pre">Geometry.delete()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.delete_points"><code class="docutils literal notranslate"><span class="pre">Geometry.delete_points()</span></code></a></li>
@@ -8886,6 +9050,9 @@
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.duplicate_elements"><code class="docutils literal notranslate"><span class="pre">Geometry.duplicate_elements()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.merge_by_distance"><code class="docutils literal notranslate"><span class="pre">Geometry.merge_by_distance()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.transform"><code class="docutils literal notranslate"><span class="pre">Geometry.transform()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.geosocks.Geometry.translate"><code class="docutils literal notranslate"><span class="pre">Geometry.translate()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.geosocks.Geometry.rotate"><code class="docutils literal notranslate"><span class="pre">Geometry.rotate()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.geosocks.Geometry.scale"><code class="docutils literal notranslate"><span class="pre">Geometry.scale()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.separate_components"><code class="docutils literal notranslate"><span class="pre">Geometry.separate_components()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.separate"><code class="docutils literal notranslate"><span class="pre">Geometry.separate()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Geometry.separate_edges"><code class="docutils literal notranslate"><span class="pre">Geometry.separate_edges()</span></code></a></li>
@@ -9110,7 +9277,9 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#pynodes.geosocks.Points"><code class="docutils literal notranslate"><span class="pre">Points</span></code></a><ul>
+<li><a class="reference internal" href="#pynodes.geosocks.Points.to_curves"><code class="docutils literal notranslate"><span class="pre">Points.to_curves()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Points.domain_size"><code class="docutils literal notranslate"><span class="pre">Points.domain_size</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.geosocks.Points.point_count"><code class="docutils literal notranslate"><span class="pre">Points.point_count</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Points.merge_by_distance"><code class="docutils literal notranslate"><span class="pre">Points.merge_by_distance()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Points.to_vertices"><code class="docutils literal notranslate"><span class="pre">Points.to_vertices()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.geosocks.Points.to_volume"><code class="docutils literal notranslate"><span class="pre">Points.to_volume()</span></code></a></li>

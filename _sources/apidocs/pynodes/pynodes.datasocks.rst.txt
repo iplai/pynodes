@@ -427,8 +427,8 @@ Functions
      - .. autodoc2-docstring:: pynodes.datasocks.ShaderNodeVectorTransform
           :parser: myst
           :summary:
-   * - :py:obj:`ShaderNodeBlackbody <pynodes.datasocks.ShaderNodeBlackbody>`
-     - .. autodoc2-docstring:: pynodes.datasocks.ShaderNodeBlackbody
+   * - :py:obj:`Blackbody <pynodes.datasocks.Blackbody>`
+     - .. autodoc2-docstring:: pynodes.datasocks.Blackbody
           :parser: myst
           :summary:
    * - :py:obj:`ShaderNodeCombineColor <pynodes.datasocks.ShaderNodeCombineColor>`
@@ -558,6 +558,12 @@ API
       :canonical: pynodes.datasocks.Float.to_string
 
       .. autodoc2-docstring:: pynodes.datasocks.Float.to_string
+         :parser: myst
+
+   .. py:method:: to_blackbody()
+      :canonical: pynodes.datasocks.Float.to_blackbody
+
+      .. autodoc2-docstring:: pynodes.datasocks.Float.to_blackbody
          :parser: myst
 
    .. py:method:: clamp(clamp_type='MINMAX', min=0.0, max=1.0)
@@ -1255,6 +1261,12 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Vector.line_towards
          :parser: myst
 
+   .. py:method:: to_white_noise(noise_dimensions='3D', w=0.0)
+      :canonical: pynodes.datasocks.Vector.to_white_noise
+
+      .. autodoc2-docstring:: pynodes.datasocks.Vector.to_white_noise
+         :parser: myst
+
    .. py:method:: switch(switch=False, true_vector=(0.0, 0.0, 0.0))
       :canonical: pynodes.datasocks.Vector.switch
 
@@ -1465,7 +1477,7 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Vector.normalized
          :parser: myst
 
-   .. py:method:: absolute()
+   .. py:property:: absolute
       :canonical: pynodes.datasocks.Vector.absolute
 
       .. autodoc2-docstring:: pynodes.datasocks.Vector.absolute
@@ -1517,6 +1529,12 @@ API
       :canonical: pynodes.datasocks.Vector.fraction
 
       .. autodoc2-docstring:: pynodes.datasocks.Vector.fraction
+         :parser: myst
+
+   .. py:property:: fract
+      :canonical: pynodes.datasocks.Vector.fract
+
+      .. autodoc2-docstring:: pynodes.datasocks.Vector.fract
          :parser: myst
 
    .. py:method:: modulo(other=(0.0, 0.0, 0.0))
@@ -2051,7 +2069,7 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Color.alpha
          :parser: myst
 
-   .. py:method:: mix(b_color=(0.5, 0.5, 0.5, 1.0), blend_type='MIX', factor=0.5, clamp_factor=True, clamp_result=False)
+   .. py:method:: mix(b_color=(0.5, 0.5, 0.5, 1.0), factor=0.5, blend_type='MIX', clamp_factor=True, clamp_result=False)
       :canonical: pynodes.datasocks.Color.mix
 
       .. autodoc2-docstring:: pynodes.datasocks.Color.mix
@@ -2543,6 +2561,12 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.emission
          :parser: myst
 
+   .. py:property:: emission_color
+      :canonical: pynodes.datasocks.BsdfPrincipled.emission_color
+
+      .. autodoc2-docstring:: pynodes.datasocks.BsdfPrincipled.emission_color
+         :parser: myst
+
    .. py:property:: emission_strength
       :canonical: pynodes.datasocks.BsdfPrincipled.emission_strength
 
@@ -2943,7 +2967,7 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.MixVector
       :parser: myst
 
-.. py:function:: MixColor(a_color=(0.5, 0.5, 0.5, 1.0), b_color=(0.5, 0.5, 0.5, 1.0), blend_type='MIX', factor=0.5, clamp_factor=True, clamp_result=False)
+.. py:function:: MixColor(a_color=(0.5, 0.5, 0.5, 1.0), b_color=(0.5, 0.5, 0.5, 1.0), factor=0.5, blend_type='MIX', clamp_factor=True, clamp_result=False)
    :canonical: pynodes.datasocks.MixColor
 
    .. autodoc2-docstring:: pynodes.datasocks.MixColor
@@ -3135,10 +3159,10 @@ API
    .. autodoc2-docstring:: pynodes.datasocks.ShaderNodeVectorTransform
       :parser: myst
 
-.. py:function:: ShaderNodeBlackbody(temperature=1500.0)
-   :canonical: pynodes.datasocks.ShaderNodeBlackbody
+.. py:function:: Blackbody(temperature=1500.0)
+   :canonical: pynodes.datasocks.Blackbody
 
-   .. autodoc2-docstring:: pynodes.datasocks.ShaderNodeBlackbody
+   .. autodoc2-docstring:: pynodes.datasocks.Blackbody
       :parser: myst
 
 .. py:function:: ShaderNodeCombineColor(red=0.0, green=0.0, blue=0.0, mode='RGB')

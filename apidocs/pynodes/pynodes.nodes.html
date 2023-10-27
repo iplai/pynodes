@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="pynodes.scene" href="pynodes.scene.html" /><link rel="prev" title="pynodes.geosocks" href="pynodes.geosocks.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon-light.png"/><!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
-        <title>pynodes.nodes - Pynodes v0.1.0 documentation</title>
+        <title>pynodes.nodes - Pynodes v0.1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -126,7 +126,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">Pynodes v0.1.0 documentation</div></a>
+      <a href="../../index.html"><div class="brand">Pynodes v0.1.1 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -1190,12 +1190,10 @@
 </td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.nodes.GeometryNodeSetShadeSmooth" title="pynodes.nodes.GeometryNodeSetShadeSmooth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeometryNodeSetShadeSmooth</span></code></a></p></td>
-<td><section id="inputs">
-<h4>Inputs:<a class="headerlink" href="#inputs" title="Permalink to this heading">#</a></h4>
+<td><section id="properties">
+<h4>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">geometry:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">#1</span> <span class="pre">selection:</span> <span class="pre">Boolean</span> <span class="pre">=</span> <span class="pre">True</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">#2</span> <span class="pre">shade_smooth:</span> <span class="pre">Boolean</span> <span class="pre">=</span> <span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">domain</span></code>(New in Blender 4.0): <code class="docutils literal notranslate"><span class="pre">FACE</span></code>, <code class="docutils literal notranslate"><span class="pre">EDGE</span></code></p></li>
 </ul>
 </section>
 </td>
@@ -2616,6 +2614,17 @@
 </section>
 </td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pynodes.nodes.GeometryNodePointsToCurves" title="pynodes.nodes.GeometryNodePointsToCurves"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeometryNodePointsToCurves</span></code></a></p></td>
+<td><section id="inputs">
+<h4>Inputs:<a class="headerlink" href="#inputs" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">points:</span> <span class="pre">Points</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#1</span> <span class="pre">curve_group_id:</span> <span class="pre">Integer</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#2</span> <span class="pre">weight:</span> <span class="pre">Float</span> <span class="pre">=</span> <span class="pre">0.0</span></code></p></li>
+</ul>
+</section>
+</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -3355,8 +3364,8 @@
 <h4>Outputs:<a class="headerlink" href="#outputs" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">mesh:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">#1</span> <span class="pre">point_cloud:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">#2</span> <span class="pre">curve:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#1</span> <span class="pre">curve:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#2</span> <span class="pre">point_cloud:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">#3</span> <span class="pre">volume:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">#4</span> <span class="pre">instances:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
 </ul>
@@ -4593,8 +4602,14 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pynodes.nodes.GeometryNodeSetShadeSmooth">
-<span class="sig-prename descclassname"><span class="pre">pynodes.nodes.</span></span><span class="sig-name descname"><span class="pre">GeometryNodeSetShadeSmooth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shade_smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.nodes.GeometryNodeSetShadeSmooth" title="Permalink to this definition">#</a></dt>
-<dd><section id="inputs">
+<span class="sig-prename descclassname"><span class="pre">pynodes.nodes.</span></span><span class="sig-name descname"><span class="pre">GeometryNodeSetShadeSmooth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">domain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FACE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shade_smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.nodes.GeometryNodeSetShadeSmooth" title="Permalink to this definition">#</a></dt>
+<dd><section id="properties">
+<h4>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">domain</span></code>(New in Blender 4.0): <code class="docutils literal notranslate"><span class="pre">FACE</span></code>, <code class="docutils literal notranslate"><span class="pre">EDGE</span></code></p></li>
+</ul>
+</section>
+<section id="inputs">
 <h4>Inputs:<a class="headerlink" href="#inputs" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">geometry:</span> <span class="pre">Geometry</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
@@ -7914,6 +7929,25 @@
 </section>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.nodes.GeometryNodePointsToCurves">
+<span class="sig-prename descclassname"><span class="pre">pynodes.nodes.</span></span><span class="sig-name descname"><span class="pre">GeometryNodePointsToCurves</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curve_group_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.nodes.GeometryNodePointsToCurves" title="Permalink to this definition">#</a></dt>
+<dd><section id="inputs">
+<h4>Inputs:<a class="headerlink" href="#inputs" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">points:</span> <span class="pre">Points</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#1</span> <span class="pre">curve_group_id:</span> <span class="pre">Integer</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#2</span> <span class="pre">weight:</span> <span class="pre">Float</span> <span class="pre">=</span> <span class="pre">0.0</span></code></p></li>
+</ul>
+</section>
+<section id="outputs">
+<h4>Outputs:<a class="headerlink" href="#outputs" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">curves:</span> <span class="pre">Curves</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
+</ul>
+</section>
+</dd></dl>
+
 </section>
 </section>
 </section>
@@ -8245,6 +8279,7 @@
 <li><a class="reference internal" href="#pynodes.nodes.ShaderNodeScript"><code class="docutils literal notranslate"><span class="pre">ShaderNodeScript()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.nodes.GeometryNodeInputSceneTime"><code class="docutils literal notranslate"><span class="pre">GeometryNodeInputSceneTime()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.nodes.GeometryNodeIndexOfNearest"><code class="docutils literal notranslate"><span class="pre">GeometryNodeIndexOfNearest()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.nodes.GeometryNodePointsToCurves"><code class="docutils literal notranslate"><span class="pre">GeometryNodePointsToCurves()</span></code></a></li>
 </ul>
 </li>
 </ul>
