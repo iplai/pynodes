@@ -166,6 +166,20 @@ class Float(Socket):
         node = new_node(*nodes.FunctionNodeValueToString(self, decimals))
         return node.outputs[0].String
 
+    def to_blackbody(self):
+        """The Blackbody node converts a blackbody temperature to RGB value. This can be useful for materials that emit light at natural occurring frequencies.
+        #### Path
+        - Converter > Blackbody Node
+        #### Outputs:
+        - `#0 color: Color = (0.0, 0.0, 0.0, 0.0)`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_ShaderNodeBlackbody.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/render/shader_nodes/converter/blackbody.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeBlackbody.html)
+        """
+        node = new_node(*nodes.ShaderNodeBlackbody(self))
+        return node.outputs[0].Color
+
     def clamp(self, clamp_type='MINMAX', min=0.0, max=1.0):
         """The Clamp node clamps a value between a minimum and a maximum.
         #### Path
@@ -4384,7 +4398,7 @@ def ShaderNodeVectorTransform(convert_from='WORLD', convert_to='OBJECT', vector_
     return node.outputs[0].Vector
 
 
-def ShaderNodeBlackbody(temperature=1500.0):
+def Blackbody(temperature=1500.0):
     """The Blackbody node converts a blackbody temperature to RGB value. This can be useful for materials that emit light at natural occurring frequencies.
     #### Path
     - Converter > Blackbody Node
