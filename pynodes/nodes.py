@@ -4038,3 +4038,20 @@ def GeometryNodePointsToCurves(points=None, curve_group_id=0, weight=0.0):
     params_all = []
     inputs_all = [(points, None), (curve_group_id, 0), (weight, 0.0)]
     return "GeometryNodePointsToCurves", params_all, inputs_all
+
+
+def GeometryNodeMeshToSDFVolume(resolution_mode="VOXEL_AMOUNT", mesh=None, voxel_size=0.3, voxel_amount=64.0, half_band_width=3.0):
+    """
+    - `Experimental`
+    - `resolution_mode`: `VOXEL_AMOUNT`, `VOXEL_SIZE`
+    #### Inputs:
+    - `#0 mesh: Mesh = None`
+    - `#1 voxel_size: Float = 0.3`
+    - `#2 voxel_amount: Float = 64.0`
+    - `#3 half_band_width: Float = 3.0`
+    #### Outputs:
+    - `#0 volune: Volume = None`
+    """
+    params_all = [("resolution_mode", resolution_mode, "VOXEL_AMOUNT")]
+    inputs_all = [(mesh, None), (voxel_size, 0.3), (voxel_amount, 64.0), (half_band_width, 3.0)]
+    return "GeometryNodeMeshToSDFVolume", params_all, inputs_all

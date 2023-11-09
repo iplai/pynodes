@@ -1186,6 +1186,28 @@ class Geometry(Socket):
         self.store_named_attribute(name, value, domain, selection)
         return self.named_attribute_integer(name).attribute
 
+    def store_float(self, domain="POINT", selection=True, **kwargs):
+        """The Store Named Attribute node stores the result of a field on a geometry as an attribute with the specified name. If the attribute already exists, the data type and domain will be updated to the values chosen in the node. However, keep in mind that the domain and data type of Built-In Attributes cannot be changed.
+        - In-Place Operation
+        #### Path
+        - Attribute > Store Named Attribute Node
+        """
+        name = next(iter(kwargs))
+        value = kwargs[name]
+        self.store_named_attribute(name, value, domain, selection)
+        return self.named_attribute_float(name).attribute
+
+    def store_boolean(self, domain="POINT", selection=True, **kwargs):
+        """The Store Named Attribute node stores the result of a field on a geometry as an attribute with the specified name. If the attribute already exists, the data type and domain will be updated to the values chosen in the node. However, keep in mind that the domain and data type of Built-In Attributes cannot be changed.
+        - In-Place Operation
+        #### Path
+        - Attribute > Store Named Attribute Node
+        """
+        name = next(iter(kwargs))
+        value = kwargs[name]
+        self.store_named_attribute(name, value, domain, selection)
+        return self.named_attribute_boolean(name).attribute
+
     def store_named_attributes(self, data: dict[str], domain="POINT", selection=True):
         """The Store Named Attribute node stores the result of a field on a geometry as an attribute with the specified name. If the attribute already exists, the data type and domain will be updated to the values chosen in the node. However, keep in mind that the domain and data type of Built-In Attributes cannot be changed.
         - In-Place Operation
@@ -5190,6 +5212,23 @@ class Mesh(Geometry):
             node = new_node(*nodes.GeometryNodeMeshToVolume(resolution_mode, self, density, voxel_size, voxel_amount, exterior_band_width, interior_band_width, fill_volume))
         return node.outputs[0].Volume
 
+    def to_sdf_volume(self, resolution_mode='VOXEL_AMOUNT', voxel_size=0.3, voxel_amount=64.0, half_band_width=3.0):
+        """The Mesh to Volume node creates a fog volumes based on the shape of a mesh. The volume is created with a grid of the name “density”.
+        - Experimental node
+        #### Path
+        - Mesh > Operations > Mesh to SDF Volume Node
+        #### Properties
+        - `resolution_mode`: `VOXEL_AMOUNT`, `VOXEL_SIZE`
+        #### Outputs:
+        - `#0 volume: Volume = None`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeMeshToVolume.png)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/operations/mesh_to_volume.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeMeshToVolume.html)
+        """
+        node = new_node(*nodes.GeometryNodeMeshToSDFVolume(resolution_mode, self, voxel_size, voxel_amount, half_band_width))
+        return node.outputs[0].Volume
+
     def scale_elements(self, scale=1.0, center: "Vector" = None, axis=(1.0, 0.0, 0.0), domain='FACE', scale_mode='UNIFORM', selection=True):
         """The Scale Elements Node scales groups of connected edges and faces. When multiple selected faces/edges share the same vertices, they are scaled together. The center and scaling factor is averaged in this case.
         #### Path
@@ -5259,8 +5298,8 @@ class Mesh(Geometry):
         #### Path
         - Mesh > Operations > Triangulate Node
         #### Properties
-        - `ngon_method`: `BEAUTY`, `CLIP`
         - `quad_method`: `SHORTEST_DIAGONAL`, `BEAUTY`, `FIXED`, `FIXED_ALTERNATE`, `LONGEST_DIAGONAL`
+        - `ngon_method`: `BEAUTY`, `CLIP`
         #### Outputs:
         - `#0 mesh: Geometry = None`
 

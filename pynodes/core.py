@@ -240,6 +240,8 @@ class Socket(SocketWraper):
 
     def __call__(self, name: str):
         self._name = name
+        if self.node.bnode.bl_idname == "ShaderNodeValue":
+            self.node.bnode.outputs[0].name = name
         return self
 
     def __setitem__(self, key: str, value):
@@ -721,11 +723,10 @@ class Group(NodeWraper):
         return self
 
     def __getitem__(self, name: str):
-        name = name.replace(" ", "_")
         try:
-            output = self.bnode.outputs[name.title()]
-        except KeyError:
             output = self.bnode.outputs[name]
+        except KeyError:
+            output = self.bnode.outputs[name.replace("_", " ").title()]
         return Socket(output)
 
     def __setitem__(self, name: str, value):
@@ -894,11 +895,14 @@ def convert_param_name(name: str):
     if len(name) == 1:
         return name
     elif len(name) == 2:
-        if name[1].isdigit() or name[1] in 'xyz':
+        if name[1].isdigit() or name[1] in 'xyz_':
+            return name
+    elif len(name) == 3:
+        if name[0] in "d" and name[2].isdigit():
             return name
     # return name.replace("_", " ").title()
     words = name.split('_')
-    return " ".join(w if w[0].isupper() else w.title() for w in words)
+    return " ".join(w if w and w[0].isupper() else w.title() for w in words)
 
 
 def get_param_name(param: inspect.Parameter) -> str:

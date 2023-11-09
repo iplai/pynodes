@@ -11,6 +11,20 @@ class Float(Socket):
     """Floating-point number socket of a node, float in [-inf, inf], default 0.0"""
     bl_idname = "NodeSocketFloat"
 
+    def blur(self, iterations=1, weight=1.0):
+        """The Blur Attribute node smooths attribute values between neighboring geometry elements.
+        #### Path
+        - Attribute > Blur Attribute Node
+        #### Outputs:
+        - `#0 value_float: Float = 0.0`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeBlurAttribute.jpg)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/blur_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeBlurAttribute.html)
+        """
+        node = new_node(*nodes.GeometryNodeBlurAttribute("FLOAT", value_float=self, iterations=iterations, weight=weight))
+        return node.outputs[0].Float
+
     def switch(self, switch=False, true_float=True):
         """The Switch node outputs one of two inputs depending on a condition. Only the input that is passed through the node is computed.
         #### Path
@@ -896,6 +910,20 @@ class Vector(Socket):
         """
         node = new_node(*nodes.GeometryNodeCurvePrimitiveLine("DIRECTION", self, direction=direction, length=length))
         return node.outputs[0].Curve
+
+    def blur(self, iterations=1, weight=1.0):
+        """The Blur Attribute node smooths attribute values between neighboring geometry elements.
+        #### Path
+        - Attribute > Blur Attribute Node
+        #### Outputs:
+        - `#2 value_vector: Vector = (0.0, 0.0, 0.0)`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeBlurAttribute.jpg)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/blur_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeBlurAttribute.html)
+        """
+        node = new_node(*nodes.GeometryNodeBlurAttribute("FLOAT_VECTOR", value_vector=self, iterations=iterations, weight=weight))
+        return node.outputs[2].Vector
 
     def to_white_noise(self, noise_dimensions='3D', w=0.0):
         """The White Noise Texture node returns a random number based on an input Seed. The seed can be a number, a 2D vector, a 3D vector, or a 4D vector; depending on the Dimensions property. The output number ranges between zero and one.
@@ -3803,6 +3831,44 @@ def CombineColor(red=0.0, green=0.0, blue=0.0, alpha=1.0, mode='RGB'):
     if Tree.tree.btree.type != "GEOMETRY":
         return ShaderNodeCombineColor(red, green, blue, mode)
     node = new_node(*nodes.FunctionNodeCombineColor(mode, red, green, blue, alpha))
+    return node.outputs[0].Color
+
+
+def CombineRGB(red=0.0, green=0.0, blue=0.0, alpha=1.0):
+    """The Combine Color Node combines an image from its composite color channels. The node can combine multiple Color Models depending on the Mode property.
+    #### Path
+    - Utilities > Color > Combine Color Node
+    #### Properties:
+    - `mode`: `RGB`, `HSV`, `HSL`
+    #### Outputs:
+    - `#0 color: Color = (0.0, 0.0, 0.0, 0.0)`
+
+    ![](https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeCombineColor.png)
+
+    [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/color/combine_color.html) [[API]](https://docs.blender.org/api/current/bpy.types.FunctionNodeCombineColor.html)
+    """
+    if Tree.tree.btree.type != "GEOMETRY":
+        return ShaderNodeCombineColor(red, green, blue, "RGB")
+    node = new_node(*nodes.FunctionNodeCombineColor("RGB", red, green, blue, alpha))
+    return node.outputs[0].Color
+
+
+def CombineHSV(hue=0.0, saturation=0.0, value=0.0, alpha=1.0):
+    """The Combine Color Node combines an image from its composite color channels. The node can combine multiple Color Models depending on the Mode property.
+    #### Path
+    - Utilities > Color > Combine Color Node
+    #### Properties:
+    - `mode`: `RGB`, `HSV`, `HSL`
+    #### Outputs:
+    - `#0 color: Color = (0.0, 0.0, 0.0, 0.0)`
+
+    ![](https://docs.blender.org/manual/en/latest/_images/node-types_FunctionNodeCombineColor.png)
+
+    [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/color/combine_color.html) [[API]](https://docs.blender.org/api/current/bpy.types.FunctionNodeCombineColor.html)
+    """
+    if Tree.tree.btree.type != "GEOMETRY":
+        return ShaderNodeCombineColor(hue, saturation, value, "HSV")
+    node = new_node(*nodes.FunctionNodeCombineColor("HSV", hue, saturation, value, alpha))
     return node.outputs[0].Color
 
 

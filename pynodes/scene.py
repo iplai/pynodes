@@ -90,7 +90,11 @@ class Scene:
                         obj.__setattr__(k, v)
                     continue
                 if isinstance(k, Mod):
-                    self.parse_modifier(Key(k, k.name.title().replace("_", " ")), v, obj)
+                    mod_name = k.name.replace("_", " ").title()
+                    if k == Mod.geometry_nodes:
+                        mod_name = "GeometryNodes"
+                    k = Key(k, mod_name)
+                    self.parse_modifier(k, v, obj)
                     continue
                 if k == Mat.slots:
                     self.parse_mat_slots(obj, v)
