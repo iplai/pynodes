@@ -594,7 +594,7 @@ class Geometry(Socket):
         self.bsocket = node.outputs[6].bsocket
         return self
 
-    def capture_vector_on_points(self, value_vector=(0.0, 0.0, 0.0)):
+    def capture_vector_on_points(self, value=(0.0, 0.0, 0.0)):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -607,11 +607,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_VECTOR", "POINT", self, value=value_vector))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_VECTOR", "POINT", self, value=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[1].Vector
 
-    def capture_vector_on_edges(self, value_vector=(0.0, 0.0, 0.0)):
+    def capture_vector_on_edges(self, value=(0.0, 0.0, 0.0)):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -624,11 +624,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_VECTOR", "EDGE", self, value=value_vector))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_VECTOR", "EDGE", self, value=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[1].Vector
 
-    def capture_vector_on_faces(self, value_vector=(0.0, 0.0, 0.0)):
+    def capture_vector_on_faces(self, value=(0.0, 0.0, 0.0)):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -641,11 +641,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_VECTOR", "FACE", self, value=value_vector))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_VECTOR", "FACE", self, value=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[1].Vector
 
-    def capture_vector_on_corners(self, value_vector=(0.0, 0.0, 0.0)):
+    def capture_vector_on_corners(self, value=(0.0, 0.0, 0.0)):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -658,11 +658,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_VECTOR", "CORNER", self, value=value_vector))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_VECTOR", "CORNER", self, value=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[1].Vector
 
-    def capture_vector_on_curves(self, value_vector=(0.0, 0.0, 0.0)):
+    def capture_vector_on_curves(self, value=(0.0, 0.0, 0.0)):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -675,11 +675,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_VECTOR", "CURVE", self, value=value_vector))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_VECTOR", "CURVE", self, value=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[1].Vector
 
-    def capture_vector_on_instances(self, value_vector=(0.0, 0.0, 0.0)):
+    def capture_vector_on_instances(self, value=(0.0, 0.0, 0.0)):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -692,11 +692,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_VECTOR", "INSTANCE", self, value=value_vector))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_VECTOR", "INSTANCE", self, value=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[1].Vector
 
-    def capture_float_on_points(self, value_float=0.0):
+    def capture_float_on_points(self, value=0.0):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -709,11 +709,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT", "POINT", self, value_001=value_float))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT", "POINT", self, value_001=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[2].Float
 
-    def capture_float_on_edges(self, value_float=0.0):
+    def capture_float_on_edges(self, value=0.0):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -726,11 +726,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT", "EDGE", self, value_001=value_float))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT", "EDGE", self, value_001=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[2].Float
 
-    def capture_float_on_faces(self, value_float=0.0):
+    def capture_float_on_faces(self, value=0.0):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -743,11 +743,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT", "FACE", self, value_001=value_float))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT", "FACE", self, value_001=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[2].Float
 
-    def capture_float_on_corners(self, value_float=0.0):
+    def capture_float_on_corners(self, value=0.0):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -760,11 +760,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT", "CORNER", self, value_001=value_float))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT", "CORNER", self, value_001=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[2].Float
 
-    def capture_float_on_curves(self, value_float=0.0):
+    def capture_float_on_curves(self, value=0.0):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -777,11 +777,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT", "CURVE", self, value_001=value_float))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT", "CURVE", self, value_001=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[2].Float
 
-    def capture_float_on_instances(self, value_float=0.0):
+    def capture_float_on_instances(self, value=0.0):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -794,11 +794,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT", "INSTANCE", self, value_001=value_float))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT", "INSTANCE", self, value_001=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[2].Float
 
-    def capture_color_on_points(self, value_color=(0.0, 0.0, 0.0, 0.0)):
+    def capture_color_on_points(self, value=(0.0, 0.0, 0.0, 0.0)):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -811,11 +811,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_COLOR", "POINT", self, value_002=value_color))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_COLOR", "POINT", self, value_002=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[3].Color
 
-    def capture_color_on_edges(self, value_color=(0.0, 0.0, 0.0, 0.0)):
+    def capture_color_on_edges(self, value=(0.0, 0.0, 0.0, 0.0)):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -828,11 +828,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_COLOR", "EDGE", self, value_002=value_color))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_COLOR", "EDGE", self, value_002=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[3].Color
 
-    def capture_color_on_faces(self, value_color=(0.0, 0.0, 0.0, 0.0)):
+    def capture_color_on_faces(self, value=(0.0, 0.0, 0.0, 0.0)):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -845,11 +845,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_COLOR", "FACE", self, value_002=value_color))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_COLOR", "FACE", self, value_002=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[3].Color
 
-    def capture_color_on_corners(self, value_color=(0.0, 0.0, 0.0, 0.0)):
+    def capture_color_on_corners(self, value=(0.0, 0.0, 0.0, 0.0)):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -862,11 +862,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_COLOR", "CORNER", self, value_002=value_color))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_COLOR", "CORNER", self, value_002=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[3].Color
 
-    def capture_color_on_curves(self, value_color=(0.0, 0.0, 0.0, 0.0)):
+    def capture_color_on_curves(self, value=(0.0, 0.0, 0.0, 0.0)):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -879,11 +879,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_COLOR", "CURVE", self, value_002=value_color))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_COLOR", "CURVE", self, value_002=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[3].Color
 
-    def capture_color_on_instances(self, value_color=(0.0, 0.0, 0.0, 0.0)):
+    def capture_color_on_instances(self, value=(0.0, 0.0, 0.0, 0.0)):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -896,11 +896,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_COLOR", "INSTANCE", self, value_002=value_color))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_COLOR", "INSTANCE", self, value_002=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[3].Color
 
-    def capture_boolean_on_points(self, value_bool=False):
+    def capture_boolean_on_points(self, value=False):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -913,11 +913,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("BOOLEAN", "POINT", self, value_003=value_bool))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("BOOLEAN", "POINT", self, value_003=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[4].Boolean
 
-    def capture_boolean_on_edges(self, value_bool=False):
+    def capture_boolean_on_edges(self, value=False):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -930,11 +930,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("BOOLEAN", "EDGE", self, value_003=value_bool))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("BOOLEAN", "EDGE", self, value_003=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[4].Boolean
 
-    def capture_boolean_on_faces(self, value_bool=False):
+    def capture_boolean_on_faces(self, value=False):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -947,11 +947,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("BOOLEAN", "FACE", self, value_003=value_bool))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("BOOLEAN", "FACE", self, value_003=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[4].Boolean
 
-    def capture_boolean_on_corners(self, value_bool=False):
+    def capture_boolean_on_corners(self, value=False):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -964,11 +964,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("BOOLEAN", "CORNER", self, value_003=value_bool))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("BOOLEAN", "CORNER", self, value_003=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[4].Boolean
 
-    def capture_boolean_on_curves(self, value_bool=False):
+    def capture_boolean_on_curves(self, value=False):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -981,11 +981,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("BOOLEAN", "CURVE", self, value_003=value_bool))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("BOOLEAN", "CURVE", self, value_003=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[4].Boolean
 
-    def capture_boolean_on_instances(self, value_bool=False):
+    def capture_boolean_on_instances(self, value=False):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -998,11 +998,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("BOOLEAN", "INSTANCE", self, value_003=value_bool))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("BOOLEAN", "INSTANCE", self, value_003=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[4].Boolean
 
-    def capture_integer_on_points(self, value_int=0):
+    def capture_integer_on_points(self, value=0):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -1015,11 +1015,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("INT", "POINT", self, value_004=value_int))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("INT", "POINT", self, value_004=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[5].Integer
 
-    def capture_integer_on_edges(self, value_int=0):
+    def capture_integer_on_edges(self, value=0):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -1032,11 +1032,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("INT", "EDGE", self, value_004=value_int))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("INT", "EDGE", self, value_004=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[5].Integer
 
-    def capture_integer_on_faces(self, value_int=0):
+    def capture_integer_on_faces(self, value=0):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -1049,11 +1049,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("INT", "FACE", self, value_004=value_int))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("INT", "FACE", self, value_004=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[5].Integer
 
-    def capture_integer_on_corners(self, value_int=0):
+    def capture_integer_on_corners(self, value=0):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -1066,11 +1066,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("INT", "CORNER", self, value_004=value_int))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("INT", "CORNER", self, value_004=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[5].Integer
 
-    def capture_integer_on_curves(self, value_int=0):
+    def capture_integer_on_curves(self, value=0):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -1083,11 +1083,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("INT", "CURVE", self, value_004=value_int))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("INT", "CURVE", self, value_004=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[5].Integer
 
-    def capture_integer_on_instances(self, value_int=0):
+    def capture_integer_on_instances(self, value=0):
         """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
         - In-Place Operation
         #### Path
@@ -1100,7 +1100,7 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
         """
-        node = new_node(*nodes.GeometryNodeCaptureAttribute("INT", "INSTANCE", self, value_004=value_int))
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("INT", "INSTANCE", self, value_004=value))
         self.bsocket = node.outputs[0].bsocket
         return node.outputs[5].Integer
 
@@ -1468,7 +1468,7 @@ class Geometry(Socket):
         node = new_node(*nodes.GeometryNodeSampleIndex(data_type, domain, clamp, self, value_float, value_int, value_vector, value_color, value_bool, index))
         return node.outputs[0].Float, node.outputs[1].Integer, node.outputs[2].Vector, node.outputs[3].Color, node.outputs[4].Boolean
 
-    def sample_float_at_index(self, value_float=0.0, index=0, domain="POINT", clamp=False):
+    def sample_float_at_index(self, value=0.0, index=0, domain="POINT", clamp=False):
         """The Sample Index node retrieves values from a source geometry at a specific index.
         #### Path
         - Geometry > Sample > Sample Index Node
@@ -1481,10 +1481,10 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/sample_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeSampleIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeSampleIndex("FLOAT", domain, clamp, self, value_float=value_float, index=index))
+        node = new_node(*nodes.GeometryNodeSampleIndex("FLOAT", domain, clamp, self, value_float=value, index=index))
         return node.outputs[0].Float
 
-    def sample_integer_at_index(self, value_int=0, index=0, domain="POINT", clamp=False):
+    def sample_integer_at_index(self, value=0, index=0, domain="POINT", clamp=False):
         """The Sample Index node retrieves values from a source geometry at a specific index.
         #### Path
         - Geometry > Sample > Sample Index Node
@@ -1497,10 +1497,10 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/sample_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeSampleIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeSampleIndex("INT", domain, clamp, self, value_int == value_int, index=index))
+        node = new_node(*nodes.GeometryNodeSampleIndex("INT", domain, clamp, self, value == value, index=index))
         return node.outputs[1].Integer
 
-    def sample_vector_at_index(self, value_vector=(0.0, 0.0, 0.0), index=0, domain="POINT", clamp=False):
+    def sample_vector_at_index(self, value=(0.0, 0.0, 0.0), index=0, domain="POINT", clamp=False):
         """The Sample Index node retrieves values from a source geometry at a specific index.
         #### Path
         - Geometry > Sample > Sample Index Node
@@ -1512,10 +1512,10 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/sample_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeSampleIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeSampleIndex("FLOAT_VECTOR", domain, clamp, self, value_vector=value_vector, index=index))
+        node = new_node(*nodes.GeometryNodeSampleIndex("FLOAT_VECTOR", domain, clamp, self, value_vector=value, index=index))
         return node.outputs[2].Vector
 
-    def sample_color_at_index(self, value_color=(0.0, 0.0, 0.0, 0.0), index=0, domain="POINT", clamp=False):
+    def sample_color_at_index(self, value=(0.0, 0.0, 0.0, 0.0), index=0, domain="POINT", clamp=False):
         """The Sample Index node retrieves values from a source geometry at a specific index.
         #### Path
         - Geometry > Sample > Sample Index Node
@@ -1528,10 +1528,10 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/sample_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeSampleIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeSampleIndex("FLOAT_COLOR", domain, clamp, self, value_color=value_color, index=index))
+        node = new_node(*nodes.GeometryNodeSampleIndex("FLOAT_COLOR", domain, clamp, self, value_color=value, index=index))
         return node.outputs[3].color
 
-    def sample_boolean_at_index(self, value_bool=False, index=0, domain="POINT", clamp=False):
+    def sample_boolean_at_index(self, value=False, index=0, domain="POINT", clamp=False):
         """The Sample Index node retrieves values from a source geometry at a specific index.
         #### Path
         - Geometry > Sample > Sample Index Node
@@ -1544,7 +1544,7 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/sample_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeSampleIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeSampleIndex("BOOLEAN", domain, clamp, self, value_bool=value_bool, index=index))
+        node = new_node(*nodes.GeometryNodeSampleIndex("BOOLEAN", domain, clamp, self, value_bool=value, index=index))
         return node.outputs[4].Boolean
 
     def sample_nearest(self, sample_position: "Vector" = None, domain="POINT"):
@@ -2221,7 +2221,7 @@ class Geometry(Socket):
         return self._material_index
 
     @staticmethod
-    def accumulate_float_on_points(value_float=0.0, group_index=0):
+    def accumulate_float_on_points(value=0.0, group_index=0):
         """The Accumulate Field node counts a running total of its input values, in the order defined by the geometry's indices. The node's essential operation is just addition, but instead of only outputting the final total, it outputs the current value at every element.
         #### Path
         - Utilities > Field > Accumulate Field Node
@@ -2234,12 +2234,12 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/accumulate_field.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAccumulateField.html)
         """
-        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT", "POINT", value_float=value_float, group_index=group_index))
+        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT", "POINT", value_float=value, group_index=group_index))
         ret = typing.NamedTuple("GeometryNodeAccumulateField", [("leading", Float), ("trailing", Float), ("total", Float)])
         return ret(node.outputs[0].Float, node.outputs[3].Float, node.outputs[6].Float)
 
     @staticmethod
-    def accumulate_float_on_edges(value_float=0.0, group_index=0):
+    def accumulate_float_on_edges(value=0.0, group_index=0):
         """The Accumulate Field node counts a running total of its input values, in the order defined by the geometry's indices. The node's essential operation is just addition, but instead of only outputting the final total, it outputs the current value at every element.
         #### Path
         - Utilities > Field > Accumulate Field Node
@@ -2252,12 +2252,12 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/accumulate_field.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAccumulateField.html)
         """
-        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT", "EDGE", value_float=value_float, group_index=group_index))
+        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT", "EDGE", value_float=value, group_index=group_index))
         ret = typing.NamedTuple("GeometryNodeAccumulateField", [("leading", Float), ("trailing", Float), ("total", Float)])
         return ret(node.outputs[0].Float, node.outputs[3].Float, node.outputs[6].Float)
 
     @staticmethod
-    def accumulate_float_on_faces(value_float=0.0, group_index=0):
+    def accumulate_float_on_faces(value=0.0, group_index=0):
         """The Accumulate Field node counts a running total of its input values, in the order defined by the geometry's indices. The node's essential operation is just addition, but instead of only outputting the final total, it outputs the current value at every element.
         #### Path
         - Utilities > Field > Accumulate Field Node
@@ -2270,12 +2270,12 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/accumulate_field.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAccumulateField.html)
         """
-        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT", "FACE", value_float=value_float, group_index=group_index))
+        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT", "FACE", value_float=value, group_index=group_index))
         ret = typing.NamedTuple("GeometryNodeAccumulateField", [("leading", Float), ("trailing", Float), ("total", Float)])
         return ret(node.outputs[0].Float, node.outputs[3].Float, node.outputs[6].Float)
 
     @staticmethod
-    def accumulate_float_on_corners(value_float=0.0, group_index=0):
+    def accumulate_float_on_corners(value=0.0, group_index=0):
         """The Accumulate Field node counts a running total of its input values, in the order defined by the geometry's indices. The node's essential operation is just addition, but instead of only outputting the final total, it outputs the current value at every element.
         #### Path
         - Utilities > Field > Accumulate Field Node
@@ -2288,12 +2288,12 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/accumulate_field.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAccumulateField.html)
         """
-        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT", "CORNER", value_float=value_float, group_index=group_index))
+        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT", "CORNER", value_float=value, group_index=group_index))
         ret = typing.NamedTuple("GeometryNodeAccumulateField", [("leading", Float), ("trailing", Float), ("total", Float)])
         return ret(node.outputs[0].Float, node.outputs[3].Float, node.outputs[6].Float)
 
     @staticmethod
-    def accumulate_float_on_curves(value_float=0.0, group_index=0):
+    def accumulate_float_on_curves(value=0.0, group_index=0):
         """The Accumulate Field node counts a running total of its input values, in the order defined by the geometry's indices. The node's essential operation is just addition, but instead of only outputting the final total, it outputs the current value at every element.
         #### Path
         - Utilities > Field > Accumulate Field Node
@@ -2306,12 +2306,12 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/accumulate_field.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAccumulateField.html)
         """
-        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT", "CURVE", value_float=value_float, group_index=group_index))
+        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT", "CURVE", value_float=value, group_index=group_index))
         ret = typing.NamedTuple("GeometryNodeAccumulateField", [("leading", Float), ("trailing", Float), ("total", Float)])
         return ret(node.outputs[0].Float, node.outputs[3].Float, node.outputs[6].Float)
 
     @staticmethod
-    def accumulate_float_on_instances(value_float=0.0, group_index=0):
+    def accumulate_float_on_instances(value=0.0, group_index=0):
         """The Accumulate Field node counts a running total of its input values, in the order defined by the geometry's indices. The node's essential operation is just addition, but instead of only outputting the final total, it outputs the current value at every element.
         #### Path
         - Utilities > Field > Accumulate Field Node
@@ -2324,12 +2324,12 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/accumulate_field.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAccumulateField.html)
         """
-        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT", "INSTANCE", value_float=value_float, group_index=group_index))
+        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT", "INSTANCE", value_float=value, group_index=group_index))
         ret = typing.NamedTuple("GeometryNodeAccumulateField", [("leading", Float), ("trailing", Float), ("total", Float)])
         return ret(node.outputs[0].Float, node.outputs[3].Float, node.outputs[6].Float)
 
     @staticmethod
-    def accumulate_integer_on_points(value_int=0, group_index=0):
+    def accumulate_integer_on_points(value=0, group_index=0):
         """The Accumulate Field node counts a running total of its input values, in the order defined by the geometry's indices. The node's essential operation is just addition, but instead of only outputting the final total, it outputs the current value at every element.
         #### Path
         - Utilities > Field > Accumulate Field Node
@@ -2342,12 +2342,12 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/accumulate_field.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAccumulateField.html)
         """
-        node = new_node(*nodes.GeometryNodeAccumulateField("INT", "POINT", value_int=value_int, group_index=group_index))
+        node = new_node(*nodes.GeometryNodeAccumulateField("INT", "POINT", value_int=value, group_index=group_index))
         ret = typing.NamedTuple("GeometryNodeAccumulateField", [("leading", Integer), ("trailing", Integer), ("total", Integer)])
         return ret(node.outputs[1].Integer, node.outputs[4].Integer, node.outputs[7].Integer)
 
     @staticmethod
-    def accumulate_integer_on_edges(value_int=0, group_index=0):
+    def accumulate_integer_on_edges(value=0, group_index=0):
         """The Accumulate Field node counts a running total of its input values, in the order defined by the geometry's indices. The node's essential operation is just addition, but instead of only outputting the final total, it outputs the current value at every element.
         #### Path
         - Utilities > Field > Accumulate Field Node
@@ -2360,12 +2360,12 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/accumulate_field.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAccumulateField.html)
         """
-        node = new_node(*nodes.GeometryNodeAccumulateField("INT", "EDGE", value_int=value_int, group_index=group_index))
+        node = new_node(*nodes.GeometryNodeAccumulateField("INT", "EDGE", value_int=value, group_index=group_index))
         ret = typing.NamedTuple("GeometryNodeAccumulateField", [("leading", Integer), ("trailing", Integer), ("total", Integer)])
         return ret(node.outputs[1].Integer, node.outputs[4].Integer, node.outputs[7].Integer)
 
     @staticmethod
-    def accumulate_integer_on_faces(value_int=0, group_index=0):
+    def accumulate_integer_on_faces(value=0, group_index=0):
         """The Accumulate Field node counts a running total of its input values, in the order defined by the geometry's indices. The node's essential operation is just addition, but instead of only outputting the final total, it outputs the current value at every element.
         #### Path
         - Utilities > Field > Accumulate Field Node
@@ -2378,12 +2378,12 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/accumulate_field.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAccumulateField.html)
         """
-        node = new_node(*nodes.GeometryNodeAccumulateField("INT", "FACE", value_int=value_int, group_index=group_index))
+        node = new_node(*nodes.GeometryNodeAccumulateField("INT", "FACE", value_int=value, group_index=group_index))
         ret = typing.NamedTuple("GeometryNodeAccumulateField", [("leading", Integer), ("trailing", Integer), ("total", Integer)])
         return ret(node.outputs[1].Integer, node.outputs[4].Integer, node.outputs[7].Integer)
 
     @staticmethod
-    def accumulate_integer_on_corners(value_int=0, group_index=0):
+    def accumulate_integer_on_corners(value=0, group_index=0):
         """The Accumulate Field node counts a running total of its input values, in the order defined by the geometry's indices. The node's essential operation is just addition, but instead of only outputting the final total, it outputs the current value at every element.
         #### Path
         - Utilities > Field > Accumulate Field Node
@@ -2396,12 +2396,12 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/accumulate_field.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAccumulateField.html)
         """
-        node = new_node(*nodes.GeometryNodeAccumulateField("INT", "CORNER", value_int=value_int, group_index=group_index))
+        node = new_node(*nodes.GeometryNodeAccumulateField("INT", "CORNER", value_int=value, group_index=group_index))
         ret = typing.NamedTuple("GeometryNodeAccumulateField", [("leading", Integer), ("trailing", Integer), ("total", Integer)])
         return ret(node.outputs[1].Integer, node.outputs[4].Integer, node.outputs[7].Integer)
 
     @staticmethod
-    def accumulate_integer_on_curves(value_int=0, group_index=0):
+    def accumulate_integer_on_curves(value=0, group_index=0):
         """The Accumulate Field node counts a running total of its input values, in the order defined by the geometry's indices. The node's essential operation is just addition, but instead of only outputting the final total, it outputs the current value at every element.
         #### Path
         - Utilities > Field > Accumulate Field Node
@@ -2414,12 +2414,12 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/accumulate_field.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAccumulateField.html)
         """
-        node = new_node(*nodes.GeometryNodeAccumulateField("INT", "CURVE", value_int=value_int, group_index=group_index))
+        node = new_node(*nodes.GeometryNodeAccumulateField("INT", "CURVE", value_int=value, group_index=group_index))
         ret = typing.NamedTuple("GeometryNodeAccumulateField", [("leading", Integer), ("trailing", Integer), ("total", Integer)])
         return ret(node.outputs[1].Integer, node.outputs[4].Integer, node.outputs[7].Integer)
 
     @staticmethod
-    def accumulate_integer_on_instances(value_int=0, group_index=0):
+    def accumulate_integer_on_instances(value=0, group_index=0):
         """The Accumulate Field node counts a running total of its input values, in the order defined by the geometry's indices. The node's essential operation is just addition, but instead of only outputting the final total, it outputs the current value at every element.
         #### Path
         - Utilities > Field > Accumulate Field Node
@@ -2432,12 +2432,12 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/accumulate_field.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAccumulateField.html)
         """
-        node = new_node(*nodes.GeometryNodeAccumulateField("INT", "INSTANCE", value_int=value_int, group_index=group_index))
+        node = new_node(*nodes.GeometryNodeAccumulateField("INT", "INSTANCE", value_int=value, group_index=group_index))
         ret = typing.NamedTuple("GeometryNodeAccumulateField", [("leading", Integer), ("trailing", Integer), ("total", Integer)])
         return ret(node.outputs[1].Integer, node.outputs[4].Integer, node.outputs[7].Integer)
 
     @staticmethod
-    def accumulate_vector_on_points(value_vector=(0.0, 0.0, 0.0), group_index=0):
+    def accumulate_vector_on_points(value=(0.0, 0.0, 0.0), group_index=0):
         """The Accumulate Field node counts a running total of its input values, in the order defined by the geometry's indices. The node's essential operation is just addition, but instead of only outputting the final total, it outputs the current value at every element.
         #### Path
         - Utilities > Field > Accumulate Field Node
@@ -2450,12 +2450,12 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/accumulate_field.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAccumulateField.html)
         """
-        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT_VECTOR", "POINT", value_vector=value_vector, group_index=group_index))
+        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT_VECTOR", "POINT", value_vector=value, group_index=group_index))
         ret = typing.NamedTuple("GeometryNodeAccumulateField", [("leading", Vector), ("trailing", Vector), ("total", Vector)])
         return ret(node.outputs[2].Vector, node.outputs[5].Vector, node.outputs[8].Vector)
 
     @staticmethod
-    def accumulate_vector_on_edges(value_vector=(0.0, 0.0, 0.0), group_index=0):
+    def accumulate_vector_on_edges(value=(0.0, 0.0, 0.0), group_index=0):
         """The Accumulate Field node counts a running total of its input values, in the order defined by the geometry's indices. The node's essential operation is just addition, but instead of only outputting the final total, it outputs the current value at every element.
         #### Path
         - Utilities > Field > Accumulate Field Node
@@ -2468,12 +2468,12 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/accumulate_field.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAccumulateField.html)
         """
-        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT_VECTOR", "EDGE", value_vector=value_vector, group_index=group_index))
+        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT_VECTOR", "EDGE", value_vector=value, group_index=group_index))
         ret = typing.NamedTuple("GeometryNodeAccumulateField", [("leading", Vector), ("trailing", Vector), ("total", Vector)])
         return ret(node.outputs[2].Vector, node.outputs[5].Vector, node.outputs[8].Vector)
 
     @staticmethod
-    def accumulate_vector_on_faces(value_vector=(0.0, 0.0, 0.0), group_index=0):
+    def accumulate_vector_on_faces(value=(0.0, 0.0, 0.0), group_index=0):
         """The Accumulate Field node counts a running total of its input values, in the order defined by the geometry's indices. The node's essential operation is just addition, but instead of only outputting the final total, it outputs the current value at every element.
         #### Path
         - Utilities > Field > Accumulate Field Node
@@ -2486,12 +2486,12 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/accumulate_field.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAccumulateField.html)
         """
-        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT_VECTOR", "FACE", value_vector=value_vector, group_index=group_index))
+        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT_VECTOR", "FACE", value_vector=value, group_index=group_index))
         ret = typing.NamedTuple("GeometryNodeAccumulateField", [("leading", Vector), ("trailing", Vector), ("total", Vector)])
         return ret(node.outputs[2].Vector, node.outputs[5].Vector, node.outputs[8].Vector)
 
     @staticmethod
-    def accumulate_vector_on_corners(value_vector=(0.0, 0.0, 0.0), group_index=0):
+    def accumulate_vector_on_corners(value=(0.0, 0.0, 0.0), group_index=0):
         """The Accumulate Field node counts a running total of its input values, in the order defined by the geometry's indices. The node's essential operation is just addition, but instead of only outputting the final total, it outputs the current value at every element.
         #### Path
         - Utilities > Field > Accumulate Field Node
@@ -2504,12 +2504,12 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/accumulate_field.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAccumulateField.html)
         """
-        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT_VECTOR", "CORNER", value_vector=value_vector, group_index=group_index))
+        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT_VECTOR", "CORNER", value_vector=value, group_index=group_index))
         ret = typing.NamedTuple("GeometryNodeAccumulateField", [("leading", Vector), ("trailing", Vector), ("total", Vector)])
         return ret(node.outputs[2].Vector, node.outputs[5].Vector, node.outputs[8].Vector)
 
     @staticmethod
-    def accumulate_vector_on_curves(value_vector=(0.0, 0.0, 0.0), group_index=0):
+    def accumulate_vector_on_curves(value=(0.0, 0.0, 0.0), group_index=0):
         """The Accumulate Field node counts a running total of its input values, in the order defined by the geometry's indices. The node's essential operation is just addition, but instead of only outputting the final total, it outputs the current value at every element.
         #### Path
         - Utilities > Field > Accumulate Field Node
@@ -2522,12 +2522,12 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/accumulate_field.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAccumulateField.html)
         """
-        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT_VECTOR", "CURVE", value_vector=value_vector, group_index=group_index))
+        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT_VECTOR", "CURVE", value_vector=value, group_index=group_index))
         ret = typing.NamedTuple("GeometryNodeAccumulateField", [("leading", Vector), ("trailing", Vector), ("total", Vector)])
         return ret(node.outputs[2].Vector, node.outputs[5].Vector, node.outputs[8].Vector)
 
     @staticmethod
-    def accumulate_vector_on_instances(value_vector=(0.0, 0.0, 0.0), group_index=0):
+    def accumulate_vector_on_instances(value=(0.0, 0.0, 0.0), group_index=0):
         """The Accumulate Field node counts a running total of its input values, in the order defined by the geometry's indices. The node's essential operation is just addition, but instead of only outputting the final total, it outputs the current value at every element.
         #### Path
         - Utilities > Field > Accumulate Field Node
@@ -2540,12 +2540,12 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/accumulate_field.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeAccumulateField.html)
         """
-        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT_VECTOR", "INSTANCE", value_vector=value_vector, group_index=group_index))
+        node = new_node(*nodes.GeometryNodeAccumulateField("FLOAT_VECTOR", "INSTANCE", value_vector=value, group_index=group_index))
         ret = typing.NamedTuple("GeometryNodeAccumulateField", [("leading", Vector), ("trailing", Vector), ("total", Vector)])
         return ret(node.outputs[2].Vector, node.outputs[5].Vector, node.outputs[8].Vector)
 
     @staticmethod
-    def evaluate_float_at_index_on_points(index=0, value_float=0.0):
+    def evaluate_float_at_index_on_points(value=0.0, index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2556,11 +2556,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT", "POINT", index, value_float=value_float))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT", "POINT", index, value_float=value))
         return node.outputs[0].Float
 
     @staticmethod
-    def evaluate_float_at_index_on_edges(index=0, value_float=0.0):
+    def evaluate_float_at_index_on_edges(value=0.0, index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2571,11 +2571,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT", "EDGE", index, value_float=value_float))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT", "EDGE", index, value_float=value))
         return node.outputs[0].Float
 
     @staticmethod
-    def evaluate_float_at_index_on_faces(index=0, value_float=0.0):
+    def evaluate_float_at_index_on_faces(value=0.0, index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2586,11 +2586,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT", "FACE", index, value_float=value_float))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT", "FACE", index, value_float=value))
         return node.outputs[0].Float
 
     @staticmethod
-    def evaluate_float_at_index_on_corners(index=0, value_float=0.0):
+    def evaluate_float_at_index_on_corners(value=0.0, index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2601,11 +2601,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT", "CORNER", index, value_float=value_float))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT", "CORNER", index, value_float=value))
         return node.outputs[0].Float
 
     @staticmethod
-    def evaluate_float_at_index_on_curves(index=0, value_float=0.0):
+    def evaluate_float_at_index_on_curves(value=0.0, index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2616,11 +2616,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT", "CURVE", index, value_float=value_float))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT", "CURVE", index, value_float=value))
         return node.outputs[0].Float
 
     @staticmethod
-    def evaluate_float_at_index_on_instances(index=0, value_float=0.0):
+    def evaluate_float_at_index_on_instances(value=0.0, index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2631,11 +2631,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT", "INSTANCE", index, value_float=value_float))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT", "INSTANCE", index, value_float=value))
         return node.outputs[0].Float
 
     @staticmethod
-    def evaluate_integer_at_index_on_points(index=0, value_int=0):
+    def evaluate_integer_at_index_on_points(value=0, index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2646,11 +2646,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("INT", "POINT", index, value_int=value_int))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("INT", "POINT", index, value_int=value))
         return node.outputs[1].Integer
 
     @staticmethod
-    def evaluate_integer_at_index_on_edges(index=0, value_int=0):
+    def evaluate_integer_at_index_on_edges(value=0, index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2661,11 +2661,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("INT", "EDGE", index, value_int=value_int))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("INT", "EDGE", index, value_int=value))
         return node.outputs[1].Integer
 
     @staticmethod
-    def evaluate_integer_at_index_on_faces(index=0, value_int=0):
+    def evaluate_integer_at_index_on_faces(value=0, index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2676,11 +2676,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("INT", "FACE", index, value_int=value_int))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("INT", "FACE", index, value_int=value))
         return node.outputs[1].Integer
 
     @staticmethod
-    def evaluate_integer_at_index_on_corners(index=0, value_int=0):
+    def evaluate_integer_at_index_on_corners(value=0, index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2691,11 +2691,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("INT", "CORNER", index, value_int=value_int))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("INT", "CORNER", index, value_int=value))
         return node.outputs[1].Integer
 
     @staticmethod
-    def evaluate_integer_at_index_on_curves(index=0, value_int=0):
+    def evaluate_integer_at_index_on_curves(value=0, index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2706,11 +2706,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("INT", "CURVE", index, value_int=value_int))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("INT", "CURVE", index, value_int=value))
         return node.outputs[1].Integer
 
     @staticmethod
-    def evaluate_integer_at_index_on_instances(index=0, value_int=0):
+    def evaluate_integer_at_index_on_instances(value=0, index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2721,11 +2721,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("INT", "INSTANCE", index, value_int=value_int))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("INT", "INSTANCE", index, value_int=value))
         return node.outputs[1].Integer
 
     @staticmethod
-    def evaluate_vector_at_index_on_points(index=0, value_vector=(0.0, 0.0, 0.0)):
+    def evaluate_vector_at_index_on_points(value=(0.0, 0.0, 0.0), index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2736,11 +2736,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_VECTOR", "POINT", index, value_vector=value_vector))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_VECTOR", "POINT", index, value_vector=value))
         return node.outputs[2].Vector
 
     @staticmethod
-    def evaluate_vector_at_index_on_edges(index=0, value_vector=(0.0, 0.0, 0.0)):
+    def evaluate_vector_at_index_on_edges(value=(0.0, 0.0, 0.0), index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2751,11 +2751,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_VECTOR", "EDGE", index, value_vector=value_vector))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_VECTOR", "EDGE", index, value_vector=value))
         return node.outputs[2].Vector
 
     @staticmethod
-    def evaluate_vector_at_index_on_faces(index=0, value_vector=(0.0, 0.0, 0.0)):
+    def evaluate_vector_at_index_on_faces(value=(0.0, 0.0, 0.0), index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2766,11 +2766,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_VECTOR", "FACE", index, value_vector=value_vector))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_VECTOR", "FACE", index, value_vector=value))
         return node.outputs[2].Vector
 
     @staticmethod
-    def evaluate_vector_at_index_on_corners(index=0, value_vector=(0.0, 0.0, 0.0)):
+    def evaluate_vector_at_index_on_corners(value=(0.0, 0.0, 0.0), index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2781,11 +2781,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_VECTOR", "CORNER", index, value_vector=value_vector))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_VECTOR", "CORNER", index, value_vector=value))
         return node.outputs[2].Vector
 
     @staticmethod
-    def evaluate_vector_at_index_on_curves(index=0, value_vector=(0.0, 0.0, 0.0)):
+    def evaluate_vector_at_index_on_curves(value=(0.0, 0.0, 0.0), index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2796,11 +2796,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_VECTOR", "CURVE", index, value_vector=value_vector))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_VECTOR", "CURVE", index, value_vector=value))
         return node.outputs[2].Vector
 
     @staticmethod
-    def evaluate_vector_at_index_on_instances(index=0, value_vector=(0.0, 0.0, 0.0)):
+    def evaluate_vector_at_index_on_instances(value=(0.0, 0.0, 0.0), index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2811,11 +2811,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_VECTOR", "INSTANCE", index, value_vector=value_vector))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_VECTOR", "INSTANCE", index, value_vector=value))
         return node.outputs[2].Vector
 
     @staticmethod
-    def evaluate_color_at_index_on_points(index=0, value_color=(0.0, 0.0, 0.0, 0.0)):
+    def evaluate_color_at_index_on_points(value=(0.0, 0.0, 0.0, 0.0), index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2826,11 +2826,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_COLOR", "POINT", index, value_color=value_color))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_COLOR", "POINT", index, value_color=value))
         return node.outputs[3].Color
 
     @staticmethod
-    def evaluate_color_at_index_on_edges(index=0, value_color=(0.0, 0.0, 0.0, 0.0)):
+    def evaluate_color_at_index_on_edges(value=(0.0, 0.0, 0.0, 0.0), index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2841,11 +2841,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_COLOR", "EDGE", index, value_color=value_color))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_COLOR", "EDGE", index, value_color=value))
         return node.outputs[3].Color
 
     @staticmethod
-    def evaluate_color_at_index_on_faces(index=0, value_color=(0.0, 0.0, 0.0, 0.0)):
+    def evaluate_color_at_index_on_faces(value=(0.0, 0.0, 0.0, 0.0), index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2856,11 +2856,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_COLOR", "FACE", index, value_color=value_color))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_COLOR", "FACE", index, value_color=value))
         return node.outputs[3].Color
 
     @staticmethod
-    def evaluate_color_at_index_on_corners(index=0, value_color=(0.0, 0.0, 0.0, 0.0)):
+    def evaluate_color_at_index_on_corners(value=(0.0, 0.0, 0.0, 0.0), index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2871,11 +2871,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_COLOR", "CORNER", index, value_color=value_color))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_COLOR", "CORNER", index, value_color=value))
         return node.outputs[3].Color
 
     @staticmethod
-    def evaluate_color_at_index_on_curves(index=0, value_color=(0.0, 0.0, 0.0, 0.0)):
+    def evaluate_color_at_index_on_curves(value=(0.0, 0.0, 0.0, 0.0), index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2886,11 +2886,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_COLOR", "CURVE", index, value_color=value_color))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_COLOR", "CURVE", index, value_color=value))
         return node.outputs[3].Color
 
     @staticmethod
-    def evaluate_color_at_index_on_instances(index=0, value_color=(0.0, 0.0, 0.0, 0.0)):
+    def evaluate_color_at_index_on_instances(value=(0.0, 0.0, 0.0, 0.0), index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2901,11 +2901,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_COLOR", "INSTANCE", index, value_color=value_color))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("FLOAT_COLOR", "INSTANCE", index, value_color=value))
         return node.outputs[3].Color
 
     @staticmethod
-    def evaluate_boolean_at_index_on_points(index=0, value_bool=False):
+    def evaluate_boolean_at_index_on_points(value=False, index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2916,11 +2916,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("BOOLEAN", "POINT", index, value_bool=value_bool))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("BOOLEAN", "POINT", index, value_bool=value))
         return node.outputs[4].Boolean
 
     @staticmethod
-    def evaluate_boolean_at_index_on_edges(index=0, value_bool=False):
+    def evaluate_boolean_at_index_on_edges(value=False, index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2931,11 +2931,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("BOOLEAN", "EDGE", index, value_bool=value_bool))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("BOOLEAN", "EDGE", index, value_bool=value))
         return node.outputs[4].Boolean
 
     @staticmethod
-    def evaluate_boolean_at_index_on_faces(index=0, value_bool=False):
+    def evaluate_boolean_at_index_on_faces(value=False, index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2946,11 +2946,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("BOOLEAN", "FACE", index, value_bool=value_bool))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("BOOLEAN", "FACE", index, value_bool=value))
         return node.outputs[4].Boolean
 
     @staticmethod
-    def evaluate_boolean_at_index_on_corners(index=0, value_bool=False):
+    def evaluate_boolean_at_index_on_corners(value=False, index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2961,11 +2961,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("BOOLEAN", "CORNER", index, value_bool=value_bool))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("BOOLEAN", "CORNER", index, value_bool=value))
         return node.outputs[4].Boolean
 
     @staticmethod
-    def evaluate_boolean_at_index_on_curves(index=0, value_bool=False):
+    def evaluate_boolean_at_index_on_curves(value=False, index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2976,11 +2976,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("BOOLEAN", "CURVE", index, value_bool=value_bool))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("BOOLEAN", "CURVE", index, value_bool=value))
         return node.outputs[4].Boolean
 
     @staticmethod
-    def evaluate_boolean_at_index_on_instances(index=0, value_bool=False):
+    def evaluate_boolean_at_index_on_instances(value=False, index=0):
         """The Evaluate at Index node allows accessing data of other elements in the context geometry. It is similar to the Sample Index Node. The main difference is that this node does not require a geometry input, because the geometry from the field context is used.
         #### Path
         - Utilities > Field > Evaluate at Index Node
@@ -2991,11 +2991,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_at_index.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldAtIndex.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldAtIndex("BOOLEAN", "INSTANCE", index, value_bool=value_bool))
+        node = new_node(*nodes.GeometryNodeFieldAtIndex("BOOLEAN", "INSTANCE", index, value_bool=value))
         return node.outputs[4].Boolean
 
     @staticmethod
-    def evaluate_float_on_points(value_float=0.0):
+    def evaluate_float_on_points(value=0.0):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3006,11 +3006,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT", "POINT", value_float=value_float))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT", "POINT", value_float=value))
         return node.outputs[0].Float
 
     @staticmethod
-    def evaluate_float_on_edges(value_float=0.0):
+    def evaluate_float_on_edges(value=0.0):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3021,11 +3021,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT", "EDGE", value_float=value_float))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT", "EDGE", value_float=value))
         return node.outputs[0].Float
 
     @staticmethod
-    def evaluate_float_on_faces(value_float=0.0):
+    def evaluate_float_on_faces(value=0.0):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3036,11 +3036,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT", "FACE", value_float=value_float))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT", "FACE", value_float=value))
         return node.outputs[0].Float
 
     @staticmethod
-    def evaluate_float_on_corners(value_float=0.0):
+    def evaluate_float_on_corners(value=0.0):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3051,11 +3051,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT", "CORNER", value_float=value_float))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT", "CORNER", value_float=value))
         return node.outputs[0].Float
 
     @staticmethod
-    def evaluate_float_on_curves(value_float=0.0):
+    def evaluate_float_on_curves(value=0.0):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3066,11 +3066,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT", "CURVE", value_float=value_float))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT", "CURVE", value_float=value))
         return node.outputs[0].Float
 
     @staticmethod
-    def evaluate_float_on_instances(value_float=0.0):
+    def evaluate_float_on_instances(value=0.0):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3081,11 +3081,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT", "INSTANCE", value_float=value_float))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT", "INSTANCE", value_float=value))
         return node.outputs[0].Float
 
     @staticmethod
-    def evaluate_integer_on_points(value_int=0):
+    def evaluate_integer_on_points(value=0):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3096,11 +3096,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("INT", "POINT", value_int=value_int))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("INT", "POINT", value_int=value))
         return node.outputs[1].Integer
 
     @staticmethod
-    def evaluate_integer_on_edges(value_int=0):
+    def evaluate_integer_on_edges(value=0):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3111,11 +3111,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("INT", "EDGE", value_int=value_int))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("INT", "EDGE", value_int=value))
         return node.outputs[1].Integer
 
     @staticmethod
-    def evaluate_integer_on_faces(value_int=0):
+    def evaluate_integer_on_faces(value=0):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3126,11 +3126,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("INT", "FACE", value_int=value_int))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("INT", "FACE", value_int=value))
         return node.outputs[1].Integer
 
     @staticmethod
-    def evaluate_integer_on_corners(value_int=0):
+    def evaluate_integer_on_corners(value=0):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3141,11 +3141,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("INT", "CORNER", value_int=value_int))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("INT", "CORNER", value_int=value))
         return node.outputs[1].Integer
 
     @staticmethod
-    def evaluate_integer_on_curves(value_int=0):
+    def evaluate_integer_on_curves(value=0):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3156,11 +3156,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("INT", "CURVE", value_int=value_int))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("INT", "CURVE", value_int=value))
         return node.outputs[1].Integer
 
     @staticmethod
-    def evaluate_integer_on_instances(value_int=0):
+    def evaluate_integer_on_instances(value=0):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3171,11 +3171,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("INT", "INSTANCE", value_int=value_int))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("INT", "INSTANCE", value_int=value))
         return node.outputs[1].Integer
 
     @staticmethod
-    def evaluate_vector_on_points(value_vector=(0.0, 0.0, 0.0)):
+    def evaluate_vector_on_points(value=(0.0, 0.0, 0.0)):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3186,11 +3186,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_VECTOR", "POINT", value_vector=value_vector))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_VECTOR", "POINT", value_vector=value))
         return node.outputs[2].Vector
 
     @staticmethod
-    def evaluate_vector_on_edges(value_vector=(0.0, 0.0, 0.0)):
+    def evaluate_vector_on_edges(value=(0.0, 0.0, 0.0)):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3201,11 +3201,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_VECTOR", "EDGE", value_vector=value_vector))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_VECTOR", "EDGE", value_vector=value))
         return node.outputs[2].Vector
 
     @staticmethod
-    def evaluate_vector_on_faces(value_vector=(0.0, 0.0, 0.0)):
+    def evaluate_vector_on_faces(value=(0.0, 0.0, 0.0)):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3216,11 +3216,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_VECTOR", "FACE", value_vector=value_vector))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_VECTOR", "FACE", value_vector=value))
         return node.outputs[2].Vector
 
     @staticmethod
-    def evaluate_vector_on_corners(value_vector=(0.0, 0.0, 0.0)):
+    def evaluate_vector_on_corners(value=(0.0, 0.0, 0.0)):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3231,11 +3231,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_VECTOR", "CORNER", value_vector=value_vector))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_VECTOR", "CORNER", value_vector=value))
         return node.outputs[2].Vector
 
     @staticmethod
-    def evaluate_vector_on_curves(value_vector=(0.0, 0.0, 0.0)):
+    def evaluate_vector_on_curves(value=(0.0, 0.0, 0.0)):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3246,11 +3246,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_VECTOR", "CURVE", value_vector=value_vector))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_VECTOR", "CURVE", value_vector=value))
         return node.outputs[2].Vector
 
     @staticmethod
-    def evaluate_vector_on_instances(value_vector=(0.0, 0.0, 0.0)):
+    def evaluate_vector_on_instances(value=(0.0, 0.0, 0.0)):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3261,11 +3261,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_VECTOR", "INSTANCE", value_vector=value_vector))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_VECTOR", "INSTANCE", value_vector=value))
         return node.outputs[2].Vector
 
     @staticmethod
-    def evaluate_color_on_points(value_color=(0.0, 0.0, 0.0, 0.0)):
+    def evaluate_color_on_points(value=(0.0, 0.0, 0.0, 0.0)):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3276,11 +3276,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_COLOR", "POINT", value_color=value_color))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_COLOR", "POINT", value_color=value))
         return node.outputs[3].Color
 
     @staticmethod
-    def evaluate_color_on_edges(value_color=(0.0, 0.0, 0.0, 0.0)):
+    def evaluate_color_on_edges(value=(0.0, 0.0, 0.0, 0.0)):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3291,11 +3291,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_COLOR", "EDGE", value_color=value_color))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_COLOR", "EDGE", value_color=value))
         return node.outputs[3].Color
 
     @staticmethod
-    def evaluate_color_on_faces(value_color=(0.0, 0.0, 0.0, 0.0)):
+    def evaluate_color_on_faces(value=(0.0, 0.0, 0.0, 0.0)):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3306,11 +3306,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_COLOR", "FACE", value_color=value_color))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_COLOR", "FACE", value_color=value))
         return node.outputs[3].Color
 
     @staticmethod
-    def evaluate_color_on_corners(value_color=(0.0, 0.0, 0.0, 0.0)):
+    def evaluate_color_on_corners(value=(0.0, 0.0, 0.0, 0.0)):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3321,11 +3321,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_COLOR", "CORNER", value_color=value_color))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_COLOR", "CORNER", value_color=value))
         return node.outputs[3].Color
 
     @staticmethod
-    def evaluate_color_on_curves(value_color=(0.0, 0.0, 0.0, 0.0)):
+    def evaluate_color_on_curves(value=(0.0, 0.0, 0.0, 0.0)):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3336,11 +3336,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_COLOR", "CURVE", value_color=value_color))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_COLOR", "CURVE", value_color=value))
         return node.outputs[3].Color
 
     @staticmethod
-    def evaluate_color_on_instances(value_color=(0.0, 0.0, 0.0, 0.0)):
+    def evaluate_color_on_instances(value=(0.0, 0.0, 0.0, 0.0)):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3351,11 +3351,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_COLOR", "INSTANCE", value_color=value_color))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("FLOAT_COLOR", "INSTANCE", value_color=value))
         return node.outputs[3].Color
 
     @staticmethod
-    def evaluate_boolean_on_points(value_bool=False):
+    def evaluate_boolean_on_points(value=False):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3366,11 +3366,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("BOOLEAN", "POINT", value_bool=value_bool))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("BOOLEAN", "POINT", value_bool=value))
         return node.outputs[4].Boolean
 
     @staticmethod
-    def evaluate_boolean_on_edges(value_bool=False):
+    def evaluate_boolean_on_edges(value=False):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3381,11 +3381,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("BOOLEAN", "EDGE", value_bool=value_bool))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("BOOLEAN", "EDGE", value_bool=value))
         return node.outputs[4].Boolean
 
     @staticmethod
-    def evaluate_boolean_on_faces(value_bool=False):
+    def evaluate_boolean_on_faces(value=False):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3396,11 +3396,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("BOOLEAN", "FACE", value_bool=value_bool))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("BOOLEAN", "FACE", value_bool=value))
         return node.outputs[4].Boolean
 
     @staticmethod
-    def evaluate_boolean_on_corners(value_bool=False):
+    def evaluate_boolean_on_corners(value=False):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3411,11 +3411,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("BOOLEAN", "CORNER", value_bool=value_bool))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("BOOLEAN", "CORNER", value_bool=value))
         return node.outputs[4].Boolean
 
     @staticmethod
-    def evaluate_boolean_on_curves(value_bool=False):
+    def evaluate_boolean_on_curves(value=False):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3426,11 +3426,11 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("BOOLEAN", "CURVE", value_bool=value_bool))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("BOOLEAN", "CURVE", value_bool=value))
         return node.outputs[4].Boolean
 
     @staticmethod
-    def evaluate_boolean_on_instances(value_bool=False):
+    def evaluate_boolean_on_instances(value=False):
         """The Evaluate on Domain allows evaluating a field for a different attribute domain than the domain from the field context. For example, the face index could be used instead of the face corner index, when setting the values of a UV Map
         #### Path
         - Utilities > Field > Evaluate on Domain Node
@@ -3441,7 +3441,7 @@ class Geometry(Socket):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/field/evaluate_on_domain.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeFieldOnDomain.html)
         """
-        node = new_node(*nodes.GeometryNodeFieldOnDomain("BOOLEAN", "INSTANCE", value_bool=value_bool))
+        node = new_node(*nodes.GeometryNodeFieldOnDomain("BOOLEAN", "INSTANCE", value_bool=value))
         return node.outputs[4].Boolean
 
     def realize_instances(self, legacy_behavior=False):
@@ -5481,6 +5481,23 @@ class Mesh(Geometry):
 
 class Points(Geometry):
     """A points cloud data socket"""
+
+    def capture_vector(self, value=(0.0, 0.0, 0.0)):
+        """The Capture Attribute node stores the result of a field on a geometry, and outputs the data as a node socket so it can be used by other nodes.
+        - In-Place Operation
+        #### Path
+        - Attribute > Capture Attribute Node
+        #### Outputs:
+        - `#0 geometry: Geometry = None`
+        - `#1 attribute: Vector = (0.0, 0.0, 0.0)`
+
+        ![](https://docs.blender.org/manual/en/latest/_images/node-types_GeometryNodeCaptureAttribute.webp)
+
+        [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/attribute/capture_attribute.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeCaptureAttribute.html)
+        """
+        node = new_node(*nodes.GeometryNodeCaptureAttribute("FLOAT_VECTOR", "POINT", self, value=value))
+        self.bsocket = node.outputs[0].bsocket
+        return node.outputs[1].Vector
 
     def to_curves(self, curve_group_id=0, weight=0.0):
         """The *Points to Curves* node generates a [Curves](https://docs.blender.org/manual/en/4.0/modeling/curves/introduction.html) geometry by taking all points and inserting them to new curves. All [Attributes](https://docs.blender.org/manual/en/4.0/modeling/geometry_nodes/attributes_reference.html) from points are propagated to [Curve Points](https://docs.blender.org/manual/en/4.0/modeling/geometry_nodes/attributes_reference.html#attribute-domains). [Built-in](https://docs.blender.org/manual/en/4.0/modeling/geometry_nodes/attributes_reference.html#geometry-nodes-builtin-attributes) curves attributes stored in points will be ignored.

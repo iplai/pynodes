@@ -137,7 +137,7 @@ class PYNODES_OT_ARRANGE(Operator):
         arrange(self, context)
         return {'FINISHED'}
 
-    @ classmethod
+    @classmethod
     def poll(cls, context: Context):
         space = context.space_data
         return space and (space.type == 'NODE_EDITOR') and space.edit_tree and not space.edit_tree.library

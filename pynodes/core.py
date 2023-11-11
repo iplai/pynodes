@@ -768,8 +768,8 @@ class SimulationZone:
         self.input_node = input_node
         self.output_node = output_node
 
-    def to_output(self, socket: Socket, index=1):
-        self.output_node.link_from(socket, index)
+    # def to_output(self, socket: Socket, index=1):
+    #     self.output_node.link_from(socket, index)
 
     def to_outputs(self, *sockets: Socket):
         for i, socket in enumerate(sockets):
@@ -791,8 +791,8 @@ class RepeatZone:
         self.input_node = input_node
         self.output_node = output_node
 
-    def to_output(self, socket: Socket, index=0):
-        self.output_node.link_from(socket, index)
+    # def to_output(self, socket: Socket, index=0):
+    #     self.output_node.link_from(socket, index)
 
     def to_outputs(self, *sockets: Socket):
         for i, socket in enumerate(sockets):
@@ -897,8 +897,10 @@ def convert_param_name(name: str):
     elif len(name) == 2:
         if name[1].isdigit() or name[1] in 'xyz_':
             return name
+        if name.startswith("d"):
+            return name
     elif len(name) == 3:
-        if name[0] in "d" and name[2].isdigit():
+        if name.startswith("dd"):
             return name
     # return name.replace("_", " ").title()
     words = name.split('_')
