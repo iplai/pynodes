@@ -2625,6 +2625,13 @@
 </section>
 </td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pynodes.nodes.GeometryNodeMeshToSDFVolume" title="pynodes.nodes.GeometryNodeMeshToSDFVolume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeometryNodeMeshToSDFVolume</span></code></a></p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Experimental</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resolution_mode</span></code>: <code class="docutils literal notranslate"><span class="pre">VOXEL_AMOUNT</span></code>, <code class="docutils literal notranslate"><span class="pre">VOXEL_SIZE</span></code></p></li>
+</ul>
+</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -7948,6 +7955,30 @@
 </section>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="pynodes.nodes.GeometryNodeMeshToSDFVolume">
+<span class="sig-prename descclassname"><span class="pre">pynodes.nodes.</span></span><span class="sig-name descname"><span class="pre">GeometryNodeMeshToSDFVolume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resolution_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'VOXEL_AMOUNT'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mesh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voxel_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voxel_amount</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">half_band_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynodes.nodes.GeometryNodeMeshToSDFVolume" title="Permalink to this definition">#</a></dt>
+<dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Experimental</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resolution_mode</span></code>: <code class="docutils literal notranslate"><span class="pre">VOXEL_AMOUNT</span></code>, <code class="docutils literal notranslate"><span class="pre">VOXEL_SIZE</span></code></p></li>
+</ul>
+<section id="inputs">
+<h4>Inputs:<a class="headerlink" href="#inputs" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">mesh:</span> <span class="pre">Mesh</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#1</span> <span class="pre">voxel_size:</span> <span class="pre">Float</span> <span class="pre">=</span> <span class="pre">0.3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#2</span> <span class="pre">voxel_amount:</span> <span class="pre">Float</span> <span class="pre">=</span> <span class="pre">64.0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#3</span> <span class="pre">half_band_width:</span> <span class="pre">Float</span> <span class="pre">=</span> <span class="pre">3.0</span></code></p></li>
+</ul>
+</section>
+<section id="outputs">
+<h4>Outputs:<a class="headerlink" href="#outputs" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#0</span> <span class="pre">volune:</span> <span class="pre">Volume</span> <span class="pre">=</span> <span class="pre">None</span></code></p></li>
+</ul>
+</section>
+</dd></dl>
+
 </section>
 </section>
 </section>
@@ -8280,6 +8311,7 @@
 <li><a class="reference internal" href="#pynodes.nodes.GeometryNodeInputSceneTime"><code class="docutils literal notranslate"><span class="pre">GeometryNodeInputSceneTime()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.nodes.GeometryNodeIndexOfNearest"><code class="docutils literal notranslate"><span class="pre">GeometryNodeIndexOfNearest()</span></code></a></li>
 <li><a class="reference internal" href="#pynodes.nodes.GeometryNodePointsToCurves"><code class="docutils literal notranslate"><span class="pre">GeometryNodePointsToCurves()</span></code></a></li>
+<li><a class="reference internal" href="#pynodes.nodes.GeometryNodeMeshToSDFVolume"><code class="docutils literal notranslate"><span class="pre">GeometryNodeMeshToSDFVolume()</span></code></a></li>
 </ul>
 </li>
 </ul>

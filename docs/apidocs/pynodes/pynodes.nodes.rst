@@ -1065,6 +1065,10 @@ Functions
      - .. autodoc2-docstring:: pynodes.nodes.GeometryNodePointsToCurves
           :parser: myst
           :summary:
+   * - :py:obj:`GeometryNodeMeshToSDFVolume <pynodes.nodes.GeometryNodeMeshToSDFVolume>`
+     - .. autodoc2-docstring:: pynodes.nodes.GeometryNodeMeshToSDFVolume
+          :parser: myst
+          :summary:
 
 API
 ~~~
@@ -2639,4 +2643,10 @@ API
    :canonical: pynodes.nodes.GeometryNodePointsToCurves
 
    .. autodoc2-docstring:: pynodes.nodes.GeometryNodePointsToCurves
+      :parser: myst
+
+.. py:function:: GeometryNodeMeshToSDFVolume(resolution_mode='VOXEL_AMOUNT', mesh=None, voxel_size=0.3, voxel_amount=64.0, half_band_width=3.0)
+   :canonical: pynodes.nodes.GeometryNodeMeshToSDFVolume
+
+   .. autodoc2-docstring:: pynodes.nodes.GeometryNodeMeshToSDFVolume
       :parser: myst

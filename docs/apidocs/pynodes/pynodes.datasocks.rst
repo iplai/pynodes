@@ -291,6 +291,14 @@ Functions
      - .. autodoc2-docstring:: pynodes.datasocks.CombineColor
           :parser: myst
           :summary:
+   * - :py:obj:`CombineRGB <pynodes.datasocks.CombineRGB>`
+     - .. autodoc2-docstring:: pynodes.datasocks.CombineRGB
+          :parser: myst
+          :summary:
+   * - :py:obj:`CombineHSV <pynodes.datasocks.CombineHSV>`
+     - .. autodoc2-docstring:: pynodes.datasocks.CombineHSV
+          :parser: myst
+          :summary:
    * - :py:obj:`MixFloat <pynodes.datasocks.MixFloat>`
      - .. autodoc2-docstring:: pynodes.datasocks.MixFloat
           :parser: myst
@@ -516,6 +524,12 @@ API
       :value: 'NodeSocketFloat'
 
       .. autodoc2-docstring:: pynodes.datasocks.Float.bl_idname
+         :parser: myst
+
+   .. py:method:: blur(iterations=1, weight=1.0)
+      :canonical: pynodes.datasocks.Float.blur
+
+      .. autodoc2-docstring:: pynodes.datasocks.Float.blur
          :parser: myst
 
    .. py:method:: switch(switch=False, true_float=True)
@@ -1259,6 +1273,12 @@ API
       :canonical: pynodes.datasocks.Vector.line_towards
 
       .. autodoc2-docstring:: pynodes.datasocks.Vector.line_towards
+         :parser: myst
+
+   .. py:method:: blur(iterations=1, weight=1.0)
+      :canonical: pynodes.datasocks.Vector.blur
+
+      .. autodoc2-docstring:: pynodes.datasocks.Vector.blur
          :parser: myst
 
    .. py:method:: to_white_noise(noise_dimensions='3D', w=0.0)
@@ -2629,6 +2649,12 @@ API
       .. autodoc2-docstring:: pynodes.datasocks.Object.geometry
          :parser: myst
 
+   .. py:property:: relative
+      :canonical: pynodes.datasocks.Object.relative
+
+      .. autodoc2-docstring:: pynodes.datasocks.Object.relative
+         :parser: myst
+
    .. py:property:: location
       :canonical: pynodes.datasocks.Object.location
 
@@ -2953,6 +2979,18 @@ API
    :canonical: pynodes.datasocks.CombineColor
 
    .. autodoc2-docstring:: pynodes.datasocks.CombineColor
+      :parser: myst
+
+.. py:function:: CombineRGB(red=0.0, green=0.0, blue=0.0, alpha=1.0)
+   :canonical: pynodes.datasocks.CombineRGB
+
+   .. autodoc2-docstring:: pynodes.datasocks.CombineRGB
+      :parser: myst
+
+.. py:function:: CombineHSV(hue=0.0, saturation=0.0, value=0.0, alpha=1.0)
+   :canonical: pynodes.datasocks.CombineHSV
+
+   .. autodoc2-docstring:: pynodes.datasocks.CombineHSV
       :parser: myst
 
 .. py:function:: MixFloat(factor_float=0.5, a_float=0.0, b_float=0.0, clamp_factor=True)

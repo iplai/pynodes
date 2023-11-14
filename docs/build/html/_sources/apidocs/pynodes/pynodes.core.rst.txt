@@ -89,10 +89,6 @@ Functions
      - .. autodoc2-docstring:: pynodes.core.new_link
           :parser: myst
           :summary:
-   * - :py:obj:`convert_param_name <pynodes.core.convert_param_name>`
-     - .. autodoc2-docstring:: pynodes.core.convert_param_name
-          :parser: myst
-          :summary:
    * - :py:obj:`get_param_name <pynodes.core.get_param_name>`
      - .. autodoc2-docstring:: pynodes.core.get_param_name
           :parser: myst
@@ -772,12 +768,6 @@ API
    .. autodoc2-docstring:: pynodes.core.SimulationZone.__init__
       :parser: myst
 
-   .. py:method:: to_output(socket: pynodes.core.Socket, index=1)
-      :canonical: pynodes.core.SimulationZone.to_output
-
-      .. autodoc2-docstring:: pynodes.core.SimulationZone.to_output
-         :parser: myst
-
    .. py:method:: to_outputs(*sockets: pynodes.core.Socket)
       :canonical: pynodes.core.SimulationZone.to_outputs
 
@@ -800,12 +790,6 @@ API
 
    .. autodoc2-docstring:: pynodes.core.RepeatZone.__init__
       :parser: myst
-
-   .. py:method:: to_output(socket: pynodes.core.Socket, index=0)
-      :canonical: pynodes.core.RepeatZone.to_output
-
-      .. autodoc2-docstring:: pynodes.core.RepeatZone.to_output
-         :parser: myst
 
    .. py:method:: to_outputs(*sockets: pynodes.core.Socket)
       :canonical: pynodes.core.RepeatZone.to_outputs
@@ -893,12 +877,6 @@ API
    :value: None
 
    .. autodoc2-docstring:: pynodes.core.RT
-      :parser: myst
-
-.. py:function:: convert_param_name(name: str)
-   :canonical: pynodes.core.convert_param_name
-
-   .. autodoc2-docstring:: pynodes.core.convert_param_name
       :parser: myst
 
 .. py:function:: get_param_name(param: inspect.Parameter) -> str
