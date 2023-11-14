@@ -359,181 +359,181 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.switch
          :parser: myst
 
-   .. py:method:: capture_vector_on_points(value_vector=(0.0, 0.0, 0.0))
+   .. py:method:: capture_vector_on_points(value=(0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.capture_vector_on_points
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_vector_on_points
          :parser: myst
 
-   .. py:method:: capture_vector_on_edges(value_vector=(0.0, 0.0, 0.0))
+   .. py:method:: capture_vector_on_edges(value=(0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.capture_vector_on_edges
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_vector_on_edges
          :parser: myst
 
-   .. py:method:: capture_vector_on_faces(value_vector=(0.0, 0.0, 0.0))
+   .. py:method:: capture_vector_on_faces(value=(0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.capture_vector_on_faces
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_vector_on_faces
          :parser: myst
 
-   .. py:method:: capture_vector_on_corners(value_vector=(0.0, 0.0, 0.0))
+   .. py:method:: capture_vector_on_corners(value=(0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.capture_vector_on_corners
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_vector_on_corners
          :parser: myst
 
-   .. py:method:: capture_vector_on_curves(value_vector=(0.0, 0.0, 0.0))
+   .. py:method:: capture_vector_on_curves(value=(0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.capture_vector_on_curves
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_vector_on_curves
          :parser: myst
 
-   .. py:method:: capture_vector_on_instances(value_vector=(0.0, 0.0, 0.0))
+   .. py:method:: capture_vector_on_instances(value=(0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.capture_vector_on_instances
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_vector_on_instances
          :parser: myst
 
-   .. py:method:: capture_float_on_points(value_float=0.0)
+   .. py:method:: capture_float_on_points(value=0.0)
       :canonical: pynodes.geosocks.Geometry.capture_float_on_points
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_float_on_points
          :parser: myst
 
-   .. py:method:: capture_float_on_edges(value_float=0.0)
+   .. py:method:: capture_float_on_edges(value=0.0)
       :canonical: pynodes.geosocks.Geometry.capture_float_on_edges
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_float_on_edges
          :parser: myst
 
-   .. py:method:: capture_float_on_faces(value_float=0.0)
+   .. py:method:: capture_float_on_faces(value=0.0)
       :canonical: pynodes.geosocks.Geometry.capture_float_on_faces
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_float_on_faces
          :parser: myst
 
-   .. py:method:: capture_float_on_corners(value_float=0.0)
+   .. py:method:: capture_float_on_corners(value=0.0)
       :canonical: pynodes.geosocks.Geometry.capture_float_on_corners
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_float_on_corners
          :parser: myst
 
-   .. py:method:: capture_float_on_curves(value_float=0.0)
+   .. py:method:: capture_float_on_curves(value=0.0)
       :canonical: pynodes.geosocks.Geometry.capture_float_on_curves
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_float_on_curves
          :parser: myst
 
-   .. py:method:: capture_float_on_instances(value_float=0.0)
+   .. py:method:: capture_float_on_instances(value=0.0)
       :canonical: pynodes.geosocks.Geometry.capture_float_on_instances
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_float_on_instances
          :parser: myst
 
-   .. py:method:: capture_color_on_points(value_color=(0.0, 0.0, 0.0, 0.0))
+   .. py:method:: capture_color_on_points(value=(0.0, 0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.capture_color_on_points
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_color_on_points
          :parser: myst
 
-   .. py:method:: capture_color_on_edges(value_color=(0.0, 0.0, 0.0, 0.0))
+   .. py:method:: capture_color_on_edges(value=(0.0, 0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.capture_color_on_edges
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_color_on_edges
          :parser: myst
 
-   .. py:method:: capture_color_on_faces(value_color=(0.0, 0.0, 0.0, 0.0))
+   .. py:method:: capture_color_on_faces(value=(0.0, 0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.capture_color_on_faces
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_color_on_faces
          :parser: myst
 
-   .. py:method:: capture_color_on_corners(value_color=(0.0, 0.0, 0.0, 0.0))
+   .. py:method:: capture_color_on_corners(value=(0.0, 0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.capture_color_on_corners
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_color_on_corners
          :parser: myst
 
-   .. py:method:: capture_color_on_curves(value_color=(0.0, 0.0, 0.0, 0.0))
+   .. py:method:: capture_color_on_curves(value=(0.0, 0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.capture_color_on_curves
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_color_on_curves
          :parser: myst
 
-   .. py:method:: capture_color_on_instances(value_color=(0.0, 0.0, 0.0, 0.0))
+   .. py:method:: capture_color_on_instances(value=(0.0, 0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.capture_color_on_instances
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_color_on_instances
          :parser: myst
 
-   .. py:method:: capture_boolean_on_points(value_bool=False)
+   .. py:method:: capture_boolean_on_points(value=False)
       :canonical: pynodes.geosocks.Geometry.capture_boolean_on_points
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_boolean_on_points
          :parser: myst
 
-   .. py:method:: capture_boolean_on_edges(value_bool=False)
+   .. py:method:: capture_boolean_on_edges(value=False)
       :canonical: pynodes.geosocks.Geometry.capture_boolean_on_edges
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_boolean_on_edges
          :parser: myst
 
-   .. py:method:: capture_boolean_on_faces(value_bool=False)
+   .. py:method:: capture_boolean_on_faces(value=False)
       :canonical: pynodes.geosocks.Geometry.capture_boolean_on_faces
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_boolean_on_faces
          :parser: myst
 
-   .. py:method:: capture_boolean_on_corners(value_bool=False)
+   .. py:method:: capture_boolean_on_corners(value=False)
       :canonical: pynodes.geosocks.Geometry.capture_boolean_on_corners
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_boolean_on_corners
          :parser: myst
 
-   .. py:method:: capture_boolean_on_curves(value_bool=False)
+   .. py:method:: capture_boolean_on_curves(value=False)
       :canonical: pynodes.geosocks.Geometry.capture_boolean_on_curves
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_boolean_on_curves
          :parser: myst
 
-   .. py:method:: capture_boolean_on_instances(value_bool=False)
+   .. py:method:: capture_boolean_on_instances(value=False)
       :canonical: pynodes.geosocks.Geometry.capture_boolean_on_instances
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_boolean_on_instances
          :parser: myst
 
-   .. py:method:: capture_integer_on_points(value_int=0)
+   .. py:method:: capture_integer_on_points(value=0)
       :canonical: pynodes.geosocks.Geometry.capture_integer_on_points
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_integer_on_points
          :parser: myst
 
-   .. py:method:: capture_integer_on_edges(value_int=0)
+   .. py:method:: capture_integer_on_edges(value=0)
       :canonical: pynodes.geosocks.Geometry.capture_integer_on_edges
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_integer_on_edges
          :parser: myst
 
-   .. py:method:: capture_integer_on_faces(value_int=0)
+   .. py:method:: capture_integer_on_faces(value=0)
       :canonical: pynodes.geosocks.Geometry.capture_integer_on_faces
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_integer_on_faces
          :parser: myst
 
-   .. py:method:: capture_integer_on_corners(value_int=0)
+   .. py:method:: capture_integer_on_corners(value=0)
       :canonical: pynodes.geosocks.Geometry.capture_integer_on_corners
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_integer_on_corners
          :parser: myst
 
-   .. py:method:: capture_integer_on_curves(value_int=0)
+   .. py:method:: capture_integer_on_curves(value=0)
       :canonical: pynodes.geosocks.Geometry.capture_integer_on_curves
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_integer_on_curves
          :parser: myst
 
-   .. py:method:: capture_integer_on_instances(value_int=0)
+   .. py:method:: capture_integer_on_instances(value=0)
       :canonical: pynodes.geosocks.Geometry.capture_integer_on_instances
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.capture_integer_on_instances
@@ -567,6 +567,24 @@ API
       :canonical: pynodes.geosocks.Geometry.store_integer
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.store_integer
+         :parser: myst
+
+   .. py:method:: store_float(domain='POINT', selection=True, **kwargs)
+      :canonical: pynodes.geosocks.Geometry.store_float
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.store_float
+         :parser: myst
+
+   .. py:method:: store_boolean(domain='POINT', selection=True, **kwargs)
+      :canonical: pynodes.geosocks.Geometry.store_boolean
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.store_boolean
+         :parser: myst
+
+   .. py:method:: store_vector(domain='POINT', selection=True, **kwargs)
+      :canonical: pynodes.geosocks.Geometry.store_vector
+
+      .. autodoc2-docstring:: pynodes.geosocks.Geometry.store_vector
          :parser: myst
 
    .. py:method:: store_named_attributes(data: dict[str], domain='POINT', selection=True)
@@ -664,31 +682,31 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_index
          :parser: myst
 
-   .. py:method:: sample_float_at_index(value_float=0.0, index=0, domain='POINT', clamp=False)
+   .. py:method:: sample_float_at_index(value=0.0, index=0, domain='POINT', clamp=False)
       :canonical: pynodes.geosocks.Geometry.sample_float_at_index
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_float_at_index
          :parser: myst
 
-   .. py:method:: sample_integer_at_index(value_int=0, index=0, domain='POINT', clamp=False)
+   .. py:method:: sample_integer_at_index(value=0, index=0, domain='POINT', clamp=False)
       :canonical: pynodes.geosocks.Geometry.sample_integer_at_index
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_integer_at_index
          :parser: myst
 
-   .. py:method:: sample_vector_at_index(value_vector=(0.0, 0.0, 0.0), index=0, domain='POINT', clamp=False)
+   .. py:method:: sample_vector_at_index(value=(0.0, 0.0, 0.0), index=0, domain='POINT', clamp=False)
       :canonical: pynodes.geosocks.Geometry.sample_vector_at_index
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_vector_at_index
          :parser: myst
 
-   .. py:method:: sample_color_at_index(value_color=(0.0, 0.0, 0.0, 0.0), index=0, domain='POINT', clamp=False)
+   .. py:method:: sample_color_at_index(value=(0.0, 0.0, 0.0, 0.0), index=0, domain='POINT', clamp=False)
       :canonical: pynodes.geosocks.Geometry.sample_color_at_index
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_color_at_index
          :parser: myst
 
-   .. py:method:: sample_boolean_at_index(value_bool=False, index=0, domain='POINT', clamp=False)
+   .. py:method:: sample_boolean_at_index(value=False, index=0, domain='POINT', clamp=False)
       :canonical: pynodes.geosocks.Geometry.sample_boolean_at_index
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.sample_boolean_at_index
@@ -928,546 +946,546 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.material_index
          :parser: myst
 
-   .. py:method:: accumulate_float_on_points(value_float=0.0, group_index=0)
+   .. py:method:: accumulate_float_on_points(value=0.0, group_index=0)
       :canonical: pynodes.geosocks.Geometry.accumulate_float_on_points
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.accumulate_float_on_points
          :parser: myst
 
-   .. py:method:: accumulate_float_on_edges(value_float=0.0, group_index=0)
+   .. py:method:: accumulate_float_on_edges(value=0.0, group_index=0)
       :canonical: pynodes.geosocks.Geometry.accumulate_float_on_edges
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.accumulate_float_on_edges
          :parser: myst
 
-   .. py:method:: accumulate_float_on_faces(value_float=0.0, group_index=0)
+   .. py:method:: accumulate_float_on_faces(value=0.0, group_index=0)
       :canonical: pynodes.geosocks.Geometry.accumulate_float_on_faces
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.accumulate_float_on_faces
          :parser: myst
 
-   .. py:method:: accumulate_float_on_corners(value_float=0.0, group_index=0)
+   .. py:method:: accumulate_float_on_corners(value=0.0, group_index=0)
       :canonical: pynodes.geosocks.Geometry.accumulate_float_on_corners
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.accumulate_float_on_corners
          :parser: myst
 
-   .. py:method:: accumulate_float_on_curves(value_float=0.0, group_index=0)
+   .. py:method:: accumulate_float_on_curves(value=0.0, group_index=0)
       :canonical: pynodes.geosocks.Geometry.accumulate_float_on_curves
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.accumulate_float_on_curves
          :parser: myst
 
-   .. py:method:: accumulate_float_on_instances(value_float=0.0, group_index=0)
+   .. py:method:: accumulate_float_on_instances(value=0.0, group_index=0)
       :canonical: pynodes.geosocks.Geometry.accumulate_float_on_instances
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.accumulate_float_on_instances
          :parser: myst
 
-   .. py:method:: accumulate_integer_on_points(value_int=0, group_index=0)
+   .. py:method:: accumulate_integer_on_points(value=0, group_index=0)
       :canonical: pynodes.geosocks.Geometry.accumulate_integer_on_points
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.accumulate_integer_on_points
          :parser: myst
 
-   .. py:method:: accumulate_integer_on_edges(value_int=0, group_index=0)
+   .. py:method:: accumulate_integer_on_edges(value=0, group_index=0)
       :canonical: pynodes.geosocks.Geometry.accumulate_integer_on_edges
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.accumulate_integer_on_edges
          :parser: myst
 
-   .. py:method:: accumulate_integer_on_faces(value_int=0, group_index=0)
+   .. py:method:: accumulate_integer_on_faces(value=0, group_index=0)
       :canonical: pynodes.geosocks.Geometry.accumulate_integer_on_faces
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.accumulate_integer_on_faces
          :parser: myst
 
-   .. py:method:: accumulate_integer_on_corners(value_int=0, group_index=0)
+   .. py:method:: accumulate_integer_on_corners(value=0, group_index=0)
       :canonical: pynodes.geosocks.Geometry.accumulate_integer_on_corners
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.accumulate_integer_on_corners
          :parser: myst
 
-   .. py:method:: accumulate_integer_on_curves(value_int=0, group_index=0)
+   .. py:method:: accumulate_integer_on_curves(value=0, group_index=0)
       :canonical: pynodes.geosocks.Geometry.accumulate_integer_on_curves
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.accumulate_integer_on_curves
          :parser: myst
 
-   .. py:method:: accumulate_integer_on_instances(value_int=0, group_index=0)
+   .. py:method:: accumulate_integer_on_instances(value=0, group_index=0)
       :canonical: pynodes.geosocks.Geometry.accumulate_integer_on_instances
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.accumulate_integer_on_instances
          :parser: myst
 
-   .. py:method:: accumulate_vector_on_points(value_vector=(0.0, 0.0, 0.0), group_index=0)
+   .. py:method:: accumulate_vector_on_points(value=(0.0, 0.0, 0.0), group_index=0)
       :canonical: pynodes.geosocks.Geometry.accumulate_vector_on_points
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.accumulate_vector_on_points
          :parser: myst
 
-   .. py:method:: accumulate_vector_on_edges(value_vector=(0.0, 0.0, 0.0), group_index=0)
+   .. py:method:: accumulate_vector_on_edges(value=(0.0, 0.0, 0.0), group_index=0)
       :canonical: pynodes.geosocks.Geometry.accumulate_vector_on_edges
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.accumulate_vector_on_edges
          :parser: myst
 
-   .. py:method:: accumulate_vector_on_faces(value_vector=(0.0, 0.0, 0.0), group_index=0)
+   .. py:method:: accumulate_vector_on_faces(value=(0.0, 0.0, 0.0), group_index=0)
       :canonical: pynodes.geosocks.Geometry.accumulate_vector_on_faces
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.accumulate_vector_on_faces
          :parser: myst
 
-   .. py:method:: accumulate_vector_on_corners(value_vector=(0.0, 0.0, 0.0), group_index=0)
+   .. py:method:: accumulate_vector_on_corners(value=(0.0, 0.0, 0.0), group_index=0)
       :canonical: pynodes.geosocks.Geometry.accumulate_vector_on_corners
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.accumulate_vector_on_corners
          :parser: myst
 
-   .. py:method:: accumulate_vector_on_curves(value_vector=(0.0, 0.0, 0.0), group_index=0)
+   .. py:method:: accumulate_vector_on_curves(value=(0.0, 0.0, 0.0), group_index=0)
       :canonical: pynodes.geosocks.Geometry.accumulate_vector_on_curves
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.accumulate_vector_on_curves
          :parser: myst
 
-   .. py:method:: accumulate_vector_on_instances(value_vector=(0.0, 0.0, 0.0), group_index=0)
+   .. py:method:: accumulate_vector_on_instances(value=(0.0, 0.0, 0.0), group_index=0)
       :canonical: pynodes.geosocks.Geometry.accumulate_vector_on_instances
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.accumulate_vector_on_instances
          :parser: myst
 
-   .. py:method:: evaluate_float_at_index_on_points(index=0, value_float=0.0)
+   .. py:method:: evaluate_float_at_index_on_points(value=0.0, index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_float_at_index_on_points
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_float_at_index_on_points
          :parser: myst
 
-   .. py:method:: evaluate_float_at_index_on_edges(index=0, value_float=0.0)
+   .. py:method:: evaluate_float_at_index_on_edges(value=0.0, index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_float_at_index_on_edges
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_float_at_index_on_edges
          :parser: myst
 
-   .. py:method:: evaluate_float_at_index_on_faces(index=0, value_float=0.0)
+   .. py:method:: evaluate_float_at_index_on_faces(value=0.0, index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_float_at_index_on_faces
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_float_at_index_on_faces
          :parser: myst
 
-   .. py:method:: evaluate_float_at_index_on_corners(index=0, value_float=0.0)
+   .. py:method:: evaluate_float_at_index_on_corners(value=0.0, index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_float_at_index_on_corners
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_float_at_index_on_corners
          :parser: myst
 
-   .. py:method:: evaluate_float_at_index_on_curves(index=0, value_float=0.0)
+   .. py:method:: evaluate_float_at_index_on_curves(value=0.0, index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_float_at_index_on_curves
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_float_at_index_on_curves
          :parser: myst
 
-   .. py:method:: evaluate_float_at_index_on_instances(index=0, value_float=0.0)
+   .. py:method:: evaluate_float_at_index_on_instances(value=0.0, index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_float_at_index_on_instances
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_float_at_index_on_instances
          :parser: myst
 
-   .. py:method:: evaluate_integer_at_index_on_points(index=0, value_int=0)
+   .. py:method:: evaluate_integer_at_index_on_points(value=0, index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_integer_at_index_on_points
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_integer_at_index_on_points
          :parser: myst
 
-   .. py:method:: evaluate_integer_at_index_on_edges(index=0, value_int=0)
+   .. py:method:: evaluate_integer_at_index_on_edges(value=0, index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_integer_at_index_on_edges
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_integer_at_index_on_edges
          :parser: myst
 
-   .. py:method:: evaluate_integer_at_index_on_faces(index=0, value_int=0)
+   .. py:method:: evaluate_integer_at_index_on_faces(value=0, index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_integer_at_index_on_faces
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_integer_at_index_on_faces
          :parser: myst
 
-   .. py:method:: evaluate_integer_at_index_on_corners(index=0, value_int=0)
+   .. py:method:: evaluate_integer_at_index_on_corners(value=0, index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_integer_at_index_on_corners
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_integer_at_index_on_corners
          :parser: myst
 
-   .. py:method:: evaluate_integer_at_index_on_curves(index=0, value_int=0)
+   .. py:method:: evaluate_integer_at_index_on_curves(value=0, index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_integer_at_index_on_curves
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_integer_at_index_on_curves
          :parser: myst
 
-   .. py:method:: evaluate_integer_at_index_on_instances(index=0, value_int=0)
+   .. py:method:: evaluate_integer_at_index_on_instances(value=0, index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_integer_at_index_on_instances
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_integer_at_index_on_instances
          :parser: myst
 
-   .. py:method:: evaluate_vector_at_index_on_points(index=0, value_vector=(0.0, 0.0, 0.0))
+   .. py:method:: evaluate_vector_at_index_on_points(value=(0.0, 0.0, 0.0), index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_vector_at_index_on_points
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_vector_at_index_on_points
          :parser: myst
 
-   .. py:method:: evaluate_vector_at_index_on_edges(index=0, value_vector=(0.0, 0.0, 0.0))
+   .. py:method:: evaluate_vector_at_index_on_edges(value=(0.0, 0.0, 0.0), index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_vector_at_index_on_edges
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_vector_at_index_on_edges
          :parser: myst
 
-   .. py:method:: evaluate_vector_at_index_on_faces(index=0, value_vector=(0.0, 0.0, 0.0))
+   .. py:method:: evaluate_vector_at_index_on_faces(value=(0.0, 0.0, 0.0), index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_vector_at_index_on_faces
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_vector_at_index_on_faces
          :parser: myst
 
-   .. py:method:: evaluate_vector_at_index_on_corners(index=0, value_vector=(0.0, 0.0, 0.0))
+   .. py:method:: evaluate_vector_at_index_on_corners(value=(0.0, 0.0, 0.0), index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_vector_at_index_on_corners
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_vector_at_index_on_corners
          :parser: myst
 
-   .. py:method:: evaluate_vector_at_index_on_curves(index=0, value_vector=(0.0, 0.0, 0.0))
+   .. py:method:: evaluate_vector_at_index_on_curves(value=(0.0, 0.0, 0.0), index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_vector_at_index_on_curves
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_vector_at_index_on_curves
          :parser: myst
 
-   .. py:method:: evaluate_vector_at_index_on_instances(index=0, value_vector=(0.0, 0.0, 0.0))
+   .. py:method:: evaluate_vector_at_index_on_instances(value=(0.0, 0.0, 0.0), index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_vector_at_index_on_instances
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_vector_at_index_on_instances
          :parser: myst
 
-   .. py:method:: evaluate_color_at_index_on_points(index=0, value_color=(0.0, 0.0, 0.0, 0.0))
+   .. py:method:: evaluate_color_at_index_on_points(value=(0.0, 0.0, 0.0, 0.0), index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_color_at_index_on_points
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_color_at_index_on_points
          :parser: myst
 
-   .. py:method:: evaluate_color_at_index_on_edges(index=0, value_color=(0.0, 0.0, 0.0, 0.0))
+   .. py:method:: evaluate_color_at_index_on_edges(value=(0.0, 0.0, 0.0, 0.0), index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_color_at_index_on_edges
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_color_at_index_on_edges
          :parser: myst
 
-   .. py:method:: evaluate_color_at_index_on_faces(index=0, value_color=(0.0, 0.0, 0.0, 0.0))
+   .. py:method:: evaluate_color_at_index_on_faces(value=(0.0, 0.0, 0.0, 0.0), index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_color_at_index_on_faces
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_color_at_index_on_faces
          :parser: myst
 
-   .. py:method:: evaluate_color_at_index_on_corners(index=0, value_color=(0.0, 0.0, 0.0, 0.0))
+   .. py:method:: evaluate_color_at_index_on_corners(value=(0.0, 0.0, 0.0, 0.0), index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_color_at_index_on_corners
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_color_at_index_on_corners
          :parser: myst
 
-   .. py:method:: evaluate_color_at_index_on_curves(index=0, value_color=(0.0, 0.0, 0.0, 0.0))
+   .. py:method:: evaluate_color_at_index_on_curves(value=(0.0, 0.0, 0.0, 0.0), index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_color_at_index_on_curves
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_color_at_index_on_curves
          :parser: myst
 
-   .. py:method:: evaluate_color_at_index_on_instances(index=0, value_color=(0.0, 0.0, 0.0, 0.0))
+   .. py:method:: evaluate_color_at_index_on_instances(value=(0.0, 0.0, 0.0, 0.0), index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_color_at_index_on_instances
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_color_at_index_on_instances
          :parser: myst
 
-   .. py:method:: evaluate_boolean_at_index_on_points(index=0, value_bool=False)
+   .. py:method:: evaluate_boolean_at_index_on_points(value=False, index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_boolean_at_index_on_points
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_boolean_at_index_on_points
          :parser: myst
 
-   .. py:method:: evaluate_boolean_at_index_on_edges(index=0, value_bool=False)
+   .. py:method:: evaluate_boolean_at_index_on_edges(value=False, index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_boolean_at_index_on_edges
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_boolean_at_index_on_edges
          :parser: myst
 
-   .. py:method:: evaluate_boolean_at_index_on_faces(index=0, value_bool=False)
+   .. py:method:: evaluate_boolean_at_index_on_faces(value=False, index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_boolean_at_index_on_faces
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_boolean_at_index_on_faces
          :parser: myst
 
-   .. py:method:: evaluate_boolean_at_index_on_corners(index=0, value_bool=False)
+   .. py:method:: evaluate_boolean_at_index_on_corners(value=False, index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_boolean_at_index_on_corners
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_boolean_at_index_on_corners
          :parser: myst
 
-   .. py:method:: evaluate_boolean_at_index_on_curves(index=0, value_bool=False)
+   .. py:method:: evaluate_boolean_at_index_on_curves(value=False, index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_boolean_at_index_on_curves
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_boolean_at_index_on_curves
          :parser: myst
 
-   .. py:method:: evaluate_boolean_at_index_on_instances(index=0, value_bool=False)
+   .. py:method:: evaluate_boolean_at_index_on_instances(value=False, index=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_boolean_at_index_on_instances
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_boolean_at_index_on_instances
          :parser: myst
 
-   .. py:method:: evaluate_float_on_points(value_float=0.0)
+   .. py:method:: evaluate_float_on_points(value=0.0)
       :canonical: pynodes.geosocks.Geometry.evaluate_float_on_points
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_float_on_points
          :parser: myst
 
-   .. py:method:: evaluate_float_on_edges(value_float=0.0)
+   .. py:method:: evaluate_float_on_edges(value=0.0)
       :canonical: pynodes.geosocks.Geometry.evaluate_float_on_edges
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_float_on_edges
          :parser: myst
 
-   .. py:method:: evaluate_float_on_faces(value_float=0.0)
+   .. py:method:: evaluate_float_on_faces(value=0.0)
       :canonical: pynodes.geosocks.Geometry.evaluate_float_on_faces
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_float_on_faces
          :parser: myst
 
-   .. py:method:: evaluate_float_on_corners(value_float=0.0)
+   .. py:method:: evaluate_float_on_corners(value=0.0)
       :canonical: pynodes.geosocks.Geometry.evaluate_float_on_corners
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_float_on_corners
          :parser: myst
 
-   .. py:method:: evaluate_float_on_curves(value_float=0.0)
+   .. py:method:: evaluate_float_on_curves(value=0.0)
       :canonical: pynodes.geosocks.Geometry.evaluate_float_on_curves
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_float_on_curves
          :parser: myst
 
-   .. py:method:: evaluate_float_on_instances(value_float=0.0)
+   .. py:method:: evaluate_float_on_instances(value=0.0)
       :canonical: pynodes.geosocks.Geometry.evaluate_float_on_instances
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_float_on_instances
          :parser: myst
 
-   .. py:method:: evaluate_integer_on_points(value_int=0)
+   .. py:method:: evaluate_integer_on_points(value=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_integer_on_points
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_integer_on_points
          :parser: myst
 
-   .. py:method:: evaluate_integer_on_edges(value_int=0)
+   .. py:method:: evaluate_integer_on_edges(value=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_integer_on_edges
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_integer_on_edges
          :parser: myst
 
-   .. py:method:: evaluate_integer_on_faces(value_int=0)
+   .. py:method:: evaluate_integer_on_faces(value=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_integer_on_faces
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_integer_on_faces
          :parser: myst
 
-   .. py:method:: evaluate_integer_on_corners(value_int=0)
+   .. py:method:: evaluate_integer_on_corners(value=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_integer_on_corners
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_integer_on_corners
          :parser: myst
 
-   .. py:method:: evaluate_integer_on_curves(value_int=0)
+   .. py:method:: evaluate_integer_on_curves(value=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_integer_on_curves
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_integer_on_curves
          :parser: myst
 
-   .. py:method:: evaluate_integer_on_instances(value_int=0)
+   .. py:method:: evaluate_integer_on_instances(value=0)
       :canonical: pynodes.geosocks.Geometry.evaluate_integer_on_instances
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_integer_on_instances
          :parser: myst
 
-   .. py:method:: evaluate_vector_on_points(value_vector=(0.0, 0.0, 0.0))
+   .. py:method:: evaluate_vector_on_points(value=(0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.evaluate_vector_on_points
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_vector_on_points
          :parser: myst
 
-   .. py:method:: evaluate_vector_on_edges(value_vector=(0.0, 0.0, 0.0))
+   .. py:method:: evaluate_vector_on_edges(value=(0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.evaluate_vector_on_edges
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_vector_on_edges
          :parser: myst
 
-   .. py:method:: evaluate_vector_on_faces(value_vector=(0.0, 0.0, 0.0))
+   .. py:method:: evaluate_vector_on_faces(value=(0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.evaluate_vector_on_faces
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_vector_on_faces
          :parser: myst
 
-   .. py:method:: evaluate_vector_on_corners(value_vector=(0.0, 0.0, 0.0))
+   .. py:method:: evaluate_vector_on_corners(value=(0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.evaluate_vector_on_corners
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_vector_on_corners
          :parser: myst
 
-   .. py:method:: evaluate_vector_on_curves(value_vector=(0.0, 0.0, 0.0))
+   .. py:method:: evaluate_vector_on_curves(value=(0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.evaluate_vector_on_curves
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_vector_on_curves
          :parser: myst
 
-   .. py:method:: evaluate_vector_on_instances(value_vector=(0.0, 0.0, 0.0))
+   .. py:method:: evaluate_vector_on_instances(value=(0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.evaluate_vector_on_instances
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_vector_on_instances
          :parser: myst
 
-   .. py:method:: evaluate_color_on_points(value_color=(0.0, 0.0, 0.0, 0.0))
+   .. py:method:: evaluate_color_on_points(value=(0.0, 0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.evaluate_color_on_points
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_color_on_points
          :parser: myst
 
-   .. py:method:: evaluate_color_on_edges(value_color=(0.0, 0.0, 0.0, 0.0))
+   .. py:method:: evaluate_color_on_edges(value=(0.0, 0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.evaluate_color_on_edges
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_color_on_edges
          :parser: myst
 
-   .. py:method:: evaluate_color_on_faces(value_color=(0.0, 0.0, 0.0, 0.0))
+   .. py:method:: evaluate_color_on_faces(value=(0.0, 0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.evaluate_color_on_faces
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_color_on_faces
          :parser: myst
 
-   .. py:method:: evaluate_color_on_corners(value_color=(0.0, 0.0, 0.0, 0.0))
+   .. py:method:: evaluate_color_on_corners(value=(0.0, 0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.evaluate_color_on_corners
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_color_on_corners
          :parser: myst
 
-   .. py:method:: evaluate_color_on_curves(value_color=(0.0, 0.0, 0.0, 0.0))
+   .. py:method:: evaluate_color_on_curves(value=(0.0, 0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.evaluate_color_on_curves
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_color_on_curves
          :parser: myst
 
-   .. py:method:: evaluate_color_on_instances(value_color=(0.0, 0.0, 0.0, 0.0))
+   .. py:method:: evaluate_color_on_instances(value=(0.0, 0.0, 0.0, 0.0))
       :canonical: pynodes.geosocks.Geometry.evaluate_color_on_instances
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_color_on_instances
          :parser: myst
 
-   .. py:method:: evaluate_boolean_on_points(value_bool=False)
+   .. py:method:: evaluate_boolean_on_points(value=False)
       :canonical: pynodes.geosocks.Geometry.evaluate_boolean_on_points
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_boolean_on_points
          :parser: myst
 
-   .. py:method:: evaluate_boolean_on_edges(value_bool=False)
+   .. py:method:: evaluate_boolean_on_edges(value=False)
       :canonical: pynodes.geosocks.Geometry.evaluate_boolean_on_edges
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_boolean_on_edges
          :parser: myst
 
-   .. py:method:: evaluate_boolean_on_faces(value_bool=False)
+   .. py:method:: evaluate_boolean_on_faces(value=False)
       :canonical: pynodes.geosocks.Geometry.evaluate_boolean_on_faces
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_boolean_on_faces
          :parser: myst
 
-   .. py:method:: evaluate_boolean_on_corners(value_bool=False)
+   .. py:method:: evaluate_boolean_on_corners(value=False)
       :canonical: pynodes.geosocks.Geometry.evaluate_boolean_on_corners
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_boolean_on_corners
          :parser: myst
 
-   .. py:method:: evaluate_boolean_on_curves(value_bool=False)
+   .. py:method:: evaluate_boolean_on_curves(value=False)
       :canonical: pynodes.geosocks.Geometry.evaluate_boolean_on_curves
       :staticmethod:
 
       .. autodoc2-docstring:: pynodes.geosocks.Geometry.evaluate_boolean_on_curves
          :parser: myst
 
-   .. py:method:: evaluate_boolean_on_instances(value_bool=False)
+   .. py:method:: evaluate_boolean_on_instances(value=False)
       :canonical: pynodes.geosocks.Geometry.evaluate_boolean_on_instances
       :staticmethod:
 
@@ -2123,6 +2141,12 @@ API
       .. autodoc2-docstring:: pynodes.geosocks.Mesh.to_volume
          :parser: myst
 
+   .. py:method:: to_sdf_volume(resolution_mode='VOXEL_AMOUNT', voxel_size=0.3, voxel_amount=64.0, half_band_width=3.0)
+      :canonical: pynodes.geosocks.Mesh.to_sdf_volume
+
+      .. autodoc2-docstring:: pynodes.geosocks.Mesh.to_sdf_volume
+         :parser: myst
+
    .. py:method:: scale_elements(scale=1.0, center: pynodes.datasocks.Vector = None, axis=(1.0, 0.0, 0.0), domain='FACE', scale_mode='UNIFORM', selection=True)
       :canonical: pynodes.geosocks.Mesh.scale_elements
 
@@ -2232,6 +2256,12 @@ API
 
    .. autodoc2-docstring:: pynodes.geosocks.Points.__init__
       :parser: myst
+
+   .. py:method:: capture_vector(value=(0.0, 0.0, 0.0))
+      :canonical: pynodes.geosocks.Points.capture_vector
+
+      .. autodoc2-docstring:: pynodes.geosocks.Points.capture_vector
+         :parser: myst
 
    .. py:method:: to_curves(curve_group_id=0, weight=0.0)
       :canonical: pynodes.geosocks.Points.to_curves
