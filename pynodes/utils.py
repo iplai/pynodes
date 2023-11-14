@@ -31,3 +31,19 @@ def load_text(filepath):
         bpy.data.texts.load(filepath)
     import pathlib
     return bpy.data.texts[pathlib.Path(filepath).name]
+
+
+def convert_param_name(name: str):
+    if len(name) == 1:
+        return name
+    elif len(name) == 2:
+        if name[1].isdigit() or name[1] in 'xyz_':
+            return name
+        if name.startswith("d"):
+            return name
+    elif len(name) == 3:
+        if name.startswith("dd"):
+            return name
+    # return name.replace("_", " ").title()
+    words = name.split('_')
+    return " ".join(w if w and w[0].isupper() else w.title() for w in words)

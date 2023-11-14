@@ -12,6 +12,7 @@ Geometry nodes can modify different types of geometry:
 """
 import bpy, typing, math
 from .core import Socket, new_node, new_link
+from .utils import convert_param_name
 from .datasocks import Float, Vector, Integer, Color, Boolean
 from . import nodes
 
@@ -1184,7 +1185,9 @@ class Geometry(Socket):
         name = next(iter(kwargs))
         value = kwargs[name]
         self.store_named_attribute(name, value, domain, selection)
-        return self.named_attribute_integer(name).attribute
+        socket = self.named_attribute_integer(name).attribute
+        socket.bsocket.name = convert_param_name(name)
+        return socket
 
     def store_float(self, domain="POINT", selection=True, **kwargs):
         """The Store Named Attribute node stores the result of a field on a geometry as an attribute with the specified name. If the attribute already exists, the data type and domain will be updated to the values chosen in the node. However, keep in mind that the domain and data type of Built-In Attributes cannot be changed.
@@ -1195,7 +1198,9 @@ class Geometry(Socket):
         name = next(iter(kwargs))
         value = kwargs[name]
         self.store_named_attribute(name, value, domain, selection)
-        return self.named_attribute_float(name).attribute
+        socket = self.named_attribute_float(name).attribute
+        socket.bsocket.name = convert_param_name(name)
+        return socket
 
     def store_boolean(self, domain="POINT", selection=True, **kwargs):
         """The Store Named Attribute node stores the result of a field on a geometry as an attribute with the specified name. If the attribute already exists, the data type and domain will be updated to the values chosen in the node. However, keep in mind that the domain and data type of Built-In Attributes cannot be changed.
@@ -1206,7 +1211,22 @@ class Geometry(Socket):
         name = next(iter(kwargs))
         value = kwargs[name]
         self.store_named_attribute(name, value, domain, selection)
-        return self.named_attribute_boolean(name).attribute
+        socket = self.named_attribute_boolean(name).attribute
+        socket.bsocket.name = convert_param_name(name)
+        return socket
+
+    def store_vector(self, domain="POINT", selection=True, **kwargs):
+        """The Store Named Attribute node stores the result of a field on a geometry as an attribute with the specified name. If the attribute already exists, the data type and domain will be updated to the values chosen in the node. However, keep in mind that the domain and data type of Built-In Attributes cannot be changed.
+        - In-Place Operation
+        #### Path
+        - Attribute > Store Named Attribute Node
+        """
+        name = next(iter(kwargs))
+        value = kwargs[name]
+        self.store_named_attribute(name, value, domain, selection)
+        socket = self.named_attribute_vector(name).attribute
+        socket.bsocket.name = convert_param_name(name)
+        return socket
 
     def store_named_attributes(self, data: dict[str], domain="POINT", selection=True):
         """The Store Named Attribute node stores the result of a field on a geometry as an attribute with the specified name. If the attribute already exists, the data type and domain will be updated to the values chosen in the node. However, keep in mind that the domain and data type of Built-In Attributes cannot be changed.

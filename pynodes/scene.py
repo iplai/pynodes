@@ -146,7 +146,7 @@ class Scene:
                         node_input.name = node_input.name
             else:
                 value = mod_v
-                if mod_k == "node_group":
+                if mod_k == "node_group" or mod_k.startswith("节点"):
                     tree_name = mod_v.replace("_", " ").title()
                     if bpy.data.node_groups.get(tree_name) is None:
                         bpy.data.node_groups.new(tree_name, "GeometryNodeTree")

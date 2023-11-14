@@ -240,8 +240,10 @@ class Socket(SocketWraper):
 
     def __call__(self, name: str):
         self._name = name
-        if self.node.bnode.bl_idname == "ShaderNodeValue":
+        if self.node.bnode.bl_idname == "ShaderNodeValue" or self.node.bnode.bl_idname.startswith("FunctionNodeInput"):
             self.node.bnode.outputs[0].name = name
+        elif self.node.bnode.bl_idname == "GeometryNodeGroup":
+            self.node.bnode.label = f"{self.node.bnode.node_tree.name} · {name}"
         return self
 
     def __setitem__(self, key: str, value):
@@ -333,8 +335,12 @@ class Socket(SocketWraper):
             input.default_value = default
         if min is not None:
             input.min_value = min
+        elif input_type == 'NodeSocketFloatFactor':
+            input.min_value = 0.0
         if max is not None:
             input.max_value = max
+        elif input_type == 'NodeSocketFloatFactor':
+            input.max_value = 1.0
         if description is not None:
             input.description = description
         bnode = Tree.tree.group_input_node.bnode
@@ -890,21 +896,7 @@ import inspect, functools, typing
 Param = typing.ParamSpec("Param")
 RT = typing.TypeVar('RT')
 
-
-def convert_param_name(name: str):
-    if len(name) == 1:
-        return name
-    elif len(name) == 2:
-        if name[1].isdigit() or name[1] in 'xyz_':
-            return name
-        if name.startswith("d"):
-            return name
-    elif len(name) == 3:
-        if name.startswith("dd"):
-            return name
-    # return name.replace("_", " ").title()
-    words = name.split('_')
-    return " ".join(w if w and w[0].isupper() else w.title() for w in words)
+from .utils import convert_param_name
 
 
 def get_param_name(param: inspect.Parameter) -> str:
@@ -1048,10 +1040,10 @@ def tree(func: typing.Callable[Param, RT]) -> typing.Callable[Param, RT]:
                 input_params['name'] = sig_param_default[0]
                 sig_param_default = sig_param_default[1:]
 
-            if issubclass(param.annotation, Vector) and len(sig_param_default) == 3 and all(isinstance(i, (int, float)) for i in param.default):
+            if issubclass(param.annotation, Vector) and len(sig_param_default) == 3 and all(isinstance(i, (int, float)) for i in sig_param_default):
                 input_params['default'] = tuple(float(c) for c in sig_param_default)
                 sig_param_default = ()
-            elif issubclass(param.annotation, Color) and len(sig_param_default) == 4 and all(isinstance(i, (int, float)) for i in param.default):
+            elif issubclass(param.annotation, Color) and len(sig_param_default) == 4 and all(isinstance(i, (int, float)) for i in sig_param_default):
                 input_params['default'] = tuple(float(c) for c in sig_param_default)
                 sig_param_default = ()
 

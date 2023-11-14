@@ -843,7 +843,7 @@ class Vector(Socket):
     @x.setter
     def x(self, value):
         socket = CombineXYZ(value, self.y, self.z)
-        self.bsocket = socket.bsocket
+        self.bsocket: bpy.types.NodeSocketVector = socket.bsocket
 
     @property
     def y(self):
@@ -854,7 +854,7 @@ class Vector(Socket):
     @y.setter
     def y(self, value):
         socket = CombineXYZ(self.x, value, self.z)
-        self.bsocket = socket.bsocket
+        self.bsocket: bpy.types.NodeSocketVector = socket.bsocket
 
     @property
     def z(self):
@@ -865,7 +865,7 @@ class Vector(Socket):
     @z.setter
     def z(self, value):
         socket = CombineXYZ(self.x, self.y, value)
-        self.bsocket = socket.bsocket
+        self.bsocket: bpy.types.NodeSocketVector = socket.bsocket
 
     @property
     def separated(self):
@@ -2281,7 +2281,8 @@ class Shader(Socket):
         [[Manual]](https://docs.blender.org/manual/en/latest/render/shader_nodes/input/light_path.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeLightPath.html)
         """
         node = new_node(*nodes.ShaderNodeLightPath())
-        ret = typing.NamedTuple("ShaderNodeLightPath", [("is_camera_ray", Float), ("is_shadow_ray", Float), ("is_diffuse_ray", Float), ("is_glossy_ray", Float), ("is_singular_ray", Float), ("is_reflection_ray", Float), ("is_transmission_ray", Float), ("ray_length", Float), ("ray_depth", Float), ("diffuse_depth", Float), ("glossy_depth", Float), ("transparent_depth", Float), ("transmission_depth", Float)])
+        ret = typing.NamedTuple("ShaderNodeLightPath", [("is_camera_ray", Float), ("is_shadow_ray", Float), ("is_diffuse_ray", Float), ("is_glossy_ray", Float), ("is_singular_ray", Float), ("is_reflection_ray", Float),
+                                ("is_transmission_ray", Float), ("ray_length", Float), ("ray_depth", Float), ("diffuse_depth", Float), ("glossy_depth", Float), ("transparent_depth", Float), ("transmission_depth", Float)])
         return ret(node.outputs[0].Float, node.outputs[1].Float, node.outputs[2].Float, node.outputs[3].Float, node.outputs[4].Float, node.outputs[5].Float, node.outputs[6].Float, node.outputs[7].Float, node.outputs[8].Float, node.outputs[9].Float, node.outputs[10].Float, node.outputs[11].Float, node.outputs[12].Float)
 
     @property
@@ -2640,7 +2641,8 @@ class BSDF:
 
         [[Manual]](https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/principled.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeBsdfPrincipled.html)
         """
-        node = new_node(*nodes.ShaderNodeBsdfPrincipled(distribution, subsurface_method, base_color, subsurface, subsurface_radius, subsurface_color, subsurface_ior, subsurface_anisotropy, metallic, specular, specular_tint, roughness, anisotropic, anisotropic_rotation, sheen, sheen_tint, clearcoat, clearcoat_roughness, ior, transmission, transmission_roughness, emission, emission_strength, alpha, normal, clearcoat_normal, tangent, weight))
+        node = new_node(*nodes.ShaderNodeBsdfPrincipled(distribution, subsurface_method, base_color, subsurface, subsurface_radius, subsurface_color, subsurface_ior, subsurface_anisotropy, metallic, specular, specular_tint, roughness,
+                        anisotropic, anisotropic_rotation, sheen, sheen_tint, clearcoat, clearcoat_roughness, ior, transmission, transmission_roughness, emission, emission_strength, alpha, normal, clearcoat_normal, tangent, weight))
         return node.outputs[0].Shader
 
     @staticmethod
@@ -2854,7 +2856,8 @@ class BsdfPrincipled(Shader):
 
         [[Manual]](https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/principled.html) [[API]](https://docs.blender.org/api/current/bpy.types.ShaderNodeBsdfPrincipled.html)
         """
-        node = new_node(*nodes.ShaderNodeBsdfPrincipled(distribution, subsurface_method, base_color, subsurface, subsurface_radius, subsurface_color, subsurface_ior, subsurface_anisotropy, metallic, specular, specular_tint, roughness, anisotropic, anisotropic_rotation, sheen, sheen_tint, clearcoat, clearcoat_roughness, ior, transmission, transmission_roughness, emission, emission_strength, alpha, normal, clearcoat_normal, tangent, weight))
+        node = new_node(*nodes.ShaderNodeBsdfPrincipled(distribution, subsurface_method, base_color, subsurface, subsurface_radius, subsurface_color, subsurface_ior, subsurface_anisotropy, metallic, specular, specular_tint, roughness,
+                        anisotropic, anisotropic_rotation, sheen, sheen_tint, clearcoat, clearcoat_roughness, ior, transmission, transmission_roughness, emission, emission_strength, alpha, normal, clearcoat_normal, tangent, weight))
         super().__init__(node.outputs[0].bsocket)
 
     @property
@@ -3118,6 +3121,12 @@ class Object(Socket):
         return self._object.geometry
 
     @property
+    def relative(self):
+        if self._object is None:
+            self.object_info("RELATIVE")
+        return self
+
+    @property
     def location(self):
         if self._object is None:
             self.object_info()
@@ -3379,6 +3388,8 @@ def InputVector(vector=(0.0, 0.0, 0.0)):
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/input/constant/vector.html) [[API]](https://docs.blender.org/api/current/bpy.types.FunctionNodeInputVector.html)
     """
+    if isinstance(vector, (int, float)):
+        vector = (vector, vector, vector)
     node = new_node(*nodes.FunctionNodeInputVector(vector))
     return node.outputs[0].Vector
 
@@ -4068,7 +4079,8 @@ def Switch(input_type='GEOMETRY', switch=False, switch_001=False, false=0.0, tru
 
     [[Manual]](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/switch.html) [[API]](https://docs.blender.org/api/current/bpy.types.GeometryNodeSwitch.html)
     """
-    node = new_node(*nodes.GeometryNodeSwitch(input_type, switch, switch_001, false, true, false_001, true_001, false_002, true_002, false_003, true_003, false_004, true_004, false_005, true_005, false_006, true_006, false_007, true_007, false_008, true_008, false_009, true_009, false_010, true_010, false_011, true_011))
+    node = new_node(*nodes.GeometryNodeSwitch(input_type, switch, switch_001, false, true, false_001, true_001, false_002, true_002, false_003, true_003, false_004, true_004,
+                    false_005, true_005, false_006, true_006, false_007, true_007, false_008, true_008, false_009, true_009, false_010, true_010, false_011, true_011))
     return node.outputs[0].Float, node.outputs[1].Integer, node.outputs[2].Boolean, node.outputs[3].Vector, node.outputs[4].Color, node.outputs[5].String, node.outputs[6].Geometry, node.outputs[7].Object, node.outputs[8].Collection, node.outputs[9].Texture, node.outputs[10].Material, node.outputs[11].Image
 
 
