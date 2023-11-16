@@ -3506,6 +3506,11 @@ class Curve(Geometry):
         self._parameter = None
         self._tangent = None
         self._tilt = None
+    
+    def set_positions(self, positions:list[Vector]):
+        for i, position in enumerate(positions):
+            self[i].set_position(position)
+        return self
 
     @property
     def domain_size(self):

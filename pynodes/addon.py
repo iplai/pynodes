@@ -340,7 +340,10 @@ def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, f
         for child_frame, nodes in frame_all_nodes.items():
             if child_frame.parent == frame:
                 frame_all_nodes[frame].extend(nodes)
-        frame_all_nodes[frame].extend([node for node in frame_child_nodes[frame] if not is_frame(node)])
+        try:
+            frame_all_nodes[frame].extend([node for node in frame_child_nodes[frame] if not is_frame(node)])
+        except KeyError:
+            pass
 
     # A dict to record all input nodes that have link from other frames in each frame
     frame_input_nodes: dict[NodeFrame, list[Node]] = {}
