@@ -134,8 +134,7 @@ class PYNODES_OT_ARRANGE(Operator):
         return {'FINISHED'}
 
     def invoke(self, context, value):
-        arrange(self, context)
-        return {'FINISHED'}
+        return self.execute(context)
 
     @classmethod
     def poll(cls, context: Context):
@@ -283,11 +282,12 @@ def arrange(self, context: Context):
     node_center2 = context.scene.node_center2
     only_selected_frame = context.scene.only_selected_frame
     reverse_single_link_sequence = context.scene.reverse_single_link_sequence
+    scale = 1 / context.preferences.view.ui_scale
 
-    arrange_tree(btree, margin_x, margin_y, frame_margin_x, frame_margin_y, node_center1, node_center2, only_selected_frame, reverse_single_link_sequence)
+    arrange_tree(btree, margin_x, margin_y, frame_margin_x, frame_margin_y, node_center1, node_center2, only_selected_frame, reverse_single_link_sequence, scale)
 
 
-def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, frame_margin_y=10, node_center1=True, node_center2=True, only_selected_frame=False, reverse_single_link_sequence=False):
+def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, frame_margin_y=10, node_center1=True, node_center2=True, only_selected_frame=False, reverse_single_link_sequence=False, scale=1):
     # Hide Vector input sockets with default value to save spaces
     for bnode in btree.nodes:
         if bnode.bl_idname == "ShaderNodeMapping":
@@ -407,7 +407,7 @@ def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, f
     # The root tree can also be treated as a frame
     root_child_nodes = [node for node in btree.nodes if node.parent == None]
 
-    def arrange_frame(frame: NodeFrame = None):
+    def arrange_frame(frame: NodeFrame = None, scale=1):
         # Arrange a frame or root tree(frame is None)
 
         if frame is not None:
@@ -635,20 +635,24 @@ def arrange_tree(btree: NodeTree, margin_x=40, margin_y=20, frame_margin_x=10, f
                         else:
                             node.location = (x, y + offset_y)
 
+        for node in child_nodes:
+            x, y = node.location
+            node.location = (x * scale, y * scale)
+
     if only_selected_frame:
         has_frame_selected = False
         for frame, _ in frames_level:
             if frame.select == True:
                 has_frame_selected = True
-                arrange_frame(frame)
+                arrange_frame(frame, scale)
         if not has_frame_selected:
-            arrange_frame()
+            arrange_frame(scale=scale)
     else:
         # Arrange all frames, deepest first
         for frame, _ in frames_level:
-            arrange_frame(frame)
+            arrange_frame(frame, scale)
         # Arrange root tree
-        arrange_frame()
+        arrange_frame(scale=scale)
 
 
 def register():
